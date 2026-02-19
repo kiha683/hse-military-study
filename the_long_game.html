@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Long Game — Rush Doshi — China's Grand Strategy to Displace American Order</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0c10;--bg2:#111318;--bg3:#181c24;--accent:#c8a44e;--accent2:#e8c55e;
+--text:#d4d4d8;--text2:#9ca3af;--red:#dc4444;--blue:#3b82f6;--green:#22c55e;
+--navy:#1e3a5f;--dark-red:#8b1a1a;--purple:#a855f7;--orange:#f59e0b;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0c10 0%,#121828 50%,#0a1020 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a44e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:950px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,var(--accent),#f0d878,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(1rem,2vw,1.4rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:0.15em;text-transform:uppercase}
+.hero .author{font-size:1.2rem;color:var(--accent);margin:1.5rem 0;font-style:italic}
+.hero .epigraph{max-width:650px;margin:2rem auto;padding:1.5rem;border-left:3px solid var(--accent);text-align:left;color:var(--text2);font-style:italic;font-size:1.02rem}
+.hero .scroll-hint{margin-top:3rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.hero .scroll-hint span{display:block;width:2px;height:40px;background:var(--accent);margin:0 auto;opacity:.5}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,12,16,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,164,78,.1);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--accent);font-weight:700}
+.nav-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+
+.section{max-width:1000px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:6rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border:1px solid rgba(200,164,78,.1);border-radius:50%}
+.part-num{font-family:'DM Sans',sans-serif;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.part-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:1rem}
+.part-desc{color:var(--text2);max-width:600px;margin:0 auto;font-size:1.05rem}
+.part-years{font-family:'JetBrains Mono',monospace;font-size:1.2rem;color:var(--accent);margin-top:.5rem;opacity:.7}
+.part-chinese{font-size:1.1rem;color:var(--accent);opacity:.6;margin-top:.3rem}
+
+.ch-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(200,164,78,.15)}
+.ch-num{font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--accent);padding-left:1rem;margin-top:1rem;font-size:.95rem}
+
+h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--accent)}
+h4{font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--accent);margin:2rem 0 .8rem;letter-spacing:.05em}
+p{margin-bottom:1.2rem;font-size:1.02rem}
+strong{color:#fff;font-weight:600}
+
+.key-point{background:var(--bg3);border:1px solid rgba(200,164,78,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;background:var(--accent);color:var(--bg);padding:2px 10px;border-radius:3px;font-weight:700}
+.key-point p{margin-bottom:.5rem}
+
+.warning-box{background:rgba(220,68,68,.08);border:1px solid rgba(220,68,68,.2);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.warning-box strong{color:var(--red)}
+
+.concept-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+
+.russian-box{background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.russian-box strong{color:var(--purple)}
+
+.map-container{background:var(--bg2);border:1px solid rgba(200,164,78,.12);border-radius:12px;overflow:hidden;margin:2rem 0;position:relative}
+.map-label{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(200,164,78,.1)}
+.map-svg{width:100%;display:block}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,164,78,.1);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.5rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.8rem;border-bottom:1px solid rgba(200,164,78,.1)}
+.compare-col.red h4{color:var(--red)}
+.compare-col.blue h4{color:var(--blue)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.5rem 0;font-size:.95rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.compare-col li::before{content:'→';color:var(--accent);margin-right:.5rem}
+
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),transparent)}
+.tl-item{margin-bottom:2rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);transform:translateX(-4px)}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent);font-weight:500}
+.tl-text{font-size:.95rem;color:var(--text2)}
+
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:8px;padding:1.5rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--accent);transform:translateY(-2px)}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);font-weight:700}
+.phase-name{font-family:'DM Sans',sans-serif;font-size:.9rem;color:#fff;margin:.5rem 0;font-weight:600}
+.phase-desc{font-size:.85rem;color:var(--text2);line-height:1.5}
+
+.stat-bar{margin:.8rem 0;display:flex;align-items:center;gap:1rem}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text2);min-width:120px;text-align:right}
+.stat-track{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.stat-fill{height:100%;border-radius:4px;transition:width 1.5s ease-out}
+.stat-fill.red{background:linear-gradient(90deg,var(--red),#ff6666)}
+.stat-fill.blue{background:linear-gradient(90deg,var(--blue),#60a5fa)}
+.stat-fill.gold{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.stat-fill.green{background:linear-gradient(90deg,var(--green),#4ade80)}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--text2);min-width:60px}
+
+.weapons{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.weapon{background:var(--bg3);border:1px solid rgba(200,164,78,.08);border-radius:8px;padding:1.5rem;transition:all .3s}
+.weapon:hover{border-color:var(--accent);background:var(--bg2)}
+.weapon-type{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.weapon-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+.weapon-desc{font-size:.9rem;color:var(--text2);line-height:1.6}
+.weapon-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.65rem;padding:2px 8px;border-radius:3px;margin-top:.5rem;margin-right:.3rem;border:1px solid}
+.weapon-tag.asym{color:var(--green);border-color:rgba(34,197,94,.3)}
+.weapon-tag.trad{color:var(--red);border-color:rgba(220,68,68,.3)}
+.weapon-tag.surv{color:var(--blue);border-color:rgba(59,130,246,.3)}
+.weapon-tag.econ{color:var(--orange);border-color:rgba(245,158,11,.3)}
+
+.toc{background:var(--bg2);border:1px solid rgba(200,164,78,.1);border-radius:12px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.3rem;margin-bottom:1.5rem}
+.toc-part{margin-bottom:1.5rem}
+.toc-part-title{font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.toc-link{display:block;padding:.4rem 0 .4rem 1rem;color:var(--text2);text-decoration:none;font-size:.95rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--accent);border-left-color:var(--accent);padding-left:1.5rem}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(200,164,78,.2),transparent);margin:4rem 0}
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.85rem;background:var(--bg2);border-top:1px solid rgba(200,164,78,.08)}
+.footer strong{color:var(--accent)}
+
+/* GLOSSARY */
+.glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:.8rem;margin:1.5rem 0}
+.gloss-item{background:var(--bg3);border:1px solid rgba(200,164,78,.08);border-radius:6px;padding:1rem;display:flex;flex-direction:column;gap:.3rem}
+.gloss-en{font-family:'DM Sans',sans-serif;font-size:.9rem;color:#fff;font-weight:600}
+.gloss-cn{font-size:.85rem;color:var(--accent);opacity:.8}
+.gloss-ru{font-size:.85rem;color:var(--purple);font-style:italic}
+.gloss-def{font-size:.8rem;color:var(--text2);line-height:1.4}
+
+/* GAME CONTAINER */
+.game-container{background:var(--bg2);border:1px solid rgba(200,164,78,.12);border-radius:12px;overflow:hidden;margin:2rem 0}
+.game-label{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(200,164,78,.1);display:flex;justify-content:space-between;align-items:center}
+.game-body{padding:1.5rem}
+.game-btn{font-family:'DM Sans',sans-serif;font-size:.75rem;padding:6px 16px;background:var(--accent);color:var(--bg);border:none;border-radius:4px;cursor:pointer;font-weight:600;letter-spacing:.05em;transition:all .2s}
+.game-btn:hover{background:var(--accent2);transform:scale(1.03)}
+.game-btn.outline{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+.game-btn.outline:hover{background:var(--accent);color:var(--bg)}
+.game-score{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--accent)}
+.game-q{font-size:1.05rem;color:#fff;margin-bottom:1.2rem;line-height:1.6}
+.game-options{display:grid;gap:.6rem}
+.game-opt{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:6px;padding:.8rem 1.2rem;cursor:pointer;transition:all .2s;font-size:.95rem;text-align:left;color:var(--text)}
+.game-opt:hover{border-color:var(--accent);background:rgba(200,164,78,.05)}
+.game-opt.correct{border-color:var(--green);background:rgba(34,197,94,.1);color:var(--green)}
+.game-opt.wrong{border-color:var(--red);background:rgba(220,68,68,.1);color:var(--red)}
+.game-feedback{margin-top:1rem;padding:1rem;border-radius:6px;font-size:.9rem;line-height:1.5}
+
+/* SLIDER GAME */
+.slider-row{display:flex;align-items:center;gap:1rem;margin:.8rem 0;flex-wrap:wrap}
+.slider-label{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text2);min-width:160px}
+.slider-input{flex:1;min-width:150px;-webkit-appearance:none;height:6px;background:var(--bg3);border-radius:3px;outline:none}
+.slider-input::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);cursor:pointer}
+.slider-val{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent);min-width:50px;text-align:right}
+
+/* Strategy Cards */
+.strat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.strat-card{background:var(--bg3);border:1px solid rgba(200,164,78,.08);border-radius:10px;padding:1.5rem;transition:all .3s;position:relative;overflow:hidden}
+.strat-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 30px rgba(200,164,78,.08)}
+.strat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.strat-card.mil::before{background:var(--red)}
+.strat-card.pol::before{background:var(--blue)}
+.strat-card.econ::before{background:var(--green)}
+.strat-type{font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}
+.strat-card.mil .strat-type{color:var(--red)}
+.strat-card.pol .strat-type{color:var(--blue)}
+.strat-card.econ .strat-type{color:var(--green)}
+.strat-title{font-family:'Playfair Display',serif;font-size:1.05rem;color:#fff;margin-bottom:.5rem}
+.strat-desc{font-size:.88rem;color:var(--text2);line-height:1.6}
+
+@media(max-width:768px){
+.compare{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:3rem 1.2rem}
+.glossary{grid-template-columns:1fr}
+.strat-cards{grid-template-columns:1fr}
+}
+
+.fade-in{opacity:0;transform:translateY(30px);transition:all .8s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Animated dragon watermark */
+.dragon-bg{position:fixed;top:50%;right:-100px;transform:translateY(-50%);opacity:.015;font-size:300px;pointer-events:none;z-index:0}
+</style>
+</head>
+<body>
+
+<div class="dragon-bg">龍</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+<div class="nav-title">The Long Game — Rush Doshi</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#intro">Intro</a>
+<a href="#part1">Part I</a>
+<a href="#part2">Part II</a>
+<a href="#part3">Part III</a>
+<a href="#ch13">US Response</a>
+<a href="#glossary">Glossary</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="subtitle">Rush Doshi — Director, White House China Strategy (2021–2022)</div>
+<h1>The Long Game</h1>
+<div class="subtitle" style="font-size:.9rem;color:var(--text2);letter-spacing:.05em">China's Grand Strategy to Displace American Order</div>
+<div class="author">Oxford University Press, 2021 · Bridging the Gap Series<br>Based on an original database of Chinese Communist Party documents</div>
+<div class="epigraph">
+"The world is undergoing <strong style="color:var(--accent)">great changes unseen in a century</strong> [百年未有之大变局], but time and momentum are on our side."
+<br><br>— Xi Jinping, 2021
+</div>
+<div class="epigraph" style="border-color:var(--red)">
+"I looked forward to the end of the Cold War, but now I feel disappointed. It seems that one Cold War has come to an end but that <strong style="color:var(--red)">two others have already begun</strong>."
+<br><br>— Deng Xiaoping, 1989
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- TOC -->
+<section class="section" id="toc">
+<div class="toc">
+<h3 style="color:var(--accent)">Table of Contents</h3>
+<div class="toc-part">
+<div class="toc-part-title">Foundations</div>
+<a href="#intro" class="toc-link">Introduction: "Great Changes Unseen in a Century"</a>
+<a href="#ch1" class="toc-link">Ch 1–2: Grand Strategy, Hegemonic Order & the CCP</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Part I — Blunting (1989–2008): "Hiding Capabilities and Biding Time"</div>
+<a href="#ch3" class="toc-link">Ch 3: "New Cold Wars Have Begun" — The Traumatic Trifecta</a>
+<a href="#ch4" class="toc-link">Ch 4: Military Blunting — "Grasping the Assassin's Mace"</a>
+<a href="#ch5" class="toc-link">Ch 5: Political Blunting — Stalling Regional Institutions</a>
+<a href="#ch6" class="toc-link">Ch 6: Economic Blunting — The Fight for MFN & WTO</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Part II — Building (2009–2016): "Actively Accomplish Something"</div>
+<a href="#ch7" class="toc-link">Ch 7: The Financial Crisis & the Dawn of Building</a>
+<a href="#ch8" class="toc-link">Ch 8: Military Building — Carriers, Destroyers & Bases</a>
+<a href="#ch9" class="toc-link">Ch 9: Political Building — AIIB & CICA</a>
+<a href="#ch10" class="toc-link">Ch 10: Economic Building — Belt and Road & RMB</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Part III — Global Expansion (2017+): "Great Changes Unseen in a Century"</div>
+<a href="#ch11" class="toc-link">Ch 11: "Toward the World's Center Stage"</a>
+<a href="#ch12" class="toc-link">Ch 12: Global Expansion — Political, Economic, Military</a>
+<a href="#ch13" class="toc-link">Ch 13: An Asymmetric Strategy for US-China Competition</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Interactive Elements</div>
+<a href="#glossary" class="toc-link">Key Terms Glossary (English / Chinese / Russian)</a>
+<a href="#game1" class="toc-link">🎮 Strategy Simulation: Grand Strategy Decision Game</a>
+<a href="#game2" class="toc-link">🎮 Quiz: Test Your Knowledge</a>
+</div>
+</div>
+</section>
+
+<!-- INTRODUCTION -->
+<section class="section" id="intro">
+<div class="ch-header">
+<div class="ch-num">Introduction</div>
+<div class="ch-title">"Great Changes Unseen in a Century"</div>
+<div class="ch-quote">"China wants to be China and accepted as such, not as an honorary member of the West." — Lee Kuan Yew</div>
+</div>
+
+<p>In 1872, Qing Dynasty general <strong>Li Hongzhang</strong> (Ли Хунчжан) wrote that the world was experiencing "great changes unseen in three thousand years" — the collision of a weakening China with Western imperial expansion. A century and a half later, Xi Jinping repurposed Li's phrase to declare the world was experiencing <strong>"great changes unseen in a century"</strong> (百年未有之大变局 / <em>столетние невиданные перемены</em>) — but this time, the change was China's <em>rise</em>, not its decline.</p>
+
+<p>Rush Doshi's <em>The Long Game</em> argues that since the end of the Cold War, China has pursued a coherent <strong>grand strategy</strong> (大战略 / <em>большая стратегия</em>) to displace the United States from regional and global leadership. This strategy has evolved through three distinct phases, each triggered by <strong>sharp shifts in Beijing's perception of American power</strong>.</p>
+
+<div class="key-point">
+<p><strong>The Core Argument:</strong> China has pursued three sequential "strategies of displacement":</p>
+<p><strong>1. Blunting (1989–2008)</strong> — Weakening American power over China under "hide capabilities and bide time"</p>
+<p><strong>2. Building (2009–2016)</strong> — Constructing foundations for regional hegemony under "actively accomplish something"</p>
+<p><strong>3. Global Expansion (2017+)</strong> — Displacing US global leadership under "great changes unseen in a century"</p>
+</div>
+
+<p>The book is based on an <strong>original database of Chinese Communist Party documents</strong> — memoirs, biographies, daily records of senior officials, and internal speeches — painstakingly gathered from libraries and bookstores in Taiwan, Hong Kong, and mainland China. These documents take readers behind the closed doors of the CCP, into high-level foreign policy meetings, and reveal the thinking of Chinese leaders, generals, and diplomats.</p>
+
+<p>Doshi uses the analogy of <strong>Eyre Crowe's 1907 memorandum</strong> on Germany — a famous British diplomatic assessment that tried to determine whether Berlin had a "grand design" running through its seemingly disparate behaviors. Today, the same question is asked about China. Doshi's answer, supported by extensive evidence, is <strong>yes</strong>.</p>
+
+<!-- Grand Strategy Framework Map -->
+<div class="map-container">
+<div class="map-label">China's Three Strategies of Displacement — Overview</div>
+<svg class="map-svg" viewBox="0 0 900 320" style="background:#0d1520">
+<defs>
+<marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="rgba(200,164,78,0.6)"/></marker>
+</defs>
+<!-- Phase 1 -->
+<rect x="30" y="40" width="250" height="240" rx="8" fill="rgba(220,68,68,0.06)" stroke="rgba(220,68,68,0.2)" stroke-width="1"/>
+<text x="155" y="70" fill="rgba(220,68,68,0.8)" font-family="DM Sans" font-size="11" font-weight="700" text-anchor="middle">PHASE I: BLUNTING</text>
+<text x="155" y="88" fill="rgba(220,68,68,0.4)" font-family="JetBrains Mono" font-size="9" text-anchor="middle">1989–2008 · 韬光养晦</text>
+<text x="155" y="108" fill="var(--text2)" font-family="DM Sans" font-size="8" text-anchor="middle">"Hide capabilities and bide time"</text>
+<text x="155" y="122" fill="rgba(168,85,247,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle" font-style="italic">«Скрывать возможности, выжидать время»</text>
+<text x="55" y="155" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="8">🎖 Military: Asymmetric A2/AD</text>
+<text x="55" y="175" fill="rgba(59,130,246,0.5)" font-family="DM Sans" font-size="8">🏛 Political: Stall US-led orgs</text>
+<text x="55" y="195" fill="rgba(34,197,94,0.5)" font-family="DM Sans" font-size="8">💰 Economic: Secure MFN/WTO</text>
+<text x="55" y="225" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="7">TRIGGER: Tiananmen + Gulf War</text>
+<text x="55" y="240" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="7">+ Soviet Collapse (1989–91)</text>
+<text x="55" y="260" fill="rgba(200,164,78,0.3)" font-family="DM Sans" font-size="7">Perception: US very powerful, very threatening</text>
+
+<!-- Arrow 1→2 -->
+<line x1="290" y1="160" x2="330" y2="160" stroke="rgba(200,164,78,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="310" y="150" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="6" text-anchor="middle">2008</text>
+<text x="310" y="172" fill="rgba(200,164,78,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">Crisis</text>
+
+<!-- Phase 2 -->
+<rect x="340" y="40" width="250" height="240" rx="8" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+<text x="465" y="70" fill="rgba(59,130,246,0.8)" font-family="DM Sans" font-size="11" font-weight="700" text-anchor="middle">PHASE II: BUILDING</text>
+<text x="465" y="88" fill="rgba(59,130,246,0.4)" font-family="JetBrains Mono" font-size="9" text-anchor="middle">2009–2016 · 积极有所作为</text>
+<text x="465" y="108" fill="var(--text2)" font-family="DM Sans" font-size="8" text-anchor="middle">"Actively accomplish something"</text>
+<text x="465" y="122" fill="rgba(168,85,247,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle" font-style="italic">«Активно добиваться результатов»</text>
+<text x="365" y="155" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="8">🎖 Military: Carriers, blue-water</text>
+<text x="365" y="175" fill="rgba(59,130,246,0.5)" font-family="DM Sans" font-size="8">🏛 Political: AIIB, CICA, BRI</text>
+<text x="365" y="195" fill="rgba(34,197,94,0.5)" font-family="DM Sans" font-size="8">💰 Economic: RMB, infrastructure</text>
+<text x="365" y="225" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="7">TRIGGER: Global Financial Crisis</text>
+<text x="365" y="240" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="7">(2008) — US seems weakened</text>
+<text x="365" y="260" fill="rgba(200,164,78,0.3)" font-family="DM Sans" font-size="7">Perception: US less powerful, still threatening</text>
+
+<!-- Arrow 2→3 -->
+<line x1="600" y1="160" x2="640" y2="160" stroke="rgba(200,164,78,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="620" y="150" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="6" text-anchor="middle">Brexit</text>
+<text x="620" y="172" fill="rgba(200,164,78,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">Trump</text>
+
+<!-- Phase 3 -->
+<rect x="650" y="40" width="230" height="240" rx="8" fill="rgba(200,164,78,0.06)" stroke="rgba(200,164,78,0.2)" stroke-width="1"/>
+<text x="765" y="70" fill="rgba(200,164,78,0.8)" font-family="DM Sans" font-size="11" font-weight="700" text-anchor="middle">PHASE III: EXPANSION</text>
+<text x="765" y="88" fill="rgba(200,164,78,0.4)" font-family="JetBrains Mono" font-size="9" text-anchor="middle">2017+ · 百年未有之大变局</text>
+<text x="765" y="108" fill="var(--text2)" font-family="DM Sans" font-size="8" text-anchor="middle">"Great changes unseen in a century"</text>
+<text x="765" y="122" fill="rgba(168,85,247,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle" font-style="italic">«Невиданные за столетие перемены»</text>
+<text x="670" y="155" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="8">🎖 Military: Global expeditionary</text>
+<text x="670" y="175" fill="rgba(59,130,246,0.5)" font-family="DM Sans" font-size="8">🏛 Political: Lead global governance</text>
+<text x="670" y="195" fill="rgba(34,197,94,0.5)" font-family="DM Sans" font-size="8">💰 Economic: Tech dominance, DCEP</text>
+<text x="670" y="225" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="7">TRIGGER: Brexit + Trump (2016)</text>
+<text x="670" y="240" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="7">COVID-19 — West seems failing</text>
+<text x="670" y="260" fill="rgba(200,164,78,0.3)" font-family="DM Sans" font-size="7">Perception: US declining, still threatening</text>
+</svg>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTERS 1-2 -->
+<section class="section" id="ch1">
+<div class="ch-header">
+<div class="ch-num">Chapters 1–2</div>
+<div class="ch-title">Grand Strategy, Hegemonic Order & the CCP</div>
+<div class="ch-quote">"The Soviets can do something after just one Politburo meeting. Can the Americans do that?" — Deng Xiaoping</div>
+</div>
+
+<h3>What Is Grand Strategy?</h3>
+<p>Doshi defines <strong>grand strategy</strong> as a state's theory of how to achieve security through <strong>intentional, coordinated action across multiple instruments of statecraft</strong> — military, economic, and political. To identify it, you need three types of evidence: (1) <strong>concepts</strong> in authoritative texts, (2) <strong>capabilities</strong> in national security institutions, and (3) <strong>conduct</strong> consistent with those concepts.</p>
+
+<h3>How Does Hegemonic Order Work?</h3>
+<p>Orders are maintained through three "forms of control" (<em>формы контроля</em>):</p>
+<div class="phases">
+<div class="phase"><div class="phase-num">🗡</div><div class="phase-name">Coercion</div><div class="phase-desc">Military threats, sanctions, deterrence — the ability to impose costs on rule-breakers.</div></div>
+<div class="phase"><div class="phase-num">🤝</div><div class="phase-name">Consent</div><div class="phase-desc">Trade benefits, security guarantees, public goods — the ability to provide incentives for compliance.</div></div>
+<div class="phase"><div class="phase-num">🏛</div><div class="phase-name">Legitimacy</div><div class="phase-desc">Ideological authority, norms, institutional leadership — the ability to command through identity.</div></div>
+</div>
+
+<p>A rising power displaces a hegemon by pursuing two strategies: <strong>blunting</strong> (weakening the hegemon's forms of control) and <strong>building</strong> (constructing its own). These strategies typically proceed from regional to global scope.</p>
+
+<h3>The CCP: A Nationalist, Leninist Party</h3>
+<p>The CCP is fundamentally a <strong>nationalist party</strong> (национальная партия) that adopted <strong>Leninist organizational methods</strong> (ленинизм) as an instrument for achieving its nationalist mission. The Party's goal since its founding has been to achieve China's <strong>"rejuvenation"</strong> (复兴 / <em>возрождение</em>) — restoring China to its rightful place after the "Century of Humiliation" (百年国耻 / <em>столетие унижений</em>).</p>
+
+<p>The Leninist structure gives the CCP <strong>three critical advantages</strong> for grand strategy: <strong>coordination</strong> across instruments of statecraft through centralized Party control; <strong>monitoring</strong> through Party cells penetrating all institutions; and <strong>enforcement</strong> through the disciplinary apparatus. A secret "red phone" network connects roughly 3,000 top Party members directly, enabling rapid top-down coordination.</p>
+
+<div class="concept-box">
+<p><strong>The Party's hierarchy of guidances</strong> structures all policy: the Party <strong>line</strong> (路线 / <em>линия</em>), the <strong>guideline</strong> (方针 / <em>курс</em>), and the <strong>policy</strong> (政策 / <em>политика</em>). These are set at events like the Party Congress (every 5 years) and Ambassadorial Conferences, and all cadres must follow them.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PART I ========== -->
+<section class="part-header" id="part1">
+<div class="part-num">Part I</div>
+<div class="part-title">"Hiding Capabilities and Biding Time"</div>
+<div class="part-chinese">韬光养晦 · Tao Guang Yang Hui</div>
+<div class="part-years">1989 – 2008</div>
+<div class="part-desc">Blunting as China's first displacement strategy: weakening American power over China across military, political, and economic domains while China remains weak.</div>
+</section>
+
+<!-- CHAPTER 3 -->
+<section class="section" id="ch3">
+<div class="ch-header">
+<div class="ch-num">Chapter 3</div>
+<div class="ch-title">"New Cold Wars Have Begun": The Traumatic Trifecta</div>
+<div class="ch-quote">"It seems that one Cold War has ended but that two others have already begun." — Deng Xiaoping, 1989</div>
+</div>
+
+<p>Before 1989, the United States and China were <strong>quasi-allies</strong>. The US built and operated two signals intelligence stations in western China to monitor Soviet missile tests. Washington sold China weapons, shared intelligence, and cooperated against the Soviet invasion of Afghanistan. But three cataclysmic events in 1989–1991 — the <strong>"traumatic trifecta"</strong> (<em>травматическая тройка</em>) — fundamentally transformed Beijing's view of the United States from partner to <strong>primary threat</strong>.</p>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--red)">
+<div class="phase-num">1</div>
+<div class="phase-name">Tiananmen Square</div>
+<div class="phase-desc">June 1989. Revealed the <strong>ideological threat</strong>: the US could promote "peaceful evolution" (和平演变) to undermine CCP rule. Deng called it "a world war without gunsmoke."</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">2</div>
+<div class="phase-name">The Gulf War</div>
+<div class="phase-desc">1990–91. Revealed the <strong>military threat</strong>: US high-tech weapons could annihilate outdated forces (like Iraq's — similar to China's). "A vision into a frightening future."</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">3</div>
+<div class="phase-name">Soviet Collapse</div>
+<div class="phase-desc">Dec 1991. Revealed the <strong>geopolitical threat</strong>: without a shared Soviet enemy, the US had no reason to tolerate China. Washington became the sole, unchecked superpower.</div>
+</div>
+</div>
+
+<p>In response, Jiang Zemin declared at the 1993 Ambassadorial Conference: <strong>"The United States will be our main diplomatic adversary [对手]."</strong> This assessment was reiterated by every subsequent leader — Hu Jintao in 2006 confirmed the US remained "the main adversary that we need to deal with internationally."</p>
+
+<h3>Deng's Response: Tao Guang Yang Hui</h3>
+<p>Deng Xiaoping formulated the strategic guideline <strong>"hide capabilities and bide time"</strong> (韬光养晦 / <em>скрывать возможности, выжидать время</em>) — counseling China to avoid confrontation, develop quietly, and never seek leadership. This was explicitly linked to China's weakness: "In the present situation we must absolutely keep a low profile," Deng said, "because to raise the flag would mean to lose." The guideline governed Chinese foreign policy for nearly two decades.</p>
+
+<div class="key-point">
+<p><strong>Critical insight:</strong> Tao Guang Yang Hui was not a permanent philosophy — it was a <em>temporary</em> strategy calibrated to China's low relative power. When that power increased, the strategy was designed to change. As Hu Jintao told the 10th Ambassadorial Conference: "With the development of China's economy and the enhancement of our comprehensive national strength, we will be more flexible and confident."</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 4 -->
+<section class="section" id="ch4">
+<div class="ch-header">
+<div class="ch-num">Chapter 4</div>
+<div class="ch-title">"Grasping the Assassin's Mace": Military Blunting</div>
+<div class="ch-quote">"Whatever the enemy fears most, we develop that." — Zhang Wannian, Vice Chairman CMC, 1999</div>
+</div>
+
+<p>China's military response to the trifecta was to pursue <strong>asymmetric "assassin's mace" weapons</strong> (杀手锏 / <em>палица убийцы</em>, literally "club of the assassin") — cheap, asymmetric capabilities designed to neutralize expensive American power projection platforms. The principle was: <strong>"what the enemy is afraid of, we develop that."</strong></p>
+
+<p>After the Gulf War, the PLA watched the devastating effectiveness of US precision strikes against Iraq and saw a terrifying parallel with its own situation. The 1993 <strong>Military Strategic Guidelines</strong> reoriented China's military from preparing for a Soviet ground invasion to preparing for <strong>"local wars under high-tech conditions"</strong> — meaning a conflict with the United States.</p>
+
+<h3>The Three Key "Assassin's Mace" Investments</h3>
+<div class="weapons">
+<div class="weapon">
+<div class="weapon-type">Undersea Warfare / Подводная война</div>
+<div class="weapon-name">Submarine Fleet Modernization</div>
+<div class="weapon-desc">Between 1990–2015, China retired all 84 outdated Romeo-class subs and built ~70 modern submarines (Ming, Kilo, Song, Yuan, Shang). In 2006, a Song-class sub surfaced <strong>undetected within torpedo range</strong> of USS Kitty Hawk — a wake-up call for the US Navy. Submarines are the classic asymmetric weapon against carrier battle groups.</div>
+<div class="weapon-tag asym">Asymmetric</div><div class="weapon-tag trad">Anti-Carrier</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Anti-Ship Missiles / Противокорабельные ракеты</div>
+<div class="weapon-name">Anti-Ship Ballistic Missiles (DF-21D, DF-26)</div>
+<div class="weapon-desc">The world's first anti-ship ballistic missiles, dubbed "carrier killers" (航母杀手). Range: 1,500–4,000 km. Mach 10+ terminal velocity makes interception nearly impossible. Specifically designed to keep US carriers at bay — the "anti-access/area denial" (A2/AD) concept.</div>
+<div class="weapon-tag asym">Asymmetric</div><div class="weapon-tag trad">A2/AD</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Mine Warfare / Минная война</div>
+<div class="weapon-name">Massive Mine Stockpile</div>
+<div class="weapon-desc">China accumulated <strong>50,000–100,000 mines</strong> of various types — the world's largest inventory. In the Gulf War, a single $1,500 Iraqi mine nearly sank the USS Tripoli and severely damaged USS Princeton. Mines are perhaps the most cost-effective asymmetric naval weapon.</div>
+<div class="weapon-tag asym">Asymmetric</div><div class="weapon-tag surv">Cost-Effective</div>
+</div>
+</div>
+
+<div class="warning-box">
+<p><strong>Key pattern:</strong> China deliberately <em>over-invested</em> in these three asymmetric anti-US capabilities while <em>under-investing</em> in sea control capabilities (carriers, advanced destroyers, amphibious ships, minesweepers) that would be needed for offensive regional operations. This pattern of investment is the behavioral signature of a <strong>blunting strategy</strong>.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 5 -->
+<section class="section" id="ch5">
+<div class="ch-header">
+<div class="ch-num">Chapter 5</div>
+<div class="ch-title">"Demonstrate Benign Intentions": Political Blunting</div>
+<div class="ch-quote">"An important reason why China now values multilateral diplomacy is US hegemonic behavior after the Cold War." — Wang Yizhou, Peking University</div>
+</div>
+
+<p>At the political level, China joined regional multilateral organizations — not to strengthen them, but to <strong>stall and blunt</strong> them. The goal was to prevent the US from using these institutions to build regional order, organize an "Asian NATO," or promote Western values.</p>
+
+<h3>APEC: Join and Neutralize</h3>
+<p>When the US tried to transform APEC into a vehicle for Asian liberalization and community-building, China's first APEC ambassador <strong>Wang Yusheng</strong> fought to strip the word "Community" from APEC documents, block security mandates, prevent binding commitments, and ensure the organization remained a toothless discussion forum. China opposed APEC adding <em>any</em> topics beyond narrow economics — even HIV/AIDS and drug trafficking. The result: APEC became "irrelevant" during both the Asian Financial Crisis and the 2008 crisis.</p>
+
+<h3>ASEAN Regional Forum (ARF): Block and Contain</h3>
+<p>China joined ARF defensively to ensure the US could not use it to build a security architecture in Asia. Beijing blocked any meaningful institutionalization, preventive diplomacy mechanisms, or conflict resolution capacity, keeping ARF permanently stuck in the "confidence-building" stage.</p>
+
+<h3>Launch Alternatives Without the US</h3>
+<p>While stalling US-inclusive bodies, China helped create organizations that <em>excluded</em> the United States: the <strong>Shanghai Cooperation Organization</strong> (上合组织 / <em>ШОС</em>) with Russia and Central Asian states, and promoted <strong>ASEAN Plus Three</strong> (China-Japan-Korea + ASEAN) as an East Asian counterpart to APEC.</p>
+
+<div class="concept-box">
+<p><strong>The logic of political blunting:</strong> China didn't oppose multilateralism — it used it instrumentally. By sitting inside US-led organizations, China could veto or slow-walk American initiatives from within. By creating parallel organizations without the US, China could build alternative forums where it had influence.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 6 -->
+<section class="section" id="ch6">
+<div class="ch-header">
+<div class="ch-num">Chapter 6</div>
+<div class="ch-title">"Permanent Normal Trading Relations": Economic Blunting</div>
+<div class="ch-quote">"The question of MFN status between China and the US is a central issue that will determine the rotation of world history." — He Xin, 1993</div>
+</div>
+
+<p>The trifecta exposed China's <strong>dangerous economic dependence</strong> on the United States. Post-Tiananmen sanctions and annual Congressional votes on China's Most Favored Nation (MFN) trade status gave Washington enormous <strong>discretionary economic leverage</strong> over Beijing. China's economic blunting strategy aimed to <em>bind</em> American hands and remove this leverage.</p>
+
+<h3>The MFN Fight</h3>
+<p>Each year, Congress could vote to revoke China's MFN status — potentially devastating China's economy. Beijing fought a <strong>decade-long campaign</strong> to make MFN permanent through "Permanent Normal Trading Relations" (PNTR). This culminated in China's WTO accession, which achieved PNTR and removed the annual Congressional review.</p>
+
+<p>China was willing to make <strong>enormous economic concessions</strong> to join the WTO — concessions that hurt domestic industries and risked political instability — because the strategic goal of removing US economic leverage outweighed the economic costs. Premier Zhu Rongji's WTO negotiations were so aggressive that his own colleagues criticized him for giving away too much.</p>
+
+<div class="key-point">
+<p><strong>The paradox:</strong> The US saw PNTR as a minor concession (China already had MFN in practice). China saw it as an <em>existential priority</em>. This asymmetry in perceived value created the bargaining space that made the deal possible — and illustrates how differently the two sides understood the strategic stakes.</p>
+</div>
+
+<h3>Breaking Sanctions</h3>
+<p>After Tiananmen, China systematically broke the international sanctions coalition by exploiting European fears of "losing market share in China," convincing developing countries to defy the sanctions, and leveraging China's market access as a bargaining chip. These coordinated moves — directed from the top — succeeded in dismantling the sanctions regime.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PART II ========== -->
+<section class="part-header" id="part2">
+<div class="part-num">Part II</div>
+<div class="part-title">"Actively Accomplish Something"</div>
+<div class="part-chinese">积极有所作为 · Jiji You Suo Zuowei</div>
+<div class="part-years">2009 – 2016</div>
+<div class="part-desc">Building as China's second displacement strategy: constructing the foundations for regional hegemony after the Global Financial Crisis convinced Beijing that American power was waning.</div>
+</section>
+
+<!-- CHAPTER 7 -->
+<section class="section" id="ch7">
+<div class="ch-header">
+<div class="ch-num">Chapter 7</div>
+<div class="ch-title">"A Change in the Balance of Power"</div>
+<div class="ch-quote">"In the past we had to keep a low profile because we were weak... Now we are indicating to neighboring countries that we are strong and you are weak. This is a change at a very fundamental level." — Yan Xuetong, Tsinghua University</div>
+</div>
+
+<p>The <strong>2008 Global Financial Crisis</strong> (глобальный финансовый кризис) was the critical turning point. Beijing watched the US economy nearly collapse, its financial institutions crumble, and its global prestige plummet — and concluded that the <strong>"international balance of power"</strong> (国际力量对比 / <em>соотношение международных сил</em>) had shifted dramatically in China's favor.</p>
+
+<p>At the <strong>11th Ambassadorial Conference in 2009</strong> — the first after the crisis — Hu Jintao announced a historic revision to Deng's guideline. The new formulation was: <strong>"Uphold Tao Guang Yang Hui, and Actively Accomplish Something"</strong> (坚持韬光养晦、积极有所作为). By adding "actively accomplish something," Hu officially departed from Deng's counsel of pure restraint.</p>
+
+<h3>The Multipolarity Discourse</h3>
+<p>Doshi traces how the Party's language about <strong>"multipolarity"</strong> (多极化 / <em>многополярность</em>) — a euphemism for the decline of American unipolarity — evolved over time. Before the crisis, leaders cautiously noted that multipolarity was "developing" but "not easy" and still "far off." After the crisis, language became dramatically more triumphant: there had been a <strong>"major change in the balance of international power."</strong></p>
+
+<h3>The Elevation of "Peripheral Diplomacy"</h3>
+<p>China's strategic focus shifted from managing the US (great power diplomacy) to <strong>building regional order</strong> (peripheral diplomacy / 周边外交 / <em>периферийная дипломатия</em>). Xi Jinping's 2013 Work Forum on Peripheral Diplomacy — the first such meeting in seven years — placed the periphery <em>above</em> great powers in China's diplomatic priorities for the first time ever, and declared the goal of building a regional <strong>"Community of Common Destiny"</strong> (命运共同体 / <em>сообщество единой судьбы</em>).</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 8 -->
+<section class="section" id="ch8">
+<div class="ch-header">
+<div class="ch-num">Chapter 8</div>
+<div class="ch-title">"Make More Offensive Moves": Military Building</div>
+<div class="ch-quote">"In 2009, China put forward the idea and plan for building aircraft carriers. This indicates China has entered the historical era of building itself into a maritime great power." — State Oceanic Administration</div>
+</div>
+
+<p>After the financial crisis, China's military investments shifted dramatically from <strong>asymmetric denial weapons</strong> (blunting) to <strong>power projection platforms</strong> (building). The investments China had deliberately <em>avoided</em> during the blunting phase — aircraft carriers, advanced destroyers, amphibious ships, overseas bases — suddenly became priorities.</p>
+
+<h3>Aircraft Carriers</h3>
+<p>The story of China's first carrier is extraordinary. In the 1990s, PLA-connected businessman <strong>Xu Zengping</strong> — a former military basketball player turned "red capitalist" — was secretly tasked with purchasing the incomplete Soviet carrier <em>Varyag</em> from a Ukrainian shipyard. To conceal Beijing's involvement, Xu posed as a Macau casino investor, bought a luxury villa as cover, and created shell companies. The carrier's engines were publicly claimed to have been removed — but were actually "brand new and carefully grease-sealed." After four years of transit delays (including Turkish blockage of the Bosporus), the carrier reached Dalian shipyard. A rumored <strong>Politburo meeting in April 2009</strong> officially approved the carrier program — and major work began within a month.</p>
+
+<p>The timing is critical: the carrier program was approved in 2009, the very year China revised its grand strategy. China now has three carriers, with more planned.</p>
+
+<h3>Other Building Investments</h3>
+<div class="strat-cards">
+<div class="strat-card mil">
+<div class="strat-type">Surface Combatants</div>
+<div class="strat-title">Type 052D & Type 055 Destroyers</div>
+<div class="strat-desc">~30 advanced destroyers with sophisticated anti-air and anti-submarine capabilities — a dramatic upgrade from the blunting era's anti-ship-only focus. The Type 055 is comparable to US Ticonderoga cruisers.</div>
+</div>
+<div class="strat-card mil">
+<div class="strat-type">Amphibious Warfare</div>
+<div class="strat-title">Type 075 LHD & Type 071 LPD</div>
+<div class="strat-desc">Large amphibious assault ships for power projection and island seizure operations — capabilities China deliberately avoided during the blunting phase.</div>
+</div>
+<div class="strat-card mil">
+<div class="strat-type">Overseas Presence</div>
+<div class="strat-title">Djibouti Base & Global Logistics</div>
+<div class="strat-desc">China's first overseas military base (2017) — with more planned. Commercial port projects in Pakistan, Sri Lanka, Myanmar, and elsewhere have "potential military uses."</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 9 -->
+<section class="section" id="ch9">
+<div class="ch-header">
+<div class="ch-num">Chapter 9</div>
+<div class="ch-title">"Establish Regional Architecture": Political Building</div>
+<div class="ch-quote">"It is for the people of Asia to run the affairs of Asia, solve the problems of Asia, and uphold the security of Asia." — Xi Jinping, 2014</div>
+</div>
+
+<p>Where China once <em>stalled</em> organizations, it now began to <em>create</em> them. The most important were the <strong>AIIB</strong> for economic order-building and <strong>CICA</strong> for security order-building.</p>
+
+<h3>The Asian Infrastructure Investment Bank (AIIB)</h3>
+<p>AIIB (亚投行 / <em>АБИИ</em>) was proposed at the 2009 Boao Forum by <strong>Zheng Xinli</strong>, a former deputy director of the CCP's Central Policy Research Office — suggesting the concept originated in the Party's highest strategic planning body. Led by <strong>Jin Liqun</strong>, a former ADB vice president, AIIB launched in 2016 with 57 founding members — a diplomatic coup when even the UK joined despite US opposition.</p>
+
+<p>AIIB serves three order-building functions: (1) <strong>coercion</strong> — creating economic dependencies that give China leverage; (2) <strong>consent</strong> — providing infrastructure as a public good; and (3) <strong>legitimacy</strong> — positioning China as a responsible leader. China retains veto power, the bank is headquartered in Beijing, and the non-resident board is a weak check.</p>
+
+<h3>CICA: Security Architecture</h3>
+<p>Xi Jinping used the previously obscure CICA (亚信会议 / <em>СВМДА</em>) to announce a <strong>"New Asian Security Concept"</strong> that directly attacked US alliances: "It is for the people of Asia to run the affairs of Asia" — in other words, the US has no role. China and Russia jointly pushed CICA to adopt anti-alliance principles.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 10 -->
+<section class="section" id="ch10">
+<div class="ch-header">
+<div class="ch-num">Chapter 10</div>
+<div class="ch-title">"Aboard Our Development Train": Economic Building</div>
+<div class="ch-quote">"We must actively participate in building surrounding highways, railways, communications, and energy channels to form a network of interconnected infrastructure around China." — Hu Jintao, 2009</div>
+</div>
+
+<h3>The Belt and Road Initiative (BRI)</h3>
+<p>BRI (一带一路 / <em>Пояс и путь</em>) is China's most visible instrument of economic order-building. Like Germany's Berlin-Baghdad Railway a century ago, BRI uses infrastructure to reshape the strategic geography of great power competition. The initiative creates <strong>three forms of leverage</strong>:</p>
+
+<div class="strat-cards">
+<div class="strat-card econ">
+<div class="strat-type">Relational Leverage</div>
+<div class="strat-title">Debt Dependencies</div>
+<div class="strat-desc">In Laos, ~20% of the government budget now services Chinese debt. In Sri Lanka, Chinese loan repayments nearly equal total government revenue. Interest rates on Chinese loans (~6%) far exceed Japanese alternatives (~0.5%).</div>
+</div>
+<div class="strat-card econ">
+<div class="strat-type">Structural Leverage</div>
+<div class="strat-title">Infrastructure Control</div>
+<div class="strat-desc">Sri Lanka's Hambantota port was leased to China for 99 years after default. China now controls critical infrastructure in dozens of countries. Commercial ports have "potential military uses."</div>
+</div>
+<div class="strat-card econ">
+<div class="strat-type">Domestic-Political Leverage</div>
+<div class="strat-title">Elite Capture</div>
+<div class="strat-desc">BRI projects create local beneficiaries — politicians, businesses, workers — who become advocates for maintaining good relations with Beijing, regardless of broader national interests.</div>
+</div>
+</div>
+
+<h3>Dollar Diversification & RMB Promotion</h3>
+<p>Recognizing the dollar's structural power (the "exorbitant privilege"), China launched campaigns to promote the <strong>RMB</strong> (人民币 / <em>юань</em>) as an international currency and to build alternatives to dollar-dominated financial infrastructure — including <strong>CIPS</strong> (Cross-Border Interbank Payment System), China's answer to SWIFT. As the head of China's Export-Import Bank noted: "The US used this method [dollar manipulation] to topple Japan's economy, and it wants to use this method to curb China's development."</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PART III ========== -->
+<section class="part-header" id="part3">
+<div class="part-num">Part III</div>
+<div class="part-title">"Great Changes Unseen in a Century"</div>
+<div class="part-chinese">百年未有之大变局 · Bǎi Nián Wèi Yǒu Zhī Dà Biànjú</div>
+<div class="part-years">2017 and Beyond</div>
+<div class="part-desc">Global expansion as China's third displacement strategy: pursuing blunting and building at the global level to displace the United States from international leadership.</div>
+</section>
+
+<!-- CHAPTER 11 -->
+<section class="section" id="ch11">
+<div class="ch-header">
+<div class="ch-num">Chapter 11</div>
+<div class="ch-title">"Toward the World's Center Stage"</div>
+<div class="ch-quote">"The Western-centered world order dominated by the US has made great contributions to human progress. But those contributions lie in the past." — Fu Ying, 2016</div>
+</div>
+
+<p>In 2016, <strong>Brexit</strong> and <strong>Trump's election</strong> convinced Beijing that the West was entering terminal decline. Xi Jinping officially elevated <strong>"great changes unseen in a century"</strong> in his landmark 2017 <strong>19th Party Congress address</strong> — a 3.5-hour speech in which he declared that China was entering a "new era" and moving "closer to the world's center stage." This represented a clear break from Deng Xiaoping's counsel of restraint.</p>
+
+<h3>What Are the "Great Changes"?</h3>
+<p>Chinese scholars and officials identify several components:</p>
+
+<div class="stat-bar"><div class="stat-label">Shift in Power</div><div class="stat-track"><div class="stat-fill red" style="width:80%"></div></div><div class="stat-val">China rising, US declining</div></div>
+<div class="stat-bar"><div class="stat-label">Western Crisis</div><div class="stat-track"><div class="stat-fill blue" style="width:70%"></div></div><div class="stat-val">Populism, polarization, gridlock</div></div>
+<div class="stat-bar"><div class="stat-label">Tech Revolution</div><div class="stat-track"><div class="stat-fill gold" style="width:75%"></div></div><div class="stat-val">"Fourth Industrial Revolution"</div></div>
+<div class="stat-bar"><div class="stat-label">COVID-19</div><div class="stat-track"><div class="stat-fill green" style="width:65%"></div></div><div class="stat-val">"China passed test, West failed"</div></div>
+
+<p>The concept is explicitly tied to China's <strong>rejuvenation timeline</strong>: by the Party's centennial in <strong>2049</strong>, China aims to surpass the United States in comprehensive national power. As one prominent scholar wrote: "By 2030, China's high-tech R&D expenditure may exceed the United States; by 2050, China's military expenditure may exceed that of the United States."</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 12 -->
+<section class="section" id="ch12">
+<div class="ch-header">
+<div class="ch-num">Chapter 12</div>
+<div class="ch-title">"Standing Tall and Seeing Far": Global Expansion</div>
+<div class="ch-quote">"For our friends, we have fine wine, but for our enemies, we have shotguns." — China's Ambassador to Sweden, 2019</div>
+</div>
+
+<p>China's emerging global strategy has <strong>three prongs</strong> — political, economic, and military — each applying the blunting-and-building logic at the global level:</p>
+
+<h3>Political: Lead Global Governance</h3>
+<p>China has aggressively pursued leadership positions in international organizations (heading 4 of 15 UN specialized agencies at one point), embedded BRI and "Community of Common Destiny" language into UN resolutions, and created parallel institutions like FOCAC (Forum on China-Africa Cooperation), SCO, and the "16+1" (now 17+1) framework with Central and Eastern European countries — all designed to build <strong>legitimacy</strong> and <strong>coercive capacity</strong>.</p>
+
+<h3>Economic: Seize the Fourth Industrial Revolution</h3>
+<p>Beijing sees the emerging AI/quantum/5G/biotech revolution as a historic opportunity. China missed the first three industrial revolutions — but aims to <strong>lead the fourth</strong>. Total R&D spending now roughly equals the US. In quantum computing, China spends at least <strong>10x more</strong> than the US. The digital yuan (DCEP / <em>цифровой юань</em>) aims to ride financial technology disruption to blunt US dollar dominance.</p>
+
+<h3>Military: Global Expeditionary Capability</h3>
+<p>China is building a <strong>global military footprint</strong>: overseas bases (Djibouti, with more planned), nuclear-powered icebreakers for polar operations, space and deep-sea capabilities. The 2019 Defense White Paper has an unprecedented section on "Contributing to Building a Community with a Shared Future for Mankind" — framing global military presence as providing "public security goods."</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 13 -->
+<section class="section" id="ch13">
+<div class="ch-header">
+<div class="ch-num">Chapter 13</div>
+<div class="ch-title">An Asymmetric Strategy for US-China Competition</div>
+<div class="ch-quote">"The United States has to be as good as or better than its opponent in the effectiveness with which resources are used." — Andrew Marshall, Office of Net Assessment</div>
+</div>
+
+<p>In the final chapter, Doshi argues that the US should adopt an <strong>asymmetric competitive strategy</strong> — one that does not require matching China dollar-for-dollar, ship-for-ship, or loan-for-loan. The goal: <strong>deny China regional hegemony while rebuilding the foundations of American order</strong>.</p>
+
+<h3>Why Alternatives Fail</h3>
+<div class="compare">
+<div class="compare-col red">
+<h4>❌ Strategies That Won't Work</h4>
+<ul>
+<li><strong>Accommodation:</strong> Conceding regional hegemony invites further expansion</li>
+<li><strong>Grand bargain on Taiwan:</strong> Not credible — US can't enforce post-concession</li>
+<li><strong>Strategic reassurance:</strong> China broke promises on SCS, cyber, Hong Kong</li>
+<li><strong>Engagement/liberalization:</strong> Party reverses openness when threatened</li>
+<li><strong>Regime change:</strong> Risks existential war, likely produces worse outcomes</li>
+</ul>
+</div>
+<div class="compare-col" style="border-left:2px solid var(--green)">
+<h4 style="color:var(--green)">✓ Asymmetric Competition</h4>
+<ul>
+<li><strong>Blunt Chinese order:</strong> Undermine forms of control at lower cost than China's building</li>
+<li><strong>Build US order:</strong> Reinvest in foundations of hegemony — alliances, institutions, tech</li>
+<li><strong>Cooperate where possible:</strong> Climate, pandemics, nuclear security</li>
+<li><strong>Play the long game:</strong> US advantages (alliances, demographics, finance, innovation) compound</li>
+</ul>
+</div>
+</div>
+
+<h3>Doshi's Policy Recommendations</h3>
+
+<h4>Military</h4>
+<div class="strat-cards">
+<div class="strat-card mil"><div class="strat-type">Blunting</div><div class="strat-title">Asymmetric Denial Weapons</div><div class="strat-desc">Borrow from China's own playbook: invest in cheaper missiles, mines, submarines, and drones to deny PLA sea control — just as China used A2/AD against US carriers.</div></div>
+<div class="strat-card mil"><div class="strat-type">Building</div><div class="strat-title">Resilient Indo-Pacific Posture</div><div class="strat-desc">Harden bases, expand runways, stockpile munitions, diversify posture across the first and second island chains. Build resilient C4ISR architecture.</div></div>
+</div>
+
+<h4>Political</h4>
+<div class="strat-cards">
+<div class="strat-card pol"><div class="strat-type">Blunting</div><div class="strat-title">Contest Chinese Influence in UN & Global Bodies</div><div class="strat-desc">Run qualified candidates for agency leadership, contest BRI-linked resolutions, restrict autocracy-owned social media platforms like TikTok.</div></div>
+<div class="strat-card pol"><div class="strat-type">Building</div><div class="strat-title">Revitalize Existing Institutions</div><div class="strat-desc">Invest in and reform US-led regional institutions (ASEAN-centered bodies, the Quad) to ensure they remain the center of Asian regionalism.</div></div>
+</div>
+
+<h4>Economic</h4>
+<div class="strat-cards">
+<div class="strat-card econ"><div class="strat-type">Blunting</div><div class="strat-title">Expose BRI Risks & Protect Technology</div><div class="strat-desc">Help countries scrutinize contracts, train negotiators, block predatory deals. Protect critical technology through export controls, investment screening, and supply chain diversification.</div></div>
+<div class="strat-card econ"><div class="strat-type">Building</div><div class="strat-title">Dollar Dominance + Tech Leadership + Allied Coalitions</div><div class="strat-desc">Maintain dollar status, lead in basic science research, create democratic coalitions for trade and standards-setting that bypass Chinese influence in global bodies.</div></div>
+</div>
+
+<div class="key-point">
+<p><strong>Doshi's conclusion:</strong> US-China competition is fundamentally about <strong>who will lead regional and global order</strong>. The US should not try to match China symmetrically but should <strong>blunt Chinese order-building at lower cost than China's investments</strong> while <strong>rebuilding the foundations of American order</strong> that Beijing seeks to weaken. History shows that American decline is never permanent — "The United States is unlikely to decline so long as its public is periodically convinced that it is about to decline" (Samuel Huntington).</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MASTER TIMELINE -->
+<section class="section" id="timeline">
+<h3 style="border-left-color:var(--accent)">Master Timeline</h3>
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1872</div><div class="tl-text">Li Hongzhang writes of "great changes unseen in 3,000 years" — China's collision with Western imperialism</div></div>
+<div class="tl-item"><div class="tl-year">1979</div><div class="tl-text">Deng Xiaoping visits Washington. US-China normalization. MFN granted.</div></div>
+<div class="tl-item"><div class="tl-year">1989</div><div class="tl-text"><strong>Tiananmen Square</strong> — US sanctions, ideological shock. Deng formulates Tao Guang Yang Hui.</div></div>
+<div class="tl-item"><div class="tl-year">1991</div><div class="tl-text"><strong>Gulf War</strong> + <strong>Soviet Collapse</strong> — the traumatic trifecta complete. Blunting strategy launched.</div></div>
+<div class="tl-item"><div class="tl-year">1993</div><div class="tl-text">New Military Strategic Guidelines reorient PLA toward US threat. APEC blunting begins.</div></div>
+<div class="tl-item"><div class="tl-year">1995–96</div><div class="tl-text">Third Taiwan Strait Crisis. US carrier deployment enrages Beijing, accelerates A2/AD.</div></div>
+<div class="tl-item"><div class="tl-year">1999</div><div class="tl-text">US bombs Chinese embassy in Belgrade. Kosovo War validates asymmetric resistance.</div></div>
+<div class="tl-item"><div class="tl-year">2001</div><div class="tl-text">China joins WTO — PNTR achieved. The crown jewel of economic blunting.</div></div>
+<div class="tl-item"><div class="tl-year">2006</div><div class="tl-text">Song-class submarine surfaces near USS Kitty Hawk undetected. Military blunting proves effective.</div></div>
+<div class="tl-item"><div class="tl-year">2008</div><div class="tl-text"><strong>Global Financial Crisis</strong> — the trigger for Phase II. Beijing perceives dramatic shift in balance of power.</div></div>
+<div class="tl-item"><div class="tl-year">2009</div><div class="tl-text">Hu revises Tao Guang Yang Hui: "Actively Accomplish Something." Carrier program approved. AIIB proposed.</div></div>
+<div class="tl-item"><div class="tl-year">2012</div><div class="tl-text">Xi Jinping takes power. Launches "China Dream," anti-corruption campaign, military restructuring.</div></div>
+<div class="tl-item"><div class="tl-year">2013</div><div class="tl-text">Belt and Road Initiative announced. Xi holds unprecedented Peripheral Diplomacy Work Forum.</div></div>
+<div class="tl-item"><div class="tl-year">2014</div><div class="tl-text">Xi declares "New Asian Security Concept" at CICA. SCS island-building accelerates.</div></div>
+<div class="tl-item"><div class="tl-year">2016</div><div class="tl-text"><strong>Brexit + Trump</strong> — Beijing concludes West is in systemic decline. Phase III begins.</div></div>
+<div class="tl-item"><div class="tl-year">2017</div><div class="tl-text">Xi's 19th Party Congress: "New era." "Center of world stage." "Great changes unseen in a century." Djibouti base opens.</div></div>
+<div class="tl-item"><div class="tl-year">2020</div><div class="tl-text">COVID-19 pandemic. China sees West's failure as further proof of the "great changes."</div></div>
+<div class="tl-item"><div class="tl-year">2021</div><div class="tl-text">Xi: "Time and momentum are on our side." Doshi publishes <em>The Long Game</em>. Joins Biden NSC.</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GLOSSARY -->
+<section class="section" id="glossary">
+<h3>Key Terms Glossary — English / Chinese / Russian</h3>
+<div class="glossary">
+<div class="gloss-item"><div class="gloss-en">Grand Strategy</div><div class="gloss-cn">大战略 (dà zhànlüè)</div><div class="gloss-ru">Большая стратегия</div><div class="gloss-def">Coordinated use of military, economic, and political instruments to achieve security objectives.</div></div>
+<div class="gloss-item"><div class="gloss-en">Tao Guang Yang Hui</div><div class="gloss-cn">韬光养晦 (tāo guāng yǎng huì)</div><div class="gloss-ru">Скрывать возможности, выжидать время</div><div class="gloss-def">Deng's guideline: hide capabilities and bide time. China's strategic restraint 1989–2008.</div></div>
+<div class="gloss-item"><div class="gloss-en">Assassin's Mace</div><div class="gloss-cn">杀手锏 (shāshǒujiǎn)</div><div class="gloss-ru">Палица убийцы / Козырное оружие</div><div class="gloss-def">Asymmetric weapons targeting enemy vulnerabilities. China's military blunting concept.</div></div>
+<div class="gloss-item"><div class="gloss-en">Anti-Access/Area Denial (A2/AD)</div><div class="gloss-cn">反介入/区域拒止</div><div class="gloss-ru">Ограничение доступа / Воспрещение зоны</div><div class="gloss-def">Strategy using missiles, subs, and mines to deny US forces access to Western Pacific.</div></div>
+<div class="gloss-item"><div class="gloss-en">Community of Common Destiny</div><div class="gloss-cn">命运共同体 (mìngyùn gòngtóngtǐ)</div><div class="gloss-ru">Сообщество единой судьбы</div><div class="gloss-def">Xi's concept for Chinese-led regional and global order.</div></div>
+<div class="gloss-item"><div class="gloss-en">Belt and Road Initiative (BRI)</div><div class="gloss-cn">一带一路 (yī dài yī lù)</div><div class="gloss-ru">Пояс и путь / Один пояс — один путь</div><div class="gloss-def">Massive infrastructure investment program — China's primary tool for economic order-building.</div></div>
+<div class="gloss-item"><div class="gloss-en">Century of Humiliation</div><div class="gloss-cn">百年国耻 (bǎi nián guóchǐ)</div><div class="gloss-ru">Столетие унижений</div><div class="gloss-def">1839–1949. Period of foreign domination that drives CCP nationalist mission.</div></div>
+<div class="gloss-item"><div class="gloss-en">National Rejuvenation</div><div class="gloss-cn">民族复兴 (mínzú fùxīng)</div><div class="gloss-ru">Национальное возрождение</div><div class="gloss-def">The CCP's core goal: restoring China to its "rightful place" by 2049.</div></div>
+<div class="gloss-item"><div class="gloss-en">Multipolarity</div><div class="gloss-cn">多极化 (duō jí huà)</div><div class="gloss-ru">Многополярность</div><div class="gloss-def">CCP euphemism for the decline of American unipolarity. Key indicator of strategic shifts.</div></div>
+<div class="gloss-item"><div class="gloss-en">Peripheral Diplomacy</div><div class="gloss-cn">周边外交 (zhōubiān wàijiāo)</div><div class="gloss-ru">Периферийная дипломатия</div><div class="gloss-def">Diplomacy with neighboring states — elevated to top priority under Xi.</div></div>
+<div class="gloss-item"><div class="gloss-en">Great Changes Unseen in a Century</div><div class="gloss-cn">百年未有之大变局</div><div class="gloss-ru">Столетние невиданные великие перемены</div><div class="gloss-def">Xi's concept for the current era: Western decline creates opportunity for Chinese global leadership.</div></div>
+<div class="gloss-item"><div class="gloss-en">Peaceful Evolution</div><div class="gloss-cn">和平演变 (hépíng yǎnbiàn)</div><div class="gloss-ru">Мирная эволюция</div><div class="gloss-def">CCP term for Western strategy to undermine socialist states through ideological subversion.</div></div>
+<div class="gloss-item"><div class="gloss-en">AIIB</div><div class="gloss-cn">亚洲基础设施投资银行</div><div class="gloss-ru">Азиатский банк инфраструктурных инвестиций (АБИИ)</div><div class="gloss-def">China-led development bank — political building instrument for regional order.</div></div>
+<div class="gloss-item"><div class="gloss-en">CICA</div><div class="gloss-cn">亚信会议</div><div class="gloss-ru">СВМДА — Совещание по взаимодействию и мерам доверия в Азии</div><div class="gloss-def">Asia security forum used by China to promote anti-alliance "New Asian Security Concept."</div></div>
+<div class="gloss-item"><div class="gloss-en">Shanghai Cooperation Organization</div><div class="gloss-cn">上合组织 (Shànghé Zǔzhī)</div><div class="gloss-ru">Шанхайская организация сотрудничества (ШОС)</div><div class="gloss-def">China-Russia-led security organization excluding the US.</div></div>
+<div class="gloss-item"><div class="gloss-en">CIPS</div><div class="gloss-cn">人民币跨境支付系统</div><div class="gloss-ru">Система трансграничных платежей в юанях</div><div class="gloss-def">China's alternative to SWIFT — cross-border payment system to reduce dollar dependence.</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GAME 1: STRATEGY SIMULATION -->
+<section class="section" id="game1">
+<div class="game-container">
+<div class="game-label">
+<span>🎮 Interactive Simulation: Grand Strategy Decision Game</span>
+<span class="game-score" id="simScore">Score: 0</span>
+</div>
+<div class="game-body" id="simGame">
+<p style="color:var(--accent);font-family:'DM Sans',sans-serif;font-size:.85rem;margin-bottom:1rem">You are a Chinese strategic planner. Navigate key decision points in China's grand strategy. Choose wisely — your decisions affect China's security!</p>
+<div id="simContent"></div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GAME 2: QUIZ -->
+<section class="section" id="game2">
+<div class="game-container">
+<div class="game-label">
+<span>🎮 Quiz: Test Your Knowledge of The Long Game</span>
+<span class="game-score" id="quizScore">0 / 10</span>
+</div>
+<div class="game-body" id="quizGame">
+<div id="quizContent"></div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide summarizes <strong>The Long Game: China's Grand Strategy to Displace American Order</strong> by Rush Doshi.</p>
+<p style="margin-top:.5rem">Published by Oxford University Press, 2021. Adapted for educational purposes.</p>
+<p style="margin-top:.5rem;font-size:.8rem;color:var(--text2)">Key terms include Russian (русский) translations for accessibility.</p>
+<p style="margin-top:1rem;font-size:.75rem;color:rgba(200,164,78,.4)">Interactive presentation created for academic discussion · HSE Moscow</p>
+</footer>
+
+<script>
+// === NAV ===
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('visible',window.scrollY>600)});
+
+// === FADE IN ===
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.key-point,.warning-box,.concept-box,.russian-box,.compare,.weapons,.phases,.map-container,.timeline,.strat-cards,.glossary,.game-container,h3').forEach(el=>{el.classList.add('fade-in');obs.observe(el)});
+
+// === STRATEGY SIMULATION GAME ===
+const simScenarios=[
+{q:"It's 1989. The Tiananmen protests have been crushed. The US imposes sanctions and threatens to revoke MFN trade status. China's economy depends on US markets. What do you recommend?",
+opts:["Confront the US openly and reject sanctions","Break the sanctions coalition by exploiting European competition for Chinese markets","Accept all US demands to restore relations quickly","Withdraw from international trade entirely"],
+correct:1,
+fb:"Correct! China systematically broke the sanctions coalition by exploiting European fears of losing market share, leveraging developing countries, and using its market as a bargaining chip — without directly confronting US power."},
+{q:"It's 1993. The Gulf War showed devastating US military superiority. Iraq's forces — similar to China's — were annihilated. The CMC asks: how should we invest our limited defense budget?",
+opts:["Build aircraft carriers to match the US Navy","Invest in asymmetric 'assassin's mace' weapons: submarines, anti-ship missiles, mines","Develop nuclear weapons to deter any conflict","Focus entirely on ground forces to defend the mainland"],
+correct:1,
+fb:"Correct! Zhang Wannian's principle: 'Whatever the enemy fears most, we develop that.' China chose submarines, anti-ship missiles, and mines — cheap weapons that could deny the US Navy access to the Western Pacific."},
+{q:"It's 1994. The US is trying to transform APEC into an 'Asia-Pacific Community' with binding trade liberalization. Beijing fears this will become a US-dominated 'Asian NATO.' Your move?",
+opts:["Walk out of APEC in protest","Join APEC but systematically block institutionalization, binding commitments, and security mandates","Support APEC's community vision to build goodwill","Propose an alternative Asian-only organization immediately"],
+correct:1,
+fb:"Correct! China's political blunting strategy: join organizations to prevent them from being used against you, then stall them from within. Beijing stripped the word 'Community' from APEC documents and blocked every attempt to expand APEC's mandate."},
+{q:"It's 2008. The Global Financial Crisis has devastated the US economy. Chinese analysts believe the 'international balance of power' has shifted. What strategic adjustment do you recommend?",
+opts:["Continue hiding capabilities indefinitely — don't provoke the US","Revise Tao Guang Yang Hui to 'Actively Accomplish Something' and begin building regional order","Immediately declare China the world's leading power","Launch a military confrontation to test US resolve"],
+correct:1,
+fb:"Correct! Hu Jintao's 2009 revision added 'Actively Accomplish Something' to Tao Guang Yang Hui — officially departing from Deng's pure restraint. This triggered Phase II: aircraft carriers, AIIB, BRI, and assertive peripheral diplomacy."},
+{q:"It's 2016. Brexit and Trump's election suggest Western democracies are failing. Xi Jinping believes the world is experiencing 'great changes unseen in a century.' What should China do next?",
+opts:["Continue the cautious regional building strategy","Launch a global expansion strategy: lead global governance, dominate the Fourth Industrial Revolution, build global military capability","Focus exclusively on domestic development","Seek a grand bargain with the US to divide spheres of influence"],
+correct:1,
+fb:"Correct! Xi's 19th Party Congress declared China was entering a 'new era' — moving toward 'the center of the world stage.' Phase III combines blunting and building at the global level across political, economic, and military domains."}
+];
+let simIdx=0,simPts=0;
+function renderSim(){
+const s=simScenarios[simIdx];
+if(!s){document.getElementById('simContent').innerHTML=`<div style="text-align:center;padding:2rem"><div style="font-size:2rem;color:var(--accent);margin-bottom:1rem">🏆</div><p style="font-size:1.2rem;color:#fff">Simulation Complete!</p><p style="color:var(--text2)">Final Score: ${simPts} / ${simScenarios.length}</p><p style="color:var(--text2);margin-top:.5rem">${simPts>=4?'Excellent strategic thinking! You navigated China\'s grand strategy effectively.':simPts>=2?'Good effort — review the chapters for deeper understanding.':'Keep studying — grand strategy requires careful analysis!'}</p><button class="game-btn" onclick="simIdx=0;simPts=0;renderSim();" style="margin-top:1rem">Play Again</button></div>`;return}
+document.getElementById('simContent').innerHTML=`<div class="game-q">${s.q}</div><div class="game-options">${s.opts.map((o,i)=>`<div class="game-opt" onclick="checkSim(${i})" id="simOpt${i}">${o}</div>`).join('')}</div><div class="game-feedback" id="simFb" style="display:none"></div>`;
+}
+function checkSim(i){
+const s=simScenarios[simIdx];
+document.querySelectorAll('.game-opt').forEach((o,j)=>{o.style.pointerEvents='none';o.classList.add(j===s.correct?'correct':'wrong')});
+if(i===s.correct)simPts++;
+document.getElementById('simScore').textContent='Score: '+simPts;
+const fb=document.getElementById('simFb');fb.style.display='block';
+fb.style.background=i===s.correct?'rgba(34,197,94,.08)':'rgba(220,68,68,.08)';
+fb.style.border=i===s.correct?'1px solid rgba(34,197,94,.2)':'1px solid rgba(220,68,68,.2)';
+fb.innerHTML=(i===s.correct?'✅ ':'❌ Incorrect. ')+s.fb+`<br><button class="game-btn" onclick="simIdx++;renderSim();" style="margin-top:.8rem">${simIdx<simScenarios.length-1?'Next Scenario →':'See Results'}</button>`;
+}
+renderSim();
+
+// === QUIZ GAME ===
+const quizQs=[
+{q:"What three events constituted the 'traumatic trifecta' that triggered China's blunting strategy?",opts:["Korean War, Vietnam War, Sino-Soviet Split","Tiananmen Square, Gulf War, Soviet Collapse","Cultural Revolution, Nixon Visit, Deng's Reforms","Hong Kong Handover, Asian Financial Crisis, 9/11"],correct:1},
+{q:"What does 'Tao Guang Yang Hui' (韬光养晦) mean?",opts:["Actively accomplish something","Great changes unseen in a century","Hide capabilities and bide time","Surround the cities from the countryside"],correct:2},
+{q:"Which event triggered China's shift from blunting to building?",opts:["9/11 attacks","2008 Global Financial Crisis","Xi Jinping's rise to power","COVID-19 pandemic"],correct:1},
+{q:"What were the three main 'assassin's mace' weapons China developed during the blunting phase?",opts:["Aircraft carriers, destroyers, amphibious ships","Stealth bombers, ICBMs, spy satellites","Submarines, anti-ship missiles, mines","Hypersonic weapons, drones, cyber warfare"],correct:2},
+{q:"What is the 'Community of Common Destiny' (命运共同体)?",opts:["A military alliance against the US","Xi's concept for Chinese-led regional and global order","A development aid program for Africa","The CCP's internal party unity slogan"],correct:1},
+{q:"Why did China fight so hard for Permanent Normal Trading Relations (PNTR)?",opts:["To increase exports to Europe","To eliminate Congress's annual leverage of revoking MFN trade status","To join NATO","To gain access to US military technology"],correct:1},
+{q:"What did China do in APEC as part of its political blunting strategy?",opts:["Withdrew from the organization","Became its most active proponent of free trade","Joined but systematically blocked institutionalization and expansion","Used it to build an anti-US coalition"],correct:2},
+{q:"What triggered Phase III — China's global expansion strategy?",opts:["The Belt and Road Initiative","Tiananmen Square anniversary","Brexit and Trump's election (2016)","The South China Sea ruling"],correct:2},
+{q:"What does Doshi recommend as the US response to China's strategy?",opts:["Full military confrontation","Regime change through sanctions","Asymmetric competition: blunt Chinese order, rebuild US order","Complete disengagement and accommodation"],correct:2},
+{q:"According to the book, what is the most important variable shaping Chinese grand strategy?",opts:["GDP growth rates","The personality of the leader","Beijing's perception of US power and threat","Technology levels"],correct:2}
+];
+let qIdx=0,qPts=0;
+function renderQuiz(){
+const q=quizQs[qIdx];
+if(!q){document.getElementById('quizContent').innerHTML=`<div style="text-align:center;padding:2rem"><div style="font-size:2rem;color:var(--accent);margin-bottom:1rem">📊</div><p style="font-size:1.2rem;color:#fff">Quiz Complete!</p><p style="color:var(--text2)">Score: ${qPts} / ${quizQs.length}</p><p style="color:var(--text2);margin-top:.5rem">${qPts>=8?'Outstanding! You know The Long Game inside out.':qPts>=5?'Good knowledge — review the weaker areas.':'Time to re-read the book!'}</p><button class="game-btn" onclick="qIdx=0;qPts=0;renderQuiz();" style="margin-top:1rem">Retake Quiz</button></div>`;return}
+document.getElementById('quizContent').innerHTML=`<p style="font-family:'DM Sans';font-size:.8rem;color:var(--accent);margin-bottom:.5rem">Question ${qIdx+1} of ${quizQs.length}</p><div class="game-q">${q.q}</div><div class="game-options">${q.opts.map((o,i)=>`<div class="game-opt" onclick="checkQuiz(${i})" id="qOpt${i}">${o}</div>`).join('')}</div><div class="game-feedback" id="qFb" style="display:none"></div>`;
+}
+function checkQuiz(i){
+const q=quizQs[qIdx];
+document.querySelectorAll('.game-opt').forEach((o,j)=>{o.style.pointerEvents='none';if(j===q.correct)o.classList.add('correct');else if(j===i)o.classList.add('wrong')});
+if(i===q.correct)qPts++;
+document.getElementById('quizScore').textContent=qPts+' / '+quizQs.length;
+const fb=document.getElementById('qFb');fb.style.display='block';
+fb.style.background=i===q.correct?'rgba(34,197,94,.08)':'rgba(220,68,68,.08)';
+fb.innerHTML=(i===q.correct?'✅ Correct!':'❌ The correct answer was: <strong>'+q.opts[q.correct]+'</strong>')+`<br><button class="game-btn" onclick="qIdx++;renderQuiz();" style="margin-top:.8rem">${qIdx<quizQs.length-1?'Next Question →':'See Results'}</button>`;
+}
+renderQuiz();
+</script>
+</body>
+</html>

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What To Do If China Attacks — Wang Li & Shen Po-yang</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0c10;--bg2:#111318;--bg3:#181c24;--accent:#c8a44e;--accent2:#e8c55e;
+--text:#d4d4d8;--text2:#9ca3af;--red:#dc4444;--blue:#3b82f6;--green:#22c55e;
+--navy:#1e3a5f;--dark-red:#8b1a1a;--orange:#f59e0b;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0c10 0%,#1a0c0c 50%,#0a1020 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a44e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:900px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,var(--red),var(--accent),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(.9rem,1.8vw,1.3rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:0.15em;text-transform:uppercase}
+.hero .author{font-size:1.1rem;color:var(--accent);margin:1.5rem 0;font-style:italic}
+.hero .epigraph{max-width:600px;margin:2rem auto;padding:1.5rem;border-left:3px solid var(--red);text-align:left;color:var(--text2);font-style:italic;font-size:1.02rem}
+.hero .scroll-hint{margin-top:3rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.hero .scroll-hint span{display:block;width:2px;height:40px;background:var(--accent);margin:0 auto;opacity:.5}
+.ru{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--blue);opacity:.7;font-style:normal;display:inline;margin-left:4px}
+.ru::before{content:'[RU: '}
+.ru::after{content:']'}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,12,16,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,164,78,.1);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--accent);font-weight:700}
+.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.08em;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+
+.section{max-width:1000px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:5rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;border:1px solid rgba(200,164,78,.1);border-radius:50%}
+.part-num{font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.part-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:900;color:#fff;margin-bottom:1rem}
+.part-desc{color:var(--text2);max-width:600px;margin:0 auto;font-size:1rem}
+
+.ch-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(200,164,78,.15)}
+.ch-num{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--accent);padding-left:1rem;margin-top:1rem;font-size:.92rem}
+
+h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--accent)}
+h4{font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--accent);margin:2rem 0 .8rem;letter-spacing:.05em}
+p{margin-bottom:1.1rem;font-size:.98rem}
+strong{color:#fff;font-weight:600}
+
+.key-point{background:var(--bg3);border:1px solid rgba(200,164,78,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;background:var(--accent);color:var(--bg);padding:2px 10px;border-radius:3px;font-weight:700}
+.warning-box{background:rgba(220,68,68,.08);border:1px solid rgba(220,68,68,.2);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.warning-box strong{color:var(--red)}
+.concept-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+.myth-box{background:rgba(220,68,68,.05);border:1px solid rgba(220,68,68,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.myth-box::before{content:'MYTH BUSTED';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;background:var(--red);color:#fff;padding:2px 10px;border-radius:3px;font-weight:700}
+
+.map-container{background:var(--bg2);border:1px solid rgba(200,164,78,.12);border-radius:12px;overflow:hidden;margin:2rem 0;position:relative}
+.map-label{font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:.8rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(200,164,78,.1)}
+.map-svg{width:100%;display:block}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,164,78,.1);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.5rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.8rem;border-bottom:1px solid rgba(200,164,78,.1)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.4rem 0;font-size:.9rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.compare-col li::before{content:'→';color:var(--accent);margin-right:.5rem}
+
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),transparent)}
+.tl-item{margin-bottom:1.5rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);transform:translateX(-4px)}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--accent);font-weight:500}
+.tl-text{font-size:.9rem;color:var(--text2)}
+
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:8px;padding:1.5rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--accent);transform:translateY(-2px)}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:1.8rem;color:var(--accent);font-weight:700}
+.phase-name{font-family:'DM Sans',sans-serif;font-size:.85rem;color:#fff;margin:.5rem 0;font-weight:600}
+.phase-desc{font-size:.82rem;color:var(--text2);line-height:1.5}
+
+.stat-bar{margin:.6rem 0;display:flex;align-items:center;gap:.8rem}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);min-width:90px;text-align:right}
+.stat-track{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.stat-fill{height:100%;border-radius:4px;transition:width 1.5s ease-out}
+.stat-fill.red{background:linear-gradient(90deg,var(--red),#ff6666)}
+.stat-fill.blue{background:linear-gradient(90deg,var(--blue),#60a5fa)}
+.stat-fill.green{background:linear-gradient(90deg,var(--green),#4ade80)}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--text2);min-width:55px}
+
+.weapons{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:2rem 0}
+.weapon{background:var(--bg3);border:1px solid rgba(200,164,78,.08);border-radius:8px;padding:1.3rem;transition:all .3s}
+.weapon:hover{border-color:var(--accent);background:var(--bg2)}
+.weapon-type{font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.weapon-name{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:.4rem}
+.weapon-desc{font-size:.85rem;color:var(--text2);line-height:1.5}
+.weapon-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.6rem;padding:2px 8px;border-radius:3px;margin-top:.4rem;margin-right:.3rem;border:1px solid}
+.weapon-tag.myth{color:var(--red);border-color:rgba(220,68,68,.3)}
+.weapon-tag.real{color:var(--green);border-color:rgba(34,197,94,.3)}
+.weapon-tag.limited{color:var(--orange);border-color:rgba(245,158,11,.3)}
+
+.toc{background:var(--bg2);border:1px solid rgba(200,164,78,.1);border-radius:12px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.2rem;margin-bottom:1.5rem}
+.toc-part{margin-bottom:1.5rem}
+.toc-part-title{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.toc-link{display:block;padding:.35rem 0 .35rem 1rem;color:var(--text2);text-decoration:none;font-size:.9rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--accent);border-left-color:var(--accent);padding-left:1.5rem}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(200,164,78,.2),transparent);margin:3rem 0}
+
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.82rem;background:var(--bg2);border-top:1px solid rgba(200,164,78,.08)}
+.footer strong{color:var(--accent)}
+
+/* GAME SIMULATION */
+.game-container{background:var(--bg2);border:1px solid rgba(200,164,78,.15);border-radius:12px;padding:2rem;margin:2rem 0}
+.game-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--accent);margin-bottom:1rem;text-align:center}
+.game-desc{font-size:.85rem;color:var(--text2);text-align:center;margin-bottom:1.5rem}
+.game-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1rem}
+.game-panel{background:var(--bg3);border-radius:8px;padding:1.2rem}
+.game-panel h4{margin-top:0;font-size:.8rem;text-align:center}
+.game-btn{font-family:'DM Sans',sans-serif;display:block;width:100%;padding:.6rem;margin:.4rem 0;background:var(--bg);border:1px solid rgba(200,164,78,.2);color:var(--text);border-radius:5px;cursor:pointer;font-size:.8rem;transition:all .2s;text-align:left}
+.game-btn:hover{border-color:var(--accent);background:var(--bg3)}
+.game-btn.selected{border-color:var(--accent);background:rgba(200,164,78,.1)}
+.game-result{background:var(--bg3);border-radius:8px;padding:1.2rem;margin-top:1rem;display:none;font-size:.88rem;line-height:1.6}
+.game-result.show{display:block}
+.game-result.success{border:1px solid rgba(34,197,94,.3)}
+.game-result.fail{border:1px solid rgba(220,68,68,.3)}
+.game-execute{font-family:'DM Sans',sans-serif;display:block;width:200px;margin:1rem auto;padding:.7rem 1.5rem;background:var(--accent);color:var(--bg);border:none;border-radius:5px;cursor:pointer;font-size:.85rem;font-weight:700;letter-spacing:.05em;transition:all .2s}
+.game-execute:hover{background:var(--accent2);transform:scale(1.02)}
+
+/* MISSILE CALC */
+.calc-container{background:var(--bg2);border:1px solid rgba(200,164,78,.15);border-radius:12px;padding:2rem;margin:2rem 0}
+.calc-row{display:flex;align-items:center;gap:1rem;margin:.8rem 0;flex-wrap:wrap}
+.calc-label{font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--text2);min-width:140px}
+.calc-slider{flex:1;min-width:150px;-webkit-appearance:none;height:6px;background:var(--bg3);border-radius:3px;outline:none}
+.calc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;background:var(--accent);border-radius:50%;cursor:pointer}
+.calc-value{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--accent);min-width:60px;text-align:right}
+.calc-result{background:var(--bg3);border-radius:8px;padding:1.2rem;margin-top:1rem;font-size:.88rem}
+.calc-bar{height:20px;background:var(--bg);border-radius:4px;overflow:hidden;margin:.5rem 0}
+.calc-bar-fill{height:100%;border-radius:4px;transition:width .5s}
+
+.threat-meter{display:flex;align-items:center;gap:.5rem;margin:.3rem 0}
+.threat-meter-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text2);min-width:80px}
+.threat-meter-bar{flex:1;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.threat-meter-fill{height:100%;border-radius:3px}
+.threat-meter-val{font-family:'DM Sans',sans-serif;font-size:.65rem;min-width:50px;text-align:right}
+
+/* ANIMATED MAP ELEMENTS */
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes dash{to{stroke-dashoffset:-20}}
+.anim-pulse{animation:pulse 2s infinite}
+.anim-dash{animation:dash 1s linear infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.anim-float{animation:float 3s ease-in-out infinite}
+
+@media(max-width:768px){
+.compare{grid-template-columns:1fr}
+.game-grid{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:3rem 1rem}
+}
+
+.fade-in{opacity:0;transform:translateY(25px);transition:all .7s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+.glossary-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem}
+.glossary-table th{font-family:'DM Sans',sans-serif;text-align:left;padding:.5rem;border-bottom:2px solid rgba(200,164,78,.2);color:var(--accent);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.glossary-table td{padding:.4rem .5rem;border-bottom:1px solid rgba(255,255,255,.04)}
+.glossary-table td:first-child{color:#fff;font-weight:500}
+.glossary-table td:last-child{color:var(--blue);font-family:'DM Sans',sans-serif;font-size:.8rem}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+<div class="nav-title">阿共打來怎麼辦 — What To Do If China Attacks</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#part1">Myths</a>
+<a href="#part2">Invasion</a>
+<a href="#part3">Ongoing War</a>
+<a href="#part4">Strategies</a>
+<a href="#glossary">Glossary</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<div class="subtitle">Wang Li (王立) & Shen Po-yang (沈伯洋)</div>
+<h1>What To Do If China Attacks</h1>
+<div class="subtitle" style="font-size:.85rem;color:var(--text2);letter-spacing:.05em">阿共打來怎麼辦 — Military Knowledge You Think You Know But Actually Don't</div>
+<div class="author">A civilian guide to cross-strait military realities — debunking propaganda, understanding threats, and building genuine defense awareness.</div>
+<div class="epigraph">
+"The purpose of military propaganda rumors is to make Taiwanese people give up hope and surrender early. The rumors want you to believe the PLA can crush Taiwan effortlessly and surpass America within years."
+<br><br>—Introduction
+</div>
+<div class="epigraph" style="border-color:var(--green)">
+"The only reason these rumors exist is precisely <em>because</em> a conventional military invasion is extremely difficult, costly, and risky. If conquest were truly easy, <strong style="color:var(--green)">why bother with propaganda at all?</strong>"
+<br><br>—Part I Conclusion
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="section" id="toc">
+<div class="toc">
+<h3 style="color:var(--accent)">Table of Contents — Содержание</h3>
+<div class="toc-part">
+<div class="toc-part-title">Prefaces & Introduction — Предисловие</div>
+<a href="#intro" class="toc-link">Introduction: Why This Book Exists</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Part I — Debunking Military Myths — Часть I: Разоблачение военных мифов</div>
+<a href="#ch1" class="toc-link">1. The "Invincible Ballistic Missile" Myth</a>
+<a href="#ch2" class="toc-link">2. The "Thousand Drones Overwhelm Defense" Myth</a>
+<a href="#ch3" class="toc-link">3. The "Airborne Decapitation Strike" Myth</a>
+<a href="#ch4" class="toc-link">4. The "Helicopter Blitz" Myth</a>
+<a href="#ch5" class="toc-link">5. The "Civilian Aircraft Seize Airport" Myth</a>
+<a href="#ch6" class="toc-link">6. The "Ten Thousand Ships" Myth</a>
+<a href="#ch7" class="toc-link">7. The "Aircraft Carrier Pincer Attack" Myth</a>
+<a href="#ch8" class="toc-link">8. The "Container Ship Missile Platform" Myth</a>
+<a href="#ch9" class="toc-link">9. Cruise Missiles & Long-Range Rockets</a>
+<a href="#ch10" class="toc-link">10. The "Blockade Taiwan" Myth</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Part II — China's Invasion Tactics — Часть II: Тактика вторжения</div>
+<a href="#ch11" class="toc-link">11. Invasion Scenario Assumptions</a>
+<a href="#ch12" class="toc-link">12. Pre-War Preparations</a>
+<a href="#ch13" class="toc-link">13. Opening Phase of War</a>
+<a href="#ch14" class="toc-link">14. Air & Sea Supremacy Battle</a>
+<a href="#ch15" class="toc-link">15. Amphibious Assault Phase</a>
+<a href="#ch16" class="toc-link">16. Final Phase: Beachhead to Capital</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Part III — The Ongoing War — Часть III: Продолжающаяся война</div>
+<a href="#ch17" class="toc-link">17. Information Warfare</a>
+<a href="#ch18" class="toc-link">18. War Doesn't Mean Instant Destruction</a>
+<a href="#ch19" class="toc-link">19. Alternative Military Options</a>
+<a href="#ch20" class="toc-link">20. Blockade & Economic Warfare</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Part IV — Regional Strategic Visions — Часть IV: Стратегии стран региона</div>
+<a href="#ch21" class="toc-link">21. United States Strategy</a>
+<a href="#ch22" class="toc-link">22. Japan's Strategy</a>
+<a href="#ch23" class="toc-link">23. South China Sea Nations</a>
+<a href="#ch24" class="toc-link">24–25. India & Australia</a>
+<a href="#ch26" class="toc-link">26. China's Own Strategy</a>
+<a href="#ch27" class="toc-link">27. Taiwan's Strategy</a>
+</div>
+</div>
+</section>
+
+<!-- INTRODUCTION -->
+<section class="section" id="intro">
+<div class="ch-header">
+<div class="ch-num">Introduction — Введение</div>
+<div class="ch-title">Why This Book Exists</div>
+</div>
+<p>Before every Taiwanese presidential election, a wave of military propaganda sweeps through social media — rumors designed to inflate PLA capabilities and demoralize Taiwan's public. Since 2019, these disinformation campaigns expanded from niche pro-China forums into mainstream platforms like LINE and Facebook.</p>
+<p>The authors — military analyst Wang Li and information warfare researcher Shen Po-yang — wrote this book to arm ordinary citizens with <strong>basic military knowledge</strong><span class="ru">базовые военные знания</span> that can distinguish fact from fiction.</p>
+
+<div class="key-point">
+<p><strong>The core problem:</strong> Both "blue camp" (pro-China leaning) and "green camp" (pro-independence) voters in Taiwan lack basic military literacy. One side believes China is invincible; the other assumes Taiwan will always win. <strong>Both are wrong and both are dangerous.</strong></p>
+</div>
+
+<p>All propaganda myths share three common manipulation techniques:</p>
+<div class="phases">
+<div class="phase"><div class="phase-num">1</div><div class="phase-name">Ignore Constraints</div><div class="phase-desc">Present weapons under impossible ideal conditions, then claim those results apply universally. Like claiming anyone can drive Taipei→Kaohsiung in 1 hour because F1 cars can.</div></div>
+<div class="phase"><div class="phase-num">2</div><div class="phase-name">Mix Contexts</div><div class="phase-desc">Combine capabilities that are individually true but mutually exclusive. "China has landing ships" + "China has many boats" ≠ "boats can carry tanks." Volume ≠ weight capacity.</div></div>
+<div class="phase"><div class="phase-num">3</div><div class="phase-name">Linear Projection</div><div class="phase-desc">Chain individually plausible facts into absurd conclusions, then label any doubt as "ideology." Aircraft carrier exists → planes exist → Taiwan's east falls. A massive logical leap.</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PART I -->
+<section class="part-header" id="part1">
+<div class="part-num">Part I — Часть I</div>
+<div class="part-title">Debunking Military Myths</div>
+<div class="part-desc">Ten common propaganda narratives about PLA invincibility, systematically dismantled using physics, logistics, and common sense. <span class="ru">Разоблачение военной пропаганды</span></div>
+</section>
+
+<!-- CHAPTER 1 -->
+<section class="section" id="ch1">
+<div class="ch-header">
+<div class="ch-num">Chapter 1 — Глава 1</div>
+<div class="ch-title">The "Invincible Ballistic Missile" Myth</div>
+<div class="ch-quote">"Thousands of missiles will reduce Taiwan to ashes within hours" — the most persistent and dangerous myth.</div>
+</div>
+
+<p>The core myth claims China's <strong>~2,000-3,000 short and medium-range ballistic missiles</strong><span class="ru">баллистические ракеты</span> can paralyze all of Taiwan's military infrastructure in the opening hours of war — destroying every airbase, radar station, government building, and port.</p>
+
+<h3>The Reality: CEP and Explosive Power</h3>
+<p>Two concepts most people don't understand:</p>
+
+<h4>1. CEP (Circular Error Probable) — Круговое вероятное отклонение</h4>
+<p><strong>CEP 100m</strong> means: if you fire 2 missiles, statistically 1 will land within a 100m radius circle of the target. The other lands <em>somewhere</em> outside. At CEP 50m (generous estimate for PLA missiles), hitting a 20m-wide runway with a single missile has only about <strong>8% probability</strong>.</p>
+
+<h4>2. Explosive Power vs. Target Hardness</h4>
+<p>A 500kg warhead that <em>misses</em> a reinforced concrete runway by even a few meters will mostly produce a pressure wave that goes upward, leaving minor surface damage. Missiles must <strong>penetrate into</strong> the concrete to create real craters. The propaganda substitutes nuclear weapon imagery for conventional explosives.</p>
+
+<!-- INTERACTIVE MISSILE CALCULATOR -->
+<div class="calc-container">
+<div class="game-title">🎯 Interactive: Ballistic Missile vs. Runway Calculator</div>
+<div class="game-desc">Adjust parameters to see how many missiles it actually takes to disable one runway</div>
+
+<div class="calc-row">
+<div class="calc-label">Missile CEP (meters):</div>
+<input type="range" class="calc-slider" id="cepSlider" min="30" max="300" value="100" oninput="updateCalc()">
+<div class="calc-value" id="cepVal">100m</div>
+</div>
+<div class="calc-row">
+<div class="calc-label">Runway width (m):</div>
+<input type="range" class="calc-slider" id="rwSlider" min="20" max="60" value="20" oninput="updateCalc()">
+<div class="calc-value" id="rwVal">20m</div>
+</div>
+<div class="calc-row">
+<div class="calc-label">Desired hit prob.:</div>
+<input type="range" class="calc-slider" id="probSlider" min="50" max="99" value="90" oninput="updateCalc()">
+<div class="calc-value" id="probVal">90%</div>
+</div>
+<div class="calc-result" id="calcResult"></div>
+</div>
+
+<h3>The Math Doesn't Add Up</h3>
+<p>Per the U.S. DoD China Military Power Report, the PLA has approximately: <strong>150+ MRBMs, 600+ SRBMs, 300+ ground-launched cruise missiles</strong>. But launcher count limits first-salvo capacity to roughly <strong>400-500 missiles</strong> at 80% readiness.</p>
+
+<p>Taiwan has <strong>67+ high-priority military targets</strong> (11 airbases, 6 major ports, 25 army bases, 20 radar sites, 5 command centers). That's only <strong>~6 missiles per target</strong> in the first wave. Using Monte Carlo simulations, you need at least 6 missiles with CEP ≤ 50m just for an 84% chance of cutting a 3,700m runway. But fighters only need 600-1,000m to take off with combat loads.</p>
+
+<div class="myth-box">
+<p><strong>Bottom line:</strong> Ballistic missiles are expensive, inaccurate relative to their hype, and <strong>not numerous enough</strong> to simultaneously neutralize all targets. The PLA cannot fire all missiles at once (launcher limitations), cannot reload quickly, and must prioritize between competing targets. "Thousand-missile first strike destroys everything" is mathematically impossible.</p>
+<div class="threat-meter"><div class="threat-meter-label">Propaganda damage:</div><div class="threat-meter-bar"><div class="threat-meter-fill" style="width:95%;background:var(--red)"></div></div><div class="threat-meter-val" style="color:var(--red)">EXTREME</div></div>
+<div class="threat-meter"><div class="threat-meter-label">Actual threat:</div><div class="threat-meter-bar"><div class="threat-meter-fill" style="width:60%;background:var(--orange)"></div></div><div class="threat-meter-val" style="color:var(--orange)">Moderate</div></div>
+<div class="threat-meter"><div class="threat-meter-label">Solution cost:</div><div class="threat-meter-bar"><div class="threat-meter-fill" style="width:30%;background:var(--green)"></div></div><div class="threat-meter-val" style="color:var(--green)">Low: Disperse</div></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- CHAPTER 2 -->
+<section class="section" id="ch2">
+<div class="ch-header">
+<div class="ch-num">Chapter 2 — Глава 2</div>
+<div class="ch-title">The "Thousand Drones Overwhelm Defense" Myth</div>
+</div>
+<p>This myth predates modern drones — it originally claimed China could convert <strong>thousands of obsolete J-6/J-7 fighters</strong><span class="ru">устаревшие истребители</span> into remote-controlled drones to overwhelm Taiwan's air defenses.</p>
+<h3>Physical Impossibilities</h3>
+<p>Converting old fighters to drones faces insurmountable problems: the J-6 uses <strong>hydraulic controls</strong> (not fly-by-wire), making remote operation extremely difficult. Hundreds of aircraft in the same airspace at similar altitudes traveling at 0.5+ Mach would <strong>collide with each other</strong>. Radio control has range limits (~150km line-of-sight due to Earth's curvature). Each drone needs a dedicated operator for meaningful combat capability, creating massive manpower needs.</p>
+<p>The authors note: if such technology were easy, why wouldn't the U.S. just convert all its aircraft to drones and solve its pilot shortage? The reason nobody does this is that <strong>it simply doesn't work well enough</strong> for the cost.</p>
+<div class="myth-box">
+<p><strong>Verdict:</strong> Manufacturing new cruise missiles is cheaper and more effective than converting old fighters. The "operational airspace" over the Taiwan Strait can only accommodate ~100-200 modern fighters at once. Mass drone swarms of converted fighters remain science fiction.</p>
+<div class="threat-meter"><div class="threat-meter-label">Actual threat:</div><div class="threat-meter-bar"><div class="threat-meter-fill" style="width:15%;background:var(--green)"></div></div><div class="threat-meter-val" style="color:var(--green)">Very Low</div></div>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- CHAPTERS 3-5 COMBINED -->
+<section class="section" id="ch3">
+<div class="ch-header">
+<div class="ch-num">Chapters 3–5 — Главы 3–5</div>
+<div class="ch-title">Decapitation Strike Myths: Paratroopers, Helicopters & Civilian Aircraft</div>
+</div>
+
+<h3>Ch.3: Airborne Assault on Taipei</h3>
+<p>The PLA Airborne Corps has ~49,000 combat personnel across 9 brigades. The Y-20 transport can carry 210 paratroopers, but China only has ~48 Y-20s and 31 Y-8s — far short of the 234 sorties needed. Worse: a parachute company of 100 soldiers needs a <strong>2×3 km² drop zone</strong>. Taipei has virtually <strong>no open spaces</strong> large enough. Paratroopers landing on concrete suffer broken bones; on power lines they get stuck; in muddy fields they sink.</p>
+
+<h3>Ch.4: Helicopter Blitz on the Capital</h3>
+<p>The Z-20 helicopter carries ~10 troops. Even 50 helicopters = 500 soldiers. Fifty helicopters <strong>cannot fly undetected</strong> across the Taiwan Strait in wartime. Helicopters are extremely vulnerable to any anti-aircraft fire — even rocket-propelled grenades. Taipei's dense high-rises with power lines make helicopter landing zones nearly nonexistent.</p>
+
+<h3>Ch.5: Civilian Aircraft Trojan Horse</h3>
+<p>The myth: a civilian plane stuffed with 200+ soldiers lands at Songshan Airport and seizes Taipei. Reality: in wartime, no Chinese civilian aircraft would be allowed to approach. Even if one landed, the airport would be under military guard. 200 lightly-armed soldiers would be surrounded and eliminated. Using civilian aircraft as weapons violates international law to the degree that it would <strong>give every nation legal justification</strong> to shoot down all Chinese civilian aircraft.</p>
+
+<div class="myth-box">
+<p>All three "decapitation strike" myths require: (1) PLA missiles first destroying all defenses (itself a myth), (2) Taiwan military standing idle, (3) U.S./Japan not monitoring. Remove any assumption and the plan collapses to near-zero probability.</p>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- CHAPTER 6 — THE BIG ONE -->
+<section class="section" id="ch6">
+<div class="ch-header">
+<div class="ch-num">Chapter 6 — Глава 6</div>
+<div class="ch-title">The "Ten Thousand Ships" Myth</div>
+<div class="ch-quote">"Ten thousand fishing boats carrying a million soldiers will flood across the strait" — the most elaborate myth.</div>
+</div>
+
+<p>China does have thousands of fishing boats. Loaded to capacity, tens of thousands of soldiers could theoretically board. But the myth completely ignores <strong>five physical constraints</strong>:</p>
+
+<div class="phases">
+<div class="phase"><div class="phase-num">1</div><div class="phase-name">Weight</div><div class="phase-desc">A 10-ton fishing boat cannot carry tanks. Only light infantry with rifles.</div></div>
+<div class="phase"><div class="phase-num">2</div><div class="phase-name">Volume</div><div class="phase-desc">Soldiers aren't sardines. A small boat fits ~20 armed troops max.</div></div>
+<div class="phase"><div class="phase-num">3</div><div class="phase-name">Armor</div><div class="phase-desc">Fishing boats are thin-hulled. Machine gun fire sinks them. Adding armor reduces capacity.</div></div>
+<div class="phase"><div class="phase-num">4</div><div class="phase-name">Weather</div><div class="phase-desc">Taiwan Strait avg. 3-5 on Beaufort scale. Hours of heavy seas = troops too seasick to fight.</div></div>
+<div class="phase"><div class="phase-num">5</div><div class="phase-name">Time</div><div class="phase-desc">Round-trip takes 8+ hours. First wave must survive alone until reinforcements arrive.</div></div>
+</div>
+
+<!-- INTERACTIVE LANDING GAME -->
+<div class="game-container" id="landingGame">
+<div class="game-title">🎮 Interactive Simulation: "Ten Thousand Ships" Invasion</div>
+<div class="game-desc">You are the PLA commander. Choose your landing parameters and see the outcome.</div>
+<div class="game-grid">
+<div class="game-panel">
+<h4 style="color:var(--red)">⚔️ Your Attack Force</h4>
+<button class="game-btn" onclick="selectOption('ships','small',this)" data-group="ships">5,000 small fishing boats (10 troops each)</button>
+<button class="game-btn" onclick="selectOption('ships','medium',this)" data-group="ships">2,000 medium boats (25 troops each)</button>
+<button class="game-btn" onclick="selectOption('ships','mixed',this)" data-group="ships">3,000 mixed + 50 landing craft</button>
+</div>
+<div class="game-panel">
+<h4 style="color:var(--blue)">🛡️ Landing Target</h4>
+<button class="game-btn" onclick="selectOption('target','open',this)" data-group="target">Open beach (wide but shallow, no port)</button>
+<button class="game-btn" onclick="selectOption('target','port',this)" data-group="target">Major port (Kaohsiung/Taipei)</button>
+<button class="game-btn" onclick="selectOption('target','multi',this)" data-group="target">Multiple simultaneous beaches</button>
+</div>
+<div class="game-panel">
+<h4 style="color:var(--orange)">🌊 Weather Conditions</h4>
+<button class="game-btn" onclick="selectOption('weather','calm',this)" data-group="weather">Spring calm (Beaufort 2-3)</button>
+<button class="game-btn" onclick="selectOption('weather','normal',this)" data-group="weather">Average conditions (Beaufort 3-5)</button>
+<button class="game-btn" onclick="selectOption('weather','rough',this)" data-group="weather">Rough winter (Beaufort 5-7)</button>
+</div>
+<div class="game-panel">
+<h4 style="color:var(--green)">🔍 Surprise Factor</h4>
+<button class="game-btn" onclick="selectOption('surprise','full',this)" data-group="surprise">Complete surprise (impossible but try)</button>
+<button class="game-btn" onclick="selectOption('surprise','partial',this)" data-group="surprise">Partial surprise (12hr warning)</button>
+<button class="game-btn" onclick="selectOption('surprise','none',this)" data-group="surprise">No surprise (weeks of buildup)</button>
+</div>
+</div>
+<button class="game-execute" onclick="runLandingSimulation()">LAUNCH INVASION</button>
+<div class="game-result" id="landingResult"></div>
+</div>
+
+<h3>The Beach Problem</h3>
+<p>Even if troops reach shore, they must <strong>wade through water</strong>. A fishing boat with 20 troops draws ~1m of water and must stop 6+ meters from shore. Soldiers jump into waist-deep water carrying 30+ kg of equipment, then wade under defensive fire. At ~40% casualty rate per wave (generous to attackers), with 200 boats landing simultaneously on a 1km beach front, the first batch sends 400 soldiers — of whom 320 are killed or disabled before reaching defensive positions.</p>
+
+<div class="myth-box">
+<p><strong>The math is devastating:</strong> Even the most optimistic calculation shows first-wave survivors piling up on beaches under withering fire, subsequent waves arriving hours later to find beaches <strong>blocked by wrecked boats and bodies</strong>. No fishing-boat invasion has succeeded in modern military history. The authors calculate maximum ~300,000 could theoretically be transported in 5 waves, but combat attrition would leave landing forces combat-ineffective long before that.</p>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- CHAPTERS 7-10 -->
+<section class="section" id="ch7">
+<div class="ch-header">
+<div class="ch-num">Chapters 7–10 — Главы 7–10</div>
+<div class="ch-title">Aircraft Carriers, Container Ships, Cruise Missiles & Blockade</div>
+</div>
+
+<h3>Ch.7: Aircraft Carrier Pincer Attack <span class="ru">Авианосная атака</span></h3>
+<p>China's carriers (Liaoning: 24 J-15s, Shandong: 32 J-15s) must stay <strong>outside Taiwan's anti-ship missile range</strong> (~300-600km). At maximum J-15 combat radius of 1,270km, subtracting transit time and 16-minute sequential launch time, actual combat loiter time is <strong>minimal</strong>. The carriers must traverse routes easily monitored by Japan, the U.S., and Taiwan. With limited fuel (returning to Sanya port from Taiwan's east = 2,000km each way out of 7,000km total range), the carrier group is essentially <strong>a one-use expendable asset</strong>.</p>
+
+<!-- CARRIER RANGE MAP -->
+<div class="map-container">
+<div class="map-label">Aircraft Carrier Operational Constraints — Taiwan Theater</div>
+<svg class="map-svg" viewBox="0 0 800 450" style="background:#0d1520">
+<rect width="800" height="450" fill="#0d1520"/>
+<g stroke="rgba(200,164,78,0.04)" stroke-width="0.5"><line x1="0" y1="90" x2="800" y2="90"/><line x1="0" y1="180" x2="800" y2="180"/><line x1="0" y1="270" x2="800" y2="270"/><line x1="0" y1="360" x2="800" y2="360"/><line x1="160" y1="0" x2="160" y2="450"/><line x1="320" y1="0" x2="320" y2="450"/><line x1="480" y1="0" x2="480" y2="450"/><line x1="640" y1="0" x2="640" y2="450"/></g>
+<!-- China -->
+<path d="M0,30 L140,30 L160,60 L175,100 L160,160 L170,210 L155,250 L165,300 L145,360 L130,410 L100,450 L0,450Z" fill="#1a2535" stroke="rgba(220,68,68,0.25)" stroke-width="1.5"/>
+<text x="70" y="220" fill="rgba(220,68,68,0.6)" font-family="DM Sans" font-size="13" font-weight="700" text-anchor="middle">CHINA</text>
+<!-- Taiwan -->
+<path d="M290,160 L305,150 L315,165 L320,195 L318,230 L310,255 L298,270 L288,265 L283,240 L281,205 L285,175Z" fill="#1e3a2e" stroke="rgba(34,197,94,0.5)" stroke-width="2"/>
+<text x="300" y="215" fill="rgba(34,197,94,0.85)" font-family="DM Sans" font-size="10" font-weight="700" text-anchor="middle">TAIWAN</text>
+<!-- Taiwan anti-ship range -->
+<circle cx="300" cy="215" r="80" fill="none" stroke="rgba(34,197,94,0.2)" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="300" y="310" fill="rgba(34,197,94,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Taiwan Anti-Ship Missile Range (~300-600km)</text>
+<!-- J-15 max range -->
+<circle cx="300" cy="215" r="200" fill="none" stroke="rgba(220,68,68,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="500" y="130" fill="rgba(220,68,68,0.3)" font-family="DM Sans" font-size="7">J-15 Max Combat Radius (1,270km)</text>
+<!-- Carrier operating zone -->
+<path d="M400,80 Q500,150 520,215 Q500,280 400,350" fill="none" stroke="rgba(220,68,68,0.4)" stroke-width="2" stroke-dasharray="8,4"/>
+<text x="470" y="210" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="8" text-anchor="middle" transform="rotate(90,470,210)">CARRIER OPS ZONE</text>
+<!-- Sanya base -->
+<circle cx="120" cy="390" r="5" fill="rgba(220,68,68,0.5)"/>
+<text x="120" y="410" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">Sanya Naval Base</text>
+<!-- Route -->
+<path d="M125,385 Q200,370 350,370 Q450,340 470,280" fill="none" stroke="rgba(220,68,68,0.2)" stroke-width="1.5" class="anim-dash" stroke-dasharray="6,4"/>
+<text x="300" y="385" fill="rgba(220,68,68,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">Transit route ~2,000km one way</text>
+<!-- Japan / Okinawa -->
+<ellipse cx="400" cy="95" rx="12" ry="5" fill="#1a2535" stroke="rgba(200,164,78,0.2)"/>
+<text x="400" y="85" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Okinawa</text>
+<!-- US range -->
+<circle cx="400" cy="95" r="150" fill="none" stroke="rgba(59,130,246,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="540" y="55" fill="rgba(59,130,246,0.3)" font-family="DM Sans" font-size="6">US Kadena AFB range (1,000km)</text>
+<!-- Legend -->
+<rect x="580" y="30" width="200" height="100" rx="5" fill="rgba(10,12,16,0.85)" stroke="rgba(200,164,78,0.1)"/>
+<text x="595" y="48" fill="var(--accent)" font-family="DM Sans" font-size="7" font-weight="700">CONSTRAINTS</text>
+<text x="595" y="62" fill="rgba(34,197,94,0.5)" font-family="DM Sans" font-size="6">● Taiwan missile exclusion zone</text>
+<text x="595" y="76" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="6">● PLA carrier ops zone (narrow)</text>
+<text x="595" y="90" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="6">● US/Japan monitoring range</text>
+<text x="595" y="104" fill="rgba(220,68,68,0.3)" font-family="DM Sans" font-size="6">- - Transit route (fully exposed)</text>
+</svg>
+</div>
+
+<h3>Ch.8: Container Ship Missile Platforms</h3>
+<p>The Soviet Union considered and abandoned this concept decades ago. Using civilian cargo ships as concealed missile platforms is tactically possible but <strong>strategically suicidal</strong>: it gives every nation legal justification to attack <em>all</em> Chinese civilian shipping. After 9/11, using civilian vessels as weapons is the ultimate international taboo.</p>
+
+<h3>Ch.9: Cruise Missiles & Long-Range Rockets</h3>
+<p>Cruise missiles<span class="ru">крылатые ракеты</span> rely on gyroscopes, GPS, and terrain matching. China's claims of matching U.S. Tomahawk accuracy are unverified propaganda. In dense urban environments with many obstacles, cruise missiles struggle to navigate to specific targets. Long-range unguided rockets (like Katyushas) are <strong>area-effect weapons</strong> — they cannot precisely hit anything at 100+ km.</p>
+
+<h3>Ch.10: Blockading Taiwan <span class="ru">Блокада Тайваня</span></h3>
+<p>The PLA absolutely <strong>cannot blockade open ocean</strong>. The volume of shipping through the Taiwan Strait (hundreds of vessels daily from Japan, Korea, etc.) makes interception physically impossible. Port blockade via mining would be an act of war and international terrorism. The Taiwan Strait is too wide, too busy, and too well-monitored.</p>
+</section>
+<div class="divider"></div>
+
+<!-- PART I SUMMARY -->
+<section class="section">
+<div class="ch-header">
+<div class="ch-num">Part I Conclusion</div>
+<div class="ch-title">Propaganda Creates Defeatism — That's the Real Weapon</div>
+</div>
+<div class="key-point">
+<p><strong>Every single myth exists because conventional invasion is extremely hard.</strong> If the PLA could truly crush Taiwan effortlessly, there would be no need for propaganda. The rumors aim to create <strong>defeatism</strong><span class="ru">пораженчество</span> — making Taiwanese believe resistance is futile so they surrender without fighting. Recognizing this is itself a form of defense.</p>
+</div>
+
+<div class="compare">
+<div class="compare-col" style="border-right:2px solid var(--red)">
+<h4 style="color:var(--red)">Myth Claims</h4>
+<ul>
+<li>Missiles destroy everything instantly</li>
+<li>Thousands of drones overwhelm defenses</li>
+<li>Paratroopers seize Taipei overnight</li>
+<li>Ten thousand ships = unstoppable flood</li>
+<li>Aircraft carriers control eastern Taiwan</li>
+<li>Blockade starves Taiwan into submission</li>
+</ul>
+</div>
+<div class="compare-col">
+<h4 style="color:var(--green)">Reality (per the math)</h4>
+<ul>
+<li>~6 missiles per target; CEP makes most miss</li>
+<li>Airspace limits + conversion costs = impractical</li>
+<li>No drop zones in Taipei; 200 soldiers ≠ conquest</li>
+<li>Physics of loading, sailing, landing = catastrophic losses</li>
+<li>56 planes, limited fuel, monitored routes</li>
+<li>Can't inspect hundreds of ships daily</li>
+</ul>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PART II -->
+<section class="part-header" id="part2">
+<div class="part-num">Part II — Часть II</div>
+<div class="part-title">China's Actual Invasion Tactics</div>
+<div class="part-desc">How a realistic PLA invasion would actually proceed — with all its logistical nightmares. <span class="ru">Реальная тактика вторжения КНР</span></div>
+</section>
+
+<section class="section" id="ch11">
+<div class="ch-header">
+<div class="ch-num">Chapters 11–16 — Главы 11–16</div>
+<div class="ch-title">The Four Phases of a Realistic Invasion Scenario</div>
+</div>
+
+<h3>Ch.11: Victory Conditions</h3>
+<p>The PLA must achieve total victory within <strong>~6 months to 1 year</strong>. Longer timelines invite international intervention. Victory means physically occupying and controlling Taiwan — not just bombing it. Three levels: (1) blockade forcing negotiation, (2) limited strikes + political pressure, (3) full amphibious invasion and occupation.</p>
+
+<h3>Ch.12: Pre-War Preparations <span class="ru">Предвоенная подготовка</span></h3>
+<p>China must guard against India, North Korea, Vietnam simultaneously — only ~half of PLA forces can deploy against Taiwan. Major force movements to coastal areas take <strong>10+ days</strong> and are impossible to hide from satellite surveillance. Taiwan's early warning gives time for full mobilization, dispersal of air assets, and naval deployment into the Pacific.</p>
+
+<!-- INVASION PHASES DIAGRAM -->
+<div class="map-container">
+<div class="map-label">Four Phases of PLA Invasion — Четыре фазы вторжения</div>
+<svg class="map-svg" viewBox="0 0 800 350" style="background:#0d1520">
+<rect width="800" height="350" fill="#0d1520"/>
+<!-- Phase zones -->
+<rect x="0" y="40" width="200" height="270" rx="5" fill="rgba(220,68,68,0.04)" stroke="rgba(220,68,68,0.1)"/>
+<rect x="210" y="40" width="190" height="270" rx="5" fill="rgba(245,158,11,0.04)" stroke="rgba(245,158,11,0.1)"/>
+<rect x="410" y="40" width="190" height="270" rx="5" fill="rgba(59,130,246,0.04)" stroke="rgba(59,130,246,0.1)"/>
+<rect x="610" y="40" width="180" height="270" rx="5" fill="rgba(34,197,94,0.04)" stroke="rgba(34,197,94,0.1)"/>
+<!-- Phase labels -->
+<text x="100" y="30" fill="rgba(220,68,68,0.8)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="700">PHASE 1: MISSILE BARRAGE</text>
+<text x="305" y="30" fill="rgba(245,158,11,0.8)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="700">PHASE 2: AIR/SEA BATTLE</text>
+<text x="505" y="30" fill="rgba(59,130,246,0.8)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="700">PHASE 3: AMPHIBIOUS ASSAULT</text>
+<text x="700" y="30" fill="rgba(34,197,94,0.8)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="700">PHASE 4: URBAN WARFARE</text>
+<!-- Phase 1 content -->
+<text x="100" y="70" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">Hours 0-6</text>
+<text x="100" y="90" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">400-500 missiles launched</text>
+<text x="100" y="105" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">Priority: Radar stations</text>
+<text x="100" y="120" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">Then: Air bases, ports</text>
+<text x="100" y="140" fill="rgba(220,68,68,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Result: Partial damage</text>
+<text x="100" y="155" fill="rgba(220,68,68,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">NOT total destruction</text>
+<text x="100" y="175" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">Taiwan disperses forces</text>
+<text x="100" y="190" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">Navy exits to Pacific</text>
+<text x="100" y="205" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">Mobile AA mostly intact</text>
+<!-- Phase 2 -->
+<text x="305" y="70" fill="rgba(245,158,11,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">Weeks 1-4+</text>
+<text x="305" y="90" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">PLA air force enters</text>
+<text x="305" y="105" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">Faces: ground-based SAMs</text>
+<text x="305" y="120" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">+ Taiwan fighters at altitude</text>
+<text x="305" y="135" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">+ Navy AA from Pacific</text>
+<text x="305" y="155" fill="rgba(245,158,11,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Central Mountain Range</text>
+<text x="305" y="170" fill="rgba(245,158,11,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">blocks radar-guided missiles</text>
+<text x="305" y="190" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">144 sorties/day needed</text>
+<text x="305" y="205" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">just for air superiority</text>
+<!-- Phase 3 -->
+<text x="505" y="70" fill="rgba(59,130,246,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">After air superiority (if)</text>
+<text x="505" y="90" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">Only ~5 viable landing sites</text>
+<text x="505" y="105" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">Must capture major port</text>
+<text x="505" y="120" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">for heavy equipment</text>
+<text x="505" y="140" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">20% ship losses minimum</text>
+<text x="505" y="155" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">with air superiority</text>
+<text x="505" y="175" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">M1 Abrams vs landing tanks</text>
+<text x="505" y="190" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">= PLA light armor destroyed</text>
+<!-- Phase 4 -->
+<text x="700" y="70" fill="rgba(34,197,94,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">After landing (if)</text>
+<text x="700" y="90" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">Urban warfare in dense</text>
+<text x="700" y="105" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">RC buildings favors defense</text>
+<text x="700" y="125" fill="rgba(34,197,94,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Ammo resupply nightmare</text>
+<text x="700" y="140" fill="rgba(34,197,94,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Food, water, fuel all needed</text>
+<text x="700" y="160" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">Reserve brigades + reserves</text>
+<text x="700" y="175" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">already mobilized after</text>
+<text x="700" y="190" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">weeks of prior phases</text>
+<!-- Arrows -->
+<path d="M195,175 L215,175" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowG)"/>
+<path d="M395,175 L415,175" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowG)"/>
+<path d="M595,175 L615,175" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowG)"/>
+<defs><marker id="arrowG" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="var(--accent)"/></marker></defs>
+<!-- Bottom summary -->
+<rect x="50" y="225" width="700" height="75" rx="5" fill="rgba(10,12,16,0.7)" stroke="rgba(200,164,78,0.1)"/>
+<text x="400" y="248" fill="var(--accent)" font-family="DM Sans" font-size="9" text-anchor="middle" font-weight="700">KEY INSIGHT FROM ALL WARGAMES:</text>
+<text x="400" y="265" fill="var(--text)" font-family="Source Serif 4" font-size="9" text-anchor="middle">"No wargame has achieved PLA conquest of Taiwan within one year without dramatically inflating PLA parameters."</text>
+<text x="400" y="282" fill="var(--text2)" font-family="Source Serif 4" font-size="8" text-anchor="middle">If landing ships lose 50% or attack aircraft lose 30%, the invasion becomes unviable. Taiwan only needs to survive, not win.</text>
+</svg>
+</div>
+
+<h3>Ch.15: Only ~5 Viable Landing Points</h3>
+<p>Taiwan's west coast has been increasingly fortified with <strong>concrete tetrapods (消波塊)</strong>, shallow mudflats, and urban development. Viable major-port targets are limited to: Keelung/Taipei Port (north), Taichung Port (central), and Kaohsiung/Anping (south). Each is surrounded by hills or urban terrain favorable to defenders.</p>
+
+<h3>Ch.16: The Occupation Nightmare</h3>
+<p>Even if PLA forces land, they face: <strong>ammunition incompatibility</strong> (different calibers from ROC forces), need for fresh water trucked from ports, urban warfare where every RC building becomes a fortress, and a fully mobilized reserve force. History shows no wargame achieves PLA victory within one year under realistic parameters.</p>
+</section>
+<div class="divider"></div>
+
+<!-- PART III -->
+<section class="part-header" id="part3">
+<div class="part-num">Part III — Часть III</div>
+<div class="part-title">The Ongoing War</div>
+<div class="part-desc">Information warfare, civilian life during conflict, and alternative Chinese strategies. <span class="ru">Информационная война и жизнь гражданских</span></div>
+</section>
+
+<section class="section" id="ch17">
+<div class="ch-header">
+<div class="ch-num">Chapters 17–20 — Главы 17–20</div>
+<div class="ch-title">Information War, Civilian Reality & Alternative Strategies</div>
+</div>
+
+<h3>Ch.17: Information Warfare <span class="ru">Информационная война</span></h3>
+<p>China's political warfare system against Taiwan operates through <strong>six major channels</strong>: the United Front Work Department, military intelligence, the Ministry of State Security, CCP propaganda department, commercial/military investment channels, and covert online operations. After whistleblower Wang Liqiang defected to Australia, many of these networks were exposed. The goal: manipulate Taiwan's media ecosystem, amplify social divisions, and create defeatism.</p>
+
+<h3>Ch.18: War ≠ Instant Rubble</h3>
+<p>Most Taiwanese imagine war as instant apocalypse. The authors explain: ballistic missiles target <strong>military facilities, not residential areas</strong> (civilian casualties create international PR disasters for China). Most citizens would experience air raid sirens, traffic controls for military movements, intermittent power outages, and rationing — not Hollywood-style devastation. Communities far from landing zones would experience war more like wartime Britain than Stalingrad.</p>
+
+<h3>Ch.19: Alternative Military Options</h3>
+<p>Seizing offshore islands (Kinmen, Matsu) is possible but strategically counterproductive — it would unite Taiwan politically and guarantee international intervention without achieving unification. Such "limited wars" only work if Taiwan's president is already pro-China and uses the attack as pretext for concessions.</p>
+
+<h3>Ch.20: Economic Warfare & Blockade <span class="ru">Экономическая война</span></h3>
+<p>A naval blockade faces the same impossibility problems discussed in Ch.10. Economic warfare (supply chain manipulation, trade pressure) is ongoing but works slowly and can be countered. The authors note that replacing Taiwan in global supply chains would take China's competitors (South Korea, etc.) time but is not impossible — meaning economic coercion has limits.</p>
+</section>
+<div class="divider"></div>
+
+<!-- PART IV -->
+<section class="part-header" id="part4">
+<div class="part-num">Part IV — Часть IV</div>
+<div class="part-title">Regional Strategic Visions</div>
+<div class="part-desc">How each major power views the Taiwan question — from their own national interest. <span class="ru">Стратегии ключевых стран региона</span></div>
+</section>
+
+<section class="section" id="ch21">
+<div class="ch-header">
+<div class="ch-num">Chapters 21–25 — Главы 21–25</div>
+<div class="ch-title">The Strategic Calculus of Major Powers</div>
+</div>
+
+<h3>Ch.21: United States <span class="ru">Стратегия США</span></h3>
+<p>Taiwan's value to the U.S. is <strong>not merely ideological</strong> (democracy) but deeply strategic: Taiwan sits at the center of the First Island Chain<span class="ru">первая цепь островов</span>, controls South China Sea access, and houses TSMC. The U.S. maintains an <strong>offensive maritime strategy</strong> — it projects power across oceans. Taiwan falling to China would shatter this entire framework.</p>
+<p>The authors caution: Taiwan must not behave like a victim expecting rescue. A nation that "constantly complains that the whole world owes it" will not inspire allied support.</p>
+
+<h3>Ch.22: Japan <span class="ru">Стратегия Японии</span></h3>
+<p>Japan's security is directly linked to Taiwan through geography — the Miyako Strait and Bashi Channel are Japan's southern maritime lifelines. A Chinese-controlled Taiwan would put PLA forces within direct striking range of Japan's southernmost islands. Japan's increasing defense spending and "Taiwan contingency" planning reflect this existential concern.</p>
+
+<h3>Ch.23-25: South China Sea Nations, India & Australia</h3>
+<p>Southeast Asian nations maintain hedging strategies — strengthen defense when China is aggressive, accommodate when China is conciliatory. India views China through the lens of border conflicts and the "String of Pearls" maritime encirclement via Myanmar. Australia, as a maritime nation dependent on U.S.-guaranteed sea lanes, sees Chinese expansion as a direct threat to its security architecture.</p>
+</section>
+<div class="divider"></div>
+
+<section class="section" id="ch26">
+<div class="ch-header">
+<div class="ch-num">Chapters 26–27 — Главы 26–27</div>
+<div class="ch-title">China's Real Strategy & Taiwan's Response</div>
+</div>
+
+<h3>Ch.26: China's Fundamentally Defensive Strategy <span class="ru">Оборонительная стратегия Китая</span></h3>
+<div class="key-point">
+<p>The authors make a provocative argument: <strong>China's military strategy is fundamentally defensive</strong>, not offensive. The CCP's primary fear is regime collapse (like Romania's Ceaușescu), not conquest. All ICBMs target U.S. and Russian cities — never military bases — because the goal is MAD deterrence, not warfighting. Nuclear submarines exist to ensure second-strike capability. The real military purpose is <strong>regime survival</strong>, not global domination.</p>
+</div>
+<p>Taiwan's greatest threat is not military invasion but <strong>internal subversion</strong> — using bought-off elites and propaganda to achieve "reunification" without firing a shot. "Buying Taiwan is always cheaper than conquering it."</p>
+
+<h3>Ch.27: Taiwan's Strategic Response <span class="ru">Стратегия Тайваня</span></h3>
+<p>Recent U.S. arms sales transform Taiwan's strategic posture: M1 Abrams tanks make light landing armor obsolete; HIMARS rocket artillery and SLAM-ER standoff missiles can strike PLA staging areas <strong>across the strait</strong>; Stinger MANPADs and mobile SAMs survive missile barrages that destroy fixed installations.</p>
+
+<div class="concept-box">
+<p><strong>The book's conclusion:</strong> Taiwan's defense is viable. No realistic wargame shows PLA victory within one year without fantasy parameters. Taiwan must build genuine defense awareness, invest in asymmetric capabilities, and — most critically — <strong>refuse to be defeated psychologically by propaganda before any shot is fired</strong>.</p>
+</div>
+</section>
+<div class="divider"></div>
+
+<!-- STRATEGIC SIMULATION GAME -->
+<section class="section">
+<div class="game-container" id="stratGame">
+<div class="game-title">🎮 Strategic Decision Game: PLA vs. Taiwan Command</div>
+<div class="game-desc">Play as the PLA General Staff. Select your invasion strategy. The system calculates realistic outcomes based on the book's analysis.</div>
+<div class="game-grid">
+<div class="game-panel">
+<h4 style="color:var(--red)">🎯 Strategy — Стратегия</h4>
+<button class="game-btn" onclick="selectOption('strat','missile',this)" data-group="strat">Missile-first: Max barrage then air assault</button>
+<button class="game-btn" onclick="selectOption('strat','surprise',this)" data-group="strat">Surprise: Minimal prep, speed over force</button>
+<button class="game-btn" onclick="selectOption('strat','blockade',this)" data-group="strat">Blockade: Starve Taiwan into negotiation</button>
+<button class="game-btn" onclick="selectOption('strat','hybrid',this)" data-group="strat">Hybrid: Cyber + limited strikes + politics</button>
+</div>
+<div class="game-panel">
+<h4 style="color:var(--blue)">🌐 International Context</h4>
+<button class="game-btn" onclick="selectOption('intl','alone',this)" data-group="intl">Taiwan fights alone (no U.S./Japan)</button>
+<button class="game-btn" onclick="selectOption('intl','intel',this)" data-group="intl">U.S./Japan provide intelligence only</button>
+<button class="game-btn" onclick="selectOption('intl','partial',this)" data-group="intl">U.S. deploys naval forces nearby</button>
+<button class="game-btn" onclick="selectOption('intl','full',this)" data-group="intl">Full U.S./Japan military intervention</button>
+</div>
+</div>
+<button class="game-execute" onclick="runStratSimulation()">EXECUTE STRATEGY</button>
+<div class="game-result" id="stratResult"></div>
+</div>
+</section>
+
+<!-- GLOSSARY -->
+<section class="section" id="glossary">
+<div class="ch-header">
+<div class="ch-num">Reference</div>
+<div class="ch-title">Key Military Terms — Военный глоссарий</div>
+</div>
+<table class="glossary-table">
+<tr><th>English</th><th>Chinese</th><th>Russian</th></tr>
+<tr><td>Ballistic Missile</td><td>彈道飛彈</td><td>Баллистическая ракета</td></tr>
+<tr><td>Cruise Missile</td><td>巡弋飛彈</td><td>Крылатая ракета</td></tr>
+<tr><td>CEP (Circular Error Probable)</td><td>圓周誤差精度</td><td>Круговое вероятное отклонение (КВО)</td></tr>
+<tr><td>Anti-ship missile</td><td>反艦飛彈</td><td>Противокорабельная ракета</td></tr>
+<tr><td>Air superiority</td><td>制空權</td><td>Господство в воздухе</td></tr>
+<tr><td>Sea control</td><td>制海權</td><td>Господство на море</td></tr>
+<tr><td>Amphibious assault</td><td>兩棲登陸</td><td>Морской десант</td></tr>
+<tr><td>Beachhead</td><td>灘頭堡</td><td>Плацдарм</td></tr>
+<tr><td>Decapitation strike</td><td>斬首攻擊</td><td>Обезглавливающий удар</td></tr>
+<tr><td>Aircraft carrier</td><td>航空母艦</td><td>Авианосец</td></tr>
+<tr><td>First Island Chain</td><td>第一島鏈</td><td>Первая цепь островов</td></tr>
+<tr><td>Information warfare</td><td>資訊戰</td><td>Информационная война</td></tr>
+<tr><td>Asymmetric warfare</td><td>不對稱作戰</td><td>Асимметричная война</td></tr>
+<tr><td>Defeatism</td><td>失敗主義</td><td>Пораженчество</td></tr>
+<tr><td>Deterrence</td><td>嚇阻</td><td>Сдерживание</td></tr>
+<tr><td>MANPADS (Stinger)</td><td>刺針飛彈</td><td>ПЗРК (Стингер)</td></tr>
+<tr><td>Anti-Access/Area Denial (A2/AD)</td><td>反介入/區域拒止</td><td>Ограничение доступа / воспрещение зоны</td></tr>
+<tr><td>Reserve forces</td><td>後備部隊</td><td>Резервные войска</td></tr>
+<tr><td>Wargame</td><td>兵推</td><td>Военная игра / Штабные учения</td></tr>
+<tr><td>Combat airspace</td><td>作戰空域</td><td>Зона боевых действий</td></tr>
+<tr><td>Landing craft</td><td>登陸艇</td><td>Десантный катер</td></tr>
+<tr><td>Logistics/resupply</td><td>後勤補給</td><td>Материально-техническое обеспечение</td></tr>
+<tr><td>United Front Work Dept.</td><td>統戰部</td><td>Отдел единого фронта</td></tr>
+<tr><td>Cognitive warfare</td><td>認知戰</td><td>Когнитивная война</td></tr>
+</table>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide comprehensively summarizes <strong>《阿共打來怎麼辦》(What To Do If China Attacks)</strong> by Wang Li (王立) & Shen Po-yang (沈伯洋).</p>
+<p style="margin-top:.5rem">Published by Locus Publishing (大塊文化), 2022. Translated and adapted for academic discussion.</p>
+<p style="margin-top:1rem;font-size:.72rem;color:rgba(200,164,78,.4)">Interactive presentation with Russian glossary — created for academic seminar use</p>
+</footer>
+
+<script>
+// Nav
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('visible',window.scrollY>500)});
+
+// Fade-in
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.key-point,.warning-box,.concept-box,.myth-box,.compare,.weapons,.phases,.map-container,.timeline,.game-container,.calc-container,h3,.glossary-table').forEach(el=>{el.classList.add('fade-in');obs.observe(el)});
+
+// Missile calculator
+function updateCalc(){
+  const cep=+document.getElementById('cepSlider').value;
+  const rw=+document.getElementById('rwSlider').value;
+  const prob=+document.getElementById('probSlider').value/100;
+  document.getElementById('cepVal').textContent=cep+'m';
+  document.getElementById('rwVal').textContent=rw+'m';
+  document.getElementById('probVal').textContent=Math.round(prob*100)+'%';
+  const r=rw/2;
+  const pHit=1-Math.pow(2,-((r*r)/(cep*cep)));
+  const pSingle=Math.max(0.01,Math.min(0.99,pHit));
+  const nNeeded=Math.ceil(Math.log(1-prob)/Math.log(1-pSingle));
+  const totalTargets=67;
+  const totalNeeded=nNeeded*totalTargets;
+  const firstSalvo=450;
+  const res=document.getElementById('calcResult');
+  res.innerHTML=`
+    <strong>Single-missile hit probability:</strong> ${(pSingle*100).toFixed(1)}%<br>
+    <strong>Missiles needed per target (${Math.round(prob*100)}% confidence):</strong> ${nNeeded}<br>
+    <strong>Total missiles for all ${totalTargets} targets:</strong> ${totalNeeded.toLocaleString()}<br>
+    <strong>PLA first-salvo capacity:</strong> ~${firstSalvo}<br>
+    <div class="calc-bar"><div class="calc-bar-fill" style="width:${Math.min(100,firstSalvo/totalNeeded*100)}%;background:${firstSalvo>=totalNeeded?'var(--green)':'var(--red)'}"></div></div>
+    <strong style="color:${firstSalvo>=totalNeeded?'var(--green)':'var(--red)'}">${firstSalvo>=totalNeeded?'✓ Sufficient (unlikely scenario)':'✗ INSUFFICIENT — PLA cannot neutralize all targets. Deficit: '+(totalNeeded-firstSalvo).toLocaleString()+' missiles'}</strong>
+    <br><span style="font-size:.8rem;color:var(--text2)">Note: This doesn't account for mobile assets, Patriot interceptions, runway repair capability, or highway strip dispersal.</span>
+  `;
+}
+updateCalc();
+
+// Game selections
+let gameState={};
+function selectOption(category,value,btn){
+  gameState[category]=value;
+  document.querySelectorAll(`[data-group="${category}"]`).forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+// Landing simulation
+function runLandingSimulation(){
+  const s=gameState;
+  if(!s.ships||!s.target||!s.weather||!s.surprise){alert('Please select all 4 options');return}
+  let troops=0,shipLoss=0,beachLoss=0,verdict='',details='';
+  // Ships
+  if(s.ships==='small'){troops=50000;shipLoss=0.4}
+  else if(s.ships==='medium'){troops=50000;shipLoss=0.35}
+  else{troops=60000;shipLoss=0.25}
+  // Weather
+  if(s.weather==='calm')shipLoss*=0.8;
+  else if(s.weather==='rough'){shipLoss*=1.5;troops*=0.6}
+  // Surprise
+  if(s.surprise==='full')beachLoss=0.5;
+  else if(s.surprise==='partial')beachLoss=0.7;
+  else beachLoss=0.85;
+  // Target
+  if(s.target==='port')beachLoss*=0.9;
+  else if(s.target==='multi')beachLoss*=0.75;
+  const surviving=Math.round(troops*(1-shipLoss)*(1-beachLoss));
+  const landed=Math.round(troops*(1-shipLoss));
+  const isSuccess=surviving>30000;
+  if(surviving<5000){verdict='CATASTROPHIC FAILURE';details=`Only ${surviving.toLocaleString()} troops survive to fight. Beaches are choked with wreckage. No heavy equipment landed. Taiwan reserves arriving. The invasion force is annihilated within 48 hours.`}
+  else if(surviving<15000){verdict='TACTICAL FAILURE';details=`${surviving.toLocaleString()} survive initial landing. Without heavy armor or resupply, they cannot break out of beachhead. Taiwan\'s M1 Abrams counterattack destroys light vehicles. PLA troops run out of ammunition within 72 hours.`}
+  else if(surviving<30000){verdict='PYRRHIC STALEMATE';details=`${surviving.toLocaleString()} troops establish a narrow beachhead but cannot advance. Port not captured = no heavy equipment. Taiwan mobilizes reserves (200,000+). The landing force is contained and ground down over weeks. International intervention increasingly likely.`}
+  else{verdict='PARTIAL INITIAL SUCCESS';details=`${surviving.toLocaleString()} troops land. BUT: this requires perfect conditions that the book demonstrates are nearly impossible. Even here, without capturing a major port for resupply, the force faces ammunition exhaustion within 1-2 weeks. Urban warfare against prepared defenders with M1 tanks remains an unsolvable problem.`}
+  const el=document.getElementById('landingResult');
+  el.className=`game-result show ${isSuccess?'':'fail'}`;
+  el.innerHTML=`<strong style="color:${isSuccess?'var(--orange)':'var(--red)'}">${verdict}</strong><br><br>
+  <strong>First wave troops:</strong> ${troops.toLocaleString()}<br>
+  <strong>Lost at sea:</strong> ${Math.round(shipLoss*100)}% → ${Math.round(troops*shipLoss).toLocaleString()} drowned/killed<br>
+  <strong>Landed on beach:</strong> ${landed.toLocaleString()}<br>
+  <strong>Killed on beach:</strong> ${Math.round(beachLoss*100)}% → ${Math.round(landed*beachLoss).toLocaleString()}<br>
+  <strong>Combat-effective survivors:</strong> ${surviving.toLocaleString()}<br><br>
+  ${details}<br><br>
+  <span style="font-size:.8rem;color:var(--text2)"><em>As the book states: "No wargame achieves PLA conquest of Taiwan within one year without dramatically inflating PLA parameters."</em></span>`;
+}
+
+// Strategy simulation
+function runStratSimulation(){
+  const s=gameState;
+  if(!s.strat||!s.intl){alert('Please select both options');return}
+  let result='',color='';
+  const outcomes={
+    'missile_alone':'After exhausting missile stockpiles (1-2 weeks of strikes), Taiwan\'s mobile defenses remain ~80% intact. Air superiority battle begins — estimated 1-3 months minimum for partial control. Amphibious assault attempted in month 3-4. Landing force faces 5+ viable beaches all fortified. Result: STALEMATE after ~6 months. PLA domestic pressure mounts. No realistic path to conquest within 1 year.',
+    'missile_intel':'Same as above, but Taiwan receives real-time satellite intelligence on PLA movements. Early warning improves to near-perfect. Dispersal effectiveness +30%. Mobile SAM survival +25%. Result: PLA air campaign extended by additional months. Invasion timeline pushed beyond acceptable political window.',
+    'missile_partial':'U.S. carrier group in Western Pacific creates second front PLA must address. PLA forced to divert ~30% of air assets to anti-carrier operations. Air superiority timeline doubles. Taiwan navy operates under U.S. defensive umbrella. Result: INVASION UNVIABLE.',
+    'missile_full':'U.S./Japan air and naval forces establish air superiority over Taiwan Strait within 72 hours. PLA amphibious fleet becomes target practice. Result: PLA DECISIVE DEFEAT within weeks.',
+    'surprise_alone':'Surprise impossible with modern satellites — Taiwan gets 48-72hr warning minimum. Pre-positioned forces engage landing craft. Without prior air superiority, landing ships suffer 60%+ losses. Result: CATASTROPHIC PLA FAILURE.',
+    'surprise_intel':'U.S. intelligence detects buildup days in advance. Taiwan fully mobilized. Result: Surprise negated entirely.',
+    'surprise_partial':'Same + U.S. forces on alert. Result: INVASION IMPOSSIBLE.',
+    'surprise_full':'Same + active military intervention. Result: DECISIVE PLA DEFEAT.',
+    'blockade_alone':'Taiwan has 3-6 month strategic reserves. Blockade requires more ships than PLA has (hundreds of daily transits). International shipping disrupted → global economic pressure on China. After 6 months, China faces more pressure than Taiwan. Result: POLITICAL FAILURE for China.',
+    'blockade_intel':'U.S. intelligence helps neutral shipping evade. Result: Blockade effectiveness halved.',
+    'blockade_partial':'U.S. Navy escorts neutral shipping through Taiwan Strait. Result: BLOCKADE BROKEN.',
+    'blockade_full':'U.S. establishes counter-blockade of Chinese ports. Result: CHINA\'S ECONOMY COLLAPSES FIRST.',
+    'hybrid_alone':'Most effective strategy per the book. Cyber attacks + limited strikes + political subversion + economic pressure. Works slowly over years. Taiwan\'s best defense: media literacy, counter-intelligence, transparent democracy. Result: DEPENDS ON TAIWAN\'S INTERNAL RESILIENCE.',
+    'hybrid_intel':'U.S. shares counter-intelligence. Influence operations exposed. Result: Hybrid strategy significantly degraded.',
+    'hybrid_partial':'International attention raises political cost of each action. Result: China limited to sub-threshold operations.',
+    'hybrid_full':'Full Western counter-pressure. Result: HYBRID STRATEGY NEUTRALIZED.'
+  };
+  const key=s.strat+'_'+s.intl;
+  const text=outcomes[key]||'Scenario not modeled.';
+  const isBad=text.includes('DEFEAT')||text.includes('FAILURE')||text.includes('IMPOSSIBLE')||text.includes('BROKEN')||text.includes('COLLAPSES')||text.includes('NEUTRALIZED');
+  const isOk=text.includes('STALEMATE')||text.includes('DEPENDS');
+  color=isBad?'var(--green)':isOk?'var(--orange)':'var(--red)';
+  const el=document.getElementById('stratResult');
+  el.className=`game-result show ${isBad?'success':isOk?'':'fail'}`;
+  el.innerHTML=`<strong style="color:${color}">ANALYSIS: ${s.strat.toUpperCase()} strategy + ${s.intl.toUpperCase()} international context</strong><br><br>${text}<br><br><span style="font-size:.8rem;color:var(--text2)">Based on analysis framework from "What To Do If China Attacks" (2022). The book's core conclusion: buying Taiwan through subversion is always cheaper than conquering it. That — not missiles — is the real threat.</span>`;
+}
+</script>
+</body>
+</html>

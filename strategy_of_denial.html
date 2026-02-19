@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Strategy of Denial — Interactive Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #0a0e17;
+  --bg-card: #111827;
+  --bg-hover: #1a2332;
+  --accent-gold: #c9a84c;
+  --accent-red: #dc4a4a;
+  --accent-blue: #3b82f6;
+  --accent-cyan: #22d3ee;
+  --accent-green: #10b981;
+  --text-primary: #e8e6e1;
+  --text-secondary: #9ca3af;
+  --text-dim: #6b7280;
+  --russian: #e8a87c;
+  --border: #1e293b;
+  --glow: rgba(201, 168, 76, 0.15);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.75;
+  font-size: 17px;
+}
+.rus { color: var(--russian); font-style: italic; font-size: 0.88em; }
+
+/* NAV */
+nav {
+  position: fixed; top:0; left:0; width:100%; z-index:1000;
+  background: rgba(10,14,23,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+}
+nav .nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; gap: 1.5rem;
+  height: 56px; overflow-x: auto;
+}
+nav a {
+  color: var(--text-secondary); text-decoration: none;
+  font-size: 0.82rem; white-space: nowrap;
+  font-weight: 600; letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+nav a:hover, nav a.active { color: var(--accent-gold); }
+nav .nav-brand {
+  color: var(--accent-gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700;
+  margin-right: 1rem;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.08), transparent),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(59,130,246,0.06), transparent),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(220,74,74,0.05), transparent);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 900;
+  color: var(--accent-gold);
+  line-height: 1.1;
+  position: relative;
+  letter-spacing: -0.02em;
+}
+.hero h1 span { display: block; color: var(--text-primary); font-size: 0.45em; font-weight: 400; margin-top: 0.5em; letter-spacing: 0.08em; text-transform: uppercase; }
+.hero .author {
+  margin-top: 1.5rem; font-size: 1.15rem;
+  color: var(--text-secondary); position: relative;
+}
+.hero .subtitle {
+  max-width: 700px; margin: 2rem auto 0;
+  font-size: 1.1rem; color: var(--text-dim);
+  position: relative;
+}
+.hero .scroll-hint {
+  position: relative;
+  margin-top: 3rem;
+  animation: bounce 2s infinite;
+  color: var(--accent-gold);
+  font-size: 1.5rem;
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* SECTIONS */
+.chapter-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 5rem 2rem 3rem;
+  border-top: 1px solid var(--border);
+}
+.chapter-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; font-weight: 700;
+  color: var(--accent-gold);
+  margin-bottom: 0.3rem;
+}
+.chapter-section .ch-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; color: var(--accent-blue);
+  letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.chapter-section p { margin: 1rem 0; color: var(--text-primary); }
+.chapter-section .key-insight {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent-gold);
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.97rem;
+}
+.chapter-section .key-insight strong { color: var(--accent-gold); }
+
+/* INTERACTIVE MAP */
+.map-container {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.map-container h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--accent-cyan);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.map-container svg { width: 100%; height: auto; }
+.map-legend {
+  display: flex; flex-wrap: wrap; gap: 0.8rem;
+  margin-top: 1rem; font-size: 0.8rem;
+}
+.map-legend span {
+  display: flex; align-items: center; gap: 0.3rem;
+  color: var(--text-secondary);
+}
+.map-legend .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  display: inline-block;
+}
+
+/* ANIMATIONS */
+.anim-container {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+}
+.anim-container h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--accent-cyan); font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* GAME CONTAINER */
+.game-container {
+  background: linear-gradient(135deg, #111827 0%, #0f172a 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2.5rem 0;
+  border: 1px solid var(--accent-gold);
+  box-shadow: 0 0 30px rgba(201,168,76,0.08);
+}
+.game-container h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--accent-gold); font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.game-container .game-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.game-btn {
+  background: var(--accent-gold);
+  color: var(--bg-deep);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Source Sans 3', sans-serif;
+}
+.game-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.3); }
+.game-btn.secondary {
+  background: transparent;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+}
+.game-btn.secondary:hover { background: rgba(201,168,76,0.1); }
+.game-btn.danger { background: var(--accent-red); }
+.game-btn.blue { background: var(--accent-blue); }
+.game-btn.green { background: var(--accent-green); }
+.game-option {
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 0.6rem 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.game-option:hover {
+  border-color: var(--accent-gold);
+  background: rgba(201,168,76,0.06);
+}
+.game-option.selected {
+  border-color: var(--accent-gold);
+  background: rgba(201,168,76,0.1);
+}
+.game-option h4 { color: var(--accent-gold); font-size: 0.95rem; }
+.game-option p { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+.game-result {
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.game-result.good { background: rgba(16,185,129,0.1); border: 1px solid var(--accent-green); color: #6ee7b7; }
+.game-result.bad { background: rgba(220,74,74,0.1); border: 1px solid var(--accent-red); color: #fca5a5; }
+.game-result.neutral { background: rgba(59,130,246,0.1); border: 1px solid var(--accent-blue); color: #93c5fd; }
+
+/* STATS BAR */
+.stats-bar {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  margin: 1rem 0;
+}
+.stat-item {
+  flex: 1; min-width: 120px;
+  background: var(--bg-hover);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  text-align: center;
+}
+.stat-item .stat-label { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+.stat-item .stat-value { font-size: 1.4rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+.stat-item .stat-value.gold { color: var(--accent-gold); }
+.stat-item .stat-value.red { color: var(--accent-red); }
+.stat-item .stat-value.blue { color: var(--accent-blue); }
+.stat-item .stat-value.green { color: var(--accent-green); }
+
+/* PROGRESS BAR */
+.progress-bar {
+  width: 100%; height: 8px;
+  background: var(--bg-hover);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+.progress-bar .fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+/* DIAGRAM */
+.diagram-flow {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.5rem; flex-wrap: wrap;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+}
+.diagram-flow .node {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-align: center;
+  min-width: 100px;
+}
+.diagram-flow .node.highlight { border-color: var(--accent-gold); color: var(--accent-gold); }
+.diagram-flow .arrow { color: var(--accent-gold); font-size: 1.2rem; }
+
+/* TABLE OF CHAPTERS */
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.toc-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+  display: block;
+}
+.toc-item:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(201,168,76,0.1);
+}
+.toc-item .toc-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; color: var(--accent-blue);
+  letter-spacing: 0.1em;
+}
+.toc-item .toc-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary); font-size: 1rem;
+  margin-top: 0.2rem;
+}
+.toc-item .toc-desc {
+  color: var(--text-dim); font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+/* SLIDER */
+.slider-wrap { position: relative; margin: 1rem 0; }
+.slider-wrap input[type=range] {
+  width: 100%; appearance: none; height: 6px;
+  background: var(--bg-hover); border-radius: 3px;
+  outline: none;
+}
+.slider-wrap input[type=range]::-webkit-slider-thumb {
+  appearance: none; width: 18px; height: 18px;
+  background: var(--accent-gold); border-radius: 50%;
+  cursor: pointer;
+}
+.slider-label {
+  display: flex; justify-content: space-between;
+  font-size: 0.75rem; color: var(--text-dim); margin-top: 0.3rem;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+/* FADE-IN */
+.fade-in {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* PULSE */
+@keyframes pulse-glow {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.pulse { animation: pulse-glow 2s infinite; }
+
+/* TOOLTIP */
+.tooltip-trigger { border-bottom: 1px dashed var(--accent-gold); cursor: help; }
+
+/* TABS */
+.tab-bar {
+  display: flex; gap: 0; border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.tab-bar button {
+  background: none; border: none; color: var(--text-dim);
+  padding: 0.6rem 1.2rem;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.tab-bar button.active { color: var(--accent-gold); border-bottom-color: var(--accent-gold); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+@media (max-width: 768px) {
+  .chapter-section { padding: 3rem 1rem 2rem; }
+  nav .nav-inner { gap: 0.8rem; }
+  nav a { font-size: 0.72rem; }
+  .stats-bar { gap: 0.5rem; }
+  .stat-item { min-width: 80px; padding: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">Strategy of Denial</span>
+    <a href="#toc">Contents</a>
+    <a href="#ch1">Ch.1</a><a href="#ch2">Ch.2</a><a href="#ch3">Ch.3</a>
+    <a href="#ch4">Ch.4</a><a href="#ch5">Ch.5</a><a href="#ch6">Ch.6</a>
+    <a href="#ch7">Ch.7</a><a href="#ch8">Ch.8</a><a href="#ch9">Ch.9</a>
+    <a href="#ch10">Ch.10</a><a href="#ch11">Ch.11</a><a href="#ch12">Ch.12</a>
+    <a href="#game-crisis">🎮 Game</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <h1>The Strategy of Denial
+    <span>American Defense in an Age of Great Power Conflict</span>
+  </h1>
+  <p class="author">Elbridge A. Colby &middot; Yale University Press, 2021</p>
+  <p class="subtitle">A comprehensive interactive guide with maps, animations, strategy simulations, and key terms with Russian <span class="rus">(русский)</span> translations for your study group.</p>
+  <div class="scroll-hint">&#8595;</div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="chapter-section" id="toc">
+  <div class="ch-num">Overview</div>
+  <h2>Table of Contents <span class="rus">(Оглавление)</span></h2>
+  <p>Colby's book presents a deductive argument — each chapter builds logically on the last. The core thesis: the United States must adopt a <strong>denial defense</strong> <span class="rus">(оборона на основе сдерживания путём отрицания)</span> strategy focused primarily on preventing China from achieving regional hegemony <span class="rus">(региональная гегемония)</span> in Asia, especially through a fait accompli <span class="rus">(свершившийся факт)</span> seizure of Taiwan.</p>
+
+  <div class="toc-grid">
+    <a class="toc-item" href="#ch1"><div class="toc-num">CHAPTER 01</div><div class="toc-title">The Purposes of American Strategy</div><div class="toc-desc">Security, freedom, prosperity & the balance of power</div></a>
+    <a class="toc-item" href="#ch2"><div class="toc-num">CHAPTER 02</div><div class="toc-title">The Favorable Regional Balance of Power</div><div class="toc-desc">Anti-hegemonic coalitions & the cornerstone balancer</div></a>
+    <a class="toc-item" href="#ch3"><div class="toc-num">CHAPTER 03</div><div class="toc-title">Alliances and Their Effective, Credible Defense</div><div class="toc-desc">Differentiated credibility & entanglement risks</div></a>
+    <a class="toc-item" href="#ch4"><div class="toc-num">CHAPTER 04</div><div class="toc-title">Defining the Defense Perimeter</div><div class="toc-desc">Who to include, who to exclude</div></a>
+    <a class="toc-item" href="#ch5"><div class="toc-num">CHAPTER 05</div><div class="toc-title">Military Strategy in Limited Wars</div><div class="toc-desc">Nuclear shadow & the logic of limited conflict</div></a>
+    <a class="toc-item" href="#ch6"><div class="toc-num">CHAPTER 06</div><div class="toc-title">Focusing on an Opponent's Best Strategies</div><div class="toc-desc">Why plan for the worst-case rational strategy</div></a>
+    <a class="toc-item" href="#ch7"><div class="toc-num">CHAPTER 07</div><div class="toc-title">Beijing's Best Strategy</div><div class="toc-desc">The fait accompli against Taiwan</div></a>
+    <a class="toc-item" href="#ch8"><div class="toc-num">CHAPTER 08</div><div class="toc-title">A Denial Defense</div><div class="toc-desc">The optimal US military response</div></a>
+    <a class="toc-item" href="#ch9"><div class="toc-num">CHAPTER 09</div><div class="toc-title">Limited War After Effective Denial</div><div class="toc-desc">Escalation burden & coercion after defeating the invasion</div></a>
+    <a class="toc-item" href="#ch10"><div class="toc-num">CHAPTER 10</div><div class="toc-title">The Binding Strategy</div><div class="toc-desc">Catalyzing coalition resolve when denial is hard</div></a>
+    <a class="toc-item" href="#ch11"><div class="toc-num">CHAPTER 11</div><div class="toc-title">Implications</div><div class="toc-desc">Defense priorities, NATO, nuclear posture</div></a>
+    <a class="toc-item" href="#ch12"><div class="toc-num">CHAPTER 12</div><div class="toc-title">A Decent Peace</div><div class="toc-desc">The ultimate goal: stable détente with China</div></a>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 1 ===================== -->
+<section class="chapter-section fade-in" id="ch1">
+  <div class="ch-num">Chapter 01</div>
+  <h2>The Purposes of American Strategy <span class="rus">(Цели американской стратегии)</span></h2>
+
+  <p>Colby begins from first principles. A defense strategy <span class="rus">(оборонная стратегия)</span> is a way of employing military assets to serve broader political aims. What are America's fundamental national objectives <span class="rus">(фундаментальные национальные цели)</span>?</p>
+
+  <p>He identifies three: <strong>physical security</strong> <span class="rus">(физическая безопасность)</span> — territorial integrity and protection from foreign attack; <strong>freedom</strong> <span class="rus">(свобода)</span> — a self-governing democratic-republican order; and <strong>prosperity</strong> <span class="rus">(процветание)</span> — economic flourishing. Security is the cornerstone: without it, freedom and prosperity become impossible.</p>
+
+  <div class="key-insight">
+    <strong>Core Argument:</strong> The international system remains <em>anarchic</em> <span class="rus">(анархический)</span> — there is no global sovereign. In this environment, the <strong>balance of power</strong> <span class="rus">(баланс сил)</span> is the most reliable safeguard of a nation's interests. The greatest threat to this balance is <strong>regional hegemony</strong> <span class="rus">(региональная гегемония)</span> by a single state over a key region of the world.
+  </div>
+
+  <p>Why does regional hegemony <span class="rus">(региональная гегемония)</span> matter? A state that dominates a key region — one with enormous economic, technological, and military resources — could marshal those resources to threaten American security, freedom, and prosperity directly. It could coerce neighbors, set terms of trade, and ultimately project power globally.</p>
+
+  <p>Colby identifies <strong>Asia</strong> <span class="rus">(Азия)</span> as the most critical region. It accounts for roughly 40% of global GDP <span class="rus">(мировой ВВП)</span> and includes many of the world's most technologically advanced economies (Japan, South Korea, Taiwan, Australia). If any single state — namely <strong>China</strong> <span class="rus">(Китай)</span> — were to dominate Asia, it would command resources exceeding even those of the United States.</p>
+
+  <p><strong>China</strong> is identified as a <em>focused and aspiring regional hegemon</em> <span class="rus">(целеустремлённый претендент на региональную гегемонию)</span>. Beijing's behavior — military buildup, economic coercion, territorial claims in the South China Sea <span class="rus">(Южно-Китайское море)</span>, pressure on Taiwan <span class="rus">(Тайвань)</span> — fits the pattern of a great power seeking to dominate its neighborhood.</p>
+
+  <div class="key-insight">
+    <strong>Therefore:</strong> Denying China hegemony <span class="rus">(гегемония)</span> over Asia is the <em>cardinal objective</em> <span class="rus">(главная цель)</span> of US grand strategy <span class="rus">(большая стратегия)</span>.
+  </div>
+
+  <!-- ANIMATED DIAGRAM: Hierarchy of Interests -->
+  <div class="anim-container">
+    <h3>Hierarchy of American National Interests</h3>
+    <div class="diagram-flow">
+      <div class="node highlight">Security<br><span class="rus" style="font-size:0.8em">(Безопасность)</span></div>
+      <div class="arrow">→</div>
+      <div class="node highlight">Freedom<br><span class="rus" style="font-size:0.8em">(Свобода)</span></div>
+      <div class="arrow">→</div>
+      <div class="node highlight">Prosperity<br><span class="rus" style="font-size:0.8em">(Процветание)</span></div>
+    </div>
+    <div style="text-align:center; margin-top:1rem;">
+      <div class="diagram-flow" style="justify-content:center;">
+        <div class="arrow" style="transform:rotate(90deg); font-size:1.5rem;">↓</div>
+      </div>
+      <div class="diagram-flow">
+        <div class="node" style="border-color:var(--accent-red); color:var(--accent-red);">Requires: Favorable Balance of Power<br><span class="rus" style="font-size:0.8em">(Благоприятный баланс сил)</span></div>
+      </div>
+      <div class="diagram-flow" style="justify-content:center;">
+        <div class="arrow" style="transform:rotate(90deg); font-size:1.5rem;">↓</div>
+      </div>
+      <div class="diagram-flow">
+        <div class="node" style="border-color:var(--accent-cyan); color:var(--accent-cyan); font-weight:700;">Deny China Regional Hegemony in Asia<br><span class="rus" style="font-size:0.8em">(Не допустить китайскую гегемонию в Азии)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 2 ===================== -->
+<section class="chapter-section fade-in" id="ch2">
+  <div class="ch-num">Chapter 02</div>
+  <h2>The Favorable Regional Balance of Power <span class="rus">(Благоприятный региональный баланс сил)</span></h2>
+
+  <p>How do you prevent a would-be hegemon <span class="rus">(претендент на гегемонию)</span> from dominating a region? The answer is an <strong>anti-hegemonic coalition</strong> <span class="rus">(антигегемонистская коалиция)</span> — a grouping of states that collectively possess more power than the aspiring hegemon and its allies.</p>
+
+  <p>But forming such a coalition is harder than it sounds. Each member faces a <strong>collective action problem</strong> <span class="rus">(проблема коллективного действия)</span>: why bear the costs of resistance when others might do it for you? And the aspiring hegemon will try to exploit this through a <strong>focused and sequential strategy</strong> <span class="rus">(целенаправленная и последовательная стратегия)</span>: pick off coalition members one by one, isolating each before moving to the next.</p>
+
+  <div class="key-insight">
+    <strong>The Sequential Strategy Problem:</strong> China doesn't need to fight everyone at once. It can target one vulnerable member (say, Taiwan), calculating that others won't intervene because they aren't directly threatened — yet. Each successive conquest weakens the coalition until it collapses. This is how hegemony is built incrementally.
+  </div>
+
+  <p>The solution requires a <strong>cornerstone balancer</strong> <span class="rus">(ключевой балансир)</span> — a state powerful and committed enough to guarantee the coalition's cohesion. This is where the United States comes in. As an <em>external</em> cornerstone balancer <span class="rus">(внешний ключевой балансир)</span> — one located outside the contested region — America can provide security commitments without being immediately threatened itself, giving credibility to the coalition.</p>
+
+  <p>Colby argues the US must focus this role on <strong>Asia</strong>, because no other state can anchor an anti-hegemonic coalition there. In contrast, <strong>Europe</strong> <span class="rus">(Европа)</span> already possesses a well-established coalition (NATO <span class="rus">(НАТО)</span>) and faces a less powerful challenger (Russia <span class="rus">(Россия)</span>), making it better positioned to manage its own defense with more modest American support.</p>
+
+  <!-- MAP: Indo-Pacific Region -->
+  <div class="map-container">
+    <h3>Interactive Map: The Indo-Pacific Strategic Environment <span class="rus">(Индо-Тихоокеанская стратегическая обстановка)</span></h3>
+    <svg viewBox="0 0 900 550" style="background:#0d1117; border-radius:8px;">
+      <!-- Ocean -->
+      <rect x="0" y="0" width="900" height="550" fill="#0d1117"/>
+      <!-- Water bodies -->
+      <ellipse cx="600" cy="320" rx="280" ry="200" fill="#0f1a2e" opacity="0.5"/>
+
+      <!-- Landmasses (simplified) -->
+      <!-- China -->
+      <path d="M150,80 L320,60 L380,100 L400,180 L350,240 L280,280 L220,260 L160,200 L130,140 Z" fill="#1a2744" stroke="#2a3a5c" stroke-width="1"/>
+      <text x="260" y="170" fill="#e8e6e1" font-size="14" font-weight="700" text-anchor="middle">CHINA</text>
+      <text x="260" y="188" fill="#e8a87c" font-size="10" text-anchor="middle">(Китай)</text>
+
+      <!-- Japan -->
+      <path d="M500,100 L510,80 L520,90 L525,130 L530,170 L520,200 L510,190 L505,150 L495,120 Z" fill="#1a3a2a" stroke="#2a5c3a" stroke-width="1"/>
+      <text x="545" y="145" fill="#e8e6e1" font-size="11" font-weight="600">JAPAN</text>
+      <text x="545" y="160" fill="#e8a87c" font-size="9">(Япония)</text>
+
+      <!-- Korea -->
+      <path d="M420,100 L435,90 L445,110 L440,150 L430,160 L420,140 Z" fill="#1a3a2a" stroke="#2a5c3a" stroke-width="1"/>
+      <text x="460" y="120" fill="#e8e6e1" font-size="9" font-weight="600">KOREA</text>
+
+      <!-- Taiwan -->
+      <ellipse cx="410" cy="255" rx="12" ry="18" fill="#3b82f6" stroke="#60a5fa" stroke-width="2">
+        <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+      </ellipse>
+      <text x="430" y="258" fill="#60a5fa" font-size="11" font-weight="700">TAIWAN</text>
+      <text x="430" y="272" fill="#e8a87c" font-size="9">(Тайвань)</text>
+
+      <!-- Philippines -->
+      <path d="M430,310 L445,290 L455,310 L450,350 L440,370 L430,340 Z" fill="#1a3a2a" stroke="#2a5c3a" stroke-width="1"/>
+      <text x="465" y="335" fill="#e8e6e1" font-size="9" font-weight="600">PHILIPPINES</text>
+      <text x="465" y="348" fill="#e8a87c" font-size="8">(Филиппины)</text>
+
+      <!-- Vietnam -->
+      <path d="M310,260 L320,240 L330,270 L325,330 L315,350 L305,300 Z" fill="#1a3a2a" stroke="#2a5c3a" stroke-width="1"/>
+      <text x="280" y="310" fill="#e8e6e1" font-size="9">VIETNAM</text>
+
+      <!-- Australia -->
+      <path d="M480,430 L600,400 L700,420 L720,470 L680,510 L560,520 L490,490 Z" fill="#1a2744" stroke="#2a3a5c" stroke-width="1"/>
+      <text x="600" y="470" fill="#e8e6e1" font-size="13" font-weight="600" text-anchor="middle">AUSTRALIA</text>
+      <text x="600" y="488" fill="#e8a87c" font-size="10" text-anchor="middle">(Австралия)</text>
+
+      <!-- India -->
+      <path d="M80,180 L130,160 L160,200 L140,280 L110,320 L80,280 L60,230 Z" fill="#1a2744" stroke="#2a3a5c" stroke-width="1"/>
+      <text x="110" y="250" fill="#e8e6e1" font-size="11" font-weight="600" text-anchor="middle">INDIA</text>
+      <text x="110" y="265" fill="#e8a87c" font-size="9" text-anchor="middle">(Индия)</text>
+
+      <!-- First Island Chain -->
+      <path d="M480,60 Q510,100 525,170 Q535,240 450,300 Q440,340 430,380 Q440,420 470,430" fill="none" stroke="#c9a84c" stroke-width="2" stroke-dasharray="8,4" opacity="0.7"/>
+      <text x="555" y="60" fill="#c9a84c" font-size="10" font-weight="600">FIRST ISLAND CHAIN</text>
+      <text x="555" y="74" fill="#e8a87c" font-size="9">(Первая островная цепь)</text>
+
+      <!-- Second Island Chain -->
+      <path d="M620,40 Q680,120 700,250 Q710,350 680,430" fill="none" stroke="#22d3ee" stroke-width="2" stroke-dasharray="8,4" opacity="0.5"/>
+      <text x="710" y="80" fill="#22d3ee" font-size="10" font-weight="600">SECOND ISLAND CHAIN</text>
+      <text x="710" y="94" fill="#e8a87c" font-size="9">(Вторая островная цепь)</text>
+
+      <!-- Guam -->
+      <circle cx="680" cy="280" r="5" fill="#3b82f6" stroke="#60a5fa" stroke-width="1"/>
+      <text x="695" y="285" fill="#60a5fa" font-size="9">GUAM (Гуам)</text>
+
+      <!-- South China Sea label -->
+      <text x="370" y="320" fill="#4a5568" font-size="10" text-anchor="middle" font-style="italic">South China Sea</text>
+      <text x="370" y="334" fill="#e8a87c" font-size="9" text-anchor="middle">(Южно-Китайское море)</text>
+
+      <!-- US presence arrows -->
+      <line x1="800" y1="200" x2="700" y2="250" stroke="#3b82f6" stroke-width="2" opacity="0.5" marker-end="url(#arrowBlue)"/>
+      <text x="780" y="190" fill="#3b82f6" font-size="10" font-weight="600">US Forces</text>
+      <text x="780" y="204" fill="#e8a87c" font-size="9">(Силы США)</text>
+
+      <!-- China expansion arrows -->
+      <line x1="350" y1="240" x2="400" y2="255" stroke="#dc4a4a" stroke-width="2" opacity="0.6" marker-end="url(#arrowRed)">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+      </line>
+      <line x1="310" y1="270" x2="370" y2="310" stroke="#dc4a4a" stroke-width="1.5" opacity="0.4" marker-end="url(#arrowRed)"/>
+
+      <defs>
+        <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#dc4a4a"/></marker>
+        <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#3b82f6"/></marker>
+      </defs>
+    </svg>
+    <div class="map-legend">
+      <span><span class="dot" style="background:#3b82f6"></span> US allies / quasi-allies <span class="rus">(Союзники / квази-союзники США)</span></span>
+      <span><span class="dot" style="background:#dc4a4a"></span> Chinese expansion pressure <span class="rus">(Китайское давление)</span></span>
+      <span><span class="dot" style="background:#c9a84c"></span> First Island Chain <span class="rus">(Первая островная цепь)</span></span>
+      <span><span class="dot" style="background:#22d3ee"></span> Second Island Chain <span class="rus">(Вторая островная цепь)</span></span>
+    </div>
+  </div>
+
+  <p>The First Island Chain <span class="rus">(Первая островная цепь)</span> — running from Japan through Taiwan to the Philippines — forms a natural barrier to Chinese naval expansion. If China controlled these territories, it would have unrestricted access to the Pacific. Keeping the chain intact is essential to containing Chinese power projection <span class="rus">(проецирование силы)</span>.</p>
+</section>
+
+<!-- ===================== CHAPTER 3 ===================== -->
+<section class="chapter-section fade-in" id="ch3">
+  <div class="ch-num">Chapter 03</div>
+  <h2>Alliances and Their Effective, Credible Defense <span class="rus">(Альянсы и их эффективная, убедительная оборона)</span></h2>
+
+  <p>An anti-hegemonic coalition <span class="rus">(антигегемонистская коалиция)</span> can range from informal partnerships to formal alliances <span class="rus">(формальные альянсы)</span> — binding commitments to fight for another state. Colby argues alliances are necessary because they provide the <strong>reassurance</strong> <span class="rus">(гарантии безопасности)</span> that keeps states from bandwagoning <span class="rus">(примыкание к сильнейшему)</span> with China out of fear.</p>
+
+  <p>However, alliances present a fundamental tension: for an ally's defense to deter aggression, it must be both <strong>effective</strong> <span class="rus">(эффективная)</span> — capable of actually defeating an attack — and <strong>credible</strong> <span class="rus">(убедительная)</span> — believed by the attacker, the defended state, and observers to actually be carried out.</p>
+
+  <div class="key-insight">
+    <strong>The Differentiated Credibility Argument:</strong> Colby introduces a crucial distinction. What matters is not <em>general</em> credibility <span class="rus">(общая репутация надёжности)</span> — proving you'll fight everywhere — but <strong>differentiated credibility</strong> <span class="rus">(дифференцированная надёжность)</span> specifically in Asia against China. The US can make hard choices elsewhere (e.g., reducing commitments in the Middle East) without undermining its credibility where it matters most.
+  </div>
+
+  <p>This argument is politically important: it means the US doesn't have to "defend everywhere to be believed anywhere." The relevant audience is the states in Asia that need to believe America will defend <em>them</em> against <em>China</em>. What matters is whether the US has the military capability and demonstrated commitment in that specific theater.</p>
+
+  <p>The flipside: alliances risk <strong>entanglement</strong> <span class="rus">(вовлечённость)</span> — being pulled into conflicts that don't serve US interests. So the US must be selective about whom it allies with, which is the subject of Chapter 4.</p>
+
+  <!-- Credibility Diagram -->
+  <div class="anim-container">
+    <h3>Differentiated Credibility <span class="rus">(Дифференцированная надёжность)</span></h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem;">
+      <div style="background:rgba(220,74,74,0.08); border:1px solid rgba(220,74,74,0.3); border-radius:8px; padding:1rem;">
+        <div style="color:var(--accent-red); font-weight:700; font-size:0.9rem;">✗ General Credibility Model</div>
+        <p style="font-size:0.82rem; color:var(--text-secondary); margin-top:0.5rem;">"We must fight everywhere to be believed anywhere." This overextends resources and makes every commitment equally rigid. <span class="rus">(Мы должны воевать везде, чтобы нам верили где-либо.)</span></p>
+      </div>
+      <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.3); border-radius:8px; padding:1rem;">
+        <div style="color:var(--accent-green); font-weight:700; font-size:0.9rem;">✓ Differentiated Credibility Model</div>
+        <p style="font-size:0.82rem; color:var(--text-secondary); margin-top:0.5rem;">"What matters is whether key Asian allies believe we'll defend them against China specifically." Allows hard choices elsewhere without catastrophe. <span class="rus">(Важно, чтобы ключевые азиатские союзники верили в защиту именно от Китая.)</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 4 ===================== -->
+<section class="chapter-section fade-in" id="ch4">
+  <div class="ch-num">Chapter 04</div>
+  <h2>Defining the Defense Perimeter <span class="rus">(Определение оборонного периметра)</span></h2>
+
+  <p>Which states should the US commit to defend? This is the defense perimeter <span class="rus">(оборонный периметр)</span> question. Colby lays out a framework: include states that are (a) strategically important enough that losing them would critically weaken the coalition, and (b) defensible at an acceptable cost.</p>
+
+  <p><strong>Clearly inside the perimeter:</strong> Japan <span class="rus">(Япония)</span>, Australia <span class="rus">(Австралия)</span>, and the Philippines <span class="rus">(Филиппины)</span> as formal treaty allies. Taiwan <span class="rus">(Тайвань)</span> as a quasi-ally whose loss would be devastating to the coalition's viability and to US differentiated credibility.</p>
+
+  <p><strong>Complicated cases:</strong> South Korea <span class="rus">(Южная Корея)</span> — an ally but one whose defense is complicated by North Korea's nuclear arsenal <span class="rus">(ядерный арсенал)</span> and proximity to China. States on the Asian mainland are generally harder to defend and should not be added to the perimeter unless strictly necessary.</p>
+
+  <div class="key-insight">
+    <strong>The Perimeter Dilemma:</strong> If the US undercommits <span class="rus">(недостаточные обязательства)</span>, the coalition will be too weak. If it overcommits <span class="rus">(чрезмерные обязательства)</span>, it risks overextension <span class="rus">(чрезмерное расширение)</span>, defeat, and the collapse of credibility. The perimeter must be optimized: include as many defensible states as possible, but no more.
+  </div>
+
+  <p>Crucially, Colby notes that the question of defensibility cannot be answered without first understanding what the best US military strategy is — which is why Chapters 5–8 examine military strategy before returning to refine the perimeter question in Chapter 11.</p>
+
+  <!-- Defense Perimeter Visual -->
+  <div class="anim-container">
+    <h3>The Defense Perimeter in Asia <span class="rus">(Оборонный периметр в Азии)</span></h3>
+    <svg viewBox="0 0 600 300" style="width:100%;">
+      <rect width="600" height="300" fill="#0d1117" rx="8"/>
+      <!-- Core -->
+      <ellipse cx="300" cy="150" rx="250" ry="120" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.4"/>
+      <text x="300" y="30" fill="#c9a84c" font-size="10" text-anchor="middle" opacity="0.6">US DEFENSE PERIMETER (Оборонный периметр)</text>
+      <!-- States -->
+      <g transform="translate(180,80)">
+        <rect x="-40" y="-15" width="80" height="30" rx="4" fill="#1a3a2a" stroke="#10b981" stroke-width="1.5"/>
+        <text x="0" y="5" fill="#10b981" font-size="11" text-anchor="middle" font-weight="700">JAPAN</text>
+      </g>
+      <g transform="translate(400,90)">
+        <rect x="-45" y="-15" width="90" height="30" rx="4" fill="#1a3a2a" stroke="#10b981" stroke-width="1.5"/>
+        <text x="0" y="5" fill="#10b981" font-size="11" text-anchor="middle" font-weight="700">AUSTRALIA</text>
+      </g>
+      <g transform="translate(300,130)">
+        <rect x="-40" y="-18" width="80" height="36" rx="4" fill="#162044" stroke="#3b82f6" stroke-width="2">
+          <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+        </rect>
+        <text x="0" y="2" fill="#60a5fa" font-size="12" text-anchor="middle" font-weight="700">TAIWAN</text>
+        <text x="0" y="14" fill="#e8a87c" font-size="8" text-anchor="middle">(Quasi-ally)</text>
+      </g>
+      <g transform="translate(160,180)">
+        <rect x="-50" y="-15" width="100" height="30" rx="4" fill="#1a3a2a" stroke="#10b981" stroke-width="1.5"/>
+        <text x="0" y="5" fill="#10b981" font-size="10" text-anchor="middle" font-weight="600">PHILIPPINES</text>
+      </g>
+      <g transform="translate(430,190)">
+        <rect x="-50" y="-15" width="100" height="30" rx="4" fill="#1a2744" stroke="#c9a84c" stroke-width="1" stroke-dasharray="4,2"/>
+        <text x="0" y="5" fill="#c9a84c" font-size="10" text-anchor="middle">S. KOREA (?)</text>
+      </g>
+      <!-- China outside -->
+      <g transform="translate(60,150)">
+        <rect x="-35" y="-15" width="70" height="30" rx="4" fill="#2a1111" stroke="#dc4a4a" stroke-width="1.5"/>
+        <text x="0" y="5" fill="#dc4a4a" font-size="11" text-anchor="middle" font-weight="700">CHINA</text>
+      </g>
+      <text x="300" y="280" fill="#6b7280" font-size="9" text-anchor="middle">Green = Clearly inside | Blue = Critical quasi-ally | Gold dashed = Ambiguous</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 5 ===================== -->
+<section class="chapter-section fade-in" id="ch5">
+  <div class="ch-num">Chapter 05</div>
+  <h2>Military Strategy in Limited Wars <span class="rus">(Военная стратегия в ограниченных войнах)</span></h2>
+
+  <p>This chapter transitions from grand strategy to military strategy. The central problem: both the US and China possess <strong>survivable nuclear arsenals</strong> <span class="rus">(неуязвимые ядерные арсеналы)</span>. This means a total war <span class="rus">(тотальная война)</span> — one aimed at the complete defeat of the other side — is essentially off the table. The stakes of any conflict over Taiwan or the Philippines, while enormous, are not worth risking nuclear annihilation.</p>
+
+  <p>Therefore, any war between the US and China will be a <strong>limited war</strong> <span class="rus">(ограниченная война)</span> — limited in aims, geographic scope, means employed, or all three. Both sides have the strongest incentives to keep the conflict below the nuclear threshold <span class="rus">(ядерный порог)</span>.</p>
+
+  <div class="key-insight">
+    <strong>The Limited War Logic:</strong> In a limited war, the winner is not whoever has the most absolute power, but whoever can <em>achieve its political objectives</em> while leaving the <strong>burden of escalation</strong> <span class="rus">(бремя эскалации)</span> on the other side. The loser faces a choice: accept a partial defeat, or escalate — with all the risks that entails, up to and including nuclear war.
+  </div>
+
+  <p>This "burden of escalation" <span class="rus">(бремя эскалации)</span> concept is central to the entire book. Think of it like a poker game: the side that achieves its limited objective forces the other side to decide whether to "raise the stakes" — and the higher the stakes go, the more catastrophic a loss becomes for everyone.</p>
+
+  <!-- Escalation Ladder Animation -->
+  <div class="anim-container">
+    <h3>The Escalation Ladder <span class="rus">(Лестница эскалации)</span></h3>
+    <div id="escalation-ladder" style="margin-top:1rem;">
+      <div style="display:flex; flex-direction:column; gap:0.5rem;">
+        <div class="escalation-step" style="background:rgba(220,74,74,0.15); border:1px solid rgba(220,74,74,0.4); border-radius:6px; padding:0.6rem 1rem; display:flex; align-items:center; gap:1rem;">
+          <span style="color:var(--accent-red); font-weight:700; font-family:'JetBrains Mono',monospace; font-size:0.8rem;">LV5</span>
+          <span style="font-size:0.85rem;">Full nuclear exchange <span class="rus">(Полный ядерный обмен)</span> — <em>Mutually assured destruction</em> <span class="rus">(Взаимное гарантированное уничтожение)</span></span>
+        </div>
+        <div class="escalation-step" style="background:rgba(220,74,74,0.08); border:1px solid rgba(220,74,74,0.25); border-radius:6px; padding:0.6rem 1rem; display:flex; align-items:center; gap:1rem;">
+          <span style="color:#f87171; font-weight:700; font-family:'JetBrains Mono',monospace; font-size:0.8rem;">LV4</span>
+          <span style="font-size:0.85rem;">Limited nuclear use <span class="rus">(Ограниченное применение ядерного оружия)</span></span>
+        </div>
+        <div class="escalation-step" style="background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); border-radius:6px; padding:0.6rem 1rem; display:flex; align-items:center; gap:1rem;">
+          <span style="color:var(--accent-gold); font-weight:700; font-family:'JetBrains Mono',monospace; font-size:0.8rem;">LV3</span>
+          <span style="font-size:0.85rem;">Horizontal escalation <span class="rus">(Горизонтальная эскалация)</span> — expand war geographically (e.g., blockade, strikes on homeland)</span>
+        </div>
+        <div class="escalation-step" style="background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.25); border-radius:6px; padding:0.6rem 1rem; display:flex; align-items:center; gap:1rem;">
+          <span style="color:var(--accent-blue); font-weight:700; font-family:'JetBrains Mono',monospace; font-size:0.8rem;">LV2</span>
+          <span style="font-size:0.85rem;">Conventional theater war <span class="rus">(Обычная война на ТВД)</span> — full-scale air/naval combat around Taiwan</span>
+        </div>
+        <div class="escalation-step" style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:6px; padding:0.6rem 1rem; display:flex; align-items:center; gap:1rem;">
+          <span style="color:var(--accent-green); font-weight:700; font-family:'JetBrains Mono',monospace; font-size:0.8rem;">LV1</span>
+          <span style="font-size:0.85rem;">Gray zone / fait accompli attempt <span class="rus">(Серая зона / попытка свершившегося факта)</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 6 ===================== -->
+<section class="chapter-section fade-in" id="ch6">
+  <div class="ch-num">Chapter 06</div>
+  <h2>The Importance of Focusing on an Opponent's Best Strategies <span class="rus">(Важность ориентации на лучшие стратегии противника)</span></h2>
+
+  <p>When planning your defense, what should you prepare for? Colby considers three options and rejects two of them:</p>
+
+  <p><strong>Option 1 — Prepare for everything:</strong> impossible given scarce resources <span class="rus">(ограниченные ресурсы)</span>. You can't prepare equally for every conceivable attack scenario.</p>
+
+  <p><strong>Option 2 — Prepare for the most likely attack:</strong> dangerous, because a rational adversary will avoid the strategy you're best prepared for. Focusing on the "most likely" scenario invites the enemy to surprise you.</p>
+
+  <p><strong>Option 3 — Prepare for the opponent's best strategy:</strong> this is Colby's answer. Assume the adversary is rational and will adopt the strategy that gives it the best chance of success. If you can defeat <em>that</em> strategy, you can probably defeat lesser strategies too.</p>
+
+  <div class="key-insight">
+    <strong>The "Best Strategy" Principle:</strong> Defense planning should focus on the opponent's most effective rational strategy <span class="rus">(наиболее эффективная рациональная стратегия противника)</span> — the one that optimally combines probability of success with significance of the objective. This is neither the worst case (which may be irrational or negligibly probable) nor the most likely case (which the adversary can change), but the most <em>dangerous feasible</em> strategy.
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 7 ===================== -->
+<section class="chapter-section fade-in" id="ch7">
+  <div class="ch-num">Chapter 07</div>
+  <h2>Beijing's Best Strategy <span class="rus">(Лучшая стратегия Пекина)</span></h2>
+
+  <p>This is one of the book's most important chapters. Colby argues that China's best strategy for achieving regional hegemony <span class="rus">(региональная гегемония)</span> is a <strong>fait accompli</strong> <span class="rus">(свершившийся факт)</span> strategy targeting exposed members of the anti-hegemonic coalition — above all, <strong>Taiwan</strong>.</p>
+
+  <p>The logic works as follows: China wants to subordinate <span class="rus">(подчинить)</span> neighboring states to achieve hegemony. It has two main tools: <strong>persuasion</strong> <span class="rus">(убеждение)</span> and <strong>brute force</strong> <span class="rus">(грубая сила)</span>. Persuasion alone won't work — states like Taiwan, Japan, or the Philippines value their autonomy <span class="rus">(автономия)</span> too highly to voluntarily surrender it. So China must use force — but it can't afford a prolonged, grinding war that draws in the whole coalition.</p>
+
+  <p>The solution: a <strong>rapid fait accompli</strong> <span class="rus">(быстрый свершившийся факт)</span>. Seize the target quickly — before the US and allies can effectively respond — and then present the world with a done deal. Once China controls Taiwan's key territory, it can dictate terms from a position of strength. The burden of escalation shifts to the US: America would have to launch a costly counter-offensive to reverse the situation.</p>
+
+  <div class="key-insight">
+    <strong>Why Taiwan First?</strong> Taiwan is China's most likely first target because: (1) it's geographically close to China, making a rapid invasion feasible <span class="rus">(возможность быстрого вторжения)</span>; (2) it's not a formal US treaty ally, creating ambiguity about the US response; (3) its fall would dramatically shift the regional power balance by breaking the First Island Chain <span class="rus">(Первая островная цепь)</span>; (4) it's a symbolic and historical claim for the CCP <span class="rus">(КПК — Коммунистическая партия Китая)</span>.
+  </div>
+
+  <p>China's sequential logic: take Taiwan → demonstrate US inability to protect allies → other states bandwagon with China out of fear → coalition collapses → hegemony achieved.</p>
+
+  <!-- Fait Accompli Timeline Animation -->
+  <div class="anim-container">
+    <h3>Beijing's Fait Accompli Sequence <span class="rus">(Последовательность свершившегося факта Пекина)</span></h3>
+    <div id="fait-accompli-anim" style="position:relative; margin-top:1rem;">
+      <div style="display:flex; gap:0; align-items:stretch; overflow-x:auto;">
+        <div style="flex:1; min-width:140px; padding:0.8rem; background:#1a1a2e; border:1px solid #2a2a4e; border-radius:8px 0 0 8px; text-align:center;">
+          <div style="font-size:2rem;">🎯</div>
+          <div style="color:var(--accent-red); font-weight:700; font-size:0.8rem; margin-top:0.3rem;">Phase 1</div>
+          <div style="font-size:0.78rem; color:var(--text-secondary);">Isolate target <span class="rus">(Изолировать цель)</span></div>
+          <div style="font-size:0.72rem; color:var(--text-dim); margin-top:0.2rem;">Gray zone ops, diplomatic pressure, military posturing</div>
+        </div>
+        <div style="flex:1; min-width:140px; padding:0.8rem; background:#1e1a2e; border:1px solid #2a2a4e; text-align:center;">
+          <div style="font-size:2rem;">⚡</div>
+          <div style="color:var(--accent-red); font-weight:700; font-size:0.8rem; margin-top:0.3rem;">Phase 2</div>
+          <div style="font-size:0.78rem; color:var(--text-secondary);">Rapid strike <span class="rus">(Быстрый удар)</span></div>
+          <div style="font-size:0.72rem; color:var(--text-dim); margin-top:0.2rem;">Overwhelming force, missile barrages, amphibious assault</div>
+        </div>
+        <div style="flex:1; min-width:140px; padding:0.8rem; background:#221a2e; border:1px solid #2a2a4e; text-align:center;">
+          <div style="font-size:2rem;">🏴</div>
+          <div style="color:var(--accent-red); font-weight:700; font-size:0.8rem; margin-top:0.3rem;">Phase 3</div>
+          <div style="font-size:0.78rem; color:var(--text-secondary);">Seize & hold <span class="rus">(Захватить и удержать)</span></div>
+          <div style="font-size:0.72rem; color:var(--text-dim); margin-top:0.2rem;">Establish control over key territory before US can respond</div>
+        </div>
+        <div style="flex:1; min-width:140px; padding:0.8rem; background:#2a1a2e; border:1px solid #2a2a4e; border-radius:0 8px 8px 0; text-align:center;">
+          <div style="font-size:2rem;">🛡️</div>
+          <div style="color:var(--accent-red); font-weight:700; font-size:0.8rem; margin-top:0.3rem;">Phase 4</div>
+          <div style="font-size:0.78rem; color:var(--text-secondary);">Deter counter-attack <span class="rus">(Сдержать контратаку)</span></div>
+          <div style="font-size:0.72rem; color:var(--text-dim); margin-top:0.2rem;">Shift burden of escalation to US; threaten nuclear use if challenged</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 8 ===================== -->
+<section class="chapter-section fade-in" id="ch8">
+  <div class="ch-num">Chapter 08</div>
+  <h2>A Denial Defense <span class="rus">(Оборона на основе сдерживания путём отрицания)</span></h2>
+
+  <p>This is the book's centerpiece. Given that China's best strategy is a fait accompli against Taiwan, what is the US's best counter-strategy? Colby considers and rejects several alternatives before arriving at the denial defense <span class="rus">(оборона отрицания)</span>:</p>
+
+  <p><strong>Restoring military dominance</strong> <span class="rus">(восстановление военного превосходства)</span>: impossible. China's economy is too large, its military modernization too advanced. The era of effortless US military superiority in the Western Pacific is over.</p>
+
+  <p><strong>Horizontal escalation</strong> <span class="rus">(горизонтальная эскалация)</span> (e.g., blockading China, attacking the Chinese mainland): too risky and too costly. This could provoke nuclear escalation and wouldn't directly prevent the fait accompli from succeeding.</p>
+
+  <p><strong>Vertical escalation</strong> <span class="rus">(вертикальная эскалация)</span> (threatening nuclear use): not credible for limited stakes. No one believes the US would risk nuclear war over Taiwan when its own survival isn't at stake.</p>
+
+  <div class="key-insight">
+    <strong>The Denial Defense:</strong> The optimal strategy is to <em>deny China the ability to achieve its military objectives</em> <span class="rus">(не позволить Китаю достичь своих военных целей)</span>. Specifically, prevent China from seizing and holding Taiwan's key territory. This can be done in two ways: (1) <strong>Prevent the seizure</strong> <span class="rus">(предотвратить захват)</span> — defeat the invasion before it succeeds; or (2) <strong>Eject the invaders</strong> <span class="rus">(вытеснить захватчиков)</span> — recapture territory before China can consolidate.
+  </div>
+
+  <p>The denial defense works because it directly targets the mechanism of the fait accompli. If China cannot seize and hold Taiwan, the entire strategy fails. The burden of escalation then falls on <em>China</em>: Beijing must decide whether to escalate a losing war or accept failure.</p>
+
+  <p>Concretely, this means the US needs: anti-ship missiles <span class="rus">(противокорабельные ракеты)</span>, submarine forces <span class="rus">(подводные силы)</span>, long-range precision strike <span class="rus">(высокоточные удары дальнего действия)</span>, integrated air and missile defense <span class="rus">(интегрированная ПВО/ПРО)</span>, and resilient basing and logistics <span class="rus">(устойчивая система базирования и логистики)</span> throughout the First Island Chain.</p>
+
+  <!-- Denial Defense Diagram -->
+  <div class="anim-container">
+    <h3>How Denial Defense Works <span class="rus">(Как работает оборона отрицания)</span></h3>
+    <svg viewBox="0 0 700 350" style="width:100%;">
+      <rect width="700" height="350" fill="#0d1117" rx="8"/>
+      <!-- China side -->
+      <rect x="30" y="80" width="160" height="180" rx="8" fill="#1a1111" stroke="#dc4a4a" stroke-width="1.5"/>
+      <text x="110" y="110" fill="#dc4a4a" font-size="14" text-anchor="middle" font-weight="700">CHINA</text>
+      <text x="110" y="130" fill="#e8a87c" font-size="10" text-anchor="middle">(Китай)</text>
+      <text x="110" y="160" fill="#fca5a5" font-size="10" text-anchor="middle">Invasion fleet</text>
+      <text x="110" y="175" fill="#e8a87c" font-size="9" text-anchor="middle">(Десантный флот)</text>
+      <text x="110" y="200" fill="#fca5a5" font-size="10" text-anchor="middle">Missile barrage</text>
+      <text x="110" y="215" fill="#e8a87c" font-size="9" text-anchor="middle">(Ракетный обстрел)</text>
+      <text x="110" y="240" fill="#fca5a5" font-size="10" text-anchor="middle">Air superiority</text>
+
+      <!-- Arrows of attack -->
+      <line x1="195" y1="170" x2="300" y2="170" stroke="#dc4a4a" stroke-width="2" stroke-dasharray="6,3">
+        <animate attributeName="stroke-dashoffset" values="0;-18" dur="1.5s" repeatCount="indefinite"/>
+      </line>
+
+      <!-- DENIAL ZONE -->
+      <rect x="290" y="60" width="120" height="220" rx="8" fill="rgba(201,168,76,0.08)" stroke="#c9a84c" stroke-width="2"/>
+      <text x="350" y="90" fill="#c9a84c" font-size="12" text-anchor="middle" font-weight="700">DENIAL</text>
+      <text x="350" y="106" fill="#c9a84c" font-size="12" text-anchor="middle" font-weight="700">ZONE</text>
+      <text x="350" y="125" fill="#e8a87c" font-size="9" text-anchor="middle">(Зона отрицания)</text>
+      <text x="350" y="155" fill="#c9a84c" font-size="9" text-anchor="middle">Anti-ship missiles</text>
+      <text x="350" y="170" fill="#c9a84c" font-size="9" text-anchor="middle">Submarines</text>
+      <text x="350" y="185" fill="#c9a84c" font-size="9" text-anchor="middle">Air defense</text>
+      <text x="350" y="200" fill="#c9a84c" font-size="9" text-anchor="middle">Mine warfare</text>
+      <!-- X marks -->
+      <text x="350" y="240" fill="#c9a84c" font-size="28" text-anchor="middle" font-weight="900">✕</text>
+      <text x="350" y="268" fill="#c9a84c" font-size="10" text-anchor="middle">Invasion BLOCKED</text>
+
+      <!-- Taiwan side -->
+      <rect x="460" y="100" width="120" height="140" rx="8" fill="#111827" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="520" y="130" fill="#60a5fa" font-size="14" text-anchor="middle" font-weight="700">TAIWAN</text>
+      <text x="520" y="148" fill="#e8a87c" font-size="10" text-anchor="middle">(Тайвань)</text>
+      <text x="520" y="175" fill="#93c5fd" font-size="10" text-anchor="middle">Key territory</text>
+      <text x="520" y="190" fill="#93c5fd" font-size="10" text-anchor="middle">remains free</text>
+      <text x="520" y="220" fill="#10b981" font-size="14" text-anchor="middle">✓ DEFENDED</text>
+
+      <!-- US support -->
+      <line x1="620" y1="300" x2="520" y2="240" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
+      <text x="620" y="320" fill="#3b82f6" font-size="10" text-anchor="middle">US Forces</text>
+      <text x="620" y="334" fill="#e8a87c" font-size="9" text-anchor="middle">(Силы США)</text>
+
+      <!-- Burden arrow -->
+      <text x="350" y="310" fill="#6b7280" font-size="9" text-anchor="middle">← Burden of escalation falls on CHINA →</text>
+      <text x="350" y="324" fill="#e8a87c" font-size="8" text-anchor="middle">(Бремя эскалации ложится на Китай)</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 9 ===================== -->
+<section class="chapter-section fade-in" id="ch9">
+  <div class="ch-num">Chapter 09</div>
+  <h2>Limited War After an Effective Denial Defense <span class="rus">(Ограниченная война после эффективной обороны отрицания)</span></h2>
+
+  <p>Suppose the denial defense works — the invasion of Taiwan is defeated. What happens next? The war doesn't automatically end. Colby explores the post-denial phase <span class="rus">(фаза после отрицания)</span>.</p>
+
+  <p>After a failed fait accompli, China faces a grim choice: escalate <span class="rus">(эскалировать)</span> or accept defeat <span class="rus">(принять поражение)</span>. Colby argues that escalation is very unattractive for Beijing at this point. Any attempt to widen the war (horizontal escalation <span class="rus">(горизонтальная эскалация)</span>) — attacking Japan, blockading trade — would likely catalyze the very coalition response China wanted to avoid, drawing in more states and resources against it.</p>
+
+  <p>Nuclear escalation <span class="rus">(ядерная эскалация)</span> is even less attractive. Using nuclear weapons over a failed invasion of Taiwan would invite nuclear retaliation and global isolation — costs wildly disproportionate to the stakes.</p>
+
+  <div class="key-insight">
+    <strong>After Denial Succeeds:</strong> The coalition has two options: (1) <strong>Settle into a protracted war</strong> <span class="rus">(затяжная война)</span> on advantageous terms, where time works against China as the coalition mobilizes; or (2) <strong>Coerce China's acceptance of defeat</strong> <span class="rus">(принудить Китай принять поражение)</span> through a <em>mixed strategy</em> combining continued denial with cost imposition <span class="rus">(нанесение издержек)</span> — e.g., naval blockade, economic sanctions, strikes on military assets.
+  </div>
+
+  <p>The key insight: if you can defeat China's <em>best</em> strategy, the lesser strategies are even less likely to succeed. A successful denial defense doesn't just save Taiwan — it effectively blocks Beijing's entire path to hegemony.</p>
+</section>
+
+<!-- ===================== CHAPTER 10 ===================== -->
+<section class="chapter-section fade-in" id="ch10">
+  <div class="ch-num">Chapter 10</div>
+  <h2>The Binding Strategy <span class="rus">(Стратегия связывания)</span></h2>
+
+  <p>But what if the denial defense is <em>too hard</em>? What if China has grown too powerful, or the coalition is insufficiently prepared? This is where Colby introduces the <strong>binding strategy</strong> <span class="rus">(стратегия связывания)</span> — perhaps the book's most intellectually original concept.</p>
+
+  <p>The problem: the anti-hegemonic coalition <span class="rus">(антигегемонистская коалиция)</span> collectively has more power than China. But each individual member might hesitate to fight — especially if the costs and risks seem too high in the moment. The challenge is translating <em>latent</em> coalition power into <em>actual</em> resolve <span class="rus">(решимость)</span>.</p>
+
+  <div class="key-insight">
+    <strong>The Binding Strategy:</strong> Deliberately position coalition members so that China's aggression <em>automatically catalyzes</em> their resolve to resist. The idea is to make China's own actions reveal its true nature — making coalition members conclude that fighting now is better than facing a stronger, more aggressive China later. <span class="rus">(Целенаправленное позиционирование членов коалиции таким образом, чтобы агрессия Китая автоматически активировала их решимость к сопротивлению.)</span>
+  </div>
+
+  <p>How does this work in practice? If China attacks Taiwan and the fighting reveals that Beijing is more aggressive <span class="rus">(агрессивный)</span>, ambitious <span class="rus">(амбициозный)</span>, cruel <span class="rus">(жестокий)</span>, unreliable <span class="rus">(ненадёжный)</span>, or powerful <span class="rus">(могущественный)</span> than previously believed, other coalition members will update their assessments and conclude that collective resistance is necessary. The war itself becomes the mechanism that binds the coalition together.</p>
+
+  <p>This draws on historical precedent: Pearl Harbor <span class="rus">(Пёрл-Харбор)</span> transformed American isolationism into unified resolve overnight. Hitler's invasion of the USSR <span class="rus">(вторжение Гитлера в СССР)</span> turned Stalin into an allied partner. Aggression often creates the very coalition it was designed to prevent.</p>
+
+  <p>Practical implementation of binding: forward-deploy US forces <span class="rus">(передовое размещение вооружённых сил)</span> so that Chinese aggression unavoidably draws America into the fight. Station coalition forces together so an attack on one automatically becomes an attack on all. Make intelligence sharing and joint operations so integrated that separation becomes impractical.</p>
+</section>
+
+<!-- ===================== CHAPTER 11 ===================== -->
+<section class="chapter-section fade-in" id="ch11">
+  <div class="ch-num">Chapter 11</div>
+  <h2>Implications <span class="rus">(Выводы и последствия)</span></h2>
+
+  <p>Colby draws out the policy implications of his framework:</p>
+
+  <p><strong>Priority #1:</strong> The US defense establishment's top priority <span class="rus">(главный приоритет)</span> must be ensuring China cannot subordinate a US ally or quasi-ally in Asia. The <em>first</em> priority within this priority is developing and maintaining the ability to conduct a denial defense of Taiwan <span class="rus">(оборона Тайваня на основе отрицания)</span>.</p>
+
+  <p><strong>Defense perimeter:</strong> Maintain the existing perimeter in Asia. Avoid taking on new mainland allies (too hard to defend), but consider selectively adding a small number of maritime Asian states if conditions require it.</p>
+
+  <p><strong>Nuclear posture</strong> <span class="rus">(ядерная позиция)</span>: Maintain a strong nuclear deterrent <span class="rus">(ядерное сдерживание)</span>. Nuclear weapons provide the backdrop that keeps wars limited — they are essential, but they are not the answer to every problem.</p>
+
+  <p><strong>One-war standard:</strong> The US should <em>not</em> try to maintain the ability to fight two major wars simultaneously <span class="rus">(одновременно)</span>. Resources are too scarce. Focus everything on the China/Taiwan scenario first.</p>
+
+  <p><strong>NATO and Europe</strong> <span class="rus">(НАТО и Европа)</span>: European allies should take greater responsibility for their own defense. The US can provide a nuclear umbrella <span class="rus">(ядерный зонтик)</span> and limited conventional support, but the primary burden of deterring Russia should shift to Europeans. The only European scenario worth sizing US forces for — as a <em>secondary</em> priority — is a Russian fait accompli <span class="rus">(российский свершившийся факт)</span> against an eastern NATO ally (e.g., the Baltic states <span class="rus">(Прибалтийские государства)</span>).</p>
+
+  <p><strong>Last resort — friendly nuclear proliferation</strong> <span class="rus">(ядерное распространение среди союзников)</span>: If both the denial defense and the binding strategy fail, Colby considers the possibility that allowing allies like Japan, South Korea, or even Taiwan to develop their own nuclear weapons might be the "least bad" option. Dangerous, but possibly necessary to maintain deterrence.</p>
+
+  <!-- Priorities Visualization -->
+  <div class="anim-container">
+    <h3>US Defense Priorities <span class="rus">(Приоритеты обороны США)</span></h3>
+    <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:1rem;">
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="width:50px; text-align:center; font-weight:700; color:var(--accent-gold); font-family:'JetBrains Mono',monospace;">#1</div>
+        <div style="flex:1; background:rgba(201,168,76,0.12); border-left:3px solid var(--accent-gold); padding:0.6rem 1rem; border-radius:0 6px 6px 0; font-size:0.85rem;">
+          Denial defense of Taiwan against China <span class="rus">(Оборона Тайваня от Китая)</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="width:50px; text-align:center; font-weight:700; color:var(--accent-blue); font-family:'JetBrains Mono',monospace;">#2</div>
+        <div style="flex:1; background:rgba(59,130,246,0.08); border-left:3px solid var(--accent-blue); padding:0.6rem 1rem; border-radius:0 6px 6px 0; font-size:0.85rem;">
+          Defense of other Asian allies (Japan, Philippines, Australia) <span class="rus">(Защита других союзников)</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="width:50px; text-align:center; font-weight:700; color:var(--accent-cyan); font-family:'JetBrains Mono',monospace;">#3</div>
+        <div style="flex:1; background:rgba(34,211,238,0.06); border-left:3px solid var(--accent-cyan); padding:0.6rem 1rem; border-radius:0 6px 6px 0; font-size:0.85rem;">
+          Nuclear deterrent posture <span class="rus">(Ядерное сдерживание)</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="width:50px; text-align:center; font-weight:700; color:var(--text-dim); font-family:'JetBrains Mono',monospace;">#4</div>
+        <div style="flex:1; background:rgba(107,114,128,0.06); border-left:3px solid var(--text-dim); padding:0.6rem 1rem; border-radius:0 6px 6px 0; font-size:0.85rem;">
+          Secondary: Deter Russian fait accompli in Baltics (European allies should lead) <span class="rus">(Сдерживание России в Прибалтике)</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="width:50px; text-align:center; font-weight:700; color:var(--text-dim); font-family:'JetBrains Mono',monospace;">#5</div>
+        <div style="flex:1; background:rgba(107,114,128,0.04); border-left:3px solid var(--text-dim); padding:0.6rem 1rem; border-radius:0 6px 6px 0; font-size:0.85rem;">
+          Counterterrorism & missile defense vs. North Korea/Iran <span class="rus">(Контртерроризм и ПРО)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 12 ===================== -->
+<section class="chapter-section fade-in" id="ch12">
+  <div class="ch-num">Chapter 12</div>
+  <h2>A Decent Peace <span class="rus">(Достойный мир)</span></h2>
+
+  <p>The book's short conclusion emphasizes that the ultimate goal of the entire framework is not war but <strong>peace</strong> <span class="rus">(мир)</span> — specifically, a <strong>decent peace</strong> <span class="rus">(достойный мир)</span> compatible with American security, freedom, and prosperity. Colby draws on the Cold War model of <strong>détente</strong> <span class="rus">(разрядка)</span> — not friendship, not surrender, but a stable, managed competition <span class="rus">(стабильная управляемая конкуренция)</span>.</p>
+
+  <p>The paradox: achieving peace requires preparing for war. If the US demonstrates a credible, effective denial defense, China has no rational path to hegemony through force. This removes the <em>incentive</em> for aggression. Over time, this stability could allow for a modus vivendi <span class="rus">(modus vivendi — модус вивенди / взаимоприемлемое сосуществование)</span> in which both powers coexist without one dominating the other.</p>
+
+  <div class="key-insight">
+    <strong>Colby's Vision:</strong> The goal is not to defeat China, contain China forever, or change China's political system. The goal is to make China's pursuit of hegemony through force <em>irrational</em> — and thereby channel competition into less dangerous forms. A decent peace is achievable, but only through firm, focused, military preparedness. <span class="rus">(Цель — не победить Китай, а сделать его стремление к гегемонии через силу иррациональным.)</span>
+  </div>
+
+  <div class="diagram-flow" style="margin-top:2rem;">
+    <div class="node highlight" style="min-width:140px;">Denial Defense<br><span class="rus" style="font-size:0.8em">(Оборона отрицания)</span></div>
+    <div class="arrow">→</div>
+    <div class="node" style="border-color:var(--accent-blue); color:var(--accent-blue); min-width:140px;">Deterrence<br><span class="rus" style="font-size:0.8em">(Сдерживание)</span></div>
+    <div class="arrow">→</div>
+    <div class="node" style="border-color:var(--accent-green); color:var(--accent-green); min-width:140px;">Stability<br><span class="rus" style="font-size:0.8em">(Стабильность)</span></div>
+    <div class="arrow">→</div>
+    <div class="node" style="border-color:var(--accent-cyan); color:var(--accent-cyan); min-width:140px;">Decent Peace<br><span class="rus" style="font-size:0.8em">(Достойный мир)</span></div>
+  </div>
+</section>
+
+<!-- ===================== GAME 1: TAIWAN CRISIS SIMULATION ===================== -->
+<section class="chapter-section" id="game-crisis">
+  <div class="ch-num">Interactive Simulation</div>
+  <h2>🎮 Taiwan Strait Crisis Decision Game <span class="rus">(Игра: Кризис в Тайваньском проливе)</span></h2>
+  <p>You are the US National Security Advisor <span class="rus">(Советник по национальной безопасности)</span>. Navigate a multi-round crisis as China escalates toward a fait accompli against Taiwan. Each decision affects coalition cohesion <span class="rus">(сплочённость коалиции)</span>, military readiness <span class="rus">(боеготовность)</span>, escalation risk <span class="rus">(риск эскалации)</span>, and credibility <span class="rus">(надёжность)</span>.</p>
+
+  <div class="game-container" id="crisis-game">
+    <div id="crisis-stats" class="stats-bar">
+      <div class="stat-item"><div class="stat-label">Coalition Cohesion<br><span class="rus">(Сплочённость)</span></div><div class="stat-value gold" id="stat-cohesion">75</div></div>
+      <div class="stat-item"><div class="stat-label">Military Readiness<br><span class="rus">(Боеготовность)</span></div><div class="stat-value blue" id="stat-military">60</div></div>
+      <div class="stat-item"><div class="stat-label">Escalation Risk<br><span class="rus">(Риск эскалации)</span></div><div class="stat-value red" id="stat-escalation">20</div></div>
+      <div class="stat-item"><div class="stat-label">US Credibility<br><span class="rus">(Надёжность)</span></div><div class="stat-value green" id="stat-credibility">70</div></div>
+    </div>
+    <div style="display:flex; gap:0.5rem; margin:0.5rem 0;">
+      <div style="flex:1;"><div class="stat-label" style="font-size:0.65rem; color:var(--text-dim); margin-bottom:2px;">Cohesion</div><div class="progress-bar"><div class="fill" id="bar-cohesion" style="width:75%; background:var(--accent-gold);"></div></div></div>
+      <div style="flex:1;"><div class="stat-label" style="font-size:0.65rem; color:var(--text-dim); margin-bottom:2px;">Military</div><div class="progress-bar"><div class="fill" id="bar-military" style="width:60%; background:var(--accent-blue);"></div></div></div>
+      <div style="flex:1;"><div class="stat-label" style="font-size:0.65rem; color:var(--text-dim); margin-bottom:2px;">Escalation</div><div class="progress-bar"><div class="fill" id="bar-escalation" style="width:20%; background:var(--accent-red);"></div></div></div>
+      <div style="flex:1;"><div class="stat-label" style="font-size:0.65rem; color:var(--text-dim); margin-bottom:2px;">Credibility</div><div class="progress-bar"><div class="fill" id="bar-credibility" style="width:70%; background:var(--accent-green);"></div></div></div>
+    </div>
+    <div id="crisis-round-label" style="font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--accent-gold); margin:1rem 0 0.3rem;">ROUND 1 of 6</div>
+    <div id="crisis-scenario" style="margin-bottom:1rem;"></div>
+    <div id="crisis-options"></div>
+    <div id="crisis-result"></div>
+  </div>
+</section>
+
+<!-- ===================== GAME 2: COALITION BUILDER ===================== -->
+<section class="chapter-section" id="game-coalition">
+  <div class="ch-num">Interactive Simulation</div>
+  <h2>🌏 Anti-Hegemonic Coalition Builder <span class="rus">(Конструктор антигегемонистской коалиции)</span></h2>
+  <p>Build your coalition. Each state adds military power and economic leverage, but also costs (financial burden, political complications, defensibility challenges). Your coalition must exceed China's power while remaining defensible. Beware of overextension! <span class="rus">(Выберите состав коалиции. Каждое государство добавляет военную мощь, но и создаёт проблемы.)</span></p>
+
+  <div class="game-container" id="coalition-game">
+    <div class="stats-bar" id="coalition-stats">
+      <div class="stat-item"><div class="stat-label">Coalition Power</div><div class="stat-value gold" id="coal-power">0</div></div>
+      <div class="stat-item"><div class="stat-label">China's Power</div><div class="stat-value red" id="coal-china">85</div></div>
+      <div class="stat-item"><div class="stat-label">Overextension Risk</div><div class="stat-value blue" id="coal-overext">0</div></div>
+      <div class="stat-item"><div class="stat-label">Budget Cost</div><div class="stat-value" id="coal-cost" style="color:var(--text-secondary);">0</div></div>
+    </div>
+    <div id="coalition-members" style="margin:1rem 0;"></div>
+    <div id="coalition-available" style="margin:1rem 0;"></div>
+    <div style="margin-top:1rem;">
+      <button class="game-btn" onclick="evaluateCoalition()">Evaluate Coalition <span class="rus">(Оценить)</span></button>
+      <button class="game-btn secondary" onclick="resetCoalition()">Reset</button>
+    </div>
+    <div id="coalition-result"></div>
+  </div>
+</section>
+
+<!-- ===================== GAME 3: ESCALATION POKER ===================== -->
+<section class="chapter-section" id="game-escalation">
+  <div class="ch-num">Interactive Simulation</div>
+  <h2>♠ Escalation Poker <span class="rus">(Покер эскалации)</span></h2>
+  <p>A two-player simulation of the <em>burden of escalation</em> concept. You play as the US, the system plays as China. After China's fait accompli attempt is blocked, both sides take turns deciding whether to hold, escalate, or negotiate. Push too far and you risk nuclear catastrophe; fold too early and you lose credibility. <span class="rus">(Двусторонняя симуляция бремени эскалации. Вы играете за США.)</span></p>
+
+  <div class="game-container" id="escalation-game">
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-label">Your Resolve<br><span class="rus">(Ваша решимость)</span></div><div class="stat-value green" id="esc-us-resolve">100</div></div>
+      <div class="stat-item"><div class="stat-label">China's Resolve<br><span class="rus">(Решимость Китая)</span></div><div class="stat-value red" id="esc-cn-resolve">80</div></div>
+      <div class="stat-item"><div class="stat-label">Nuclear Risk<br><span class="rus">(Ядерный риск)</span></div><div class="stat-value" id="esc-nuke" style="color:var(--text-secondary);">5%</div></div>
+      <div class="stat-item"><div class="stat-label">Round</div><div class="stat-value blue" id="esc-round">1</div></div>
+    </div>
+    <div id="esc-narrative" style="margin:1rem 0; font-size:0.9rem;"></div>
+    <div id="esc-options"></div>
+    <div id="esc-result"></div>
+  </div>
+</section>
+
+<footer>
+  <p>Interactive educational guide based on <em>The Strategy of Denial</em> by Elbridge A. Colby (Yale University Press, 2021).</p>
+  <p style="margin-top:0.5rem;">Created as a study tool. All strategic analysis represents the author's arguments, not policy recommendations.</p>
+  <p style="margin-top:0.5rem; color:var(--accent-gold);">Key Russian terms are provided in parentheses throughout for cross-reference. <span class="rus">(Ключевые термины переведены на русский язык в скобках.)</span></p>
+</footer>
+
+<script>
+// ===== SCROLL FADE-IN =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== CRISIS DECISION GAME =====
+const crisisData = {
+  stats: { cohesion: 75, military: 60, escalation: 20, credibility: 70 },
+  round: 0,
+  scenarios: [
+    {
+      title: "Intelligence Warning",
+      text: "Satellite imagery shows massive Chinese military buildup across from Taiwan. PLA amphibious forces are mobilizing. Taiwan's President requests urgent consultations. What is your first move?",
+      textRus: "(Спутниковые снимки показывают масштабное сосредоточение китайских войск напротив Тайваня. Президент Тайваня просит о срочных консультациях.)",
+      options: [
+        { label: "Deploy carrier strike group to the Philippine Sea", labelRus: "(Развернуть авианосную ударную группу)", effects: { cohesion: 5, military: 15, escalation: 10, credibility: 10 }, feedback: "Strong signal of commitment. Japan and Australia express support. China denounces the move but your allies feel reassured. This follows Colby's logic: credible, forward defense posture." },
+        { label: "Convene emergency QUAD summit (US, Japan, Australia, India)", labelRus: "(Созвать экстренный саммит QUAD)", effects: { cohesion: 15, military: 5, escalation: 3, credibility: 5 }, feedback: "Strengthens coalition cohesion. Joint statement issued. However, without military movement, China may interpret this as hesitation. Colby would note: diplomatic signals alone won't deter a fait accompli." },
+        { label: "Activate back-channel diplomacy with Beijing", labelRus: "(Активировать закрытые дипканалы с Пекином)", effects: { cohesion: -5, military: 0, escalation: -5, credibility: -5 }, feedback: "Reduces immediate tension, but allies worry the US might cut a deal over their heads. Colby warns that purely diplomatic responses to military coercion can undermine differentiated credibility." },
+        { label: "Quietly pre-position anti-ship missiles in Okinawa and Luzon", labelRus: "(Тихо разместить противокорабельные ракеты на Окинаве и Лусоне)", effects: { cohesion: 3, military: 20, escalation: 5, credibility: 8 }, feedback: "Excellent denial-focused move. Directly strengthens the ability to defeat a Chinese amphibious assault. Low political visibility reduces escalation. This is textbook Colby: strengthen the denial defense quietly and effectively." }
+      ]
+    },
+    {
+      title: "Gray Zone Escalation",
+      text: "China begins large-scale 'exercises' encircling Taiwan, effectively creating a partial blockade. Chinese coast guard vessels harass Philippine fishing boats near Scarborough Shoal. Japan scrambles fighters as Chinese aircraft approach the Senkaku Islands.",
+      textRus: "(Китай начинает масштабные «учения», фактически создавая частичную блокаду Тайваня. Японии приходится поднимать истребители.)",
+      options: [
+        { label: "Sail US warships through the Taiwan Strait in a freedom of navigation operation", labelRus: "(Провести корабли через Тайваньский пролив)", effects: { cohesion: 8, military: 5, escalation: 15, credibility: 12 }, feedback: "Bold demonstration of resolve. Taiwan morale surges. But China retaliates by targeting the ships with fire-control radar. Escalation risk rises. Colby would weigh this carefully — credibility gained but escalation risk is real." },
+        { label: "Announce joint naval exercises with Japan and Australia near Guam", labelRus: "(Объявить совместные учения с Японией и Австралией)", effects: { cohesion: 12, military: 10, escalation: 5, credibility: 7 }, feedback: "Balanced approach. Demonstrates coalition solidarity without directly confronting Chinese forces. Builds military interoperability. Colby emphasizes that coalition cohesion and combined military capability are crucial." },
+        { label: "Provide Taiwan with emergency arms package: Harpoon missiles and mines", labelRus: "(Предоставить Тайваню экстренные поставки вооружений)", effects: { cohesion: 5, military: 18, escalation: 8, credibility: 10 }, feedback: "Directly enhances Taiwan's ability to resist invasion — this is the core of denial defense. China protests fiercely but Taiwan's defensive capability is substantially improved. Colby would strongly endorse arming the target of the fait accompli." },
+        { label: "Do nothing publicly; increase intelligence sharing with allies privately", labelRus: "(Ничего не делать публично; усилить обмен разведданными)", effects: { cohesion: -3, military: 5, escalation: -3, credibility: -8 }, feedback: "Avoids escalation but allies interpret silence as weakness. Taiwan begins considering accommodation with Beijing. Colby warns this is exactly how sequential strategies succeed — passivity enables isolation." }
+      ]
+    },
+    {
+      title: "The Invasion Begins",
+      text: "At 0400 hours, China launches a massive missile barrage against Taiwan's air bases and naval facilities. Simultaneously, amphibious forces begin crossing the Taiwan Strait. Cyber attacks hit Taiwan's power grid. China's UN ambassador declares Taiwan a 'domestic matter.' The world holds its breath.",
+      textRus: "(В 04:00 Китай наносит массированный ракетный удар по авиабазам и военно-морским объектам Тайваня. Десантные силы начинают переправу через Тайваньский пролив. Мир замер.)",
+      options: [
+        { label: "Execute denial defense: engage Chinese invasion fleet with submarines, missiles, and air power", labelRus: "(Выполнить оборону отрицания: атаковать десантный флот подводными лодками, ракетами и авиацией)", effects: { cohesion: 10, military: -15, escalation: 20, credibility: 20 }, feedback: "This is the moment the denial defense was built for. US submarines begin sinking Chinese transport ships. Anti-ship missiles from Okinawa and the Philippines engage the fleet. Heavy casualties on both sides, but the invasion is being contested. EXACTLY what Colby prescribes." },
+        { label: "Launch strikes against Chinese military bases on the mainland to halt the assault", labelRus: "(Нанести удары по военным базам Китая на материке)", effects: { cohesion: 5, military: -10, escalation: 35, credibility: 15 }, feedback: "Dramatically effective militarily but extremely escalatory. China may interpret strikes on the homeland as existential. Nuclear risk spikes. Colby warns against horizontal escalation precisely because of this — the denial defense should focus on defeating the invasion, not attacking the homeland." },
+        { label: "Impose a complete naval and economic blockade of China", labelRus: "(Установить полную морскую и экономическую блокаду Китая)", effects: { cohesion: 8, military: -5, escalation: 25, credibility: 12 }, feedback: "Punishing, but slow — it won't stop the invasion in progress. Taiwan could fall while the blockade's effects accumulate. Colby argues cost imposition works AFTER denial, not as a substitute. You need to defeat the fait accompli directly first." },
+        { label: "Offer China a diplomatic off-ramp: emergency ceasefire negotiations", labelRus: "(Предложить Китаю дипломатический выход: экстренные переговоры о прекращении огня)", effects: { cohesion: -20, military: 0, escalation: -10, credibility: -25 }, feedback: "Catastrophic for credibility. Taiwan is under active invasion and you're offering talks? Every ally in Asia will conclude the US cannot be relied upon. Colby's framework makes clear: if you fail to defend against the fait accompli, the entire anti-hegemonic coalition collapses." }
+      ]
+    },
+    {
+      title: "The Battle for the Strait",
+      text: "After 72 hours of intense fighting, the denial defense has sunk approximately 40% of China's invasion fleet. However, Chinese forces have established a beachhead on Taiwan's western coast. Taiwan's military is fighting fiercely but is under enormous pressure. Chinese missiles continue to strike across the island.",
+      textRus: "(После 72 часов интенсивных боёв оборона отрицания потопила около 40% десантного флота. Однако Китай создал плацдарм на западном побережье Тайваня.)",
+      options: [
+        { label: "Intensify denial operations: commit additional submarine and air assets to cut off reinforcements", labelRus: "(Усилить операции отрицания: направить дополнительные подлодки и авиацию для блокирования подкреплений)", effects: { cohesion: 8, military: -20, escalation: 10, credibility: 15 }, feedback: "Correct focus. If China can't reinforce and resupply its beachhead, the invasion will stall and fail. This is the 'deny consolidation' phase — even if Chinese forces are on the island, they can't hold without continuous resupply across the Strait. Colby emphasizes this: it's not just about preventing the landing, but preventing China from holding." },
+        { label: "Request Japan to open a second front by engaging Chinese naval assets near the Senkakus", labelRus: "(Попросить Японию открыть второй фронт у островов Сэнкаку)", effects: { cohesion: 15, military: -10, escalation: 15, credibility: 10 }, feedback: "Activates the coalition — Japan entering the fight demonstrates that China's aggression has catalyzed exactly the response Colby's binding strategy envisions. More forces engaged against China, but escalation risk grows as the war expands." },
+        { label: "Begin planning a joint counter-amphibious operation to eject Chinese forces from Taiwan", labelRus: "(Начать планирование совместной контрдесантной операции для вытеснения китайских войск с Тайваня)", effects: { cohesion: 10, military: -15, escalation: 12, credibility: 12 }, feedback: "This is the second option in Colby's denial framework: if you can't prevent the seizure, eject the invaders before they consolidate. Risky and costly, but preserves the defense perimeter. This is exactly what Chapter 8 describes as the fallback denial strategy." },
+        { label: "Threaten China with nuclear escalation unless it withdraws immediately", labelRus: "(Угрожать Китаю ядерной эскалацией в случае отказа от немедленного отступления)", effects: { cohesion: -5, military: 0, escalation: 40, credibility: 5 }, feedback: "Dangerous bluff. Is the US really willing to start a nuclear war over a partial Chinese beachhead? Probably not — and Beijing knows it. Colby explicitly argues against relying on nuclear threats for limited-war objectives because they lack credibility. This could backfire catastrophically." }
+      ]
+    },
+    {
+      title: "China's Dilemma",
+      text: "The invasion is failing. Chinese casualties are mounting rapidly, reinforcement convoys are being destroyed, and the beachhead forces are running low on supplies. Beijing's leadership faces a decision. They issue an ultimatum: if the US doesn't cease operations within 48 hours, China threatens 'all necessary measures, including capabilities it has never before employed.' This is widely interpreted as a nuclear threat.",
+      textRus: "(Вторжение терпит неудачу. Потери Китая растут. Пекин выдвигает ультиматум: если США не прекратят операции в течение 48 часов, Китай угрожает применить «все необходимые средства, включая ранее не применявшиеся возможности». Это интерпретируется как ядерная угроза.)",
+      options: [
+        { label: "Call the bluff: continue denial operations while signaling willingness to negotiate an end to hostilities", labelRus: "(Продолжить операции отрицания, сигнализируя о готовности к переговорам)", effects: { cohesion: 5, military: -5, escalation: 15, credibility: 15 }, feedback: "Bold but measured. Colby's framework predicts exactly this scenario: after a failed fait accompli, the burden of escalation falls on CHINA. Beijing must decide whether to escalate from a losing position, which is irrational. By continuing operations while offering a diplomatic exit, you maximize your leverage. This is the optimal response." },
+        { label: "Immediately halt operations and accept the ceasefire on China's terms", labelRus: "(Немедленно прекратить операции и принять прекращение огня на условиях Китая)", effects: { cohesion: -30, military: 10, escalation: -25, credibility: -30 }, feedback: "Avoids nuclear risk but rewards China's nuclear coercion. Every future crisis will now feature Chinese nuclear threats because they worked. Colby warns that capitulating to nuclear threats when you're winning conventionally destroys the entire denial strategy framework." },
+        { label: "Escalate: strike China's nuclear command and control to eliminate the threat", labelRus: "(Эскалировать: нанести удар по командованию ядерных сил Китая)", effects: { cohesion: -15, military: -25, escalation: 50, credibility: 10 }, feedback: "Catastrophically dangerous. Striking nuclear C2 could trigger a 'use it or lose it' response. This is precisely the vertical escalation Colby argues against — it risks turning a limited war you're winning into a nuclear exchange nobody can win." },
+        { label: "Respond with proportional nuclear signaling: raise US nuclear readiness to DEFCON 2", labelRus: "(Ответить пропорциональным ядерным сигналом: повысить ядерную готовность до DEFCON 2)", effects: { cohesion: -5, military: 0, escalation: 25, credibility: 8 }, feedback: "Signals resolve but risks mutual escalation. Colby would note: the nuclear dimension is a backdrop, not the main event. The US is winning conventionally — the correct response is to continue doing so while managing escalation risks, not to mirror China's nuclear threats." }
+      ]
+    },
+    {
+      title: "Endgame",
+      text: "The invasion has definitively failed. Chinese beachhead forces surrender. PLA naval losses exceed 60%. Beijing's leadership is in crisis. The world watches to see how the US manages the aftermath. What should be the US posture going forward?",
+      textRus: "(Вторжение окончательно провалилось. Силы китайского плацдарма сдаются. Потери ВМС НОАК превышают 60%. Мир наблюдает, как США управляют ситуацией.)",
+      options: [
+        { label: "Offer a generous peace: no reparations, no regime-change demands, mutual de-escalation", labelRus: "(Предложить щедрый мир: без репараций, без смены режима, взаимная деэскалация)", effects: { cohesion: 10, military: 10, escalation: -30, credibility: 15 }, feedback: "This is Colby's 'decent peace.' The goal was never to humiliate China but to deny it hegemony. A generous peace preserves Chinese face, reduces the risk of revanchism, and demonstrates that the US seeks stability, not domination. This is Chapter 12's vision in action." },
+        { label: "Press the advantage: impose severe economic sanctions and demand demilitarization of the Taiwan Strait", labelRus: "(Использовать преимущество: ввести суровые санкции и потребовать демилитаризации пролива)", effects: { cohesion: 5, military: 5, escalation: 10, credibility: 10 }, feedback: "Tempting but risks creating a 'Versailles problem' — pushing a defeated great power into a corner breeds future conflict. Colby aims for a decent peace, not a punitive one. Excessive demands could destabilize the outcome and motivate Chinese revanchism." },
+        { label: "Demand Beijing recognize Taiwan's independence as a condition for peace", labelRus: "(Потребовать от Пекина признания независимости Тайваня)", effects: { cohesion: -5, military: 0, escalation: 20, credibility: 5 }, feedback: "Overreach. This exceeds the denial defense's objectives and is likely unacceptable to China at any cost — potentially restarting the war. Colby explicitly argues the goal is not to resolve the Taiwan question permanently but to prevent forced unification. Maintaining strategic ambiguity is wiser." },
+        { label: "Immediately pivot to strengthening defenses across all of Asia to prevent future Chinese aggression", labelRus: "(Немедленно переключиться на усиление обороны по всей Азии)", effects: { cohesion: 15, military: 15, escalation: 5, credibility: 12 }, feedback: "Smart long-term move. Use the post-victory momentum to consolidate the coalition. But don't neglect the peace settlement — both are needed. Colby would endorse strengthening deterrence while simultaneously seeking a decent peace." }
+      ]
+    }
+  ]
+};
+
+function updateCrisisStats() {
+  const s = crisisData.stats;
+  s.cohesion = Math.max(0, Math.min(100, s.cohesion));
+  s.military = Math.max(0, Math.min(100, s.military));
+  s.escalation = Math.max(0, Math.min(100, s.escalation));
+  s.credibility = Math.max(0, Math.min(100, s.credibility));
+  document.getElementById('stat-cohesion').textContent = s.cohesion;
+  document.getElementById('stat-military').textContent = s.military;
+  document.getElementById('stat-escalation').textContent = s.escalation;
+  document.getElementById('stat-credibility').textContent = s.credibility;
+  document.getElementById('bar-cohesion').style.width = s.cohesion + '%';
+  document.getElementById('bar-military').style.width = s.military + '%';
+  document.getElementById('bar-escalation').style.width = s.escalation + '%';
+  document.getElementById('bar-credibility').style.width = s.credibility + '%';
+}
+
+function renderCrisisRound() {
+  const r = crisisData.round;
+  if (r >= crisisData.scenarios.length) {
+    showCrisisEndgame();
+    return;
+  }
+  const sc = crisisData.scenarios[r];
+  document.getElementById('crisis-round-label').textContent = `ROUND ${r+1} of ${crisisData.scenarios.length}`;
+  document.getElementById('crisis-scenario').innerHTML = `<h3 style="color:var(--text-primary); font-size:1.1rem; margin-bottom:0.5rem;">${sc.title}</h3><p style="font-size:0.9rem; color:var(--text-secondary);">${sc.text}</p><p style="font-size:0.82rem;" class="rus">${sc.textRus}</p>`;
+  let optHtml = '';
+  sc.options.forEach((opt, i) => {
+    optHtml += `<div class="game-option" onclick="selectCrisisOption(${i})" id="crisis-opt-${i}"><h4>${opt.label}</h4><p class="rus">${opt.labelRus}</p></div>`;
+  });
+  document.getElementById('crisis-options').innerHTML = optHtml;
+  document.getElementById('crisis-result').innerHTML = '';
+}
+
+function selectCrisisOption(i) {
+  const sc = crisisData.scenarios[crisisData.round];
+  const opt = sc.options[i];
+  document.querySelectorAll('#crisis-options .game-option').forEach((el, j) => {
+    el.classList.toggle('selected', j === i);
+    el.style.pointerEvents = 'none';
+  });
+  crisisData.stats.cohesion += opt.effects.cohesion;
+  crisisData.stats.military += opt.effects.military;
+  crisisData.stats.escalation += opt.effects.escalation;
+  crisisData.stats.credibility += opt.effects.credibility;
+  updateCrisisStats();
+  // Check for nuclear catastrophe
+  if (crisisData.stats.escalation >= 95) {
+    document.getElementById('crisis-result').innerHTML = `<div class="game-result bad"><strong>☢️ Nuclear Exchange.</strong> Escalation reached critical levels. Both sides suffer catastrophic losses. There are no winners. Colby's entire framework is built to <em>avoid</em> this outcome — the denial defense is specifically designed to win at the conventional level, keeping the conflict below the nuclear threshold.</div>`;
+    document.getElementById('crisis-options').innerHTML += `<div style="margin-top:1rem;"><button class="game-btn" onclick="resetCrisisGame()">Restart Game</button></div>`;
+    return;
+  }
+  const resultClass = opt.effects.credibility > 0 && opt.effects.cohesion >= 0 ? 'good' : (opt.effects.credibility < 0 ? 'bad' : 'neutral');
+  document.getElementById('crisis-result').innerHTML = `<div class="game-result ${resultClass}"><strong>Analysis:</strong> ${opt.feedback}</div><div style="margin-top:1rem;"><button class="game-btn" onclick="nextCrisisRound()">Next Round →</button></div>`;
+}
+
+function nextCrisisRound() {
+  crisisData.round++;
+  renderCrisisRound();
+}
+
+function showCrisisEndgame() {
+  const s = crisisData.stats;
+  let score = s.cohesion + s.credibility + s.military - s.escalation;
+  let grade, analysis;
+  if (score >= 200) {
+    grade = "A — Master Strategist"; analysis = "You followed Colby's framework closely: focused on denial defense, maintained coalition cohesion, kept escalation manageable, and aimed for a decent peace. Your Russian study partners would be impressed.";
+  } else if (score >= 130) {
+    grade = "B — Competent NSA"; analysis = "Solid performance. You made some suboptimal choices but generally understood the denial defense logic. Review the chapters on escalation management and the binding strategy.";
+  } else if (score >= 60) {
+    grade = "C — Needs Improvement"; analysis = "Mixed results. Some good instincts but several choices undermined coalition cohesion or credibility. Re-read Chapters 7-9 on the fait accompli and denial defense.";
+  } else {
+    grade = "D — Strategic Failure"; analysis = "The anti-hegemonic coalition has collapsed. China's sequential strategy succeeded. Either credibility was destroyed, escalation spiraled, or both. This is exactly the scenario Colby's book is trying to prevent.";
+  }
+  document.getElementById('crisis-round-label').textContent = 'FINAL ASSESSMENT';
+  document.getElementById('crisis-scenario').innerHTML = `<h3 style="color:var(--accent-gold); font-size:1.3rem;">Grade: ${grade}</h3>`;
+  document.getElementById('crisis-options').innerHTML = '';
+  document.getElementById('crisis-result').innerHTML = `<div class="game-result ${score >= 130 ? 'good' : (score >= 60 ? 'neutral' : 'bad')}"><p><strong>Strategic Score:</strong> ${score}/300</p><p style="margin-top:0.5rem;">${analysis}</p></div><div style="margin-top:1rem;"><button class="game-btn" onclick="resetCrisisGame()">Play Again</button></div>`;
+}
+
+function resetCrisisGame() {
+  crisisData.stats = { cohesion: 75, military: 60, escalation: 20, credibility: 70 };
+  crisisData.round = 0;
+  updateCrisisStats();
+  renderCrisisRound();
+}
+
+// ===== COALITION BUILDER GAME =====
+const coalitionStates = [
+  { name: "United States", nameRus: "(США)", power: 40, cost: 0, overext: 0, required: true, selected: true, desc: "Cornerstone balancer. Essential." },
+  { name: "Japan", nameRus: "(Япония)", power: 18, cost: 5, overext: 2, required: false, selected: false, desc: "Most capable regional ally. Strong navy and air force. +18 power but costs 5 budget." },
+  { name: "Australia", nameRus: "(Австралия)", power: 10, cost: 4, overext: 1, required: false, selected: false, desc: "Key southern anchor. Submarine capability and intelligence sharing." },
+  { name: "Taiwan", nameRus: "(Тайвань)", power: 8, cost: 8, overext: 5, required: false, selected: false, desc: "The most likely target. High defensive value but very expensive to defend — high overextension risk." },
+  { name: "Philippines", nameRus: "(Филиппины)", power: 5, cost: 4, overext: 4, required: false, selected: false, desc: "Strategic island chain position. Bases are vital, but military is weak." },
+  { name: "South Korea", nameRus: "(Южная Корея)", power: 15, cost: 6, overext: 7, required: false, selected: false, desc: "Powerful military, but tied down by North Korean threat. High overextension — pulling forces south is risky." },
+  { name: "India", nameRus: "(Индия)", power: 14, cost: 3, overext: 3, required: false, selected: false, desc: "Major land power and geopolitical counterweight. Low cost but may not fully commit." },
+  { name: "Vietnam", nameRus: "(Вьетнам)", power: 6, cost: 5, overext: 8, required: false, selected: false, desc: "On the mainland, very hard to defend. High overextension risk but denies China easy conquest." },
+  { name: "Singapore", nameRus: "(Сингапур)", power: 4, cost: 2, overext: 1, required: false, selected: false, desc: "Strategic chokepoint at Malacca Strait. Small but punches above its weight." },
+  { name: "United Kingdom", nameRus: "(Великобритания)", power: 8, cost: 6, overext: 2, required: false, selected: false, desc: "Global navy. Can contribute but draws resources from European defense." },
+  { name: "Indonesia", nameRus: "(Индонезия)", power: 5, cost: 4, overext: 3, required: false, selected: false, desc: "Controls critical sea lanes. Large population but limited military capability." },
+];
+
+function renderCoalition() {
+  let totalPower = 0, totalCost = 0, totalOverext = 0;
+  let membersHtml = '<div style="font-size:0.85rem; color:var(--text-dim); margin-bottom:0.5rem;">YOUR COALITION MEMBERS:</div>';
+  let availHtml = '<div style="font-size:0.85rem; color:var(--text-dim); margin-bottom:0.5rem;">AVAILABLE STATES:</div>';
+  coalitionStates.forEach((st, i) => {
+    if (st.selected) {
+      totalPower += st.power;
+      totalCost += st.cost;
+      totalOverext += st.overext;
+      membersHtml += `<div class="game-option selected" style="display:flex; justify-content:space-between; align-items:center; cursor:${st.required ? 'default' : 'pointer'};" ${st.required ? '' : `onclick="toggleCoalitionState(${i})"`}><div><h4>${st.name} <span class="rus">${st.nameRus}</span></h4><p>${st.desc}</p></div><div style="text-align:right; font-family:'JetBrains Mono',monospace; font-size:0.8rem;"><div style="color:var(--accent-gold);">+${st.power} power</div><div style="color:var(--accent-red);">+${st.overext} risk</div></div></div>`;
+    } else {
+      availHtml += `<div class="game-option" onclick="toggleCoalitionState(${i})" style="display:flex; justify-content:space-between; align-items:center;"><div><h4>${st.name} <span class="rus">${st.nameRus}</span></h4><p>${st.desc}</p></div><div style="text-align:right; font-family:'JetBrains Mono',monospace; font-size:0.8rem;"><div style="color:var(--accent-gold);">+${st.power} power</div><div style="color:var(--accent-red);">+${st.overext} risk</div><div style="color:var(--text-dim);">cost ${st.cost}</div></div></div>`;
+    }
+  });
+  document.getElementById('coalition-members').innerHTML = membersHtml;
+  document.getElementById('coalition-available').innerHTML = availHtml;
+  document.getElementById('coal-power').textContent = totalPower;
+  document.getElementById('coal-overext').textContent = totalOverext;
+  document.getElementById('coal-cost').textContent = totalCost;
+}
+
+function toggleCoalitionState(i) {
+  if (coalitionStates[i].required) return;
+  coalitionStates[i].selected = !coalitionStates[i].selected;
+  renderCoalition();
+  document.getElementById('coalition-result').innerHTML = '';
+}
+
+function evaluateCoalition() {
+  let power = 0, overext = 0, cost = 0;
+  let members = [];
+  coalitionStates.forEach(st => {
+    if (st.selected) { power += st.power; overext += st.overext; cost += st.cost; members.push(st.name); }
+  });
+  const chinaP = 85;
+  let resultClass, analysis;
+  const hasTaiwan = members.includes("Taiwan");
+  const hasJapan = members.includes("Japan");
+  if (power < chinaP) {
+    resultClass = 'bad';
+    analysis = `<strong>Coalition too weak.</strong> Your combined power (${power}) is less than China's (${chinaP}). The anti-hegemonic coalition cannot deter or defeat Chinese aggression. Colby emphasizes that the coalition must aggregate <em>more</em> power than the aspiring hegemon.`;
+  } else if (overext > 25) {
+    resultClass = 'bad';
+    analysis = `<strong>Overextended.</strong> Your coalition power (${power}) exceeds China's (${chinaP}), but overextension risk (${overext}) is dangerously high. You've committed to defending too many difficult-to-defend states. Colby warns that overcommitment leads to defeat and credibility collapse.`;
+  } else if (!hasTaiwan) {
+    resultClass = 'neutral';
+    analysis = `<strong>Missing the key target.</strong> You haven't committed to defending Taiwan — the most likely target of China's fait accompli strategy. Without Taiwan in the perimeter, China can seize it, break the First Island Chain, and the coalition will likely collapse. Colby identifies Taiwan defense as the #1 priority.`;
+  } else if (power >= chinaP && overext <= 15 && hasTaiwan && hasJapan) {
+    resultClass = 'good';
+    analysis = `<strong>Excellent coalition design.</strong> Power (${power}) exceeds China's (${chinaP}), overextension (${overext}) is manageable, and you've included both Japan and Taiwan — the critical nodes. This coalition can sustain a denial defense and deter Chinese aggression. Budget cost: ${cost}. Well done — Colby would approve.`;
+  } else {
+    resultClass = 'neutral';
+    analysis = `<strong>Adequate but imperfect.</strong> Power (${power}) vs China (${chinaP}). Overextension: ${overext}. ${!hasJapan ? 'Missing Japan — the most capable regional ally — weakens the coalition significantly.' : ''} This coalition can probably deter but may struggle in a prolonged conflict.`;
+  }
+  document.getElementById('coalition-result').innerHTML = `<div class="game-result ${resultClass}">${analysis}</div>`;
+}
+
+function resetCoalition() {
+  coalitionStates.forEach(st => { st.selected = st.required; });
+  renderCoalition();
+  document.getElementById('coalition-result').innerHTML = '';
+}
+
+// ===== ESCALATION POKER GAME =====
+const escState = {
+  usResolve: 100, cnResolve: 80, nukeRisk: 5, round: 1, ended: false
+};
+
+function renderEscalation() {
+  document.getElementById('esc-us-resolve').textContent = escState.usResolve;
+  document.getElementById('esc-cn-resolve').textContent = escState.cnResolve;
+  document.getElementById('esc-nuke').textContent = escState.nukeRisk + '%';
+  document.getElementById('esc-round').textContent = escState.round;
+  if (escState.ended) return;
+  const narratives = [
+    "China's invasion of Taiwan has been repelled. Beijing is humiliated but not defeated. Both sides assess their options in the aftermath. The denied fait accompli leaves China bearing the burden of escalation.",
+    "Tensions remain extreme. Chinese naval forces regroup. Beijing's propaganda machine works overtime. The world economy trembles. What is your next move?",
+    "Week 3. International pressure for a ceasefire mounts. China begins repositioning forces. Some coalition members waver. How do you manage the endgame?",
+    "The crisis drags on. Both sides are exhausted. China signals willingness to talk but makes no concessions. Final round — how do you end this?",
+    "Extended crisis. Intelligence suggests internal debate within China's politburo. Some hawks push for escalation, doves argue for withdrawal."
+  ];
+  const n = Math.min(escState.round - 1, narratives.length - 1);
+  document.getElementById('esc-narrative').innerHTML = `<p>${narratives[n]}</p>`;
+  document.getElementById('esc-options').innerHTML = `
+    <div class="game-option" onclick="escAction('hold')"><h4>Hold Position <span class="rus">(Удерживать позицию)</span></h4><p>Maintain denial posture. Wait for China to blink. Costs resolve over time but keeps escalation stable.</p></div>
+    <div class="game-option" onclick="escAction('pressure')"><h4>Apply Pressure <span class="rus">(Усилить давление)</span></h4><p>Tighten naval operations, economic sanctions, and coalition joint exercises. Drains China's resolve faster but increases nuclear risk.</p></div>
+    <div class="game-option" onclick="escAction('offer')"><h4>Offer Off-Ramp <span class="rus">(Предложить выход)</span></h4><p>Propose face-saving diplomatic solution. Reduces escalation risk but may look like weakness if timed poorly.</p></div>
+    <div class="game-option" onclick="escAction('escalate')"><h4>Escalate <span class="rus">(Эскалировать)</span></h4><p>Strike Chinese military staging areas or impose full blockade. Heavy impact on China's resolve but massive nuclear risk spike.</p></div>
+  `;
+  document.getElementById('esc-result').innerHTML = '';
+}
+
+function escAction(action) {
+  if (escState.ended) return;
+  document.querySelectorAll('#esc-options .game-option').forEach(el => el.style.pointerEvents = 'none');
+  let feedback = '';
+  switch(action) {
+    case 'hold':
+      escState.usResolve -= 8;
+      escState.cnResolve -= 5;
+      escState.nukeRisk = Math.max(1, escState.nukeRisk - 1);
+      feedback = "You hold. Time passes. Both sides lose some resolve, but the status quo favors the defender. Colby notes: after a failed fait accompli, time works for the coalition as long as the denial posture holds.";
+      break;
+    case 'pressure':
+      escState.usResolve -= 5;
+      escState.cnResolve -= 15;
+      escState.nukeRisk += 5;
+      feedback = "Pressure intensifies. China's economy suffers, military morale drops. But Beijing's hawks argue this justifies escalation. Nuclear risk ticks up. This is the cost-imposition strategy Colby describes in Chapter 9 — effective but must be managed carefully.";
+      break;
+    case 'offer':
+      escState.usResolve -= 3;
+      escState.cnResolve -= 10;
+      escState.nukeRisk -= 3;
+      feedback = "Diplomatic channel opens. China's doves gain leverage internally. Nuclear risk decreases. If your position is strong, offering an off-ramp is magnanimous, not weak — this aligns with Colby's 'decent peace' objective.";
+      break;
+    case 'escalate':
+      escState.usResolve -= 15;
+      escState.cnResolve -= 25;
+      escState.nukeRisk += 15;
+      feedback = "Dramatic escalation. China reels but its leadership may feel cornered. Nuclear risk spikes dangerously. Colby warns: horizontal escalation risks catalyzing the very nuclear response the denial defense was designed to avoid.";
+      break;
+  }
+  // China's response
+  let cnAction;
+  if (escState.cnResolve <= 20) {
+    cnAction = "China accepts negotiations and begins withdrawing forces.";
+    escState.nukeRisk -= 5;
+  } else if (escState.nukeRisk > 40) {
+    cnAction = "China conducts a nuclear test as a warning signal. The world holds its breath.";
+    escState.nukeRisk += 10;
+    escState.usResolve -= 10;
+  } else if (escState.cnResolve > 60) {
+    cnAction = "China retaliates with cyber attacks on US allies and continues military posturing.";
+    escState.usResolve -= 5;
+    escState.nukeRisk += 3;
+  } else {
+    cnAction = "China's leadership debates internally. Pressure mounts but no decisive action yet.";
+    escState.cnResolve -= 5;
+  }
+
+  escState.usResolve = Math.max(0, escState.usResolve);
+  escState.cnResolve = Math.max(0, escState.cnResolve);
+  escState.nukeRisk = Math.max(0, Math.min(100, escState.nukeRisk));
+
+  // Check end conditions
+  let endMsg = '';
+  if (escState.nukeRisk >= 70) {
+    endMsg = `<div class="game-result bad"><strong>☢️ Nuclear catastrophe.</strong> Escalation spiraled out of control. Colby's entire framework aims to prevent this — the denial defense succeeds precisely because it avoids the need for escalation.</div>`;
+    escState.ended = true;
+  } else if (escState.cnResolve <= 10) {
+    endMsg = `<div class="game-result good"><strong>✓ China concedes.</strong> Beijing accepts a face-saving peace. The anti-hegemonic coalition holds. You've achieved Colby's 'decent peace' — China's hegemonic ambitions are blocked without catastrophic escalation.</div>`;
+    escState.ended = true;
+  } else if (escState.usResolve <= 10) {
+    endMsg = `<div class="game-result bad"><strong>US resolve collapsed.</strong> Domestic pressure forces withdrawal. China claims victory despite its military defeat. Credibility destroyed. The coalition fractures.</div>`;
+    escState.ended = true;
+  }
+
+  document.getElementById('esc-result').innerHTML = `
+    <div class="game-result neutral"><strong>Your move:</strong> ${feedback}<br><br><strong>China's response:</strong> ${cnAction}</div>
+    ${endMsg}
+    ${!escState.ended ? `<div style="margin-top:1rem;"><button class="game-btn" onclick="nextEscRound()">Next Round →</button></div>` : `<div style="margin-top:1rem;"><button class="game-btn" onclick="resetEscGame()">Play Again</button></div>`}
+  `;
+  escState.round++;
+  document.getElementById('esc-us-resolve').textContent = escState.usResolve;
+  document.getElementById('esc-cn-resolve').textContent = escState.cnResolve;
+  document.getElementById('esc-nuke').textContent = escState.nukeRisk + '%';
+  document.getElementById('esc-round').textContent = escState.round;
+}
+
+function nextEscRound() { renderEscalation(); }
+function resetEscGame() {
+  escState.usResolve = 100; escState.cnResolve = 80; escState.nukeRisk = 5; escState.round = 1; escState.ended = false;
+  renderEscalation();
+}
+
+// INIT
+document.addEventListener('DOMContentLoaded', () => {
+  renderCrisisRound();
+  updateCrisisStats();
+  renderCoalition();
+  renderEscalation();
+});
+</script>
+</body>
+</html>

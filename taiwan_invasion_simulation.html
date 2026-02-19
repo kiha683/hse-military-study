@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Simulation: Taiwan Invasion War — Lt. Gen. Yamashita Hirotaka</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0c10;--bg2:#111318;--bg3:#181c24;--accent:#c8a44e;--accent2:#e8c55e;--text:#d4d4d8;--text2:#9ca3af;--red:#dc4444;--blue:#3b82f6;--green:#22c55e;--navy:#1e3a5f;--cn:#de2910;--tw:#22c55e;--us:#3b82f6;--jp:#bc002d;--ru:#cc6633}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0c10 0%,#121828 50%,#0a1020 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a44e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:900px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4.2rem);font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,var(--accent),#f0d878,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(.85rem,1.5vw,1.1rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:0.15em;text-transform:uppercase}
+.hero .author{font-size:1.05rem;color:var(--accent);margin:1.2rem 0;font-style:italic}
+.hero .epigraph{max-width:600px;margin:1.5rem auto;padding:1.2rem;border-left:3px solid var(--accent);text-align:left;color:var(--text2);font-style:italic;font-size:.95rem}
+.hero .ru-line{color:var(--ru);font-size:.85rem;margin-top:.4rem;font-style:normal;font-family:'DM Sans'}
+.scroll-hint{margin-top:2.5rem;animation:bounce 2s infinite;cursor:pointer}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.scroll-hint span{display:block;width:2px;height:40px;background:var(--accent);margin:0 auto;opacity:.5}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,12,16,.93);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,164,78,.1);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--accent);font-weight:700}
+.nav-links{display:flex;gap:.6rem;flex-wrap:wrap;overflow-x:auto}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.68rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.06em;transition:color .2s;white-space:nowrap;padding:.2rem .4rem;border-radius:3px}
+.nav-links a:hover{color:var(--accent);background:rgba(200,164,78,.08)}
+.section{max-width:1000px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:5rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;border:1px solid rgba(200,164,78,.1);border-radius:50%}
+.part-num{font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.part-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:900;color:#fff;margin-bottom:.8rem}
+.part-desc{color:var(--text2);max-width:600px;margin:0 auto;font-size:1rem}
+.ch-header{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(200,164,78,.15)}
+.ch-num{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.5vw,2rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--accent);padding-left:1rem;margin-top:.8rem;font-size:.9rem}
+h3{font-family:'Playfair Display',serif;font-size:1.25rem;color:#fff;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--accent)}
+h4{font-family:'DM Sans',sans-serif;font-size:.92rem;color:var(--accent);margin:1.8rem 0 .7rem;letter-spacing:.05em}
+p{margin-bottom:1.1rem;font-size:.96rem}
+strong{color:#fff;font-weight:600}
+.ru{position:relative;border-bottom:1px dashed var(--ru);color:var(--text);cursor:help;white-space:nowrap}
+.ru::after{content:attr(data-ru);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%) scale(.92);background:var(--bg3);color:var(--ru);font:.72rem 'DM Sans';padding:.3rem .6rem;border-radius:4px;border:1px solid rgba(204,102,51,.25);white-space:nowrap;opacity:0;pointer-events:none;transition:.2s;z-index:50}
+.ru:hover::after{opacity:1;transform:translateX(-50%) scale(1)}
+.key-point{background:var(--bg3);border:1px solid rgba(200,164,78,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY';position:absolute;top:-10px;left:16px;font-family:'DM Sans';font-size:.6rem;letter-spacing:.15em;background:var(--accent);color:var(--bg);padding:2px 10px;border-radius:3px;font-weight:700}
+.key-point p{margin-bottom:.5rem}
+.warning-box{background:rgba(220,68,68,.06);border:1px solid rgba(220,68,68,.18);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.warning-box strong{color:var(--red)}
+.concept-box{background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.14);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+.ru-box{background:rgba(204,102,51,.05);border:1px solid rgba(204,102,51,.18);border-radius:8px;padding:1rem 1.2rem;margin:1.2rem 0}
+.ru-box strong{color:var(--ru)}
+.map-container{background:var(--bg2);border:1px solid rgba(200,164,78,.12);border-radius:12px;overflow:hidden;margin:2rem 0}
+.map-label{font-family:'DM Sans';font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:.8rem 1.2rem;background:var(--bg3);border-bottom:1px solid rgba(200,164,78,.1)}
+.map-svg{width:100%;display:block}
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--red),var(--blue),var(--green),transparent)}
+.tl-item{margin-bottom:1.8rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);transform:translateX(-4px)}
+.tl-item.red::before{background:var(--red)}.tl-item.blue::before{background:var(--blue)}.tl-item.green::before{background:var(--green)}.tl-item.jp::before{background:var(--jp)}
+.tl-phase{font-family:'JetBrains Mono';font-size:.72rem;font-weight:500;letter-spacing:.1em}
+.tl-title{font-family:'Playfair Display';font-size:1rem;color:#fff;font-weight:700;margin:.15rem 0 .3rem}
+.tl-loc{display:inline-flex;align-items:center;gap:.3rem;font-family:'DM Sans';font-size:.68rem;color:var(--text2);background:var(--bg3);padding:.12rem .5rem;border-radius:12px;margin-bottom:.3rem;border:1px solid rgba(200,164,78,.08)}
+.tl-text{font-size:.88rem;color:var(--text2);line-height:1.7}
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:8px;padding:1.2rem;text-align:center;transition:all .3s}
+.phase:hover{border-color:var(--accent);transform:translateY(-2px)}
+.phase-num{font-family:'JetBrains Mono';font-size:1.8rem;color:var(--accent);font-weight:700}
+.phase-name{font-family:'DM Sans';font-size:.82rem;color:#fff;margin:.3rem 0;font-weight:600}
+.phase-desc{font-size:.78rem;color:var(--text2);line-height:1.5}
+.stat-bar{margin:.6rem 0;display:flex;align-items:center;gap:.6rem}
+.stat-label{font-family:'DM Sans';font-size:.72rem;color:var(--text2);min-width:100px;text-align:right}
+.stat-track{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.stat-fill{height:100%;border-radius:4px;transition:width 1.5s ease-out}
+.stat-fill.cn{background:linear-gradient(90deg,#de2910,#ff4444)}.stat-fill.tw{background:linear-gradient(90deg,#22c55e,#4ade80)}
+.stat-fill.us{background:linear-gradient(90deg,#3b82f6,#60a5fa)}.stat-fill.jp{background:linear-gradient(90deg,#bc002d,#dd3355)}
+.stat-val{font-family:'JetBrains Mono';font-size:.72rem;color:var(--text2);min-width:65px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.7rem;margin:1.5rem 0}
+.card{background:var(--bg3);border:1px solid rgba(200,164,78,.08);border-radius:8px;padding:1.1rem;transition:all .3s}
+.card:hover{border-color:var(--accent)}
+.card-label{font-family:'DM Sans';font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.2rem}
+.card-value{font-family:'JetBrains Mono';font-size:1.4rem;font-weight:700;line-height:1.2}
+.card-desc{font-size:.78rem;color:var(--text2);margin-top:.15rem}
+.card-ru{font-family:'DM Sans';font-size:.68rem;color:var(--ru);margin-top:.1rem}
+.gl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.5rem;margin:1.2rem 0}
+.gl-item{background:var(--bg3);border:1px solid rgba(200,164,78,.06);border-radius:6px;padding:.6rem .9rem;transition:.2s}
+.gl-item:hover{border-color:var(--ru)}
+.gl-en{font-weight:600;color:var(--text);font-size:.82rem}.gl-ru{color:var(--ru);font-family:'DM Sans';font-size:.75rem}.gl-zh{color:var(--text2);font-size:.68rem;font-family:'DM Sans'}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,164,78,.1);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.2rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.6rem;border-bottom:1px solid rgba(200,164,78,.1)}
+.compare-col.red h4{color:var(--red)}.compare-col.blue h4{color:var(--blue)}
+.compare-col ul{list-style:none;padding:0}.compare-col li{padding:.35rem 0;font-size:.84rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.compare-col li::before{content:'→';color:var(--accent);margin-right:.5rem}
+.game-wrap{background:var(--bg2);border:1px solid rgba(200,164,78,.12);border-radius:12px;overflow:hidden;margin:2rem 0}
+.game-hdr{padding:.7rem 1rem;border-bottom:1px solid rgba(200,164,78,.1);display:flex;align-items:center;gap:.8rem;background:var(--bg3)}
+.game-hdr h4{font-family:'DM Sans';font-size:.85rem;font-weight:600;color:#fff;flex:1;margin:0}
+.game-body{padding:1rem}
+.game-map{width:100%;aspect-ratio:16/9;background:#0a0e18;border-radius:8px;position:relative;overflow:hidden;border:1px solid rgba(200,164,78,.08)}
+.g-unit{position:absolute;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;cursor:grab;z-index:10;font-family:'DM Sans';font-weight:700;user-select:none;transition:box-shadow .2s}
+.g-unit:hover{box-shadow:0 0 12px rgba(255,255,255,.25)}
+.g-unit.cn{background:var(--cn);color:#fff;border:2px solid #ff6666}.g-unit.tw2{background:var(--tw);color:#fff;border:2px solid #4ade80}
+.g-unit.us2{background:var(--us);color:#fff;border:2px solid #60a5fa}.g-unit.jp2{background:var(--jp);color:#fff;border:2px solid #dd3355}
+.g-ctrl{display:flex;gap:.3rem;margin-top:.7rem;flex-wrap:wrap}
+.g-btn{font:.68rem 'DM Sans';padding:.3rem .6rem;border:1px solid rgba(200,164,78,.15);background:var(--bg3);color:var(--text2);cursor:pointer;border-radius:4px;transition:.2s}
+.g-btn:hover{border-color:var(--accent);color:var(--text)}.g-btn.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.g-log{margin-top:.7rem;max-height:130px;overflow-y:auto;font:.68rem 'JetBrains Mono';color:var(--text2);background:var(--bg);border-radius:6px;padding:.6rem;border:1px solid rgba(200,164,78,.06);line-height:1.6}
+.g-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.3rem;margin-top:.7rem}
+.g-stat{background:var(--bg3);border:1px solid rgba(200,164,78,.06);border-radius:6px;padding:.4rem;text-align:center}
+.g-stat .gs-l{font:.55rem 'DM Sans';color:var(--text2);text-transform:uppercase;letter-spacing:.08em}.g-stat .gs-v{font:.9rem/1.2 'JetBrains Mono';font-weight:700}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(200,164,78,.2),transparent);margin:4rem 0}
+.footer{text-align:center;padding:3rem 2rem;color:var(--text2);font-size:.8rem;background:var(--bg2);border-top:1px solid rgba(200,164,78,.08)}
+.footer strong{color:var(--accent)}
+.fade-in{opacity:0;transform:translateY(25px);transition:all .7s ease-out}.fade-in.visible{opacity:1;transform:translateY(0)}
+@media(max-width:768px){.compare{grid-template-columns:1fr}.nav-links{display:none}.section{padding:3rem 1rem}.g-stats{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr 1fr}.gl-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+<div class="nav-title">完全シミュレーション 台湾侵攻戦争</div>
+<div class="nav-links">
+<a href="#glossary">🇷🇺 Glossary</a>
+<a href="#part1">Background</a>
+<a href="#forces">Forces</a>
+<a href="#part2">Simulation</a>
+<a href="#ukraine">Ukraine</a>
+<a href="#part4">US-Japan</a>
+<a href="#yonaguni">Yonaguni</a>
+<a href="#strait">Strait Battle</a>
+<a href="#ending">Outcome</a>
+<a href="#game">🎮 Game</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="subtitle">Written by Yamashita Hirotaka (山下裕貴), former JGSDF Lieutenant General</div>
+<h1>Complete Simulation:<br>Taiwan Invasion War</h1>
+<div class="subtitle" style="font-size:.75rem;letter-spacing:.05em">完全シミュレーション 台湾侵攻戦争 · Interactive English Edition with Russian Military Glossary</div>
+<div class="author">Former Commander of JGSDF Central Army · Creator of Special Operations Group · Retired 2015</div>
+<div class="epigraph">
+"In war, speed is everything — a prolonged campaign has never been known to be clever."
+<div class="ru-line">«На войне ценится быстрота — затяжная кампания никогда не бывала мудрой» — Сунь-Цзы (孫子兵法)</div>
+</div>
+<div class="epigraph" style="border-color:var(--red)">
+"War produces neither victory nor defeat — only devastated land and human sacrifice."
+<div class="ru-line">«Война не приносит ни победы, ни поражения — только разрушенную землю и человеческие жертвы»</div>
+<div class="ru-line" style="color:var(--accent)">— Lt. Gen. Yamashita Hirotaka, April 2023</div>
+</div>
+<div class="scroll-hint" onclick="document.getElementById('glossary').scrollIntoView()"><span></span></div>
+</div>
+</section>
+
+<!-- GLOSSARY -->
+<section class="section" id="glossary">
+<div class="ch-header"><div class="ch-num">🇷🇺 Reference / Справочник</div><div class="ch-title">Russian Military Glossary / Военный Глоссарий</div>
+<div class="ch-quote">Hover over <span class="ru" data-ru="подчёркнутые термины">underlined terms</span> throughout the text to see Russian translations</div></div>
+<div class="gl-grid">
+<div class="gl-item"><div class="gl-en">Amphibious Assault</div><div class="gl-ru">Десантная операция</div><div class="gl-zh">兩棲突擊</div></div>
+<div class="gl-item"><div class="gl-en">Carrier Strike Group</div><div class="gl-ru">Авианосная ударная группа (АУГ)</div><div class="gl-zh">航母打擊群</div></div>
+<div class="gl-item"><div class="gl-en">Theater Command</div><div class="gl-ru">Командование ТВД</div><div class="gl-zh">戰區</div></div>
+<div class="gl-item"><div class="gl-en">Combined Arms Brigade</div><div class="gl-ru">Общевойсковая бригада</div><div class="gl-zh">合成旅</div></div>
+<div class="gl-item"><div class="gl-en">Anti-Ship Ballistic Missile</div><div class="gl-ru">Противокорабельная баллист. ракета</div><div class="gl-zh">反艦彈道飛彈</div></div>
+<div class="gl-item"><div class="gl-en">Electronic Warfare (EW)</div><div class="gl-ru">Радиоэлектронная борьба (РЭБ)</div><div class="gl-zh">電子戰</div></div>
+<div class="gl-item"><div class="gl-en">Air Superiority</div><div class="gl-ru">Господство в воздухе</div><div class="gl-zh">制空權</div></div>
+<div class="gl-item"><div class="gl-en">Cruise Missile</div><div class="gl-ru">Крылатая ракета</div><div class="gl-zh">巡弋飛彈</div></div>
+<div class="gl-item"><div class="gl-en">Beachhead / Bridgehead</div><div class="gl-ru">Плацдарм</div><div class="gl-zh">橋頭堡</div></div>
+<div class="gl-item"><div class="gl-en">Airborne Assault</div><div class="gl-ru">Воздушный десант</div><div class="gl-zh">空降突擊</div></div>
+<div class="gl-item"><div class="gl-en">Hybrid Warfare</div><div class="gl-ru">Гибридная война</div><div class="gl-zh">混合戰</div></div>
+<div class="gl-item"><div class="gl-en">Cognitive Warfare</div><div class="gl-ru">Когнитивная война</div><div class="gl-zh">認知作戰</div></div>
+<div class="gl-item"><div class="gl-en">First Island Chain</div><div class="gl-ru">Первая цепь островов</div><div class="gl-zh">第一島鏈</div></div>
+<div class="gl-item"><div class="gl-en">Self-Defense Forces (JSDF)</div><div class="gl-ru">Силы самообороны Японии</div><div class="gl-zh">自衛隊</div></div>
+<div class="gl-item"><div class="gl-en">Aegis Destroyer</div><div class="gl-ru">Эсминец «Иджис»</div><div class="gl-zh">神盾艦</div></div>
+<div class="gl-item"><div class="gl-en">Hypersonic Weapon</div><div class="gl-ru">Гиперзвуковое оружие</div><div class="gl-zh">極音速武器</div></div>
+<div class="gl-item"><div class="gl-en">Unmanned Underwater Vehicle</div><div class="gl-ru">АНПА (автон. подв. аппарат)</div><div class="gl-zh">無人潛艇</div></div>
+<div class="gl-item"><div class="gl-en">Fait Accompli</div><div class="gl-ru">Свершившийся факт</div><div class="gl-zh">既成事實</div></div>
+<div class="gl-item"><div class="gl-en">Rocket Force (PLA)</div><div class="gl-ru">Ракетные войска НОАК</div><div class="gl-zh">火箭軍</div></div>
+<div class="gl-item"><div class="gl-en">Strategic Support Force</div><div class="gl-ru">Войска стратегич. поддержки</div><div class="gl-zh">戰略支援部隊</div></div>
+<div class="gl-item"><div class="gl-en">Sea Lines of Communication</div><div class="gl-ru">Морские коммуникации</div><div class="gl-zh">海上補給線</div></div>
+<div class="gl-item"><div class="gl-en">Escalation to Nuclear War</div><div class="gl-ru">Эскалация до ядерной войны</div><div class="gl-zh">升級為核戰</div></div>
+<div class="gl-item"><div class="gl-en">Anti-Access/Area Denial</div><div class="gl-ru">Зона запрета доступа (A2/AD)</div><div class="gl-zh">反介入/區域拒止</div></div>
+<div class="gl-item"><div class="gl-en">Battalion Tactical Group</div><div class="gl-ru">Батальонная тактич. группа (БТГ)</div><div class="gl-zh">營級戰鬥群</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PART I: BACKGROUND -->
+<section class="part-header" id="part1">
+<div class="part-num">Part I</div>
+<div class="part-title">Background: The Coming Storm</div>
+<div class="part-desc">America's "X-Day" predictions, Xi Jinping's ambitions, the Taiwan Strait barrier, and the military balance of power.</div>
+</section>
+
+<section class="section">
+<div class="ch-header"><div class="ch-num">Chapter 1</div><div class="ch-title">America's Predicted "X-Day"</div>
+<div class="ch-quote">"Will China really attack Taiwan? My answer is YES — the only question is when."<br>— Lt. Gen. Yamashita</div></div>
+
+<h3>The Intelligence Warnings</h3>
+<p>In March 2021, US <span class="ru" data-ru="Индо-Тихоокеанское командование">Indo-Pacific Command</span> commander Admiral Davidson testified before the US Senate: <strong>"Within the next six years (by 2027), China is very likely to invade Taiwan."</strong> This assessment was based on 2027 being the critical year when Xi Jinping's third term approaches its end, creating political pressure to act.</p>
+
+<p>In October 2022, US Chief of Naval Operations Admiral Gilday went further: <strong>"In my own assessment, it's not 2027 — it could be 2022 or 2023."</strong> Then in February 2023, CIA Director Burns revealed: <strong>"We have intelligence that Xi Jinping has ordered preparations for invading Taiwan to be completed by 2027."</strong></p>
+
+<div class="key-point">
+<p><strong>The August 2022 Crisis:</strong> When US House Speaker Pelosi visited Taiwan, China launched massive <span class="ru" data-ru="военные учения">military exercises</span> and fired missiles into six zones around Taiwan. Five missiles landed in Japan's Exclusive Economic Zone near Hateruma Island — making "a Taiwan contingency is a Japan contingency" terrifyingly real.</p>
+</div>
+
+<h3>Triggers for War</h3>
+<p>According to US government analysis, the triggers for China's invasion include: Taiwan declaring independence, Taiwan applying for UN membership, internal chaos in Taiwan, Taiwan acquiring nuclear weapons, or foreign military forces stationing in Taiwan. The author assesses that <strong>Taiwan's international activities being interpreted by Beijing as moves toward independence</strong> is the most likely trigger.</p>
+
+<h3>Xi Jinping's Ambitions</h3>
+<p>At the CCP's 100th anniversary in July 2021, Xi declared: <strong>"Resolving the Taiwan question and realizing China's complete reunification is the historic mission of the Communist Party."</strong> At the 20th Party Congress in October 2022, the political report stated: <strong>"We will never renounce the use of force, and we reserve the option of taking all necessary measures"</strong> — targeting "external interference forces and the very few Taiwan independence separatists."</p>
+
+<p>The 20th Party Congress installed Xi's loyalists in all seven Politburo Standing Committee seats and placed Taiwan operations specialist He Weidong — former <span class="ru" data-ru="Восточное командование ТВД">Eastern Theater Command</span> commander — as vice chairman of the Central Military Commission. The new Eastern Theater commander Lin Xiangyang was also elevated to Central Committee member. These personnel moves clearly prepare the command structure for a Taiwan operation.</p>
+
+<h3>The Taiwan Strait Barrier</h3>
+<p>The <span class="ru" data-ru="Тайваньский пролив">Taiwan Strait</span> averages 180 km wide at its narrowest point of approximately 130 km. The Strait is one of the world's roughest waterways — typhoons from June to October, the northeast monsoon from October to March, and the powerful Kuroshio Current create extremely challenging conditions for <span class="ru" data-ru="десантная операция">amphibious operations</span>. Only April-May and October offer relatively calm windows — about 60 days per year suitable for a cross-strait landing operation.</p>
+
+<p>At any given time, an average of <strong>240 ships</strong> transit the Taiwan Strait, making it one of the world's busiest maritime corridors. About <strong>88% of the world's largest container ships</strong> pass through these waters, and <strong>40% of global maritime trade</strong> crosses the South China Sea nearby.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- FORCE COMPARISON -->
+<section class="section" id="forces">
+<div class="ch-header"><div class="ch-num">Military Balance</div><div class="ch-title">Force Comparison / Сравнение сил</div></div>
+
+<h3>PLA Invasion Force</h3>
+<p>The author estimates China would assemble <strong>over 420,000 troops</strong> from 42+ <span class="ru" data-ru="общевойсковые бригады">combined arms brigades</span> drawn from multiple <span class="ru" data-ru="командования ТВД">theater commands</span>, organized into three invasion waves:</p>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--cn)"><div class="phase-num">1st</div><div class="phase-name">~160,000</div><div class="phase-desc">3 Marine brigades + mechanized combined arms brigades. Establish beachheads at Taipei, Taichung, Tainan coasts</div></div>
+<div class="phase" style="border-top:3px solid var(--cn)"><div class="phase-num">2nd</div><div class="phase-name">Heavy Armor</div><div class="phase-desc">Heavy mechanized brigades with main battle tanks. Secure ports and airfields for follow-on forces</div></div>
+<div class="phase" style="border-top:3px solid var(--cn)"><div class="phase-num">3rd+</div><div class="phase-name">Exploitation</div><div class="phase-desc">Subsequent waves via captured ports and airfields. Push inland to mountain foothills</div></div>
+</div>
+
+<h4>Ground Forces Ratio</h4>
+<div class="stat-bar"><div class="stat-label">PLA Ground</div><div class="stat-track"><div class="stat-fill cn" style="width:82%"></div></div><div class="stat-val">420,000</div></div>
+<div class="stat-bar"><div class="stat-label">Taiwan Ground</div><div class="stat-track"><div class="stat-fill tw" style="width:18%"></div></div><div class="stat-val">~90,000</div></div>
+
+<h4>Naval Forces</h4>
+<div class="stat-bar"><div class="stat-label">PLA Navy (East)</div><div class="stat-track"><div class="stat-fill cn" style="width:74%"></div></div><div class="stat-val">11 DDG, 23 FFG, 17 SSK</div></div>
+<div class="stat-bar"><div class="stat-label">ROC Navy</div><div class="stat-track"><div class="stat-fill tw" style="width:26%"></div></div><div class="stat-val">4 DDG, 22 FFG, 4 SS</div></div>
+
+<h4>Air Forces</h4>
+<div class="stat-bar"><div class="stat-label">PLA Air Force</div><div class="stat-track"><div class="stat-fill cn" style="width:78%"></div></div><div class="stat-val">~1,629 fighters</div></div>
+<div class="stat-bar"><div class="stat-label">ROC Air Force</div><div class="stat-track"><div class="stat-fill tw" style="width:22%"></div></div><div class="stat-val">~410 fighters</div></div>
+
+<div class="cards">
+<div class="card"><div class="card-label">Force Ratio</div><div class="card-value" style="color:var(--cn)">4.6:1</div><div class="card-desc">Ground troops (China advantage)</div><div class="card-ru">Соотношение наземных сил</div></div>
+<div class="card"><div class="card-label">Naval Ratio</div><div class="card-value" style="color:var(--cn)">2.8:1</div><div class="card-desc">Naval combat vessels</div><div class="card-ru">Соотношение ВМС</div></div>
+<div class="card"><div class="card-label">Air Ratio</div><div class="card-value" style="color:var(--cn)">2.3:1</div><div class="card-desc">Combat aircraft</div><div class="card-ru">Соотношение ВВС</div></div>
+<div class="card"><div class="card-label">US Indo-Pacific</div><div class="card-value" style="color:var(--us)">131K</div><div class="card-desc">Personnel + 3 CSGs</div><div class="card-ru">Командование ИТР</div></div>
+<div class="card"><div class="card-label">JSDF Total</div><div class="card-value" style="color:var(--jp)">247K</div><div class="card-desc">GSDF 150K, MSDF 45K, ASDF 47K</div><div class="card-ru">Силы самообороны</div></div>
+<div class="card"><div class="card-label">PLA Missiles</div><div class="card-value" style="color:var(--cn)">1,250+</div><div class="card-desc">Short/medium range targeting Taiwan</div><div class="card-ru">Баллистические ракеты</div></div>
+</div>
+
+<!-- THEATER MAP SVG -->
+<div class="map-container">
+<div class="map-label">Strategic Theater Map — Taiwan Strait & First Island Chain</div>
+<svg class="map-svg" viewBox="0 0 800 500" style="background:#0d1520">
+<rect width="800" height="500" fill="#0d1520"/>
+<g stroke="rgba(200,164,78,0.04)" stroke-width="0.5"><line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/><line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/><line x1="200" y1="0" x2="200" y2="500"/><line x1="400" y1="0" x2="400" y2="500"/><line x1="600" y1="0" x2="600" y2="500"/></g>
+<!-- China -->
+<path d="M0,50 L180,50 L200,80 L220,120 L200,180 L210,240 L190,280 L200,340 L180,400 L160,450 L120,500 L0,500Z" fill="#1a2535" stroke="rgba(222,41,16,.3)" stroke-width="1.5"/>
+<text x="80" y="250" fill="rgba(222,41,16,.7)" font-family="DM Sans" font-size="14" font-weight="700" text-anchor="middle">CHINA</text>
+<text x="80" y="268" fill="rgba(222,41,16,.35)" font-family="DM Sans" font-size="8" text-anchor="middle">Китай</text>
+<text x="170" y="320" fill="rgba(222,41,16,.4)" font-family="DM Sans" font-size="7">Fujian 福建</text>
+<text x="160" y="380" fill="rgba(222,41,16,.4)" font-family="DM Sans" font-size="7">Xiamen 廈門</text>
+<!-- Taiwan -->
+<path d="M340,180 L355,170 L365,185 L370,220 L368,260 L360,290 L345,310 L335,305 L330,270 L328,230 L332,195Z" fill="#1e3a2e" stroke="rgba(34,197,94,.5)" stroke-width="2"/>
+<text x="350" y="245" fill="rgba(34,197,94,.9)" font-family="DM Sans" font-size="11" font-weight="700" text-anchor="middle">TAIWAN</text>
+<text x="350" y="258" fill="rgba(34,197,94,.45)" font-family="DM Sans" font-size="7" text-anchor="middle">Тайвань</text>
+<text x="345" y="190" fill="rgba(34,197,94,.5)" font-family="DM Sans" font-size="6" text-anchor="middle">Taipei 台北</text>
+<text x="370" y="230" fill="rgba(34,197,94,.4)" font-family="DM Sans" font-size="5">Taichung</text>
+<text x="358" y="280" fill="rgba(34,197,94,.4)" font-family="DM Sans" font-size="5">Tainan</text>
+<text x="353" y="300" fill="rgba(34,197,94,.4)" font-family="DM Sans" font-size="5">Kaohsiung</text>
+<!-- Strait label -->
+<text x="268" y="235" fill="rgba(59,130,246,.4)" font-family="DM Sans" font-size="9" text-anchor="middle" transform="rotate(-15,268,235)">TAIWAN STRAIT</text>
+<text x="268" y="248" fill="rgba(59,130,246,.25)" font-family="DM Sans" font-size="6" text-anchor="middle" transform="rotate(-15,268,248)">~130 km / Тайваньский пролив</text>
+<!-- Invasion arrows -->
+<path d="M210,240 Q280,220 330,200" fill="none" stroke="rgba(222,41,16,.4)" stroke-width="2" stroke-dasharray="6,3"><animate attributeName="stroke-dashoffset" from="18" to="0" dur="2s" repeatCount="indefinite"/></path>
+<path d="M210,280 Q280,260 333,240" fill="none" stroke="rgba(222,41,16,.35)" stroke-width="2" stroke-dasharray="6,3"><animate attributeName="stroke-dashoffset" from="18" to="0" dur="2.2s" repeatCount="indefinite"/></path>
+<path d="M200,340 Q280,320 340,290" fill="none" stroke="rgba(222,41,16,.3)" stroke-width="2" stroke-dasharray="6,3"><animate attributeName="stroke-dashoffset" from="18" to="0" dur="2.5s" repeatCount="indefinite"/></path>
+<!-- Offshore islands -->
+<circle cx="215" cy="345" r="3" fill="#1e3a2e" stroke="rgba(34,197,94,.3)"/><text x="225" y="348" fill="rgba(34,197,94,.4)" font-family="DM Sans" font-size="5">Kinmen 金門</text>
+<circle cx="230" cy="300" r="2" fill="#1e3a2e" stroke="rgba(34,197,94,.3)"/><text x="238" y="303" fill="rgba(34,197,94,.4)" font-family="DM Sans" font-size="5">Matsu</text>
+<circle cx="290" cy="330" r="4" fill="#1e3a2e" stroke="rgba(34,197,94,.3)"/><text x="277" y="345" fill="rgba(34,197,94,.4)" font-family="DM Sans" font-size="5">Penghu 澎湖</text>
+<!-- Japan -->
+<path d="M500,30 L520,25 L530,40 L525,70 L515,90 L500,85 L495,60Z" fill="#1a2535" stroke="rgba(188,0,45,.2)" stroke-width="1"/>
+<text x="510" y="58" fill="rgba(188,0,45,.5)" font-family="DM Sans" font-size="8" text-anchor="middle">JAPAN</text>
+<!-- Okinawa -->
+<ellipse cx="460" cy="125" rx="14" ry="4" fill="#1a2535" stroke="rgba(188,0,45,.2)" stroke-width="1"/>
+<text x="460" y="115" fill="rgba(188,0,45,.4)" font-family="DM Sans" font-size="6" text-anchor="middle">Okinawa 沖繩</text>
+<!-- Yonaguni -->
+<circle cx="395" cy="170" r="3" fill="#1a2535" stroke="rgba(188,0,45,.3)"/>
+<text x="395" y="162" fill="rgba(188,0,45,.5)" font-family="DM Sans" font-size="5" text-anchor="middle">Yonaguni 與那國</text>
+<text x="395" y="182" fill="rgba(188,0,45,.3)" font-family="DM Sans" font-size="4" text-anchor="middle">110km from Taiwan</text>
+<!-- Ishigaki -->
+<circle cx="420" cy="155" r="3" fill="#1a2535" stroke="rgba(188,0,45,.3)"/>
+<text x="433" y="158" fill="rgba(188,0,45,.4)" font-family="DM Sans" font-size="5">Ishigaki 石垣</text>
+<!-- Miyako -->
+<circle cx="440" cy="143" r="3" fill="#1a2535" stroke="rgba(188,0,45,.3)"/>
+<text x="453" y="146" fill="rgba(188,0,45,.4)" font-family="DM Sans" font-size="5">Miyako 宮古</text>
+<!-- Senkaku -->
+<circle cx="380" cy="145" r="2" fill="rgba(200,164,78,.4)" stroke="rgba(200,164,78,.3)"/>
+<text x="380" y="138" fill="rgba(200,164,78,.5)" font-family="DM Sans" font-size="5" text-anchor="middle">Senkaku/釣魚臺</text>
+<!-- Philippines -->
+<path d="M380,420 L400,410 L410,430 L405,460 L390,470 L375,450Z" fill="#1a2535" stroke="rgba(200,164,78,.15)"/>
+<text x="395" y="445" fill="rgba(200,164,78,.3)" font-family="DM Sans" font-size="7" text-anchor="middle">Philippines</text>
+<!-- Baishi Channel -->
+<text x="375" y="395" fill="rgba(59,130,246,.3)" font-family="DM Sans" font-size="6" text-anchor="middle">Bashi Channel / Баши</text>
+<!-- First Island Chain -->
+<path d="M520,20 Q480,100 440,145 Q410,180 365,310 Q380,380 395,410" fill="none" stroke="rgba(200,164,78,.3)" stroke-width="1.5" stroke-dasharray="8,4"/>
+<text x="430" y="340" fill="rgba(200,164,78,.4)" font-family="DM Sans" font-size="7" transform="rotate(-65,430,340)">FIRST ISLAND CHAIN</text>
+<!-- US CSG positions -->
+<circle cx="500" cy="350" r="8" fill="none" stroke="rgba(59,130,246,.4)" stroke-width="1.5"><animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite"/></circle>
+<text x="500" y="338" fill="rgba(59,130,246,.6)" font-family="DM Sans" font-size="6" text-anchor="middle">USS Roosevelt CSG</text>
+<circle cx="550" cy="250" r="8" fill="none" stroke="rgba(59,130,246,.3)" stroke-width="1.5"><animate attributeName="r" values="6;10;6" dur="3.5s" repeatCount="indefinite"/></circle>
+<text x="550" y="238" fill="rgba(59,130,246,.5)" font-family="DM Sans" font-size="6" text-anchor="middle">USS Nimitz CSG</text>
+<circle cx="460" cy="240" r="7" fill="none" stroke="rgba(59,130,246,.3)" stroke-width="1"><animate attributeName="r" values="5;9;5" dur="2.8s" repeatCount="indefinite"/></circle>
+<text x="460" y="228" fill="rgba(59,130,246,.4)" font-family="DM Sans" font-size="5" text-anchor="middle">USS Reagan (damaged)</text>
+<!-- PLA missile range -->
+<circle cx="200" cy="240" r="170" fill="none" stroke="rgba(222,41,16,.12)" stroke-width="1" stroke-dasharray="3,3"/>
+<!-- Legend -->
+<rect x="580" y="30" width="200" height="130" rx="5" fill="rgba(10,12,16,.85)" stroke="rgba(200,164,78,.1)"/>
+<text x="595" y="50" fill="var(--accent)" font-family="DM Sans" font-size="8" font-weight="700">LEGEND / ЛЕГЕНДА</text>
+<line x1="595" y1="65" x2="625" y2="65" stroke="rgba(222,41,16,.4)" stroke-width="2" stroke-dasharray="6,3"/>
+<text x="632" y="68" fill="rgba(222,41,16,.6)" font-family="DM Sans" font-size="7">PLA invasion routes</text>
+<line x1="595" y1="82" x2="625" y2="82" stroke="rgba(200,164,78,.3)" stroke-width="1.5" stroke-dasharray="8,4"/>
+<text x="632" y="85" fill="rgba(200,164,78,.5)" font-family="DM Sans" font-size="7">First Island Chain</text>
+<circle cx="610" cy="98" r="5" fill="none" stroke="rgba(59,130,246,.4)" stroke-width="1.5"/>
+<text x="632" y="101" fill="rgba(59,130,246,.5)" font-family="DM Sans" font-size="7">US Carrier Strike Groups</text>
+<circle cx="610" cy="115" r="3" fill="#1e3a2e" stroke="rgba(34,197,94,.4)"/>
+<text x="632" y="118" fill="rgba(34,197,94,.5)" font-family="DM Sans" font-size="7">Taiwan / offshore islands</text>
+<circle cx="610" cy="132" r="3" fill="#1a2535" stroke="rgba(188,0,45,.3)"/>
+<text x="632" y="135" fill="rgba(188,0,45,.4)" font-family="DM Sans" font-size="7">Japanese islands (JSDF)</text>
+</svg>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PART II: THE SIMULATION -->
+<section class="part-header" id="part2">
+<div class="part-num">Part II</div>
+<div class="part-title">The Full Simulation</div>
+<div class="part-desc">A detailed day-by-day reconstruction of the hypothetical Chinese invasion of Taiwan — from hybrid warfare to amphibious landing to stalemate.</div>
+</section>
+
+<section class="section">
+<div class="ch-header"><div class="ch-num">The Simulation</div><div class="ch-title">Prologue: Dawn Attack on the Sakishima Islands</div></div>
+
+<p>The book opens with a cinematic scene: <strong>at dawn, air-raid sirens wail across Ishigaki Island</strong>. <span class="ru" data-ru="крылатые ракеты">Cruise missiles</span> breach the JSDF air defense network and slam into the Ishigaki garrison. The port, New Ishigaki Airport, power plant, and communications towers are hit in succession. Suicide <span class="ru" data-ru="беспилотные ЛА">drones</span> destroy surveillance facilities, fuel depots, and ammunition stores.</p>
+
+<p>Meanwhile on Yonaguni Island — Japan's westernmost territory, just 110 km from Taiwan — all civilians have been evacuated. Only JSDF troops remain, cut off from all communications by Chinese <span class="ru" data-ru="радиоэлектронная борьба">electronic warfare</span>. Transport helicopters land at Yonaguni airfield; heavily armed PLA <span class="ru" data-ru="морская пехота">marines</span> surround the garrison. After just hours of fighting, the small JSDF coastal surveillance unit is disarmed.</p>
+
+<p>Simultaneously, PLA marines land on the Senkaku/Diaoyu Islands and raise the five-star flag.</p>
+
+<div class="warning-box">
+<p><strong>The war on Japan's soil has begun.</strong> This prologue demonstrates Yamashita's core thesis: a Taiwan contingency is automatically a Japan contingency. China must control the southwestern islands to secure its flanks.</p>
+</div>
+
+<h3>The Complete Timeline</h3>
+<div class="timeline">
+
+<div class="tl-item red"><div class="tl-phase" style="color:var(--cn)">X-DAY MINUS MONTHS</div>
+<div class="tl-title">Hybrid Warfare Phase</div>
+<div class="tl-loc"><span class="dot cn"></span> China / Taiwan / Cyberspace</div>
+<div class="tl-text">China's <span class="ru" data-ru="войска стратегич. поддержки">Strategic Support Force</span> (175,000+ cyber troops) launches massive cyberattacks on Taiwan's infrastructure. Agents infiltrate Taiwan to support anti-government movements. <span class="ru" data-ru="когнитивная война">Cognitive warfare</span> campaigns use social media to divide Taiwanese society. False flag attacks on Chinese facilities in Fujian province create invasion pretexts. China declares: "The liberation of Taiwan is China's dream."</div></div>
+
+<div class="tl-item red"><div class="tl-phase" style="color:var(--cn)">X-DAY MINUS DAYS</div>
+<div class="tl-title">Missile Strikes & Sea Control</div>
+<div class="tl-loc"><span class="dot cn"></span> Taiwan Strait</div>
+<div class="tl-text">PLA <span class="ru" data-ru="ракетные войска">Rocket Force</span> launches massive <span class="ru" data-ru="баллистические ракеты">ballistic missile</span> and <span class="ru" data-ru="крылатые ракеты">cruise missile</span> strikes against Taiwan's air bases, radar installations, and command centers. Suicide drones attack military infrastructure. The 73rd Group Army's three marine brigades — the first wave of ~160,000 mechanized troops — board landing craft. <span class="ru" data-ru="воздушный десант">Airborne</span> and air assault brigades prepare at mainland bases. Kinmen, Matsu, and Dongyin islands fall to combined missile and ground assault within hours.</div></div>
+
+<div class="tl-item red"><div class="tl-phase" style="color:var(--cn)">X-DAY: LANDING DAY / ДЕНЬ «Х»</div>
+<div class="tl-title">The Amphibious Invasion Begins</div>
+<div class="tl-loc"><span class="dot cn"></span><span class="dot tw"></span> Taiwan coasts — Taipei, Taichung, Tainan</div>
+<div class="tl-text">Taiwan forces launch <strong>Hsiung Feng II</strong> <span class="ru" data-ru="противокорабельные ракеты">anti-ship missiles</span> from concealed hillside positions. Chinese <span class="ru" data-ru="эсминцы «Иджис»">Aegis destroyers</span> intercept most, but several hit escort frigates and destroyers. Taiwan Air Force fighters sortie from cave hangars for beyond-visual-range attacks. After minesweepers clear paths (several sinking to mines), the first wave lands at Taipei, Taichung, and Tainan beaches. <strong>PLA airborne brigades</strong> drop on eastern Taipei plains; air assault brigades helicopter into Taoyuan Airport. Street-by-street fighting erupts. The coastal zones become hell — burning tanks, shattered armor, charred bodies amid choking black smoke.</div></div>
+
+<div class="tl-item blue"><div class="tl-phase" style="color:var(--us)">X+1: US RESPONSE</div>
+<div class="tl-title">America Enters the War</div>
+<div class="tl-loc"><span class="dot us"></span> Washington / Pearl Harbor</div>
+<div class="tl-text">Congress passes the <strong>Taiwan Relations Act Amendment</strong> by overwhelming majority: "When China invades Taiwan by force, military power shall be exercised to defend Taiwan." President Brooks (fictional) holds emergency press conference: "China's barbaric act is intolerable. I have ordered Indo-Pacific Command to deploy." Pentagon orders Stinger missiles, Javelin anti-tank missiles, and attack drones airlifted from Guam and Okinawa to Hualien, Taiwan. Indo-Pacific Command dispatches Team 02 forward command to Taiwan, Team 01 to Japan's Joint Command in Tokyo.</div></div>
+
+<div class="tl-item jp"><div class="tl-phase" style="color:var(--jp)">X+1: JAPAN RESPONDS</div>
+<div class="tl-title">JMSDF Patrol Aircraft Shot Down</div>
+<div class="tl-loc"><span class="dot jp"></span> West of Yonaguni</div>
+<div class="tl-text">A <span class="ru" data-ru="Морские силы самообороны">JMSDF</span> P-3C patrol aircraft is shot down by a Chinese destroyer's <span class="ru" data-ru="зенитная ракета">surface-to-air missile</span> west of Yonaguni. Japan immediately convenes an Emergency Cabinet meeting, classifying this as a <strong>"Buryoku Kogeki Jitai" (Armed Attack Situation)</strong>. All JSDF forces receive deployment orders. Japan has pulled the trigger on direct confrontation with China.</div></div>
+
+<div id="strait" class="tl-item blue"><div class="tl-phase" style="color:var(--us)">X+3: BATTLE OF TAIWAN STRAIT</div>
+<div class="tl-title">US Missile Strikes on Transport Fleet</div>
+<div class="tl-loc"><span class="dot us"></span><span class="dot cn"></span> Taiwan Strait</div>
+<div class="tl-text">At dawn, US forces launch coordinated missile attacks on Chinese transport ships crossing the Strait. Despite Chinese naval escorts, many missiles find their targets — cargo ships explode, burn, and sink. PLA <span class="ru" data-ru="ракетные войска">Rocket Force</span> retaliates with <strong>DF-21D</strong> <span class="ru" data-ru="противокорабельная баллист. ракета">anti-ship ballistic missiles</span> targeting US carriers. US-Japan <span class="ru" data-ru="эсминцы «Иджис»">Aegis ships</span> intercept most, but <strong>one DF-21D strikes USS Reagan's forward deck</strong>. China deliberately reduces warhead power to avoid sinking a nuclear carrier (which would cause 6,000 deaths and escalate to nuclear war). Reagan is severely damaged, listing forward, forced to withdraw to Yokosuka. Unable to land on their stricken carrier, US Navy aircraft emergency-land on Ishigaki airfield.</div></div>
+
+<div class="tl-item jp"><div class="tl-phase" style="color:var(--jp)">X+4: CHINESE ATTACKS ON SAKISHIMA</div>
+<div class="tl-title">Missiles Strike Japan Proper</div>
+<div class="tl-loc"><span class="dot cn"></span><span class="dot jp"></span> Ishigaki Island</div>
+<div class="tl-text">Chinese <span class="ru" data-ru="крылатые ракеты">cruise missiles</span> strike the JSDF Ishigaki garrison, New Ishigaki Airport, the port, power plant, and communications towers. However, JSDF fires back: <span class="ru" data-ru="крылатая ракета «Томагавк»">Tomahawk cruise missiles</span> from escort ships and submarines, plus <strong>Type 12 improved land-based anti-ship missiles</strong> from concealed forest positions strike Chinese ships near Senkaku and Yonaguni, causing severe damage. <strong>China orders attacks on Japanese islands but is forbidden from striking US bases in Japan</strong> — Xi fears this would trigger full nuclear war.</div></div>
+
+<div class="tl-item blue"><div class="tl-phase" style="color:var(--us)">X+5: COALITION FORMS</div>
+<div class="tl-title">AUKUS, Quad Mobilize</div>
+<div class="tl-loc"><span class="dot us"></span> Global</div>
+<div class="tl-text">AUKUS representatives hold emergency video conference with Japan. US-Japan 2+2 foreign/defense ministers meet in Hawaii. NATO Council convenes in Brussels — 30 nations endorse military support for Taiwan. Quad summit (US-Japan-Australia-India) achieves consensus on supporting Taiwan and restoring Indo-Pacific stability. HMS Queen Elizabeth <span class="ru" data-ru="авианосная ударная группа">carrier strike group</span> heads toward Philippine Sea. Australian amphibious assault ships deploy to the theater. Two US Marine Littoral Combat Teams prepare to deploy to Miyako and Ishigaki.</div></div>
+
+<div class="tl-item jp"><div class="tl-phase" style="color:var(--jp)">X+6 TO X+10: BATTLE OF YONAGUNI</div>
+<div class="tl-title">Japan Recaptures Its Territory</div>
+<div class="tl-loc"><span class="dot jp"></span> Yonaguni Island</div>
+<div class="tl-text">The <strong>1st Airborne Brigade</strong> conducts a daring nighttime paradrop at 200m altitude (lowered from standard 340m for tactical surprise despite injury risk) onto Yonaguni's eastern pastures. 1,070 paratroopers in 12 C-2 transports, escorted by F-15 and F-35A fighters. The <strong>2nd Amphibious Rapid Deployment Regiment</strong> lands at Hikawa Beach at 0400 the next day. After 3 days of fierce combat, JSDF recaptures Yonaguni — but at heavy cost. Senkaku islands are retaken the same week after air strikes devastate the exposed Chinese garrison on the barren, rocky islands.</div></div>
+
+<div class="tl-item green"><div class="tl-phase" style="color:var(--tw)">WEEK 4: TAIWAN FIGHTS ON</div>
+<div class="tl-title">Stalemate on Western Taiwan</div>
+<div class="tl-loc"><span class="dot tw"></span><span class="dot cn"></span> Taiwan</div>
+<div class="tl-text">Taiwan's government relocates to Hualien on the east coast. PLA occupies Taipei Port, pushes through the western lowlands. But Taiwan forces build concealed positions in hills and mountains, using <span class="ru" data-ru="обратный склон">reverse-slope defenses</span>. Artillery hides in forests; wired field telephones defeat Chinese EW. Supplies cached in tunnels and underground shelters enable prolonged resistance. China captures the coast-to-mountain-foothills line but <strong>cannot penetrate the Central Mountain Range</strong> (peaks over 3,000m, only a few cross-island highways easily blocked). Taiwan receives supplies through its secure eastern coast.</div></div>
+
+<div class="tl-item blue"><div class="tl-phase" style="color:var(--us)">WEEK 4: UNMANNED STRAIT BATTLE</div>
+<div class="tl-title">History's First Unmanned Naval Battle</div>
+<div class="tl-loc"><span class="dot us"></span> Taiwan Strait</div>
+<div class="tl-text">US deploys <strong>150 autonomous underwater vehicles (UUVs)</strong> from southern Taiwan, riding the Kuroshio Current into the Strait. Surface unmanned decoys draw Chinese fire while UUVs torpedo large cargo ships — massive explosions, towering water columns, ships consumed in flame and sinking in succession. Simultaneously, US Air Force <span class="ru" data-ru="гиперзвуковые ракеты">hypersonic missiles</span> (ARRW) strike Chinese ammunition and fuel depots in captured Taiwan ports. <strong>Dozens of large cargo ships sunk; months' worth of ammunition and fuel destroyed.</strong></div></div>
+
+<div class="tl-item"><div class="tl-phase" style="color:var(--accent)">MONTHS LATER: STALEMATE</div>
+<div class="tl-title">War of Attrition & Secret Negotiations</div>
+<div class="tl-loc"><span class="dot cn"></span><span class="dot tw"></span><span class="dot us"></span> Taiwan / Geneva</div>
+<div class="tl-text">Western Taiwan becomes Chinese-occupied territory, but eastern Taiwan remains under Taipei's control with US-UK-Australian naval support. The front line stabilizes along the Central Mountain Range foothills. Chinese supply lines are crippled — civilian ship crews refuse to sail. Guerrilla warfare erupts in Taipei and Kaohsiung. Uyghur insurgency and Tibetan unrest force Beijing to divert forces. India conducts massive military exercises on the disputed China-India border. The global economy reels from the disruption. In Beijing, voices demanding accountability for the war's failure grow louder. <strong>In Geneva, secret ceasefire negotiations between China and the US-Taiwan-Japan coalition have begun.</strong></div></div>
+
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PART III: UKRAINE LESSONS -->
+<section class="part-header" id="ukraine">
+<div class="part-num">Part III</div>
+<div class="part-title">Lessons from Ukraine</div>
+<div class="part-desc">What China learned from Russia's failures — and how those lessons shape the Taiwan invasion plan.</div>
+</section>
+
+<section class="section">
+<div class="ch-header"><div class="ch-num">Analysis</div><div class="ch-title">What China Learned from the Ukraine War</div></div>
+
+<p>For the PLA, Russia's invasion of Ukraine (the "Special Military Operation") was an invaluable learning laboratory — a treasury of experience in operations, organization, equipment, and military technology. The author analyzes six key lessons:</p>
+
+<h3>1. Electronic Warfare / <span class="ru" data-ru="радиоэлектронная борьба">РЭБ</span></h3>
+<p>Russia's failure to suppress Ukraine's communications was a fatal blow. In 2014, Russia's EW systems successfully jammed Ukrainian forces during the Crimea annexation, but Ukraine spent eight years studying and countering Russian EW — even using drones to physically destroy Russian EW equipment. Russia's unencrypted communications were intercepted; soldiers used personal cell phones that revealed operational plans.</p>
+<div class="ru-box"><strong>China's takeaway:</strong> Strengthen jamming capabilities across wider frequency bands. Encrypt all military communications. Ban personal phones. Attack not just Taiwan's communication infrastructure but also foreign communication satellites Taiwan relies on. China's electronic communications industry is far more advanced than Russia's, making military application easier.</div>
+
+<h3>2. Air Superiority / <span class="ru" data-ru="господство в воздухе">Превосходство в воздухе</span></h3>
+<p>Russia failed to achieve <span class="ru" data-ru="господство в воздухе">air superiority</span> in the opening phase. Long-range strikes damaged some fixed radars, but Ukraine's mobile S-300 systems survived and remained effective. NATO AWACS flying over Poland provided real-time intelligence on Russian aircraft to Ukrainian defenders. Two months into the war, Britain's MoD assessed: "Ukraine still holds most of its air superiority."</p>
+<div class="ru-box"><strong>China's takeaway:</strong> The PLA Air Force has overwhelming numerical superiority over Taiwan's air force and should secure air superiority over the Taiwan Strait in the initial phase. The challenge is breaking through Taiwan's air defense missile network over the island itself. Use <span class="ru" data-ru="БПЛА-камикадзе">suicide drones</span> to hunt mobile SAM systems and MANPADS.</div>
+
+<h3>3. The Failure of Russia's Northern Offensive</h3>
+<p>Russia's fatal error was <strong>dispersing forces across three axes</strong> (north/Kyiv, east/Donbas, south/Kherson) instead of concentrating power — violating the fundamental principle of <strong>concentration of combat power</strong>. With 125,000 combat troops split three ways (~40,000 per axis), Russia was actually outnumbered by Ukraine's 90,000 army plus 130,000 Territorial Defense forces (~73,000 per sector). Russia's assumption that Ukrainian resistance would collapse — born from the bloodless 2014 Crimea success — proved catastrophically wrong.</p>
+<div class="ru-box"><strong>China's takeaway:</strong> Assemble <strong>overwhelming force ratios</strong> (4:1+ on ground). Concentrate forces rather than attack everywhere. Avoid urban warfare initially — bypass cities, cut supply lines, wait for surrender ("When the persimmon is ripe, it falls on its own"). Use <span class="ru" data-ru="информационная война">information warfare</span> to demoralize Taiwan before invasion.</div>
+
+<h3>4. Logistics / <span class="ru" data-ru="тыловое обеспечение">Тыл</span></h3>
+<p>Russia's logistics failure was catastrophic — inability to repair damaged equipment, exhaustion of fuel and ammunition, troops going without food and water. Abandoned Russian equipment was captured and reused by Ukraine. Western semiconductor sanctions crippled weapons production.</p>
+<div class="ru-box"><strong>China's takeaway:</strong> Establish massive logistics bases at Fujian ports from the start. Use civilian cargo ships for large-scale transport operations. Construct temporary docks on captured Taiwan shoreline. Once ports are captured, shift to rapid port unloading. Lay undersea fuel pipelines. Deploy logistics convoys under heavy naval escort — this convoy operation is <strong>the key factor determining the success or failure of the entire invasion</strong>.</div>
+
+<h3>5. Information Warfare</h3>
+<p>Russia's disinformation and false flag operations were exposed early by Western intelligence sharing. China will conduct multi-layered <span class="ru" data-ru="когнитивная война">cognitive warfare</span> against its own population ("The majority of Taiwan's people support unification"), against Taiwan's people (amplifying social divisions), and internationally (framing the invasion as "an internal affair"). China's domestic surveillance technology far exceeds Russia's, enabling tighter information control.</p>
+
+<h3>6. Hybrid Warfare / <span class="ru" data-ru="гибридная война">Гибридная война</span></h3>
+<p>China will learn from Russia's 2014 Crimea playbook but apply it with far greater sophistication. The author describes a detailed scenario for the <span class="ru" data-ru="гибридная война">hybrid warfare</span> seizure of Ishigaki Island: cutting undersea cables, massive cyberattacks, EW attacks from disguised civilian ships to jam police communications, fake emails luring police into bomb traps, then "Ryukyu Independence Group" paramilitaries (like Russia's "little green men") landing from a civilian aircraft, followed by armed forces from cargo ships.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- PART IV: US/JAPAN INTERVENTION -->
+<section class="part-header" id="part4">
+<div class="part-num">Part IV</div>
+<div class="part-title">US-Japan Intervention & Key Battles</div>
+<div class="part-desc">How Japan's Self-Defense Forces fight alongside America — and the nuclear shadow over every escalation decision.</div>
+</section>
+
+<section class="section">
+<div class="ch-header"><div class="ch-num">Strategic Framework</div><div class="ch-title">The Nuclear Shadow & Escalation Management</div></div>
+
+<p>The most critical principle governing the entire simulation: <strong>both the US and China fight under the imperative of avoiding nuclear escalation.</strong></p>
+
+<div class="compare">
+<div class="compare-col red"><h4 style="color:var(--cn)">🇨🇳 China's Constraints</h4><ul>
+<li>May attack JSDF bases but NOT US bases in Japan</li>
+<li>Deliberately reduces warhead power on anti-carrier missiles</li>
+<li>Cannot sink a nuclear carrier (6,000 deaths → nuclear escalation)</li>
+<li>Limits war to Taiwan Strait theater</li>
+<li>Uses diplomatic channels to signal restraint</li>
+<li>Secretly coordinates with Russia/Iran/DPRK to tie down US forces globally</li>
+</ul></div>
+<div class="compare-col blue"><h4 style="color:var(--us)">🇺🇸 US Constraints</h4><ul>
+<li>Will NOT attack Chinese mainland bases</li>
+<li>Targets limited to PLA forces in Taiwan Strait and on Taiwan</li>
+<li>Avoids escalation that could trigger nuclear exchange</li>
+<li>Relies on cruise missiles, anti-ship missiles, fighters, and unmanned systems</li>
+<li>Limits involvement to sea/air — no ground troops on Taiwan</li>
+<li>Coordinates with allies to maximize pressure without triggering WW3</li>
+</ul></div>
+</div>
+
+<h3>Japan's Legal Framework for War</h3>
+<p>Japan's involvement follows a cascading legal process: from <strong>"Important Influence Situation"</strong> (logistic support to US) → <strong>"Survival-Threatening Situation"</strong> (collective self-defense when US ships are attacked) → <strong>"Armed Attack Situation"</strong> (direct attack on Japan, triggering individual self-defense and US-Japan Security Treaty). The author describes the Eastern Theater commander's critical order: <strong>"We can attack JSDF bases, but we must NOT attack US military bases — that would mean full nuclear war."</strong></p>
+</section>
+
+<div class="divider"></div>
+
+<!-- YONAGUNI BATTLE DETAIL -->
+<section class="section" id="yonaguni">
+<div class="ch-header"><div class="ch-num">Key Battle</div><div class="ch-title">The Battle of Yonaguni Island</div>
+<div class="ch-quote">"I know it's dangerous — but this is real combat. We jump from 200 meters."<br>— Colonel Wakamatsu, 1st Airborne Brigade Commander (fictional)</div></div>
+
+<p>Yonaguni is a gourd-shaped island just 28.95 km² with a population of 1,712. It lies 509 km from Naha, 127 km from Ishigaki, and only 110 km from Taiwan. On clear days, you can see Taiwan with the naked eye.</p>
+
+<p>The recapture operation involves three JSDF units: the <strong>8th Division's 12th Regiment Combat Team</strong>, the <strong>2nd Amphibious Rapid Deployment Regiment</strong>, and the <strong>1st Airborne Brigade</strong> — commanded by the 8th Division commander.</p>
+
+<h4>The Night Jump (2200 Hours)</h4>
+<p>At Kagoshima Airport, 1,070 <span class="ru" data-ru="воздушные десантники">paratroopers</span> wait fully equipped — 18 kg main parachute, 7 kg reserve, 30 kg rucksack totaling 60 kg per man. Colonel Wakamatsu orders jump altitude reduced from the standard 340m to <strong>200 meters</strong> — dangerously low but ensuring rapid descent to avoid enemy fire. The jump master kicks the first trooper out the door — paratroopers exit from both sides at one-second intervals. The operation takes 20 minutes for all aircraft.</p>
+
+<p>Landing, cutting chutes, sprinting to assembly points. The 1st Airborne attacks toward Sonai settlement supported by heavy mortars. Mortar rounds crash with thunderous explosions; tracer rounds weave patterns across the night sky. China hadn't expected a counter-attack this soon — and hadn't anticipated US-Japan-Australian joint operations.</p>
+
+<p>At dawn, the amphibious force lands at Hikawa Beach. After three days of fierce fighting, JSDF recaptures Yonaguni — <strong>a bloody victory with heavy casualties on both sides.</strong></p>
+</section>
+
+<div class="divider"></div>
+
+<!-- OUTCOME -->
+<section class="section" id="ending">
+<div class="ch-header"><div class="ch-num">Conclusion</div><div class="ch-title">How the War Ends / Исход войны</div></div>
+
+<p>Was China's invasion successful? <strong>Technically yes — the landing succeeded.</strong> China would never launch an invasion without confidence in success. But the execution encountered far more friction than planned.</p>
+
+<div class="key-point">
+<p><strong>The decisive factors:</strong> The success or failure of the invasion hinges on (1) ground operations after landing, and (2) maintaining sea supply lines across the Taiwan Strait. These become China's greatest trials.</p>
+</div>
+
+<p>The author references the <strong>CSIS wargame</strong> (24 iterations of a 2026 invasion scenario), which concluded: "China's invasion of Taiwan would fail." CSIS projected Chinese losses of 138 ships, 161 aircraft, and 22,000 casualties. Taiwan: 26 ships, half its aircraft, 3,500 casualties. US: 7-20 ships including 2 carriers, 270+ aircraft, 7,000 casualties.</p>
+
+<p>However, Yamashita notes this report serves as political messaging: telling China "don't try it," telling Taiwan "fight like Ukraine," and telling Japan "sacrifice alongside America." The key precondition is <strong>immediate US intervention and Taiwan refusing to surrender early</strong>. If Taiwan surrenders before US forces arrive, China wins.</p>
+
+<div class="warning-box">
+<p><strong>The Nuclear Question:</strong> If Chinese supply lines are severed and the PLA faces retreat or surrender, Xi Jinping — whose political survival is tied to the war — may resort to <span class="ru" data-ru="ядерное оружие">nuclear weapons</span>. The worst case: US-China nuclear exchange. This is why both sides fight under rigid escalation controls throughout the simulation.</p>
+</div>
+
+<p>The author's predicted endgame: <strong>Taiwan is divided</strong> — China occupies the western lowlands (containing most cities, industry, population), while Taiwan retains the eastern coast behind the Central Mountain Range, supported by US-UK-Australian naval power. The Taiwan Strait becomes a de facto "Chinese internal sea." A prolonged stalemate leads to secret ceasefire negotiations in Geneva.</p>
+
+<div class="concept-box">
+<p><strong>Yamashita's final message (April 2023):</strong> "War produces neither victory nor defeat — only devastated land and human sacrifice. To prevent Taiwan from becoming a battlefield, the utmost diplomatic effort is essential. As Clausewitz said: 'War is a continuation of politics — diplomatic failure leads to war.' Defense capability is necessary as the backbone of diplomacy. We must thoroughly strengthen defense capabilities as a force to deter war."</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WAR GAME -->
+<section class="section" id="game">
+<div class="ch-header"><div class="ch-num">🎮 Interactive</div><div class="ch-title">Taiwan Strait Crisis Simulator</div>
+<div class="ch-quote">Drag units on the map. Click phase buttons to advance the simulation.</div></div>
+
+<div class="game-wrap">
+<div class="game-hdr"><h4>🎮 War Game Simulator / Военная игра</h4></div>
+<div class="game-body">
+<div class="game-map" id="gameMap">
+<svg width="100%" height="100%" viewBox="0 0 800 450" id="gameSvg">
+<rect width="800" height="450" fill="#0a0e18"/>
+<g stroke="rgba(200,164,78,.05)" stroke-width=".5"><line x1="0" y1="90" x2="800" y2="90"/><line x1="0" y1="180" x2="800" y2="180"/><line x1="0" y1="270" x2="800" y2="270"/><line x1="0" y1="360" x2="800" y2="360"/><line x1="160" y1="0" x2="160" y2="450"/><line x1="320" y1="0" x2="320" y2="450"/><line x1="480" y1="0" x2="480" y2="450"/><line x1="640" y1="0" x2="640" y2="450"/></g>
+<!-- China coast -->
+<path d="M0,30 L100,30 L120,60 L130,100 L120,150 L130,200 L120,240 L130,290 L120,340 L100,390 L80,430 L0,450Z" fill="#1a2535" stroke="rgba(222,41,16,.25)" stroke-width="1"/>
+<text x="50" y="230" fill="rgba(222,41,16,.5)" font-family="DM Sans" font-size="12" font-weight="700" text-anchor="middle">CHINA</text>
+<!-- Taiwan -->
+<path d="M440,130 L460,120 L475,140 L480,175 L478,220 L468,255 L450,275 L440,268 L435,230 L433,185 L436,150Z" fill="#1e3a2e" stroke="rgba(34,197,94,.45)" stroke-width="1.5"/>
+<text x="458" y="200" fill="rgba(34,197,94,.7)" font-family="DM Sans" font-size="9" font-weight="700" text-anchor="middle">TAIWAN</text>
+<!-- Strait -->
+<text x="280" y="210" fill="rgba(59,130,246,.15)" font-family="Source Serif 4" font-size="13" font-style="italic" text-anchor="middle">Taiwan Strait</text>
+<!-- Japan islands -->
+<circle cx="520" cy="105" r="4" fill="#1a2535" stroke="rgba(188,0,45,.25)"/><text x="534" y="108" fill="rgba(188,0,45,.35)" font-family="DM Sans" font-size="6">Yonaguni</text>
+<circle cx="545" cy="95" r="4" fill="#1a2535" stroke="rgba(188,0,45,.25)"/><text x="559" y="98" fill="rgba(188,0,45,.35)" font-family="DM Sans" font-size="6">Ishigaki</text>
+<circle cx="570" cy="85" r="3" fill="#1a2535" stroke="rgba(188,0,45,.2)"/><text x="582" y="88" fill="rgba(188,0,45,.3)" font-family="DM Sans" font-size="5">Miyako</text>
+<!-- Pacific -->
+<text x="680" y="250" fill="rgba(59,130,246,.1)" font-family="Source Serif 4" font-size="11" text-anchor="middle" font-style="italic">Pacific Ocean</text>
+</svg>
+<!-- Units will be placed by JS -->
+</div>
+
+<div class="g-ctrl">
+<button class="g-btn active" onclick="setPhase(0)">① Hybrid War</button>
+<button class="g-btn" onclick="setPhase(1)">② Missile Strikes</button>
+<button class="g-btn" onclick="setPhase(2)">③ Amphibious Landing</button>
+<button class="g-btn" onclick="setPhase(3)">④ US/Japan Entry</button>
+<button class="g-btn" onclick="setPhase(4)">⑤ Strait Battle</button>
+<button class="g-btn" onclick="setPhase(5)">⑥ Stalemate</button>
+</div>
+
+<div class="g-stats">
+<div class="g-stat"><div class="gs-l">🇨🇳 China</div><div class="gs-v" id="cStat" style="color:var(--cn)">100%</div></div>
+<div class="g-stat"><div class="gs-l">🇹🇼 Taiwan</div><div class="gs-v" id="tStat" style="color:var(--tw)">100%</div></div>
+<div class="g-stat"><div class="gs-l">🇺🇸 USA</div><div class="gs-v" id="uStat" style="color:var(--us)">—</div></div>
+<div class="g-stat"><div class="gs-l">🇯🇵 Japan</div><div class="gs-v" id="jStat" style="color:var(--jp)">—</div></div>
+</div>
+
+<div class="g-log" id="gameLog">[ SIMULATION READY ] Click a phase button to begin the Taiwan Strait crisis simulation...</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- APPENDIX -->
+<section class="section" id="appendix">
+<div class="ch-header"><div class="ch-num">Appendix</div><div class="ch-title">Order of Battle / Боевой порядок</div></div>
+
+<h3>PLA Organization (Eastern Theater)</h3>
+<div class="cards">
+<div class="card"><div class="card-label">Eastern Theater</div><div class="card-value" style="color:var(--cn);font-size:1rem">3 Group Armies</div><div class="card-desc">71st, 72nd, 73rd → 78 combined arms brigades total PLA-wide</div><div class="card-ru">Восточное командование ТВД</div></div>
+<div class="card"><div class="card-label">East Sea Fleet</div><div class="card-value" style="color:var(--cn);font-size:1rem">11 DDG + 23 FFG</div><div class="card-desc">+ 19 corvettes, 24 landing ships, 17 submarines</div><div class="card-ru">Восточный флот</div></div>
+<div class="card"><div class="card-label">PLAN Marines</div><div class="card-value" style="color:var(--cn);font-size:1rem">6 Brigades</div><div class="card-desc">60,000-80,000 total, across 3 theater commands</div><div class="card-ru">Морская пехота НОАК</div></div>
+<div class="card"><div class="card-label">Airborne Corps</div><div class="card-value" style="color:var(--cn);font-size:1rem">4+2 Brigades</div><div class="card-desc">4 airborne + 1 mechanized + 1 air assault brigade</div><div class="card-ru">Воздушно-десантный корпус</div></div>
+<div class="card"><div class="card-label">Rocket Force</div><div class="card-value" style="color:var(--cn);font-size:1rem">1,250+ missiles</div><div class="card-desc">Short, medium, intercontinental + 300+ cruise missiles</div><div class="card-ru">Ракетные войска</div></div>
+<div class="card"><div class="card-label">SSF Cyber</div><div class="card-value" style="color:var(--cn);font-size:1rem">175,000</div><div class="card-desc">Strategic Support Force cyber warfare personnel</div><div class="card-ru">Кибервойска</div></div>
+</div>
+
+<h3>JSDF Forces</h3>
+<div class="cards">
+<div class="card"><div class="card-label">GSDF</div><div class="card-value" style="color:var(--jp);font-size:1rem">150,590</div><div class="card-desc">9 divisions, 6 brigades, 350 tanks, 330 artillery</div><div class="card-ru">Сухопутные ССО</div></div>
+<div class="card"><div class="card-label">MSDF</div><div class="card-value" style="color:var(--jp);font-size:1rem">45,307</div><div class="card-desc">54 escorts, 22 submarines, 140 combat aircraft</div><div class="card-ru">Морские ССО</div></div>
+<div class="card"><div class="card-label">ASDF</div><div class="card-value" style="color:var(--jp);font-size:1rem">46,928</div><div class="card-desc">290 fighters, 40 transports, 20 AWACS</div><div class="card-ru">Воздушные ССО</div></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide comprehensively translates and presents <strong>《完全シミュレーション 台湾侵攻戦争》</strong> by Lt. Gen. Yamashita Hirotaka (山下裕貴).</p>
+<p style="margin-top:.4rem">Published by 明白文化 (Mingbai Culture), May 2024. Chinese translation by 鄭天恩. ISBN 978-626-97974-6-2.</p>
+<p style="margin-top:.8rem;font-size:.72rem;color:rgba(200,164,78,.35)">Interactive English edition with Russian military glossary · Created for academic discussion</p>
+</footer>
+
+<script>
+// Nav
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('visible',scrollY>500)});
+
+// Fade-in
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.key-point,.warning-box,.concept-box,.ru-box,.compare,.phases,.map-container,.timeline,.cards,h3').forEach(el=>{el.classList.add('fade-in');obs.observe(el)});
+
+// GAME
+const phases=[
+{cn:100,tw:100,us:null,jp:null,log:[
+"[PHASE 1: HYBRID WARFARE] Cyberattacks cripple Taiwan infrastructure...",
+"SSF deploys 175,000 cyber troops against government networks",
+"Agents activate inside Taiwan — anti-government protests erupt",
+"Cognitive warfare: social media floods with disinformation",
+"False flag: explosion at Fujian facility blamed on 'Taiwan saboteurs'",
+"PLA Eastern Theater begins massive force concentration in Fujian"
+],units:[
+{x:8,y:40,c:'cn',t:'C'},{x:10,y:55,c:'cn',t:'C'},{x:6,y:70,c:'cn',t:'C'},
+{x:55,y:30,c:'tw2',t:'T'},{x:56,y:45,c:'tw2',t:'T'},{x:54,y:58,c:'tw2',t:'T'}
+]},
+{cn:100,tw:85,us:null,jp:null,log:[
+"[PHASE 2: MISSILE STRIKES] DF-15/DF-16 barrage on Taiwan air bases...",
+"Cruise missiles strike radar installations and command centers",
+"Suicide drones attack military fuel depots and ammunition stores",
+"Taiwan loses ~40% air defense capability in first 6 hours",
+"Kinmen, Matsu, Dongyin islands fall under naval bombardment",
+"Penghu garrison suffers severe damage from air strikes",
+"160,000 first-wave troops board landing craft across Fujian ports"
+],units:[
+{x:8,y:35,c:'cn',t:'M'},{x:10,y:50,c:'cn',t:'M'},{x:12,y:65,c:'cn',t:'M'},
+{x:18,y:42,c:'cn',t:'🚀'},{x:16,y:58,c:'cn',t:'🚀'},
+{x:55,y:30,c:'tw2',t:'T'},{x:56,y:45,c:'tw2',t:'T'},{x:54,y:58,c:'tw2',t:'T'}
+]},
+{cn:92,tw:65,us:null,jp:null,log:[
+"[PHASE 3: AMPHIBIOUS LANDING] First wave hits Taipei, Taichung, Tainan...",
+"Taiwan fires Hsiung Feng II anti-ship missiles from concealed positions",
+"Chinese Aegis ships intercept most — but several hit escort vessels",
+"Minesweepers clear approach lanes (some lost to mines)",
+"PLA marines storm beaches — fierce resistance, heavy casualties both sides",
+"Airborne brigades drop on eastern Taipei plains",
+"Air assault captures Taoyuan Airport after brutal urban fighting",
+"Beaches become inferno — burning tanks, destroyed armor, bodies everywhere"
+],units:[
+{x:28,y:30,c:'cn',t:'⚓'},{x:26,y:45,c:'cn',t:'⚓'},{x:30,y:60,c:'cn',t:'⚓'},
+{x:50,y:28,c:'cn',t:'🪂'},{x:8,y:40,c:'cn',t:'C'},{x:10,y:55,c:'cn',t:'C'},
+{x:55,y:30,c:'tw2',t:'⚔'},{x:56,y:45,c:'tw2',t:'⚔'},{x:54,y:58,c:'tw2',t:'⚔'}
+]},
+{cn:80,tw:55,us:90,jp:85,log:[
+"[PHASE 4: US/JAPAN ENTRY] Congress passes Taiwan Relations Act Amendment",
+"President Brooks: 'I have ordered Indo-Pacific Command to deploy'",
+"JMSDF patrol aircraft shot down near Yonaguni — Armed Attack declared",
+"All JSDF forces receive deployment orders",
+"US launches missile strikes on PLA transport fleet in the Strait",
+"DF-21D hits USS Reagan — severe damage, forced to withdraw",
+"China attacks Ishigaki: garrison, airport, port, power plant hit",
+"JSDF fires Tomahawk cruise missiles and Type 12 anti-ship missiles back",
+"AUKUS + Quad mobilize — UK carrier group + Australian ships deploy"
+],units:[
+{x:42,y:28,c:'cn',t:'🏴'},{x:44,y:42,c:'cn',t:'🏴'},{x:40,y:56,c:'cn',t:'🏴'},
+{x:25,y:38,c:'cn',t:'⚓'},{x:27,y:52,c:'cn',t:'⚓'},
+{x:55,y:30,c:'tw2',t:'⚔'},{x:56,y:45,c:'tw2',t:'⚔'},
+{x:75,y:55,c:'us2',t:'🛡'},{x:68,y:42,c:'us2',t:'🛡'},
+{x:65,y:18,c:'jp2',t:'J'},{x:67,y:22,c:'jp2',t:'J'}
+]},
+{cn:60,tw:45,us:78,jp:75,log:[
+"[PHASE 5: UNMANNED STRAIT BATTLE] First unmanned naval battle in history",
+"150 US autonomous UUVs enter Strait via Kuroshio Current",
+"Surface drones draw Chinese fire while UUVs torpedo cargo ships",
+"Dozens of large transport ships sunk — massive explosions",
+"US hypersonic missiles destroy ammunition depots in captured ports",
+"JSDF 1st Airborne recaptures Yonaguni after 3-day battle",
+"Senkaku islands retaken — Chinese garrison devastated by air strikes",
+"China's supply line critically damaged — civilian crews refuse to sail"
+],units:[
+{x:42,y:28,c:'cn',t:'🏴'},{x:44,y:42,c:'cn',t:'🏴'},{x:40,y:56,c:'cn',t:'🏴'},
+{x:30,y:40,c:'us2',t:'🤖'},{x:32,y:50,c:'us2',t:'🤖'},
+{x:75,y:50,c:'us2',t:'🛡'},{x:70,y:40,c:'us2',t:'🛡'},
+{x:55,y:35,c:'tw2',t:'⚔'},{x:56,y:48,c:'tw2',t:'⚔'},
+{x:65,y:20,c:'jp2',t:'✓'},{x:67,y:24,c:'jp2',t:'J'}
+]},
+{cn:45,tw:35,us:70,jp:68,log:[
+"[PHASE 6: STALEMATE] Western Taiwan under Chinese occupation",
+"Eastern Taiwan remains free — supplied via Pacific by US/UK/AU navies",
+"Front line stabilizes along Central Mountain Range foothills",
+"Guerrilla warfare erupts in occupied Taipei and Kaohsiung",
+"Chinese transport losses cripple supply operations",
+"Uyghur insurgency + Tibetan unrest force Beijing to divert forces",
+"India conducts massive exercises on disputed China-India border",
+"Global economy reels — pressure on all parties to negotiate",
+"SECRET CEASEFIRE TALKS BEGIN IN GENEVA...",
+"[SIMULATION COMPLETE] War ends not in victory, but in devastated land and sacrifice."
+],units:[
+{x:42,y:28,c:'cn',t:'🏴'},{x:44,y:42,c:'cn',t:'🏴'},{x:40,y:56,c:'cn',t:'🏴'},
+{x:52,y:32,c:'tw2',t:'⚔'},{x:53,y:46,c:'tw2',t:'⚔'},{x:51,y:56,c:'tw2',t:'⚔'},
+{x:72,y:48,c:'us2',t:'🛡'},{x:68,y:38,c:'us2',t:'🛡'},
+{x:65,y:20,c:'jp2',t:'J'},{x:67,y:24,c:'jp2',t:'J'}
+]}
+];
+
+let curPhase=0;
+const mapEl=document.getElementById('gameMap');
+const logEl=document.getElementById('gameLog');
+
+function setPhase(p){
+curPhase=p;
+document.querySelectorAll('.g-btn').forEach((b,i)=>{b.classList.toggle('active',i===p)});
+const ph=phases[p];
+document.getElementById('cStat').textContent=ph.cn+'%';
+document.getElementById('tStat').textContent=ph.tw+'%';
+document.getElementById('uStat').textContent=ph.us?ph.us+'%':'—';
+document.getElementById('jStat').textContent=ph.jp?ph.jp+'%':'—';
+// Log
+logEl.innerHTML='';
+let delay=0;
+ph.log.forEach((l,i)=>{setTimeout(()=>{logEl.innerHTML+=l+'\n';logEl.scrollTop=logEl.scrollHeight},delay);delay+=400});
+// Units
+mapEl.querySelectorAll('.g-unit').forEach(u=>u.remove());
+ph.units.forEach(u=>{
+const d=document.createElement('div');
+d.className='g-unit '+u.c;
+d.textContent=u.t;
+d.style.left=u.x+'%';d.style.top=u.y+'%';
+d.onmousedown=startDrag;
+mapEl.appendChild(d);
+});
+}
+
+// Drag
+let dragEl=null,offX,offY;
+function startDrag(e){
+dragEl=e.target;
+const r=mapEl.getBoundingClientRect();
+offX=e.clientX-dragEl.offsetLeft;offY=e.clientY-dragEl.offsetTop;
+dragEl.style.cursor='grabbing';dragEl.style.zIndex=100;
+document.onmousemove=onDrag;document.onmouseup=stopDrag;
+e.preventDefault();
+}
+function onDrag(e){
+if(!dragEl)return;
+const r=mapEl.getBoundingClientRect();
+let x=e.clientX-r.left-12,y=e.clientY-r.top-12;
+x=Math.max(0,Math.min(r.width-24,x));y=Math.max(0,Math.min(r.height-24,y));
+dragEl.style.left=x+'px';dragEl.style.top=y+'px';
+}
+function stopDrag(){if(dragEl){dragEl.style.cursor='grab';dragEl.style.zIndex=10}dragEl=null;document.onmousemove=null;document.onmouseup=null}
+
+// Touch support
+mapEl.addEventListener('touchstart',e=>{
+const t=e.target;if(!t.classList.contains('g-unit'))return;
+dragEl=t;const touch=e.touches[0];const r=mapEl.getBoundingClientRect();
+offX=touch.clientX-t.offsetLeft;offY=touch.clientY-t.offsetTop;
+e.preventDefault();
+},{passive:false});
+mapEl.addEventListener('touchmove',e=>{
+if(!dragEl)return;const touch=e.touches[0];const r=mapEl.getBoundingClientRect();
+let x=touch.clientX-r.left-12,y=touch.clientY-r.top-12;
+x=Math.max(0,Math.min(r.width-24,x));y=Math.max(0,Math.min(r.height-24,y));
+dragEl.style.left=x+'px';dragEl.style.top=y+'px';
+e.preventDefault();
+},{passive:false});
+mapEl.addEventListener('touchend',()=>{dragEl=null});
+
+setPhase(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Active Denial — Redesigning Japan's Response to China's Military Challenge</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#080a0f;--bg2:#0e1118;--bg3:#151a24;--accent:#c0392b;--accent2:#e74c3c;
+--text:#d4d4d8;--text2:#9ca3af;--red:#dc4444;--blue:#2980b9;--green:#27ae60;
+--gold:#d4a84b;--navy:#1a2744;--jp-red:#bc002d;--cn-red:#de2910;
+--white:#ecf0f1;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#080a0f 0%,#0f1525 40%,#1a1020 70%,#080a0f 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c0392b' fill-opacity='0.025'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 50%,rgba(192,57,43,0.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(41,128,185,0.05) 0%,transparent 60%)}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:950px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,#e74c3c,#f5c6c6,#e74c3c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(.85rem,1.8vw,1.2rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:0.15em;text-transform:uppercase}
+.hero .author{font-size:1.1rem;color:var(--accent2);margin:1.5rem 0;font-style:italic}
+.hero .epigraph{max-width:650px;margin:2rem auto;padding:1.5rem;border-left:3px solid var(--accent);text-align:left;color:var(--text2);font-style:italic;font-size:1.02rem}
+.hero .scroll-hint{margin-top:3rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.hero .scroll-hint span{display:block;width:2px;height:40px;background:var(--accent);margin:0 auto;opacity:.5}
+.journal-badge{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;padding:6px 16px;border:1px solid rgba(192,57,43,.4);border-radius:3px;color:var(--accent2);margin-bottom:1.5rem}
+
+/* FLOATING NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,10,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(192,57,43,.1);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--accent2);font-weight:700}
+.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;transition:color .2s}
+.nav-links a:hover{color:var(--accent2)}
+
+/* SECTIONS */
+.section{max-width:1000px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:6rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border:1px solid rgba(192,57,43,.08);border-radius:50%}
+.part-num{font-family:'DM Sans',sans-serif;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent2);margin-bottom:.5rem}
+.part-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:1rem}
+.part-desc{color:var(--text2);max-width:600px;margin:0 auto;font-size:1.02rem}
+
+.ch-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(192,57,43,.15)}
+.ch-num{font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent2)}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--accent);padding-left:1rem;margin-top:1rem;font-size:.95rem}
+
+h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--accent)}
+h4{font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--accent2);margin:2rem 0 .8rem;letter-spacing:.05em}
+p{margin-bottom:1.2rem;font-size:1.02rem}
+strong{color:#fff;font-weight:600}
+
+/* RUSSIAN GLOSSARY TOOLTIP */
+.ru{position:relative;border-bottom:1px dotted rgba(192,57,43,.5);cursor:help;color:var(--white)}
+.ru::after{content:attr(data-ru);position:absolute;bottom:120%;left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid rgba(192,57,43,.3);color:var(--accent2);font-family:'DM Sans',sans-serif;font-size:.75rem;padding:4px 10px;border-radius:4px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100}
+.ru:hover::after{opacity:1}
+
+/* KEY POINTS */
+.key-point{background:var(--bg3);border:1px solid rgba(192,57,43,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;background:var(--accent);color:#fff;padding:2px 10px;border-radius:3px;font-weight:700}
+.key-point p{margin-bottom:.5rem}
+
+.warning-box{background:rgba(220,68,68,.06);border:1px solid rgba(220,68,68,.2);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.warning-box strong{color:var(--red)}
+
+.concept-box{background:rgba(41,128,185,.06);border:1px solid rgba(41,128,185,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+
+.green-box{background:rgba(39,174,96,.06);border:1px solid rgba(39,174,96,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.green-box strong{color:var(--green)}
+
+/* MAP CONTAINER */
+.map-container{background:var(--bg2);border:1px solid rgba(192,57,43,.1);border-radius:12px;overflow:hidden;margin:2rem 0;position:relative}
+.map-label{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent2);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(192,57,43,.1)}
+.map-svg{width:100%;display:block}
+
+/* COMPARISON TABLE */
+.compare{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(192,57,43,.08);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.5rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.8rem;border-bottom:1px solid rgba(192,57,43,.1)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.5rem 0;font-size:.92rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.compare-col li::before{content:'→';color:var(--accent2);margin-right:.5rem}
+.compare-2{grid-template-columns:1fr 1fr}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),transparent)}
+.tl-item{margin-bottom:2rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);transform:translateX(-4px)}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent2);font-weight:500}
+.tl-text{font-size:.95rem;color:var(--text2)}
+
+/* PHASE DIAGRAM */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(192,57,43,.1);border-radius:8px;padding:1.5rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--accent);transform:translateY(-2px)}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent2);font-weight:700}
+.phase-name{font-family:'DM Sans',sans-serif;font-size:.9rem;color:#fff;margin:.5rem 0;font-weight:600}
+.phase-desc{font-size:.85rem;color:var(--text2);line-height:1.5}
+
+/* STATS BAR */
+.stat-bar{margin:.8rem 0;display:flex;align-items:center;gap:1rem}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.78rem;color:var(--text2);min-width:110px;text-align:right}
+.stat-track{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;position:relative}
+.stat-fill{height:100%;border-radius:4px;transition:width 1.5s ease-out}
+.stat-fill.red{background:linear-gradient(90deg,#c0392b,#e74c3c)}
+.stat-fill.blue{background:linear-gradient(90deg,#2980b9,#3498db)}
+.stat-fill.gold{background:linear-gradient(90deg,#d4a84b,#f1c40f)}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--text2);min-width:70px}
+
+/* WEAPON/ITEM CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.card{background:var(--bg3);border:1px solid rgba(192,57,43,.08);border-radius:8px;padding:1.5rem;transition:all .3s}
+.card:hover{border-color:var(--accent);background:var(--bg2)}
+.card-type{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent2);margin-bottom:.5rem}
+.card-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+.card-desc{font-size:.9rem;color:var(--text2);line-height:1.6}
+.card-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.65rem;padding:2px 8px;border-radius:3px;margin-top:.5rem;margin-right:.3rem;border:1px solid}
+.card-tag.denial{color:var(--blue);border-color:rgba(41,128,185,.3)}
+.card-tag.forward{color:var(--red);border-color:rgba(220,68,68,.3)}
+.card-tag.punish{color:var(--gold);border-color:rgba(212,168,75,.3)}
+.card-tag.resilient{color:var(--green);border-color:rgba(39,174,96,.3)}
+
+/* TOC */
+.toc{background:var(--bg2);border:1px solid rgba(192,57,43,.1);border-radius:12px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.3rem;margin-bottom:1.5rem}
+.toc-part{margin-bottom:1.5rem}
+.toc-part-title{font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);margin-bottom:.5rem}
+.toc-link{display:block;padding:.4rem 0 .4rem 1rem;color:var(--text2);text-decoration:none;font-size:.95rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--accent2);border-left-color:var(--accent);padding-left:1.5rem}
+
+/* GAME SIMULATION */
+.game-container{background:var(--bg2);border:1px solid rgba(192,57,43,.15);border-radius:12px;padding:2rem;margin:2rem 0}
+.game-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:1rem;text-align:center}
+.game-subtitle{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text2);text-align:center;margin-bottom:1.5rem}
+.game-controls{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-bottom:1.5rem}
+.game-btn{font-family:'DM Sans',sans-serif;font-size:.8rem;padding:10px 20px;border:1px solid rgba(192,57,43,.3);background:var(--bg3);color:var(--text);border-radius:6px;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.game-btn:hover{border-color:var(--accent);background:rgba(192,57,43,.1);color:#fff}
+.game-btn.active{border-color:var(--accent);background:rgba(192,57,43,.15);color:var(--accent2)}
+.game-result{background:var(--bg3);border-radius:8px;padding:1.5rem;min-height:200px;transition:all .3s}
+.game-meter{height:12px;background:var(--bg);border-radius:6px;overflow:hidden;margin:.5rem 0}
+.game-meter-fill{height:100%;border-radius:6px;transition:width .8s ease-out}
+.game-score{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.game-score-item{text-align:center;padding:1rem;background:rgba(0,0,0,.2);border-radius:6px}
+.game-score-val{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700}
+.game-score-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em}
+
+/* INTERACTIVE SLIDER */
+.slider-container{margin:1.5rem 0}
+.slider-label{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text2);margin-bottom:.5rem;display:flex;justify-content:space-between}
+.slider-input{width:100%;-webkit-appearance:none;height:6px;border-radius:3px;background:var(--bg3);outline:none}
+.slider-input::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid var(--bg)}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(192,57,43,.2),transparent);margin:4rem 0}
+
+/* FOOTER */
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.85rem;background:var(--bg2);border-top:1px solid rgba(192,57,43,.08)}
+.footer strong{color:var(--accent2)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.compare,.compare-2{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:3rem 1.2rem}
+.game-score{grid-template-columns:1fr}
+}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:all .8s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Animated counter */
+@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+.pulse-dot{animation:pulse 2s infinite}
+
+/* RU glossary box */
+.glossary-box{background:var(--bg3);border:1px solid rgba(41,128,185,.15);border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+.glossary-box h4{color:var(--blue);margin-top:0;font-size:.85rem}
+.glossary-item{display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:.88rem}
+.glossary-item .en{color:var(--text)}
+.glossary-item .ru-text{color:var(--blue);font-style:italic;font-family:'DM Sans',sans-serif}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+<div class="nav-title">Active Denial — Heginbotham & Samuels</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#sec1">Balance</a>
+<a href="#sec2">Strategies</a>
+<a href="#sec3">Active Denial</a>
+<a href="#sec4">Obstacles</a>
+<a href="#game">🎮 Simulate</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="journal-badge">International Security · Vol. 42, No. 4 · Spring 2018 · MIT Press</div>
+<div class="subtitle">Eric Heginbotham & Richard J. Samuels — Massachusetts Institute of Technology</div>
+<h1>Active Denial</h1>
+<div class="subtitle" style="font-size:1rem;color:var(--text2);letter-spacing:.05em;margin-top:.5rem">Redesigning Japan's Response to China's Military Challenge</div>
+<div class="author">
+Eric Heginbotham — Principal Research Scientist, Center for International Studies, MIT<br>
+Richard J. Samuels — Ford International Professor of Political Science & Director, CIS, MIT
+</div>
+<div class="epigraph">
+"As long as the Royal Air Force remains <strong style="color:var(--accent2)">'in being,'</strong> then the Navy and Air Force should be able to prevent Germany carrying out a serious sea-borne invasion of this country."
+<br><br>— British Chiefs of Staff, 1940
+</div>
+<div class="epigraph" style="border-color:var(--blue)">
+"The loss of even one general engagement may effectually ruin us, and it would certainly be folly to hazard it, unless our strength was so great as to give <strong style="color:var(--blue)">certainty of success</strong>."
+<br><br>— Alexander Hamilton, 1777, on the Continental Army's "Fabian Strategy"
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="section" id="toc">
+<div class="toc">
+<h3 style="color:var(--accent2)">Table of Contents · Содержание</h3>
+
+<div class="toc-part">
+<div class="toc-part-title">Section I — The Shifting Balance</div>
+<a href="#sec1" class="toc-link">1. The Changing Military Balance in East Asia</a>
+<a href="#sec1b" class="toc-link">2. Japan's Responses to Date</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Section II — Strategic Options</div>
+<a href="#sec2" class="toc-link">3. Three Deterrence Strategies: Forward Defense, Denial, Punishment</a>
+<a href="#sec2b" class="toc-link">4. Key Variables & Japan's Strategic Circumstances</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Section III — Active Denial Strategy</div>
+<a href="#sec3" class="toc-link">5. The Military Problem: Senkaku Islands & Escalation</a>
+<a href="#sec3b" class="toc-link">6. Resilient Posture: Basing, Mobility, Recovery</a>
+<a href="#sec3c" class="toc-link">7. Hierarchy of Priorities: Defend, Isolate, Counterattack</a>
+<a href="#sec3d" class="toc-link">8. Long-Range Strike: Limits & Purpose</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Section IV — Implementation & Conclusion</div>
+<a href="#sec4" class="toc-link">9. Obstacles to Implementing Denial</a>
+<a href="#conclusion" class="toc-link">10. Conclusion: The Porcupine, Not the Hedgehog</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Interactive Elements · Интерактивные элементы</div>
+<a href="#game" class="toc-link">🎮 Strategy Simulation Game</a>
+<a href="#glossary" class="toc-link">📖 Full Russian-English Glossary</a>
+</div>
+</div>
+</section>
+
+<!-- CORE ARGUMENT -->
+<section class="section" id="intro">
+<div class="ch-header">
+<div class="ch-num">Introduction · Введение</div>
+<div class="ch-title">The Core Argument</div>
+</div>
+
+<p>Japanese strategists face a difficult and highly uncertain international environment. The Chinese military threat has increased dramatically — both for Japan itself and for its alliance with the United States. Japan has responded by loosening self-imposed constraints on its military and modestly increasing defense budgets since 2013, but these measures have only marginally slowed a shifting <span class="ru" data-ru="Баланс сил">balance of power</span>.</p>
+
+<p>Heginbotham and Samuels parse <strong>three ideal-type strategies</strong> — <span class="ru" data-ru="Передовая оборона">forward defense</span>, <span class="ru" data-ru="Стратегия отрицания">denial</span>, and <span class="ru" data-ru="Стратегия наказания">punishment</span> — and evaluate each in light of Japan's evolving circumstances.</p>
+
+<div class="key-point">
+<p><strong>Central thesis:</strong> Japan's current strategy — a <span class="ru" data-ru="Передовая оборона">forward defense</span> emphasizing traditional force-on-force capabilities — was appropriate after the Cold War but is a poor choice today. It leaves Japanese forces <strong>highly vulnerable</strong> to attack at the outset of conflict and fails to leverage the U.S.-Japan alliance's collective strengths.</p>
+<p>The optimal strategy is <strong>"Active Denial"</strong> (активное отрицание) — marrying a <span class="ru" data-ru="Устойчивая позиция">resilient force posture</span> and a mobile <span class="ru" data-ru="Действующая сила">force in being</span> with limited but potent counterattack capabilities.</p>
+</div>
+
+<p>This article has immediate relevance far beyond Japan. U.S. military dominance after the Cold War allowed strategists to ignore the distinction between <strong>military dominance</strong> and <strong>deterrence</strong>. China's rapid modernization has shattered that assumption. As Cold War strategy demonstrated, however, <strong>deterrence does not require decisive military superiority</strong>.</p>
+
+<div class="glossary-box">
+<h4>🇷🇺 Key Terms · Ключевые термины</h4>
+<div class="glossary-item"><span class="en">Active Denial</span><span class="ru-text">Активное отрицание / Активная стратегия сдерживания</span></div>
+<div class="glossary-item"><span class="en">Forward Defense</span><span class="ru-text">Передовая оборона</span></div>
+<div class="glossary-item"><span class="en">Punishment Strategy</span><span class="ru-text">Стратегия наказания / возмездия</span></div>
+<div class="glossary-item"><span class="en">Deterrence</span><span class="ru-text">Сдерживание</span></div>
+<div class="glossary-item"><span class="en">Balance of Power</span><span class="ru-text">Баланс сил</span></div>
+<div class="glossary-item"><span class="en">Force in Being</span><span class="ru-text">Действующая сила / Сила «в наличии»</span></div>
+<div class="glossary-item"><span class="en">Anti-Access/Area Denial (A2/AD)</span><span class="ru-text">Ограничение доступа / Воспрещение зоны (A2/AD)</span></div>
+<div class="glossary-item"><span class="en">Escalation Dominance</span><span class="ru-text">Доминирование в эскалации</span></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== SECTION I: BALANCE OF POWER ========== -->
+<section class="part-header" id="sec1">
+<div class="part-num">Section I</div>
+<div class="part-title">The Shifting Balance of Power</div>
+<div class="part-desc">Баланс сил в Восточной Азии — An assessment of how rapidly China's military has grown relative to Japan, and the measures Tokyo has taken so far.</div>
+</section>
+
+<section class="section">
+<div class="ch-header">
+<div class="ch-num">Chapter 1</div>
+<div class="ch-title">Differential Growth & Military Modernization</div>
+<div class="ch-quote">"The security environment surrounding Japan now is worse than it was during the Cold War." — Hibako Yoshifumi, former GSDF Chief of Staff, 2014</div>
+</div>
+
+<p>In 2005, Japan's GDP was roughly <strong>twice</strong> China's. By 2017, China's GDP had grown to <strong>2.4 times</strong> Japan's. While Japan's GDP per capita remains four times higher, the raw economic gap has directly impacted military spending.</p>
+
+<h3>Defense Budget Comparison · Сравнение военных бюджетов</h3>
+
+<div class="stat-bar"><div class="stat-label">China 1996</div><div class="stat-track"><div class="stat-fill red" style="width:12%"></div></div><div class="stat-val">~$21B</div></div>
+<div class="stat-bar"><div class="stat-label">China 2018</div><div class="stat-track"><div class="stat-fill red" style="width:85%"></div></div><div class="stat-val">$173B</div></div>
+<div class="stat-bar"><div class="stat-label" style="color:var(--blue)">Japan 1996</div><div class="stat-track"><div class="stat-fill blue" style="width:25%"></div></div><div class="stat-val">~$40B</div></div>
+<div class="stat-bar"><div class="stat-label" style="color:var(--blue)">Japan 2018</div><div class="stat-track"><div class="stat-fill blue" style="width:28%"></div></div><div class="stat-val">$49B</div></div>
+
+<p>Chinese military budgets grew <strong>724%</strong> in real terms from 1996 to 2018. Japan's grew by just <strong>24%</strong>. Under PM Abe, the 2018 budget was only ~5% higher in real terms than 2012.</p>
+
+<div class="warning-box">
+<p><strong>Negative feedback loop:</strong> Japan's need to keep aging systems in service longer increases the ratio of operations & maintenance spending to procurement funds — slowing acquisition and further accelerating hardware aging.</p>
+</div>
+
+<h3>PLA Modernization · Модернизация НОАК</h3>
+
+<p>China has developed a comprehensive <span class="ru" data-ru="Ограничение доступа / Воспрещение зоны">Anti-Access/Area Denial (A2/AD)</span> capability — long-range accurate ballistic and cruise missiles, submarines, sophisticated air defenses, and counterspace systems. But today the PLA is <strong>no longer a one-trick A2/AD pony</strong>. It has also built large conventional maneuver forces:</p>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Air Power · ВВС</div>
+<div class="card-name">~850 4th-Gen Fighters + Stealth</div>
+<div class="card-desc">China fields ~850 fourth-generation fighter aircraft, plus initial stealth fighter squadrons (J-20). A stealthy long-range bomber and larger tanker aircraft are under development.</div>
+<div class="card-tag forward">Conventional</div>
+</div>
+<div class="card">
+<div class="card-type">Naval Power · ВМС</div>
+<div class="card-name">133 Warships >1,500 tons</div>
+<div class="card-desc">Moving from a frigate-based fleet to one centered on destroyers. The Type 055 destroyer (~10,500-13,000 tons) is larger than Japan's most modern Atago-class. Rapid expansion of amphibious lift.</div>
+<div class="card-tag forward">Conventional</div>
+</div>
+<div class="card">
+<div class="card-type">Missile Forces · Ракетные войска</div>
+<div class="card-name">1,300+ Conventional Ballistic Missiles</div>
+<div class="card-desc">DF-21C (2,000km), DF-16 (800-1,000km), DF-15B (800km), DF-26 (3,000-5,000km). Plus 500-1,400 cruise missiles (DH-10/CJ-10) with 2,000km range. Can strike all of Japan and Guam.</div>
+<div class="card-tag forward">A2/AD</div>
+</div>
+<div class="card">
+<div class="card-type">Submarine Force · Подводный флот</div>
+<div class="card-name">~40 Modern Submarines</div>
+<div class="card-desc">Represents a significant challenge to U.S. naval operations in waters off China. Includes both conventional and nuclear-powered boats. Growing in numbers and capability.</div>
+<div class="card-tag forward">A2/AD</div>
+</div>
+</div>
+
+<h3>Force Comparison 2018 · Сравнение сил</h3>
+
+<p>China's force structure does not yet reflect its current budget or production rates, which are dramatically higher than a decade ago. Even if growth slowed, modern equipment would continue to grow for another decade.</p>
+
+<div class="stat-bar"><div class="stat-label">4th-Gen Fighters</div><div class="stat-track"><div class="stat-fill red" style="width:75%"></div></div><div class="stat-val">PLA: 847</div></div>
+<div class="stat-bar"><div class="stat-label"></div><div class="stat-track"><div class="stat-fill blue" style="width:25%"></div></div><div class="stat-val">SDF: 277</div></div>
+
+<div class="stat-bar"><div class="stat-label">Destroyers/Cruisers</div><div class="stat-track"><div class="stat-fill red" style="width:30%"></div></div><div class="stat-val">PLA: 23</div></div>
+<div class="stat-bar"><div class="stat-label"></div><div class="stat-track"><div class="stat-fill blue" style="width:50%"></div></div><div class="stat-val">SDF: 38</div></div>
+
+<div class="stat-bar"><div class="stat-label">Submarines</div><div class="stat-track"><div class="stat-fill red" style="width:60%"></div></div><div class="stat-val">PLA: 43</div></div>
+<div class="stat-bar"><div class="stat-label"></div><div class="stat-track"><div class="stat-fill blue" style="width:27%"></div></div><div class="stat-val">SDF: 19</div></div>
+
+<div class="stat-bar"><div class="stat-label">Frigates</div><div class="stat-track"><div class="stat-fill red" style="width:90%"></div></div><div class="stat-val">PLA: 98</div></div>
+<div class="stat-bar"><div class="stat-label"></div><div class="stat-track"><div class="stat-fill blue" style="width:9%"></div></div><div class="stat-val">SDF: 9</div></div>
+
+<div class="concept-box">
+<p><strong>Key asymmetry:</strong> China added 60 modern fighter aircraft per year from 2011-2017 and 2.5 destroyers annually. Japan's inventory in most categories has remained <em>stable or decreased</em>. The gap is accelerating.</p>
+</div>
+
+<!-- MAP: East Asia Strategic -->
+<div class="map-container">
+<div class="map-label">Strategic Map — East China Sea & Ryukyu Island Chain</div>
+<svg class="map-svg" viewBox="0 0 900 550" style="background:#0a0f18">
+<rect width="900" height="550" fill="#0a0f18"/>
+<!-- Grid -->
+<g stroke="rgba(192,57,43,0.04)" stroke-width="0.5">
+<line x1="0" y1="100" x2="900" y2="100"/><line x1="0" y1="200" x2="900" y2="200"/>
+<line x1="0" y1="300" x2="900" y2="300"/><line x1="0" y1="400" x2="900" y2="400"/>
+<line x1="200" y1="0" x2="200" y2="550"/><line x1="400" y1="0" x2="400" y2="550"/>
+<line x1="600" y1="0" x2="600" y2="550"/><line x1="800" y1="0" x2="800" y2="550"/>
+</g>
+<!-- China -->
+<path d="M0,30 L120,30 L150,60 L170,100 L160,160 L175,220 L155,280 L165,340 L145,400 L130,460 L100,520 L70,550 L0,550Z" fill="#1a2030" stroke="rgba(222,41,16,0.25)" stroke-width="1.5"/>
+<text x="70" y="280" fill="rgba(222,41,16,0.6)" font-family="DM Sans" font-size="16" font-weight="700" text-anchor="middle">CHINA</text>
+<text x="70" y="300" fill="rgba(222,41,16,0.3)" font-family="DM Sans" font-size="9" text-anchor="middle">中国 / Китай</text>
+
+<!-- Japan Main Islands -->
+<path d="M520,20 L560,15 L580,30 L575,70 L555,110 L530,130 L520,100 L515,60Z" fill="#1a2535" stroke="rgba(188,0,45,0.35)" stroke-width="1.5"/>
+<text x="545" y="70" fill="rgba(188,0,45,0.7)" font-family="DM Sans" font-size="11" font-weight="700" text-anchor="middle">HONSHU</text>
+<!-- Kyushu -->
+<path d="M480,130 L510,120 L520,135 L515,165 L500,175 L485,160Z" fill="#1a2535" stroke="rgba(188,0,45,0.35)" stroke-width="1.5"/>
+<text x="500" y="150" fill="rgba(188,0,45,0.6)" font-family="DM Sans" font-size="9" text-anchor="middle">KYUSHU</text>
+
+<!-- Ryukyu Chain -->
+<ellipse cx="445" cy="220" rx="12" ry="4" fill="#1a2535" stroke="rgba(188,0,45,0.3)" stroke-width="1"/>
+<text x="445" y="210" fill="rgba(188,0,45,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">Amami Oshima</text>
+
+<ellipse cx="410" cy="280" rx="20" ry="6" fill="#1a2a35" stroke="rgba(188,0,45,0.4)" stroke-width="1.5"/>
+<text x="410" y="275" fill="rgba(188,0,45,0.7)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="700">OKINAWA</text>
+<text x="445" y="295" fill="rgba(41,128,185,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">Naha AB (40× F-15)</text>
+<text x="445" y="305" fill="rgba(41,128,185,0.4)" font-family="DM Sans" font-size="6" text-anchor="middle">+ Kadena (USAF)</text>
+
+<ellipse cx="370" cy="330" rx="8" ry="3" fill="#1a2535" stroke="rgba(188,0,45,0.3)" stroke-width="1"/>
+<text x="370" y="322" fill="rgba(188,0,45,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Miyako</text>
+
+<ellipse cx="340" cy="360" rx="8" ry="3" fill="#1a2535" stroke="rgba(188,0,45,0.3)" stroke-width="1"/>
+<text x="340" y="352" fill="rgba(188,0,45,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Ishigaki</text>
+
+<ellipse cx="310" cy="375" rx="5" ry="2" fill="#1a2535" stroke="rgba(188,0,45,0.3)" stroke-width="1"/>
+<text x="310" y="368" fill="rgba(188,0,45,0.4)" font-family="DM Sans" font-size="6" text-anchor="middle">Yonaguni</text>
+
+<!-- Senkaku -->
+<circle cx="275" cy="360" r="5" fill="rgba(212,168,75,0.3)" stroke="rgba(212,168,75,0.7)" stroke-width="1.5"/>
+<text x="275" y="345" fill="rgba(212,168,75,0.9)" font-family="DM Sans" font-size="9" text-anchor="middle" font-weight="700">SENKAKU</text>
+<text x="275" y="382" fill="rgba(212,168,75,0.5)" font-family="DM Sans" font-size="6" text-anchor="middle">尖閣 / 钓鱼 / FLASHPOINT</text>
+
+<!-- Taiwan -->
+<path d="M240,400 L255,390 L265,405 L270,440 L265,475 L255,495 L242,490 L235,460 L233,430 L236,408Z" fill="#1a2a30" stroke="rgba(39,174,96,0.3)" stroke-width="1"/>
+<text x="252" y="445" fill="rgba(39,174,96,0.5)" font-family="DM Sans" font-size="9" text-anchor="middle">TAIWAN</text>
+
+<!-- Distance labels -->
+<line x1="170" y1="350" x2="270" y2="360" stroke="rgba(212,168,75,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="215" y="342" fill="rgba(212,168,75,0.5)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">~345 km</text>
+
+<line x1="280" y1="365" x2="400" y2="285" stroke="rgba(41,128,185,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="345" y="310" fill="rgba(41,128,185,0.5)" font-family="JetBrains Mono" font-size="7" text-anchor="middle" transform="rotate(-35,345,310)">~410 km</text>
+
+<line x1="280" y1="355" x2="485" y2="155" stroke="rgba(188,0,45,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="400" y="235" fill="rgba(188,0,45,0.4)" font-family="JetBrains Mono" font-size="7" text-anchor="middle" transform="rotate(-45,400,235)">~905 km to Kyushu</text>
+
+<!-- PLA missile ranges -->
+<circle cx="160" cy="300" r="120" fill="none" stroke="rgba(222,41,16,0.12)" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="160" y="195" fill="rgba(222,41,16,0.25)" font-family="DM Sans" font-size="6" text-anchor="middle">DF-15B range (~800km)</text>
+
+<circle cx="160" cy="300" r="280" fill="none" stroke="rgba(222,41,16,0.07)" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="380" y="70" fill="rgba(222,41,16,0.2)" font-family="DM Sans" font-size="6" text-anchor="middle">DF-21C range (~2,000km)</text>
+
+<!-- PLA airbases indicator -->
+<text x="130" y="170" fill="rgba(222,41,16,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">29 PLAAF/PLAN bases</text>
+<text x="130" y="180" fill="rgba(222,41,16,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">within 1,000km of Senkaku</text>
+
+<!-- JP/US bases indicator -->
+<text x="430" y="265" fill="rgba(41,128,185,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Only 4 JP/US bases</text>
+<text x="430" y="275" fill="rgba(41,128,185,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">within 1,000km</text>
+
+<!-- East China Sea label -->
+<text x="280" y="260" fill="rgba(255,255,255,0.08)" font-family="Source Serif 4" font-size="20" text-anchor="middle" font-style="italic">East China Sea</text>
+
+<!-- Guam -->
+<circle cx="800" cy="350" r="5" fill="#1a2535" stroke="rgba(41,128,185,0.3)" stroke-width="1"/>
+<text x="800" y="340" fill="rgba(41,128,185,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Guam (US)</text>
+<text x="800" y="365" fill="rgba(41,128,185,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">~3,500 km from China</text>
+
+<!-- Legend -->
+<rect x="640" y="30" width="240" height="155" rx="5" fill="rgba(10,12,16,0.85)" stroke="rgba(192,57,43,0.1)"/>
+<text x="655" y="50" fill="var(--accent2)" font-family="DM Sans" font-size="8" font-weight="700">LEGEND / ЛЕГЕНДА</text>
+<circle cx="660" cy="70" r="4" fill="rgba(212,168,75,0.3)" stroke="rgba(212,168,75,0.7)" stroke-width="1"/>
+<text x="672" y="73" fill="var(--text2)" font-family="DM Sans" font-size="7">Senkaku Islands (flashpoint)</text>
+<line x1="652" y1="90" x2="668" y2="90" stroke="rgba(222,41,16,0.25)" stroke-width="1.5"/>
+<text x="672" y="93" fill="var(--text2)" font-family="DM Sans" font-size="7">PRC Territory</text>
+<line x1="652" y1="110" x2="668" y2="110" stroke="rgba(188,0,45,0.4)" stroke-width="1.5"/>
+<text x="672" y="113" fill="var(--text2)" font-family="DM Sans" font-size="7">Japan (Ryukyu Chain)</text>
+<circle cx="660" cy="130" r="3" fill="none" stroke="rgba(222,41,16,0.15)" stroke-width="1"/>
+<text x="672" y="133" fill="var(--text2)" font-family="DM Sans" font-size="7">PLA Missile Range</text>
+<line x1="652" y1="150" x2="668" y2="150" stroke="rgba(212,168,75,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="672" y="153" fill="var(--text2)" font-family="DM Sans" font-size="7">Distance markers</text>
+<text x="655" y="173" fill="rgba(192,57,43,0.4)" font-family="DM Sans" font-size="6">Distances from nearest coastlines</text>
+</svg>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- JAPAN'S RESPONSES -->
+<section class="section" id="sec1b">
+<div class="ch-header">
+<div class="ch-num">Chapter 2</div>
+<div class="ch-title">Japan's Responses to Date · Ответные меры Японии</div>
+</div>
+
+<p>Japan has taken several measures over the past decade. But the list of things it has <em>not</em> done is at least as long.</p>
+
+<h3>What Japan Has Done · Что Япония сделала</h3>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Alliance · Альянс</div>
+<div class="card-name">Buttressing the U.S. Alliance</div>
+<div class="card-desc">2015 legislation enabling conditional collective self-defense. Updated "Guidelines for Defense Cooperation." Alliance coordination mechanism established. Space-based surveillance integration.</div>
+<div class="card-tag resilient">Alliance</div>
+</div>
+<div class="card">
+<div class="card-type">Partners · Партнёры</div>
+<div class="card-name">New Security Partners</div>
+<div class="card-desc">Military relationship with Australia (exercises, cross-servicing agreement since 2013) and India (Malabar exercise since 2015). Arms export ban lifted. SE Asian security programs accelerated.</div>
+<div class="card-tag resilient">Hedging</div>
+</div>
+<div class="card">
+<div class="card-type">Force Structure · Структура сил</div>
+<div class="card-name">Adjustments</div>
+<div class="card-desc">Shift from NE to SW deployment. Increased mobility. Improved ISR. Submarine fleet expanded 16→22. Amphibious warfare element created. F-35 purchase (40 aircraft). Missile defense (PAC-3, Aegis SM-3).</div>
+<div class="card-tag denial">Partial Denial</div>
+</div>
+<div class="card">
+<div class="card-type">Legal · Правовые</div>
+<div class="card-name">Loosening SDF Fetters</div>
+<div class="card-desc">Sea-lanes defense to 1,000 nm. Peacekeeping participation. Iraq deployment. Anti-piracy operations. Djibouti base. Constitutional reinterpretation for collective self-defense. Defense Agency → Ministry (2007). NSC created (2013).</div>
+<div class="card-tag resilient">Reform</div>
+</div>
+</div>
+
+<h3>What Japan Has NOT Done · Что Япония НЕ сделала</h3>
+
+<div class="warning-box">
+<p><strong>Critical gaps remain:</strong> No strategic reevaluation of basic military approach. F-15 radar modernization uses a cheap, ineffective mechanical radar (not AESA). Inadequate reloads for SAM systems. 40% of five-year acquisition targets will not be achieved. No standing joint command. Budget still essentially at 1% GDP despite rhetoric.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== SECTION II: THREE STRATEGIES ========== -->
+<section class="part-header" id="sec2">
+<div class="part-num">Section II</div>
+<div class="part-title">Three Deterrence Strategies</div>
+<div class="part-desc">Три стратегии сдерживания — Forward Defense, Denial, and Punishment: which is best for Japan today?</div>
+</section>
+
+<section class="section">
+<div class="ch-header">
+<div class="ch-num">Chapter 3</div>
+<div class="ch-title">Forward Defense, Active Denial, or Punishment?</div>
+</div>
+
+<p>Deterrence theories differentiate two fundamental types: <span class="ru" data-ru="Наказание">punishment</span> (threatening unacceptable losses on an attacker's valued assets) and <span class="ru" data-ru="Отрицание">denial</span> (denying an attacker the benefits of conquest). The authors further subdivide denial into <span class="ru" data-ru="Передовая оборона">forward defense</span> (defeating attacks in set-piece battles) and <span class="ru" data-ru="Активное отрицание">active denial</span> (prolonged, active resistance).</p>
+
+<div class="compare">
+<div class="compare-col" style="border-top:3px solid var(--red)">
+<h4 style="color:var(--red)">Forward Defense<br><small style="color:var(--text2)">Передовая оборона</small></h4>
+<ul>
+<li>Defeat adversary at or near the border</li>
+<li>Concentrated maneuver forces</li>
+<li>Rapid, decisive force-on-force battles</li>
+<li>Fleet-based maritime defense</li>
+<li>Centralized main operating bases</li>
+<li>Requires superior or equal forces</li>
+<li>Flexible across conflict levels</li>
+<li>Fails catastrophically when outmatched</li>
+</ul>
+</div>
+<div class="compare-col" style="border-top:3px solid var(--blue)">
+<h4 style="color:var(--blue)">Active Denial<br><small style="color:var(--text2)">Активное отрицание</small></h4>
+<ul>
+<li>Maintain a "force in being"</li>
+<li>Continue fighting until exogenous factors tip the balance</li>
+<li>Defense in depth, yield ground initially</li>
+<li>Prioritize force survival over maximum destruction</li>
+<li>Dispersed, mobile, resilient posture</li>
+<li>Works even when outmatched</li>
+<li>Relies on allies/time working for you</li>
+<li>Higher damage tolerance required</li>
+</ul>
+</div>
+<div class="compare-col" style="border-top:3px solid var(--gold)">
+<h4 style="color:var(--gold)">Punishment<br><small style="color:var(--text2)">Наказание</small></h4>
+<ul>
+<li>Threaten unacceptable pain on attacker's valued assets</li>
+<li>Strike military or civilian targets in homeland</li>
+<li>Often associated with nuclear weapons</li>
+<li>Can use conventional missiles, cyber, SOF</li>
+<li>Most credible vs. existential threats</li>
+<li>Hard to justify for limited conflicts</li>
+<li>Risks escalation</li>
+<li>Requires escalation dominance</li>
+</ul>
+</div>
+</div>
+
+<h3>Historical Examples · Исторические примеры</h3>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Denial Example · Пример отрицания</div>
+<div class="card-name">🇨🇭 Swiss Armed Neutrality</div>
+<div class="card-desc">The prototypical denial case: the ability to mobilize a large portion of the population for defense in depth. Guerrilla/"Fabian" strategies are a subset of denial.</div>
+<div class="card-tag denial">Denial</div>
+</div>
+<div class="card">
+<div class="card-type">Denial Example · Пример отрицания</div>
+<div class="card-name">🇬🇧 Battle of Britain (1940)</div>
+<div class="card-desc">Britain fought an air and maritime denial campaign. Fighter Command's Dowding prioritized force survival over maximizing enemy destruction. Heavy naval units kept in reserve at Scapa Flow — 30 hours from the Channel but protected from air attack. Civilian leaders pre-war prioritized fighter over bomber production.</div>
+<div class="card-tag denial">Denial</div>
+</div>
+<div class="card">
+<div class="card-type">Denial Example · Пример отрицания</div>
+<div class="card-name">🇺🇸 American Revolution (1777)</div>
+<div class="card-desc">Washington's "Fabian strategy" — avoid decisive engagement, preserve the Continental Army, wait for French intervention. Hamilton: "The loss of even one general engagement may effectually ruin us."</div>
+<div class="card-tag denial">Denial</div>
+</div>
+<div class="card">
+<div class="card-type">Punishment Example · Пример наказания</div>
+<div class="card-name">🇮🇱 Israel & 🇰🇷 South Korea</div>
+<div class="card-desc">Israel practices conventional punishment (backed by undeclared nuclear capability). South Korea adopted "proactive deterrence" in 2011 with 800km-range ballistic missiles — rapid punishment for North Korean provocation.</div>
+<div class="card-tag punish">Punishment</div>
+</div>
+</div>
+
+<h3>Key Variables · Ключевые переменные</h3>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--red)">
+<div class="phase-num">1</div>
+<div class="phase-name">Relative Strength<br><small style="font-weight:400;color:var(--text2)">Соотношение сил</small></div>
+<div class="phase-desc">When superior → Forward defense preferred. When inferior → Denial or punishment offer a "theory of victory" even to the weaker side.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">2</div>
+<div class="phase-name">Exogenous Factors<br><small style="font-weight:400;color:var(--text2)">Внешние факторы</small></div>
+<div class="phase-desc">Denial works best when time favors the defender: allied reinforcements, blockade potential, or adversary domestic instability.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--gold)">
+<div class="phase-num">3</div>
+<div class="phase-name">Level of Conflict<br><small style="font-weight:400;color:var(--text2)">Уровень конфликта</small></div>
+<div class="phase-desc">Forward defense handles all levels (if superior). Denial traditionally seen as best for large-scale attack. Punishment most credible for high-level challenges.</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EVALUATING JAPAN'S CIRCUMSTANCES -->
+<section class="section" id="sec2b">
+<div class="ch-header">
+<div class="ch-num">Chapter 4</div>
+<div class="ch-title">Japan's Strategic Circumstances Today · Стратегическая обстановка</div>
+</div>
+
+<h4>Relative Strength: Favors China increasingly</h4>
+<p>Chinese conventional capabilities exceed Japan's in several categories. China can attack bases throughout Japan and as far as Guam (~3,500 km). The PLA cannot invade Japan's main islands (given U.S. alliance), but <strong>occupation of southwestern islands is becoming a realistic possibility</strong>.</p>
+
+<h4>Exogenous Factors: Three work against China over time</h4>
+<div class="phases">
+<div class="phase">
+<div class="phase-num">①</div>
+<div class="phase-name">U.S. Reinforcements</div>
+<div class="phase-desc">Forward-deployed U.S. forces are vulnerable early, but reinforcements would swing the balance in a longer fight.</div>
+</div>
+<div class="phase">
+<div class="phase-num">②</div>
+<div class="phase-name">Malacca Dilemma</div>
+<div class="phase-desc">China imports 60%+ of its oil, 75% through the Strait of Malacca. Only ~20 days of strategic petroleum reserves.</div>
+</div>
+<div class="phase">
+<div class="phase-num">③</div>
+<div class="phase-name">Domestic Instability</div>
+<div class="phase-desc">Chinese leaders deeply concerned about domestic unrest. A protracted war introduces new sociopolitical uncertainties.</div>
+</div>
+</div>
+
+<h4>Three Levels of Conflict</h4>
+<p>Japan faces challenges at three distinct levels: <strong>(1) Gray zone</strong> — Chinese probes and transit operations, draining Japanese resources. <strong>(2) Limited/local conflict</strong> — combat in the East China Sea (e.g., Senkaku crisis). <strong>(3) General conflict</strong> — Chinese missile and air strikes against Japanese bases to neutralize capabilities.</p>
+
+<div class="key-point">
+<p><strong>The authors' conclusion:</strong> Given that the correlation of forces in a short war increasingly favors China, that exogenous forces work in Tokyo's favor over time, and that Japan faces scenarios at various conflict levels — <strong>a mixed strategy with primary emphasis on denial is the best approach.</strong></p>
+<p>The operational goal: ensure Japanese forces can <strong>absorb attacks and continue fighting effectively</strong>, preventing a fait accompli until U.S. reinforcements arrive.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== SECTION III: ACTIVE DENIAL ========== -->
+<section class="part-header" id="sec3">
+<div class="part-num">Section III</div>
+<div class="part-title">The Active Denial Strategy</div>
+<div class="part-desc">Стратегия активного отрицания — A detailed blueprint: resilience, phased operations, and the right balance of offense and defense.</div>
+</section>
+
+<section class="section">
+<div class="ch-header">
+<div class="ch-num">Chapter 5</div>
+<div class="ch-title">The Military Problem · Военная проблема</div>
+</div>
+
+<p>Japan's current strategic focus is on <span class="ru" data-ru="Серая зона">gray zone</span> activities and localized clashes. But given China's ability to escalate, Japanese strategists need to focus on <strong>how to deter escalation during war</strong>.</p>
+
+<h4>Gray Zone: Costly Overreaction</h4>
+<p>In 2016, the ASDF flew <strong>851 intercept missions</strong> against Chinese aircraft (up from 96 in 2010) — an extraordinary burden for 40 F-15s at Naha. Much "gray zone" activity isn't even illegal. The authors argue Tokyo should adopt a <strong>more selective, ISR-based approach</strong> rather than expensive fighter scrambles.</p>
+
+<h4>Limited Conflict: Current SDF Advantage — For Now</h4>
+<p>Japan currently performs well in localized skirmishes — 24 years of Aegis experience, 35 years of 4th-gen fighters, and extensive U.S. training. But China is narrowing the qualitative gap rapidly, and in some areas (electronic warfare) has moved ahead.</p>
+
+<h4>The Escalation Trap</h4>
+<div class="warning-box">
+<p><strong>Critical insight:</strong> If Japanese forces were winning a localized conflict, China has incentives to <strong>escalate</strong> — striking Japanese bases and infrastructure with ballistic and cruise missiles to neutralize the SDF's advantage. Just <strong>16 ballistic missiles</strong> with penetrating submunitions could close Kadena Air Base for 4–11 days. <strong>53 cruise missiles</strong> could strike all shelters at Andersen AFB (Guam).</p>
+<p>Maintaining the ability to survive and fight in a general conflict deters this escalation.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RESILIENT POSTURE -->
+<section class="section" id="sec3b">
+<div class="ch-header">
+<div class="ch-num">Chapter 6</div>
+<div class="ch-title">Resilient Posture · Устойчивая позиция</div>
+<div class="ch-quote">"The most important characteristic of the active denial strategy is a resilient force posture."</div>
+</div>
+
+<p>Japan should enhance the <span class="ru" data-ru="Живучесть">survivability</span> of its military elements, <strong>even at the expense of some offensive capability</strong>. The apparent trade-off is illusory — concentrated forces optimized for offense are subject to heavy losses against precision strike.</p>
+
+<h3>Four Pillars of Resilience · Четыре столпа устойчивости</h3>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">I</div>
+<div class="phase-name">Expanded Basing</div>
+<div class="phase-desc">ASDF operates from ~15 air bases. Japan has 138 airfields, ~80 with runways >6,000 ft. Prepare civilian airports for dispersed operations. Priority: Kyushu & Ryukyu Islands.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--green)">
+<div class="phase-num">II</div>
+<div class="phase-name">Mobility & Deception</div>
+<div class="phase-desc">"Rapid Raptor" concept: 4 fighters + C-17 support at austere airfields. "Untethered operations." Mobile missile batteries on outer islands. Lure missiles at empty shelters.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--gold)">
+<div class="phase-num">III</div>
+<div class="phase-name">Rapid Recovery</div>
+<div class="phase-desc">Invest in rapid runway repair and explosive ordnance disposal. Critical for high-intensity missile combat survivability.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent2)">
+<div class="phase-num">IV</div>
+<div class="phase-name">Balanced Defenses</div>
+<div class="phase-desc">Active missile defense is expensive. Mobility, dispersion, and concealment may sometimes be more economical. Luring missiles to empty targets = same effect as shooting them down.</div>
+</div>
+</div>
+
+<div class="concept-box">
+<p><strong>Key innovation — Japan's own A2/AD:</strong> Japan's archipelagic geography favors creating mutually supporting firing positions. New 300km-range anti-ship missiles from Ryukyu islands create a <strong>miniature A2/AD zone</strong> (противодоступная зона) that can isolate hostile lodgments without costly counterattack.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HIERARCHY OF PRIORITIES -->
+<section class="section" id="sec3c">
+<div class="ch-header">
+<div class="ch-num">Chapter 7</div>
+<div class="ch-title">Hierarchy of Priorities · Иерархия приоритетов</div>
+</div>
+
+<p>Unless Japan doubles or triples its defense budget, forward defense independent of the U.S. is untenable. The priority hierarchy becomes:</p>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">1st</div>
+<div class="phase-name">DEFEND</div>
+<div class="phase-desc">Protect key assets enabling government and military to continue functioning. Integrated air/missile defense, ASW, anti-surface warfare.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--gold)">
+<div class="phase-num">2nd</div>
+<div class="phase-name">ISOLATE</div>
+<div class="phase-desc">Isolate and strike adversary forces that land on Japanese territory. Use submarines, anti-ship missiles to deny resupply.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent2)">
+<div class="phase-num">3rd</div>
+<div class="phase-name">COUNTERATTACK</div>
+<div class="phase-desc">Retake lost territory ONLY after U.S. reinforcements shift the overall balance. Premature counterattack courts disaster.</div>
+</div>
+</div>
+
+<div class="warning-box">
+<p><strong>Why premature counterattack is disastrous:</strong> An opposed landing on the Senkaku Islands would require maintaining air/sea control in the highest-threat zone of Chinese weapons — turning mobile assets into fixed targets. Japanese forces would be beyond supporting SAM coverage, within range of hundreds of PLA short-range ballistic missiles, and sustaining just 5-8 fighters on combat air patrol from Naha's 40 F-15s.</p>
+<p>For context: in WWII, tiny Wake Island (comparable in size) required 13 Japanese warships, 2 carriers, and 2,500 infantry to capture — against 400 defenders and 12 aircraft.</p>
+</div>
+
+<h3>What Japan Should Invest In · Во что инвестировать</h3>
+
+<div class="compare compare-2">
+<div class="compare-col" style="border-top:3px solid var(--green)">
+<h4 style="color:var(--green)">✓ Invest More</h4>
+<ul>
+<li>Networking legacy F-15s with F-35 force multipliers</li>
+<li>Additional 4.5-gen aircraft (F/A-18E/F or F-15SE)</li>
+<li>SAM battery reloads</li>
+<li>Aerial refueling tankers (1 tanker = 4× more fighter coverage)</li>
+<li>300km anti-ship missiles for island chain</li>
+<li>Smaller, cheaper multifunction frigates (5,000-ton class)</li>
+<li>Dispersed basing infrastructure in SW</li>
+<li>Hardened fuel/ammo storage</li>
+</ul>
+</div>
+<div class="compare-col" style="border-top:3px solid var(--red)">
+<h4 style="color:var(--red)">✗ Reduce</h4>
+<ul>
+<li>Offensive amphibious elements (LSTs, helicopter carriers)</li>
+<li>C-2 transport aircraft (cut from 40 to 15-20; save billions)</li>
+<li>GSDF Osprey purchases ($175M each — for "disaster relief")</li>
+<li>Excessive GSDF budget share (50% more than air or navy)</li>
+<li>Strategic airlift for peacekeeping</li>
+<li>Expensive industrial subsidies for inefficient domestic aircraft</li>
+</ul>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LONG-RANGE STRIKE -->
+<section class="section" id="sec3d">
+<div class="ch-header">
+<div class="ch-num">Chapter 8</div>
+<div class="ch-title">Long-Range Strike: Limits & Purpose · Ударный потенциал</div>
+</div>
+
+<p>Long-range strike has gained considerable currency in Tokyo. Three former defense ministers, PM Abe, and two LDP panels have spoken in favor. In Dec 2017, Japan announced studies on acquiring JASSM-ER and LRASM missiles (900+ km range).</p>
+
+<h4>The Case For (Limited) Strike</h4>
+<p>A force of ~300 cruise missiles (~$500M) would give Japan ~5 strikes equivalent to the 2017 U.S. strike on Shayrat Air Base, Syria. With accurate intelligence, strikes on ports might disrupt amphibious operations; strikes on airbases might destroy high-value tankers or bombers.</p>
+
+<h4>Three Reasons Strike Should Remain LIMITED</h4>
+
+<div class="key-point">
+<p><strong>1. China enjoys strategic depth (стратегическая глубина).</strong> It can deploy forces from bases at various distances. Long cruise missile flight times (up to an hour) limit effectiveness against mobile targets. China can simply marshal forces farther from Japan.</p>
+<p><strong>2. Countervalue strikes risk escalation (эскалация).</strong> If Japan targets dual-use facilities (ports, airports), China has escalation dominance with its massive missile inventory — even without nuclear weapons.</p>
+<p><strong>3. Strike systems invite preemptive attack.</strong> China might seek to destroy Japan's delivery systems before they can be used, creating dangerous first-strike incentives.</p>
+</div>
+
+<div class="green-box">
+<p><strong>Authors' recommendation:</strong> Acquire a <em>limited</em> inventory of long-range strike weapons as options. But the benefits do <strong>not</strong> scale up with size. Japan must continue to prepare for an <strong>extended, largely defensive campaign</strong> within which strike plays a subsidiary role.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== SECTION IV: OBSTACLES ========== -->
+<section class="part-header" id="sec4">
+<div class="part-num">Section IV</div>
+<div class="part-title">Implementation & Obstacles</div>
+<div class="part-desc">Препятствия внедрения — What stands in the way of adopting Active Denial, and how to overcome it.</div>
+</section>
+
+<section class="section">
+<div class="ch-header">
+<div class="ch-num">Chapter 9</div>
+<div class="ch-title">Obstacles to Denial · Препятствия</div>
+</div>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Obstacle 1 · Препятствие 1</div>
+<div class="card-name">Defense Underspending</div>
+<div class="card-desc">2017 budget only 4% larger (nominal) than 1997. Still at ~1% GDP. LDP recommended 2% (NATO target) but no formal proposal approaches that figure. Even "largest-ever" budgets remain inadequate.</div>
+<div class="card-tag forward">Structural</div>
+</div>
+<div class="card">
+<div class="card-type">Obstacle 2 · Препятствие 2</div>
+<div class="card-name">No Analytical System</div>
+<div class="card-desc">Japan's MoD lacks mechanisms to translate objectives into force requirements or to put options in competition. Cannot evaluate whether cruise missile defense is best served by fighter patrols, SAMs, or attacks on launchers. No PPBE-like process.</div>
+<div class="card-tag forward">Institutional</div>
+</div>
+<div class="card">
+<div class="card-type">Obstacle 3 · Препятствие 3</div>
+<div class="card-name">GSDF Budget Stranglehold</div>
+<div class="card-desc">Despite the primarily air/maritime Chinese threat, the GSDF receives 50% more funds than either the air force or navy. Budget shares have been virtually frozen since 2000. GSDF supplies 15 of 30 chiefs of joint staff since 1954.</div>
+<div class="card-tag forward">Bureaucratic</div>
+</div>
+<div class="card">
+<div class="card-type">Obstacle 4 · Препятствие 4</div>
+<div class="card-name">No Standing Joint Command</div>
+<div class="card-desc">The Joint Staff is not a command authority. Each service directs its own elements. GSDF and ASDF have different numbers of regional commands with misaligned boundaries. Army officers often command joint exercises despite air-sea nature of threat.</div>
+<div class="card-tag forward">Organizational</div>
+</div>
+<div class="card">
+<div class="card-type">Obstacle 5 · Препятствие 5</div>
+<div class="card-name">Industrial Policy over Defense Needs</div>
+<div class="card-desc">70 domestically produced P-1 ASW aircraft and 40 C-2 transports partly to support industry. The F-2 costs more per aircraft than an F-35 yet is "routinely massacred" in air combat exercises. $175M per Osprey justified for "disaster relief."</div>
+<div class="card-tag forward">Political</div>
+</div>
+<div class="card">
+<div class="card-type">Obstacle 6 · Препятствие 6</div>
+<div class="card-name">Bureaucratic Preference for Offense</div>
+<div class="card-desc">Organizational theory: professional militaries prefer offensive doctrines (plan on own terms, minimize civilian participation, enhance military prestige). This privileges forward defense over inherently defensive denial — even when circumstances demand the latter.</div>
+<div class="card-tag forward">Cultural</div>
+</div>
+</div>
+
+<div class="concept-box">
+<p><strong>But none of these are insurmountable.</strong> Japan has proven it can address institutional weaknesses — it elevated the Defense Agency to ministry status, created a National Security Council, and reinterpreted its constitution. The key is civilian leadership. As in 1930s Britain, where civilians intervened to prioritize Fighter Command over bombers, political will can override military bureaucratic preference when the threat is pressing enough.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONCLUSION -->
+<section class="section" id="conclusion">
+<div class="ch-header">
+<div class="ch-num">Conclusion · Заключение</div>
+<div class="ch-title">The Porcupine, Not the Hedgehog</div>
+</div>
+
+<p>Japan urgently needs to reconsider its basic approach to deterrence. The optimal strategy is <strong>active denial</strong> — capitalizing on Japan's geography and the defensive potential of modern weapons for the most effective and affordable defense.</p>
+
+<h3>Why Active Denial Works · Почему это работает</h3>
+
+<div class="key-point">
+<p><strong>Deterrence:</strong> An attack on Japan becomes a protracted fight — no quick, decisive Chinese victory is possible.</p>
+<p><strong>Stability:</strong> Reduces first-strike incentives for both sides. A resilient, primarily defensive posture reduces crisis instability.</p>
+<p><strong>Alliance credibility:</strong> Signals Japan's status quo objectives. Reassures the U.S., adversaries, and Japan's own public that Tokyo will not initiate aggression. Lessens moral hazard for the alliance.</p>
+<p><strong>Affordability:</strong> Far cheaper than any plausible alternative. Achievable if Japan raises spending to 2% GDP.</p>
+</div>
+
+<h3>Animal Metaphors Revisited · Метафоры</h3>
+
+<div class="compare compare-2">
+<div class="compare-col">
+<h4 style="color:var(--text2)">🦔 Cold War Hedgehog</h4>
+<ul>
+<li>Purely defensive</li>
+<li>Static denial posture</li>
+<li>Wait for U.S. cavalry</li>
+<li>Minimal offensive capability</li>
+</ul>
+</div>
+<div class="compare-col" style="border-left:2px solid var(--accent)">
+<h4 style="color:var(--accent2)">🦔→ Active Denial Porcupine</h4>
+<ul>
+<li>Mobile and tactically offensive</li>
+<li>Resilient + lethal at limited distances</li>
+<li>Able to inflict painful, costly wounds</li>
+<li>Both U.S. and Japan hold the shield initially; both participate in later counteroffensive</li>
+</ul>
+</div>
+</div>
+
+<div class="green-box">
+<p><strong>Final word:</strong> "Adoption of an active denial posture would make the hedgehog more lethal, recognize the central role of Japan in its own defense, and <strong>multiply the defensive and offensive options</strong> available to Japan's defenders."</p>
+</div>
+
+<h3>Historical Timeline · Хронология</h3>
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1954</div><div class="tl-text">SDF established. Early "hedgehog" denial strategy — delay invaders until U.S. forces arrive</div></div>
+<div class="tl-item"><div class="tl-year">1960s-70s</div><div class="tl-text">Gradual shift toward forward defense as Japan gains material means and U.S. demands burden-sharing. Sea-lane defense commitment to 1,000 nm</div></div>
+<div class="tl-item"><div class="tl-year">1976</div><div class="tl-text">Basic Defense Force Concept established. Fleet reorganized: 4 mobile escort flotillas + regional divisions</div></div>
+<div class="tl-item"><div class="tl-year">1989</div><div class="tl-text">Cold War ends. Trend toward forward defense continues. Infantry divisions reduced from 12 to 5</div></div>
+<div class="tl-item"><div class="tl-year">2005</div><div class="tl-text">Japan's GDP ~2× China's. China military budget surpasses Japan's. Turning point</div></div>
+<div class="tl-item"><div class="tl-year">2010</div><div class="tl-text">Dynamic Defense Force replaces Basic Defense Force. Submarine fleet expanded 16→22. Some denial elements introduced</div></div>
+<div class="tl-item"><div class="tl-year">2013</div><div class="tl-text">Abe returns. Modest budget increases. NSC created. Arms export ban lifted</div></div>
+<div class="tl-item"><div class="tl-year">2015</div><div class="tl-text">Collective self-defense legislation. Updated U.S.-Japan defense guidelines</div></div>
+<div class="tl-item"><div class="tl-year">2017</div><div class="tl-text">China's GDP = 2.4× Japan's. LDP proposes 2% GDP defense spending. Long-range strike debate begins</div></div>
+<div class="tl-item"><div class="tl-year">2018</div><div class="tl-text">This article published. Authors argue: Japan needs Active Denial NOW before the window closes</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== INTERACTIVE GAME ========== -->
+<section class="section" id="game">
+<div class="game-container">
+<div class="game-title">🎮 Strategy Simulator · Симулятор стратегии</div>
+<div class="game-subtitle">Choose Japan's defense strategy and see how it performs across three conflict scenarios.<br>Выберите стратегию обороны Японии и посмотрите результаты.</div>
+
+<h4 style="text-align:center;margin-bottom:1rem">Step 1: Choose Japan's Strategy</h4>
+<div class="game-controls" id="strategyBtns">
+<button class="game-btn" onclick="selectStrategy('forward')">⚔️ Forward Defense<br><small>Передовая оборона</small></button>
+<button class="game-btn" onclick="selectStrategy('denial')">🛡️ Active Denial<br><small>Активное отрицание</small></button>
+<button class="game-btn" onclick="selectStrategy('punishment')">💥 Punishment<br><small>Наказание</small></button>
+</div>
+
+<h4 style="text-align:center;margin-bottom:1rem">Step 2: Choose the Conflict Scenario</h4>
+<div class="game-controls" id="scenarioBtns">
+<button class="game-btn" onclick="selectScenario('gray')">🌫️ Gray Zone<br><small>Серая зона</small></button>
+<button class="game-btn" onclick="selectScenario('limited')">⚡ Limited Senkaku Conflict<br><small>Локальный конфликт</small></button>
+<button class="game-btn" onclick="selectScenario('general')">🔥 General Conflict<br><small>Общий конфликт</small></button>
+</div>
+
+<div class="slider-container">
+<div class="slider-label"><span>Budget Level (% GDP)</span><span id="budgetVal">1.0%</span></div>
+<input type="range" class="slider-input" id="budgetSlider" min="1" max="3" step="0.1" value="1.0" oninput="updateBudget(this.value)">
+</div>
+
+<div style="text-align:center;margin:1rem 0">
+<button class="game-btn" style="background:var(--accent);color:#fff;padding:12px 30px;font-size:.9rem" onclick="runSimulation()">▶ Run Simulation · Запустить</button>
+</div>
+
+<div class="game-result" id="gameResult">
+<p style="text-align:center;color:var(--text2);padding:3rem">Select a strategy and scenario, then click "Run Simulation"<br>Выберите стратегию и сценарий, затем нажмите «Запустить»</p>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FULL GLOSSARY -->
+<section class="section" id="glossary">
+<div class="ch-header">
+<div class="ch-num">Reference · Справочник</div>
+<div class="ch-title">Complete English-Russian Glossary · Полный глоссарий</div>
+</div>
+
+<div class="glossary-box">
+<h4>🇷🇺 Strategic Concepts · Стратегические концепции</h4>
+<div class="glossary-item"><span class="en">Active Denial Strategy</span><span class="ru-text">Стратегия активного отрицания</span></div>
+<div class="glossary-item"><span class="en">Forward Defense</span><span class="ru-text">Передовая оборона</span></div>
+<div class="glossary-item"><span class="en">Punishment Strategy</span><span class="ru-text">Стратегия наказания / возмездия</span></div>
+<div class="glossary-item"><span class="en">Deterrence by Denial</span><span class="ru-text">Сдерживание путём отрицания</span></div>
+<div class="glossary-item"><span class="en">Deterrence by Punishment</span><span class="ru-text">Сдерживание путём наказания</span></div>
+<div class="glossary-item"><span class="en">Anti-Access/Area Denial (A2/AD)</span><span class="ru-text">Ограничение доступа и воспрещение зоны</span></div>
+<div class="glossary-item"><span class="en">Gray Zone Conflict</span><span class="ru-text">Конфликт в «серой зоне»</span></div>
+<div class="glossary-item"><span class="en">Escalation Dominance</span><span class="ru-text">Доминирование в эскалации</span></div>
+<div class="glossary-item"><span class="en">Force in Being</span><span class="ru-text">Действующая сила / «Сила в наличии»</span></div>
+<div class="glossary-item"><span class="en">Balance of Power</span><span class="ru-text">Баланс сил</span></div>
+<div class="glossary-item"><span class="en">Strategic Depth</span><span class="ru-text">Стратегическая глубина</span></div>
+<div class="glossary-item"><span class="en">Fait Accompli</span><span class="ru-text">Свершившийся факт</span></div>
+<div class="glossary-item"><span class="en">Offshore Balancing</span><span class="ru-text">Балансирование из-за горизонта</span></div>
+<div class="glossary-item"><span class="en">Burden Sharing</span><span class="ru-text">Разделение бремени</span></div>
+<div class="glossary-item"><span class="en">Collective Self-Defense</span><span class="ru-text">Коллективная самооборона</span></div>
+<div class="glossary-item"><span class="en">Defense in Depth</span><span class="ru-text">Глубокоэшелонированная оборона</span></div>
+<div class="glossary-item"><span class="en">Fabian Strategy</span><span class="ru-text">Фабианская стратегия (стратегия истощения)</span></div>
+</div>
+
+<div class="glossary-box" style="border-color:rgba(192,57,43,.15)">
+<h4 style="color:var(--accent2)">🎖️ Military Terms · Военные термины</h4>
+<div class="glossary-item"><span class="en">Self-Defense Force (SDF)</span><span class="ru-text">Силы самообороны (ССО)</span></div>
+<div class="glossary-item"><span class="en">Ground Self-Defense Force (GSDF)</span><span class="ru-text">Сухопутные силы самообороны</span></div>
+<div class="glossary-item"><span class="en">Maritime Self-Defense Force (MSDF)</span><span class="ru-text">Морские силы самообороны</span></div>
+<div class="glossary-item"><span class="en">Air Self-Defense Force (ASDF)</span><span class="ru-text">Воздушные силы самообороны</span></div>
+<div class="glossary-item"><span class="en">People's Liberation Army (PLA)</span><span class="ru-text">Народно-освободительная армия (НОАК)</span></div>
+<div class="glossary-item"><span class="en">Aegis Combat System</span><span class="ru-text">Боевая система «Иджис»</span></div>
+<div class="glossary-item"><span class="en">Ballistic Missile</span><span class="ru-text">Баллистическая ракета</span></div>
+<div class="glossary-item"><span class="en">Cruise Missile</span><span class="ru-text">Крылатая ракета</span></div>
+<div class="glossary-item"><span class="en">Anti-Ship Cruise Missile (ASCM)</span><span class="ru-text">Противокорабельная крылатая ракета (ПКР)</span></div>
+<div class="glossary-item"><span class="en">Surface-to-Air Missile (SAM)</span><span class="ru-text">Зенитная управляемая ракета (ЗУР)</span></div>
+<div class="glossary-item"><span class="en">Anti-Submarine Warfare (ASW)</span><span class="ru-text">Противолодочная борьба (ПЛО)</span></div>
+<div class="glossary-item"><span class="en">Intelligence, Surveillance, Reconnaissance (ISR)</span><span class="ru-text">Разведка, наблюдение, рекогносцировка</span></div>
+<div class="glossary-item"><span class="en">Combat Air Patrol (CAP)</span><span class="ru-text">Боевое воздушное патрулирование</span></div>
+<div class="glossary-item"><span class="en">Amphibious Assault</span><span class="ru-text">Десантная операция</span></div>
+<div class="glossary-item"><span class="en">Electronic Warfare (EW)</span><span class="ru-text">Радиоэлектронная борьба (РЭБ)</span></div>
+<div class="glossary-item"><span class="en">Precision Strike</span><span class="ru-text">Высокоточный удар</span></div>
+<div class="glossary-item"><span class="en">Force Projection</span><span class="ru-text">Проецирование силы</span></div>
+<div class="glossary-item"><span class="en">Submunitions</span><span class="ru-text">Суббоеприпасы / кассетные элементы</span></div>
+</div>
+
+<div class="glossary-box" style="border-color:rgba(39,174,96,.15)">
+<h4 style="color:var(--green)">🌏 Geographic & Political Terms · Географические и политические термины</h4>
+<div class="glossary-item"><span class="en">Senkaku Islands / Diaoyu Islands</span><span class="ru-text">Острова Сэнкаку / Дяоюйдао</span></div>
+<div class="glossary-item"><span class="en">Ryukyu Island Chain</span><span class="ru-text">Островная цепь Рюкю</span></div>
+<div class="glossary-item"><span class="en">East China Sea</span><span class="ru-text">Восточно-Китайское море</span></div>
+<div class="glossary-item"><span class="en">First Island Chain</span><span class="ru-text">Первая островная цепь</span></div>
+<div class="glossary-item"><span class="en">Strait of Malacca</span><span class="ru-text">Малаккский пролив</span></div>
+<div class="glossary-item"><span class="en">Air Defense Identification Zone (ADIZ)</span><span class="ru-text">Зона опознавания ПВО</span></div>
+<div class="glossary-item"><span class="en">National Defense Program Guidelines (NDPG)</span><span class="ru-text">Основные направления программы национальной обороны</span></div>
+<div class="glossary-item"><span class="en">U.S.-Japan Alliance</span><span class="ru-text">Американо-японский альянс</span></div>
+<div class="glossary-item"><span class="en">Liberal Democratic Party (LDP)</span><span class="ru-text">Либерально-демократическая партия (ЛДП)</span></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide presents <strong>"Active Denial: Redesigning Japan's Response to China's Military Challenge"</strong></p>
+<p style="margin-top:.3rem">by Eric Heginbotham & Richard J. Samuels, <em>International Security</em>, Vol. 42, No. 4 (Spring 2018), pp. 128–169.</p>
+<p style="margin-top:.3rem">Published by MIT Press. DOI: 10.1162/isec_a_00313</p>
+<p style="margin-top:1rem;font-size:.75rem;color:rgba(192,57,43,.4)">Interactive presentation created for academic discussion · Интерактивная презентация для учебных целей</p>
+</footer>
+
+<script>
+// Nav visibility
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('visible',window.scrollY>600)});
+
+// Fade-in on scroll
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.key-point,.warning-box,.concept-box,.green-box,.compare,.cards,.phases,.map-container,.timeline,.glossary-box,h3').forEach(el=>{el.classList.add('fade-in');obs.observe(el)});
+
+// GAME SIMULATION
+let selectedStrategy=null,selectedScenario=null;
+
+function selectStrategy(s){
+selectedStrategy=s;
+document.querySelectorAll('#strategyBtns .game-btn').forEach(b=>b.classList.remove('active'));
+event.target.closest('.game-btn').classList.add('active');
+}
+function selectScenario(s){
+selectedScenario=s;
+document.querySelectorAll('#scenarioBtns .game-btn').forEach(b=>b.classList.remove('active'));
+event.target.closest('.game-btn').classList.add('active');
+}
+function updateBudget(v){document.getElementById('budgetVal').textContent=v+'%'}
+
+function runSimulation(){
+if(!selectedStrategy||!selectedScenario){alert('Please select both a strategy and scenario.');return}
+const budget=parseFloat(document.getElementById('budgetSlider').value);
+const r=document.getElementById('gameResult');
+
+// Simulation logic based on the paper's analysis
+const data={
+forward:{
+gray:{det:75,stab:60,sust:40,esc:55,desc:"Forward defense handles gray zone adequately — SDF can intercept and shadow Chinese assets. However, it drains resources heavily (851 scrambles/year) and is unsustainable at current budget levels. Fighter pilots fatigue while China's capacity grows.",descRu:"Передовая оборона справляется с серой зоной, но истощает ресурсы."},
+limited:{det:65,stab:50,sust:45,esc:35,desc:"In a localized Senkaku conflict, forward defense performs initially — Japan's 35 years of 4th-gen fighter experience gives tactical advantage. But China can escalate with missile strikes on Japanese bases, and the SDF's concentrated posture makes it extremely vulnerable.",descRu:"В локальном конфликте начальное преимущество есть, но концентрированная позиция уязвима."},
+general:{det:30,stab:25,sust:20,esc:20,desc:"CATASTROPHIC. In general conflict, concentrated Japanese forces at known bases are destroyed in the opening missile barrage. 16 ballistic missiles close Kadena for 4-11 days. Chinese A2/AD dismantles the SDF's ability to fight. Forward defense fails rapidly and catastrophically when outmatched — exactly as the paper predicts.",descRu:"КАТАСТРОФА. Концентрированные силы уничтожены в первом ракетном ударе."}
+},
+denial:{
+gray:{det:70,stab:75,sust:80,esc:70,desc:"Active denial responds to gray zone more efficiently — ISR-based tracking instead of expensive scrambles. Selective interception preserves fighter hours. Resources saved for higher-priority deterrence missions. Sustainable even at modest budget levels.",descRu:"Активное отрицание экономно отвечает на серую зону — наблюдение вместо перехвата."},
+limited:{det:80,stab:80,sust:75,esc:75,desc:"In a Senkaku conflict, denial forces survive initial strikes through dispersal. Anti-ship missiles from the island chain create Japan's own A2/AD zone, isolating Chinese lodgments. Submarines threaten resupply. Time works for Japan as U.S. reinforcements flow in. China sees no path to quick victory — deterrence holds.",descRu:"Силы выживают через рассредоточение. ПКР создают собственную зону A2/AD. Время работает на Японию."},
+general:{det:75,stab:70,sust:70,esc:65,desc:"OPTIMAL. Dispersed, mobile forces survive the opening barrage. Expanded basing (138 airfields available), deception, and rapid recovery keep the SDF fighting. A 'force in being' denies China a decisive outcome. U.S. reinforcements arrive, blockade leverage grows, Chinese domestic vulnerabilities mount. The protracted fight deters initiation.",descRu:"ОПТИМАЛЬНЫЙ ВАРИАНТ. Рассредоточенные силы выживают. Затяжная борьба сдерживает агрессию."}
+},
+punishment:{
+gray:{det:30,stab:20,sust:50,esc:15,desc:"Punishment strategy is COMPLETELY INAPPROPRIATE for gray zone. You cannot justify striking mainland Chinese targets in response to ADIZ transits and naval patrols. Threatens massive escalation over minor provocations. Ally abandonment risk is extreme.",descRu:"ПОЛНОСТЬЮ НЕУМЕСТНА. Нельзя наносить удары по материку в ответ на патрули."},
+limited:{det:55,stab:30,sust:55,esc:25,desc:"Punishment carries serious risks in limited conflict. Striking Chinese bases might temporarily disrupt operations, but China has escalation dominance with its massive missile inventory. Japanese political leaders likely withhold approval for strikes. Dual-use target strikes (ports/airports) blur lines and provoke further escalation.",descRu:"Серьёзные риски. Китай имеет доминирование в эскалации. Политическое одобрение маловероятно."},
+general:{det:50,stab:20,sust:40,esc:15,desc:"DANGEROUS. In general conflict, punishment invites a devastating Chinese counter-strike. China's strategic depth means forces can deploy from distant bases. Long cruise missile flight times (up to 1 hour) limit value against mobile targets. Japan lacks the full SEAD/ISR package ($tens of billions) needed for deep strikes. Escalation spiral risk is extreme.",descRu:"ОПАСНО. Провоцирует разрушительный контрудар. Спираль эскалации."}
+}
+};
+
+const budgetMult=budget<=1.2?0.85:budget<=1.5?1.0:budget<=2.0?1.15:1.25;
+const d=data[selectedStrategy][selectedScenario];
+const det=Math.min(100,Math.round(d.det*budgetMult));
+const stab=Math.min(100,Math.round(d.stab*budgetMult));
+const sust=Math.min(100,Math.round(d.sust*budgetMult));
+const esc=Math.min(100,Math.round(d.esc*budgetMult));
+const overall=Math.round((det+stab+sust+esc)/4);
+
+const stratNames={forward:'Forward Defense (Передовая оборона)',denial:'Active Denial (Активное отрицание)',punishment:'Punishment (Наказание)'};
+const scenNames={gray:'Gray Zone (Серая зона)',limited:'Limited Senkaku Conflict (Локальный конфликт)',general:'General Conflict (Общий конфликт)'};
+const colors={forward:'var(--red)',denial:'var(--blue)',punishment:'var(--gold)'};
+const c=colors[selectedStrategy];
+
+r.innerHTML=`
+<h4 style="text-align:center;color:${c};margin-bottom:.5rem">${stratNames[selectedStrategy]}</h4>
+<p style="text-align:center;font-size:.85rem;color:var(--text2);margin-bottom:1.5rem">Scenario: ${scenNames[selectedScenario]} · Budget: ${budget}% GDP</p>
+
+<div style="margin-bottom:1rem">
+<div class="slider-label"><span>Deterrence Value (Сдерживание)</span><span style="color:${c}">${det}%</span></div>
+<div class="game-meter"><div class="game-meter-fill" style="width:${det}%;background:${c}"></div></div>
+</div>
+<div style="margin-bottom:1rem">
+<div class="slider-label"><span>Crisis Stability (Стабильность)</span><span style="color:${c}">${stab}%</span></div>
+<div class="game-meter"><div class="game-meter-fill" style="width:${stab}%;background:${c}"></div></div>
+</div>
+<div style="margin-bottom:1rem">
+<div class="slider-label"><span>Sustainability (Устойчивость)</span><span style="color:${c}">${sust}%</span></div>
+<div class="game-meter"><div class="game-meter-fill" style="width:${sust}%;background:${c}"></div></div>
+</div>
+<div style="margin-bottom:1rem">
+<div class="slider-label"><span>Escalation Control (Контроль эскалации)</span><span style="color:${c}">${esc}%</span></div>
+<div class="game-meter"><div class="game-meter-fill" style="width:${esc}%;background:${c}"></div></div>
+</div>
+
+<div class="game-score">
+<div class="game-score-item">
+<div class="game-score-val" style="color:${c}">${overall}%</div>
+<div class="game-score-label">Overall Score · Общий балл</div>
+</div>
+<div class="game-score-item">
+<div class="game-score-val" style="color:${overall>=70?'var(--green)':overall>=50?'var(--gold)':'var(--red)'}">${overall>=70?'✓ VIABLE':'50'<=overall?'⚠ RISKY':'✗ POOR'}</div>
+<div class="game-score-label">Assessment · Оценка</div>
+</div>
+</div>
+
+<div style="margin-top:1.5rem;padding:1rem;background:rgba(0,0,0,.2);border-radius:6px">
+<p style="font-size:.92rem;margin-bottom:.3rem"><strong>Analysis:</strong> ${d.desc}</p>
+<p style="font-size:.85rem;color:var(--blue);font-style:italic">${d.descRu}</p>
+</div>
+
+${budget<1.5?'<p style="margin-top:1rem;font-size:.85rem;color:var(--gold)">⚠ At '+budget+'% GDP, Japan cannot fully implement ANY strategy effectively. The authors argue 2% GDP is the minimum for credible defense.</p>':''}
+`;
+}
+</script>
+</body>
+</html>

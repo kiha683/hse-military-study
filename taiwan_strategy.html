@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taiwan's Victory Strategy — Admiral Lee Hsi-min</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0c10;--bg2:#111318;--bg3:#181c24;--accent:#c8a44e;--accent2:#e8c55e;
+--text:#d4d4d8;--text2:#9ca3af;--red:#dc4444;--blue:#3b82f6;--green:#22c55e;
+--navy:#1e3a5f;--dark-red:#8b1a1a;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0c10 0%,#121828 50%,#0a1020 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a44e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:900px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,var(--accent),#f0d878,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(1rem,2vw,1.4rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:0.15em;text-transform:uppercase}
+.hero .author{font-size:1.2rem;color:var(--accent);margin:1.5rem 0;font-style:italic}
+.hero .epigraph{max-width:600px;margin:2rem auto;padding:1.5rem;border-left:3px solid var(--accent);text-align:left;color:var(--text2);font-style:italic;font-size:1.05rem}
+.hero .scroll-hint{margin-top:3rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.hero .scroll-hint span{display:block;width:2px;height:40px;background:var(--accent);margin:0 auto;opacity:.5}
+
+/* FLOATING NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,12,16,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,164,78,.1);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--accent);font-weight:700}
+.nav-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+
+/* SECTIONS */
+.section{max-width:1000px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:6rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border:1px solid rgba(200,164,78,.1);border-radius:50%}
+.part-num{font-family:'DM Sans',sans-serif;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.part-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:1rem}
+.part-desc{color:var(--text2);max-width:600px;margin:0 auto;font-size:1.05rem}
+
+.ch-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(200,164,78,.15)}
+.ch-num{font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--accent);padding-left:1rem;margin-top:1rem;font-size:.95rem}
+
+h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--accent)}
+h4{font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--accent);margin:2rem 0 .8rem;letter-spacing:.05em}
+p{margin-bottom:1.2rem;font-size:1.02rem}
+strong{color:#fff;font-weight:600}
+
+/* KEY POINTS */
+.key-point{background:var(--bg3);border:1px solid rgba(200,164,78,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;background:var(--accent);color:var(--bg);padding:2px 10px;border-radius:3px;font-weight:700}
+.key-point p{margin-bottom:.5rem}
+
+.warning-box{background:rgba(220,68,68,.08);border:1px solid rgba(220,68,68,.2);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.warning-box strong{color:var(--red)}
+
+.concept-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+
+/* MAP CONTAINER */
+.map-container{background:var(--bg2);border:1px solid rgba(200,164,78,.12);border-radius:12px;overflow:hidden;margin:2rem 0;position:relative}
+.map-label{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(200,164,78,.1)}
+.map-svg{width:100%;display:block}
+
+/* COMPARISON TABLE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,164,78,.1);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.5rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.8rem;border-bottom:1px solid rgba(200,164,78,.1)}
+.compare-col.red h4{color:var(--red)}
+.compare-col.blue h4{color:var(--blue)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.5rem 0;font-size:.95rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.compare-col li::before{content:'→';color:var(--accent);margin-right:.5rem}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),transparent)}
+.tl-item{margin-bottom:2rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);transform:translateX(-4px)}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent);font-weight:500}
+.tl-text{font-size:.95rem;color:var(--text2)}
+
+/* PHASE DIAGRAM */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:8px;padding:1.5rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--accent);transform:translateY(-2px)}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);font-weight:700}
+.phase-name{font-family:'DM Sans',sans-serif;font-size:.9rem;color:#fff;margin:.5rem 0;font-weight:600}
+.phase-desc{font-size:.85rem;color:var(--text2);line-height:1.5}
+
+/* STATS BAR */
+.stat-bar{margin:1rem 0;display:flex;align-items:center;gap:1rem}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text2);min-width:100px;text-align:right}
+.stat-track{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;position:relative}
+.stat-fill{height:100%;border-radius:4px;transition:width 1.5s ease-out}
+.stat-fill.red{background:linear-gradient(90deg,var(--red),#ff6666)}
+.stat-fill.blue{background:linear-gradient(90deg,var(--blue),#60a5fa)}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--text2);min-width:60px}
+
+/* WEAPON CARDS */
+.weapons{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.weapon{background:var(--bg3);border:1px solid rgba(200,164,78,.08);border-radius:8px;padding:1.5rem;transition:all .3s}
+.weapon:hover{border-color:var(--accent);background:var(--bg2)}
+.weapon-type{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.weapon-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+.weapon-desc{font-size:.9rem;color:var(--text2);line-height:1.6}
+.weapon-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.65rem;padding:2px 8px;border-radius:3px;margin-top:.5rem;margin-right:.3rem;border:1px solid}
+.weapon-tag.asym{color:var(--green);border-color:rgba(34,197,94,.3)}
+.weapon-tag.trad{color:var(--red);border-color:rgba(220,68,68,.3)}
+.weapon-tag.surv{color:var(--blue);border-color:rgba(59,130,246,.3)}
+
+/* TOC */
+.toc{background:var(--bg2);border:1px solid rgba(200,164,78,.1);border-radius:12px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.3rem;margin-bottom:1.5rem}
+.toc-part{margin-bottom:1.5rem}
+.toc-part-title{font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.toc-link{display:block;padding:.4rem 0 .4rem 1rem;color:var(--text2);text-decoration:none;font-size:.95rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--accent);border-left-color:var(--accent);padding-left:1.5rem}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(200,164,78,.2),transparent);margin:4rem 0}
+
+/* FOOTER */
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.85rem;background:var(--bg2);border-top:1px solid rgba(200,164,78,.08)}
+.footer strong{color:var(--accent)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.compare{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:3rem 1.2rem}
+}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:all .8s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+<div class="nav-title">臺灣的勝算 — Taiwan's Victory Strategy</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#part1">Part I</a>
+<a href="#part2">Part II</a>
+<a href="#part3">Part III</a>
+<a href="#part4">Part IV</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="subtitle">Admiral Lee Hsi-min (李喜明) — Former Chief of General Staff, Republic of China</div>
+<h1>Taiwan's Victory Strategy</h1>
+<div class="subtitle" style="font-size:.9rem;color:var(--text2);letter-spacing:.05em">臺灣的勝算 — A Comprehensive Guide to the Overall Defense Concept</div>
+<div class="author">By Admiral Lee Hsi-min (Ret.), former Chief of General Staff of the ROC Armed Forces.<br>Submarine officer who commanded ROCS Hai Hu during the 1996 Taiwan Strait Crisis.</div>
+<div class="epigraph">
+"The cruelty and ruthlessness of war far exceeds our imagination... From the standpoint of national security strategy, the best course is to prevent war from happening; if that fails, we must have the ability to <strong style="color:var(--accent)">deter</strong> the enemy; only as a last resort should we try to <strong style="color:var(--accent)">win</strong> the war."
+<br><br>—Chapter 5
+</div>
+<div class="epigraph" style="border-color:var(--red)">
+"Those who foresee change and act first will prevail;<br>
+Those who see change late and scramble to respond will fail;<br>
+Those who see change and do nothing will perish."
+<br><br>—Admiral Lee Hsi-min
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="section" id="toc">
+<div class="toc">
+<h3 style="color:var(--accent)">Table of Contents</h3>
+
+<div class="toc-part">
+<div class="toc-part-title">Preface</div>
+<a href="#preface" class="toc-link">Author's Preface: Taiwan's Critical Defense Choice</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part I — Taiwan's Evolving Security Environment</div>
+<a href="#ch1" class="toc-link">Chapter 1: Our Distance from War</a>
+<a href="#ch2" class="toc-link">Chapter 2: When China Becomes the "Invincible East"</a>
+<a href="#ch3" class="toc-link">Chapter 3: The Military at a Crossroads</a>
+<a href="#ch4" class="toc-link">Chapter 4: Taiwan's America Complex</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part II — Rethinking Taiwan's National Defense</div>
+<a href="#ch5" class="toc-link">Chapter 5: The Defense Mindset Taiwan Needs</a>
+<a href="#ch6" class="toc-link">Chapter 6: Taiwan's Defense Dilemmas and Solutions</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part III — The Overall Defense Concept (ODC)</div>
+<a href="#ch7" class="toc-link">Chapter 7: The ODC's Innovation & Asymmetric Thinking</a>
+<a href="#ch8" class="toc-link">Chapter 8: Force Building — How to Build the ODC</a>
+<a href="#ch9" class="toc-link">Chapter 9: Operational Concept — How to Execute the ODC</a>
+<a href="#ch10" class="toc-link">Chapter 10: Deep Deterrence — Building a Territorial Defense Force</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part IV — The Future of Taiwan's Defense</div>
+<a href="#ch11" class="toc-link">Chapter 11: Implementing the ODC — Practices & Challenges</a>
+<a href="#ch12" class="toc-link">Chapter 12: Toward a New Defense Strategy</a>
+</div>
+</div>
+</section>
+
+<!-- PREFACE -->
+<section class="section" id="preface">
+<div class="ch-header">
+<div class="ch-num">Author's Preface</div>
+<div class="ch-title">Taiwan's Critical Defense Choice</div>
+</div>
+
+<p>In 2008, Taiwan formally launched its transition to an all-volunteer military. Admiral Lee, then serving as Director of Strategic Planning at the Ministry of National Defense, was tasked with planning the "Jing Cui" program to downsize the armed forces — under the impossible mandate of <strong>"reduce forces, maintain combat power."</strong></p>
+
+<p>Unable to honestly justify this slogan through conventional means, Lee found inspiration in the U.S. military's emerging concept of <strong>innovation and asymmetric warfare</strong>. This planted the seed for what would become the <strong>Overall Defense Concept (ODC)</strong> — a comprehensive asymmetric defense strategy he would champion as Chief of General Staff from 2017 to 2019.</p>
+
+<div class="key-point">
+<p><strong>The book's true purpose is not about how to win a battle.</strong> It is about building credible asymmetric capabilities that convince Beijing's leadership that a cross-strait war should never happen and is not worth attempting.</p>
+</div>
+
+<p>Lee draws a crucial analogy: in the Russia-Ukraine war, the iconic weapons were not tanks but <strong>anti-tank missiles and attack drones</strong>; not fighter jets but <strong>air-defense missiles</strong>; not warships but <strong>anti-ship missiles</strong>. The sinking of the Russian cruiser <em>Moskva</em> by two Ukrainian Neptune missiles in April 2022 heralded a new era of warfare.</p>
+
+<p><strong>"Platforms cannot kill — munitions can."</strong> Facing China's Goliath, innovative asymmetric capabilities are Taiwan's David's sling.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PART I ========== -->
+<section class="part-header" id="part1">
+<div class="part-num">Part I</div>
+<div class="part-title">Taiwan's Evolving Security</div>
+<div class="part-desc">An assessment of the cross-strait security environment, the PLA's modernization, Taiwan's military dilemmas, and the question of U.S. intervention.</div>
+</section>
+
+<!-- CHAPTER 1 -->
+<section class="section" id="ch1">
+<div class="ch-header">
+<div class="ch-num">Chapter 1</div>
+<div class="ch-title">Our Distance from War</div>
+<div class="ch-quote">"The peril of people today lies in knowing safety but not danger, in being able to enjoy comfort but not endure hardship." —Su Shi, <em>On Teaching People the Art of War</em></div>
+</div>
+
+<p>On February 24, 2022, Russia's armored forces invaded Ukraine. The question <strong>"Is Taiwan next?"</strong> began appearing in international headlines. For the first time in decades, the distance between Taiwan and war no longer seemed so far.</p>
+
+<h3>Optimistic Taiwan</h3>
+<p>Despite thousands of PLA missiles aimed at the island and near-daily military provocations, most Taiwanese remain inexplicably optimistic about avoiding war. Lee identifies <strong>four sources of this dangerous complacency</strong>:</p>
+
+<h4>1. "No Independence, No War"</h4>
+<p>Many believe that as long as Taiwan doesn't declare independence, China has no reason to attack. Lee dismantles this: for Beijing, unification is a <strong>"sacred mission"</strong> and a matter of principle with zero room for compromise. China's 2005 <strong>Anti-Secession Law</strong> reserves the right to use force — Taiwan independence is merely <em>one</em> trigger, not the <em>only</em> one. Beijing will not shelve unification indefinitely.</p>
+
+<h4>2. "America Will Surely Protect Us"</h4>
+<p>Polls showed 60%+ of Taiwanese believed the U.S. would intervene militarily. But Lee soberly points out: the <strong>Taiwan Relations Act</strong> contains no legal obligation to deploy troops. Taiwan is neither a treaty ally nor NATO member. The U.S.-Taiwan relationship, however warm, does not guarantee military intervention.</p>
+
+<h4>3. "The Cost of Invasion Is Too High"</h4>
+<p>While invasion would indeed be enormously costly, Lee warns against underestimating Beijing's resolve. In China, unification is a <strong>non-negotiable national goal</strong> backed by fervent nationalism. Only 16% of Taiwanese supported unification in 2022 polls, and the gap is widening — making peaceful resolution increasingly unlikely.</p>
+
+<h4>4. "Decades of Peace Have Bred Complacency"</h4>
+<p>Since the 1996 and 1999 crises, no military confrontation has penetrated public consciousness. PLA sorties around Taiwan became so routine that media coined the term <strong>"encirclement flights"</strong> — and the public developed <strong>threat fatigue</strong>.</p>
+
+<h3>The International View</h3>
+<p>At a 2019 CSIS debate in Washington, 66% of experts believed China would <em>not</em> invade Taiwan by 2035. After the debate, the number barely shifted to 62%. But Lee notes that after the 2022 Russia-Ukraine war, <strong>international assessment has shifted dramatically</strong> — the question is no longer <em>if</em> but <em>when</em>.</p>
+
+<!-- MAP: Taiwan Strait -->
+<div class="map-container">
+<div class="map-label">Strategic Map — Taiwan Strait & First Island Chain</div>
+<svg class="map-svg" viewBox="0 0 800 500" style="background:#0d1520">
+<!-- Ocean -->
+<rect width="800" height="500" fill="#0d1520"/>
+<!-- Grid lines -->
+<g stroke="rgba(200,164,78,0.05)" stroke-width="0.5">
+<line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+<line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+<line x1="200" y1="0" x2="200" y2="500"/><line x1="400" y1="0" x2="400" y2="500"/>
+<line x1="600" y1="0" x2="600" y2="500"/>
+</g>
+<!-- China mainland -->
+<path d="M0,50 L180,50 L200,80 L220,120 L200,180 L210,240 L190,280 L200,340 L180,400 L160,450 L120,500 L0,500Z" fill="#1a2535" stroke="rgba(220,68,68,0.3)" stroke-width="1.5"/>
+<text x="80" y="250" fill="rgba(220,68,68,0.7)" font-family="DM Sans" font-size="14" font-weight="700" text-anchor="middle">CHINA</text>
+<text x="80" y="270" fill="rgba(220,68,68,0.4)" font-family="DM Sans" font-size="9" text-anchor="middle">PRC</text>
+<!-- Taiwan -->
+<path d="M340,180 L355,170 L365,185 L370,220 L368,260 L360,290 L345,310 L335,305 L330,270 L328,230 L332,195Z" fill="#1e3a2e" stroke="rgba(34,197,94,0.5)" stroke-width="2"/>
+<text x="350" y="250" fill="rgba(34,197,94,0.9)" font-family="DM Sans" font-size="11" font-weight="700" text-anchor="middle">TAIWAN</text>
+<!-- Taiwan Strait label -->
+<text x="270" y="240" fill="rgba(59,130,246,0.5)" font-family="DM Sans" font-size="9" text-anchor="middle" transform="rotate(-15,270,240)">TAIWAN STRAIT</text>
+<text x="270" y="255" fill="rgba(59,130,246,0.3)" font-family="DM Sans" font-size="7" text-anchor="middle" transform="rotate(-15,270,255)">~130 km average width</text>
+<!-- Japan -->
+<path d="M500,30 L520,25 L530,40 L525,70 L515,90 L500,85 L495,60Z" fill="#1a2535" stroke="rgba(200,164,78,0.2)" stroke-width="1"/>
+<text x="510" y="60" fill="rgba(200,164,78,0.5)" font-family="DM Sans" font-size="8" text-anchor="middle">JAPAN</text>
+<!-- Okinawa -->
+<ellipse cx="460" cy="130" rx="15" ry="5" fill="#1a2535" stroke="rgba(200,164,78,0.2)" stroke-width="1"/>
+<text x="460" y="120" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Okinawa</text>
+<!-- Philippines -->
+<path d="M380,420 L400,410 L410,430 L405,460 L390,470 L375,450Z" fill="#1a2535" stroke="rgba(200,164,78,0.2)" stroke-width="1"/>
+<text x="395" y="445" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle">Philippines</text>
+<!-- First Island Chain -->
+<path d="M520,20 Q480,100 460,130 Q420,200 360,310 Q380,380 395,410" fill="none" stroke="rgba(200,164,78,0.4)" stroke-width="1.5" stroke-dasharray="8,4"/>
+<text x="440" y="350" fill="rgba(200,164,78,0.5)" font-family="DM Sans" font-size="8" transform="rotate(-60,440,350)">FIRST ISLAND CHAIN</text>
+<!-- Second Island Chain -->
+<path d="M700,20 Q680,150 660,250 Q640,350 600,480" fill="none" stroke="rgba(200,164,78,0.15)" stroke-width="1" stroke-dasharray="5,5"/>
+<text x="660" y="300" fill="rgba(200,164,78,0.25)" font-family="DM Sans" font-size="7" transform="rotate(-80,660,300)">SECOND ISLAND CHAIN</text>
+<!-- Guam -->
+<circle cx="700" cy="280" r="4" fill="#1a2535" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+<text x="700" y="270" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Guam (US)</text>
+<!-- PLA missile ranges -->
+<circle cx="200" cy="240" r="150" fill="none" stroke="rgba(220,68,68,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="200" y="100" fill="rgba(220,68,68,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">PLA Short-Range Missile Coverage</text>
+<circle cx="200" cy="240" r="350" fill="none" stroke="rgba(220,68,68,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="450" y="480" fill="rgba(220,68,68,0.2)" font-family="DM Sans" font-size="6" text-anchor="middle">DF-21D/DF-26 Range (~1500-4000km)</text>
+<!-- Legend -->
+<rect x="560" y="30" width="220" height="120" rx="5" fill="rgba(10,12,16,0.8)" stroke="rgba(200,164,78,0.1)"/>
+<text x="575" y="50" fill="var(--accent)" font-family="DM Sans" font-size="8" font-weight="700">LEGEND</text>
+<line x1="575" y1="65" x2="600" y2="65" stroke="rgba(200,164,78,0.4)" stroke-width="1.5" stroke-dasharray="8,4"/>
+<text x="608" y="68" fill="rgba(200,164,78,0.5)" font-family="DM Sans" font-size="7">First Island Chain</text>
+<circle cx="587" cy="85" r="3" fill="none" stroke="rgba(220,68,68,0.3)" stroke-width="1"/>
+<text x="608" y="88" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="7">PLA Missile Range</text>
+<line x1="575" y1="105" x2="600" y2="105" stroke="rgba(34,197,94,0.5)" stroke-width="2"/>
+<text x="608" y="108" fill="rgba(34,197,94,0.5)" font-family="DM Sans" font-size="7">Taiwan (ROC)</text>
+<line x1="575" y1="125" x2="600" y2="125" stroke="rgba(220,68,68,0.3)" stroke-width="1.5"/>
+<text x="608" y="128" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="7">PRC Territory</text>
+</svg>
+</div>
+
+<h3>Why China Hasn't Invaded — Yet</h3>
+<p>Lee identifies several historical reasons: the <strong>Taiwan Strait</strong> as a formidable natural barrier requiring the most complex form of military operations (amphibious assault); decades of internal instability under Mao; Deng Xiaoping's pragmatic focus on economic reform; and the relative optimism about peaceful unification during the Ma Ying-jeou era. However, since Xi Jinping took power in 2012 and proclaimed the <strong>"China Dream,"</strong> unification has become an urgent goal. Xi's 2019 <em>Letter to Taiwan Compatriots</em> equated the "1992 Consensus" with "One Country, Two Systems" — signaling that Beijing understands peaceful unification is impossible and is preparing alternatives.</p>
+
+<h3>When Could War Happen?</h3>
+<p>The factors determining whether war erupts are: <strong>(1) the intensity of China's unification ambition, (2) the PLA's capability to invade, and (3) the U.S. factor.</strong> Lee notes that U.S. Pacific Command officials publicly warned that the PLA could achieve full invasion capability by <strong>2027</strong>.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 2 -->
+<section class="section" id="ch2">
+<div class="ch-header">
+<div class="ch-num">Chapter 2</div>
+<div class="ch-title">When China Becomes the "Invincible East"</div>
+</div>
+
+<p>Xi Jinping's <strong>"Strong Military Dream"</strong> has two operational requirements: (1) the strategic ability to <strong>counterbalance the United States</strong>, and (2) the military capability to <strong>achieve national unification</strong> — i.e., take Taiwan.</p>
+
+<h3>PLA Modernization</h3>
+<p>The PLA has undergone the most dramatic military transformation since the founding of the PRC. Xi's top-down restructuring reorganized the military into <strong>five theater commands</strong>, established the <strong>Strategic Support Force</strong> for space/cyber/electronic warfare, and accelerated the development of:</p>
+
+<div class="weapons">
+<div class="weapon">
+<div class="weapon-type">Anti-Access/Area Denial (A2/AD)</div>
+<div class="weapon-name">DF-21D & DF-26 "Carrier Killers"</div>
+<div class="weapon-desc">Anti-ship ballistic missiles capable of targeting aircraft carriers at ranges of 1,500-4,000 km. Successfully tested against moving targets in 2020.</div>
+<div class="weapon-tag trad">Strategic</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Hypersonic Weapons</div>
+<div class="weapon-name">DF-17 Hypersonic Glide Vehicle</div>
+<div class="weapon-desc">Mach 5+ speeds make interception nearly impossible with current defense systems. Designed to defeat U.S. missile defense.</div>
+<div class="weapon-tag trad">Hypersonic</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Naval Expansion</div>
+<div class="weapon-name">World's Largest Fleet: 350+ Ships</div>
+<div class="weapon-desc">China now has the world's largest navy by ship count, surpassing the U.S. Navy's 293 vessels. Includes 3 aircraft carriers and growing amphibious capability.</div>
+<div class="weapon-tag trad">Conventional</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Unmanned Systems</div>
+<div class="weapon-name">Wing Loong, CH Series & Loitering Munitions</div>
+<div class="weapon-desc">Advanced reconnaissance-strike integrated UAVs, plus "loitering munitions" (巡飛彈) like CM-501X that combine AI with 5G for precision strikes.</div>
+<div class="weapon-tag trad">AI-Enabled</div>
+</div>
+</div>
+
+<h3>Military Balance</h3>
+
+<div class="stat-bar"><div class="stat-label">Naval Vessels</div><div class="stat-track"><div class="stat-fill red" style="width:75%"></div></div><div class="stat-val">PLA: 350+</div></div>
+<div class="stat-bar"><div class="stat-label"></div><div class="stat-track"><div class="stat-fill blue" style="width:12%"></div></div><div class="stat-val">ROC: ~90</div></div>
+
+<div class="stat-bar"><div class="stat-label">Fighter Aircraft</div><div class="stat-track"><div class="stat-fill red" style="width:70%"></div></div><div class="stat-val">PLA: ~1,500</div></div>
+<div class="stat-bar"><div class="stat-label"></div><div class="stat-track"><div class="stat-fill blue" style="width:15%"></div></div><div class="stat-val">ROC: ~400</div></div>
+
+<div class="stat-bar"><div class="stat-label">Defense Budget</div><div class="stat-track"><div class="stat-fill red" style="width:65%"></div></div><div class="stat-val">PLA: $293B+</div></div>
+<div class="stat-bar"><div class="stat-label"></div><div class="stat-track"><div class="stat-fill blue" style="width:5%"></div></div><div class="stat-val">ROC: ~$19B</div></div>
+
+<div class="stat-bar"><div class="stat-label">Ballistic Missiles</div><div class="stat-track"><div class="stat-fill red" style="width:80%"></div></div><div class="stat-val">PLA: 1,250+</div></div>
+<div class="stat-bar"><div class="stat-label"></div><div class="stat-track"><div class="stat-fill blue" style="width:2%"></div></div><div class="stat-val">ROC: limited</div></div>
+
+<h3>PLA Invasion Methods</h3>
+<p>Lee outlines a spectrum from gray-zone coercion to full invasion: <strong>military intimidation → blockade → seizure of offshore islands → joint firepower strikes → full-scale three-dimensional (air-sea-land) amphibious assault.</strong> The PLA is building capabilities across all these scenarios simultaneously.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 3 -->
+<section class="section" id="ch3">
+<div class="ch-header">
+<div class="ch-num">Chapter 3</div>
+<div class="ch-title">The Military at a Crossroads</div>
+</div>
+
+<p>This chapter is a candid self-critique of Taiwan's defense establishment — rare from a former Chief of General Staff.</p>
+
+<h3>Key Problems</h3>
+
+<h4>Perpetually Insufficient Budget</h4>
+<p>Taiwan's defense spending has never kept pace with the threat. Despite recent increases, it remains around <strong>2.5% of GDP</strong> — far less than what's needed for symmetric competition with China. Lee argues the issue isn't just money, but <strong>how the money is spent</strong>.</p>
+
+<h4>The Volunteer Military & Declining Birth Rates</h4>
+<p>The shift to an all-volunteer force coincided with severe demographic decline. Recruitment challenges mean the military can barely maintain authorized strength, let alone expand.</p>
+
+<h4>Inability to Let Go of Traditional Weapons</h4>
+<p>The military remains emotionally and institutionally attached to <strong>expensive platforms</strong> — fighter jets, destroyers, and tanks — that serve as status symbols but are <strong>highly vulnerable in a first strike</strong> and impossibly expensive to replace in sufficient numbers.</p>
+
+<h4>Arms Procurement Dilemmas</h4>
+<p>Lee provides an insider's view of U.S. arms sales: the U.S. only sells "defensive" weapons as it defines them; deals are shaped by U.S. domestic politics; key technology transfers are blocked; and Taiwan often ends up buying <strong>what America wants to sell</strong> rather than <strong>what Taiwan actually needs</strong>. Recent purchases of F-16s, M1A2 tanks, and Paladin howitzers all reflect <strong>traditional thinking</strong> despite rhetoric about asymmetric warfare.</p>
+
+<div class="warning-box">
+<p><strong>Lee's core criticism:</strong> Taiwan talks about asymmetric warfare constantly but continues to spend the bulk of its defense budget on exactly the type of expensive, high-signature conventional weapons that the PLA is specifically designed to destroy in the opening hours of a conflict.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 4 -->
+<section class="section" id="ch4">
+<div class="ch-header">
+<div class="ch-num">Chapter 4</div>
+<div class="ch-title">Taiwan's America Complex</div>
+</div>
+
+<p>Lee examines Taiwan's over-reliance on the assumption of U.S. military intervention — perhaps the most dangerous single assumption in Taiwan's defense planning.</p>
+
+<h3>Why Taiwanese Believe America Will Help</h3>
+<p>Lee analyzes four dimensions: <strong>geopolitical</strong> (Taiwan's strategic position in the First Island Chain), <strong>legal</strong> (Taiwan Relations Act, Six Assurances), <strong>military</strong> (arms sales relationship), and <strong>psychological</strong> (recent anti-China policies creating a sense of security).</p>
+
+<h3>Hard Truths About U.S. Capability</h3>
+<p>RAND Corporation wargames from 2019 showed that in a conflict over Taiwan, <strong>the U.S. could lose — or at best achieve a pyrrhic victory</strong>. Lee cites RAND analyst David Ochmanek: "If China goes all-out to seize Taiwan, the U.S. would suffer badly." Even in victory, the U.S. would need to spend hundreds of billions maintaining permanent defense forces.</p>
+
+<p>A former senior Obama-era Pentagon official told Lee personally: <em>"If the Chairman of the Joint Chiefs tells the President that our carriers could be hit by anti-ship ballistic missiles within 1,500 km of China — do you think the President would still send them?"</em></p>
+
+<div class="key-point">
+<p><strong>Lee's conclusion on U.S. support:</strong> Taiwan must make itself defensible <em>first</em> — creating an asymmetric "porcupine" that is credibly capable of self-defense. Only then can Taiwan reasonably expect U.S. support. No nation will fight harder for Taiwan than Taiwan fights for itself.</p>
+</div>
+
+<h3>Strategic Ambiguity vs. Strategic Clarity</h3>
+<p>Lee surveys the ongoing U.S. debate. Strategic ambiguity has kept peace for decades through "dual deterrence" — deterring both Chinese aggression and Taiwanese independence moves. But as the military balance shifts, some argue ambiguity increases risk by encouraging Chinese miscalculation. The debate remains unresolved, and Lee warns Taiwan cannot stake its survival on its outcome.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PART II ========== -->
+<section class="part-header" id="part2">
+<div class="part-num">Part II</div>
+<div class="part-title">Rethinking Taiwan's Defense</div>
+<div class="part-desc">A fundamental reassessment of what Taiwan's defense mindset should be, the dilemmas it faces, and the strategic logic of the Overall Defense Concept.</div>
+</section>
+
+<!-- CHAPTER 5 -->
+<section class="section" id="ch5">
+<div class="ch-header">
+<div class="ch-num">Chapter 5</div>
+<div class="ch-title">The Defense Mindset Taiwan Needs</div>
+</div>
+
+<p>Lee presents a <strong>three-tier hierarchy</strong> of national security objectives:</p>
+
+<div class="phases">
+<div class="phase">
+<div class="phase-num">1</div>
+<div class="phase-name">AVOID WAR</div>
+<div class="phase-desc">The best strategy — ensure war has no reason to happen. Maintain stable cross-strait relations while building credible deterrence.</div>
+</div>
+<div class="phase">
+<div class="phase-num">2</div>
+<div class="phase-name">DETER WAR</div>
+<div class="phase-desc">Make the enemy believe the cost of war would be unbearable and victory impossible — through correct strategy, defensive capability, resolute will, and a resilient society.</div>
+</div>
+<div class="phase">
+<div class="phase-num">3</div>
+<div class="phase-name">WIN WAR</div>
+<div class="phase-desc">Only as a last resort — make the enemy's mission of seizing Taiwan fail. Not total military victory, but denial of the enemy's objectives.</div>
+</div>
+</div>
+
+<h3>The Roosevelt Doctrine for Taiwan</h3>
+<p>Lee criticizes <strong>two extremes</strong> in Taiwanese public discourse: the "pacifists" who oppose all defense spending (which <em>encourages</em> the enemy to act) and the "ultra-nationalists" who constantly provoke China (which <em>goads</em> the enemy to act). Instead, Taiwan should follow Theodore Roosevelt: <strong>"Speak softly and carry a big stick."</strong></p>
+
+<h3>Four Pillars of Deterrence</h3>
+<p>Taiwan must convince Beijing it possesses: <strong>(1) the correct strategy, (2) credible defense capability, (3) resolute will, and (4) a resilient society.</strong> The ODC addresses all four.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 6 -->
+<section class="section" id="ch6">
+<div class="ch-header">
+<div class="ch-num">Chapter 6</div>
+<div class="ch-title">Taiwan's Defense Dilemmas & Solutions</div>
+</div>
+
+<p>Taiwan faces an interlocking set of defense dilemmas: <strong>gray-zone coercion, full-scale invasion threat, budget scarcity, time pressure, and social division.</strong></p>
+
+<h3>The Priority Framework</h3>
+<p>Lee argues Taiwan must make painful choices about resource allocation:</p>
+
+<h4>1. Accept Gray-Zone Operations Calmly</h4>
+<p>Gray-zone coercion (daily PLA sorties, naval harassment) is <em>not</em> an existential threat. Taiwan should not exhaust its limited resources responding to every provocation with expensive fighter scrambles. Gray-zone activity actually serves as a <strong>buffer against direct military assault</strong>.</p>
+
+<h4>2. Prioritize Countering Full-Scale Invasion</h4>
+<p>The existential threat is amphibious invasion. Taiwan must redirect the majority of defense spending toward <strong>mobile, dispersed, precise, inexpensive, high-survivability weapons</strong> — coastal cruise missiles, short-range air defense, sea mines, micro missile boats, drones, and advanced ISR.</p>
+
+<div class="concept-box">
+<p><strong>The "David vs. Goliath" principle:</strong> Taiwan doesn't need to match China's military — it only needs to make China's <em>mission fail</em>. The two sides have fundamentally different objectives: China must fully conquer and control; Taiwan only needs to prevent that conquest.</p>
+</div>
+
+<h3>The New Hope: The Overall Defense Concept</h3>
+<p>Lee formally introduces the ODC as the solution to all five dilemmas — a strategy that works within Taiwan's constraints rather than ignoring them.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PART III ========== -->
+<section class="part-header" id="part3">
+<div class="part-num">Part III</div>
+<div class="part-title">The Overall Defense Concept</div>
+<div class="part-desc">The heart of the book: a detailed blueprint for Taiwan's asymmetric defense — force building, operational concepts, and territorial defense.</div>
+</section>
+
+<!-- CHAPTER 7 -->
+<section class="section" id="ch7">
+<div class="ch-header">
+<div class="ch-num">Chapter 7</div>
+<div class="ch-title">The ODC's Innovation & Asymmetric Thinking</div>
+<div class="ch-quote">"When the balance of conventional forces makes defeat inevitable, asymmetric warfare is the weaker side's only chance."</div>
+</div>
+
+<h3>What Is the Overall Defense Concept?</h3>
+<p>The ODC is a comprehensive defense strategy centered on <strong>innovation and asymmetric concepts</strong>. It develops <strong>low-cost, high-effectiveness, numerous, precise, high-survivability small weapons</strong> tailored to the Taiwan Strait battlefield to maximize Taiwan's defensive advantages and prevent the PLA from invading or politically controlling Taiwan.</p>
+
+<div class="compare">
+<div class="compare-col red">
+<h4>❌ Traditional Approach</h4>
+<ul>
+<li>Seek air/sea superiority (impossible)</li>
+<li>Prioritize expensive platforms (jets, ships, tanks)</li>
+<li>Try to defeat enemy at every point</li>
+<li>Bottom-up procurement (services compete for budget)</li>
+<li>Cost-blind acquisitions</li>
+<li>Centralized command only</li>
+<li>Annihilation warfare mindset</li>
+</ul>
+</div>
+<div class="compare-col" style="border-left:2px solid var(--green)">
+<h4 style="color:var(--green)">✓ ODC Approach</h4>
+<ul>
+<li>Area denial (achievable threshold)</li>
+<li>Prioritize small, mobile, lethal weapons</li>
+<li>Focus on making enemy's mission fail</li>
+<li>Top-down integrated requirement planning</li>
+<li>Rigorous cost-benefit & opportunity cost analysis</li>
+<li>Decentralized execution capability</li>
+<li>Denial-based asymmetric warfare</li>
+</ul>
+</div>
+</div>
+
+<h3>Redefining "Victory"</h3>
+<div class="key-point">
+<p><strong>The ODC's definition of victory: Making the enemy's Taiwan-seizure mission FAIL.</strong></p>
+<p>Taiwan doesn't need to destroy China's military. It needs two things: (1) prevent the enemy from establishing a foothold, and (2) even if they land, prevent effective control of Taiwan.</p>
+</div>
+
+<h3>Seven Core Principles</h3>
+
+<h4>1. Redefine Victory</h4>
+<p>From "destroy the enemy" to "make their mission fail."</p>
+
+<h4>2. Abandon Annihilation Warfare</h4>
+<p>Adopt asymmetric operations instead of symmetric force-on-force battles.</p>
+
+<h4>3. Replace "Control" with "Denial"</h4>
+<p>Taiwan cannot control the air or sea — but it can <em>deny</em> the enemy control. The threshold for denial is far lower than for control.</p>
+
+<h4>4. Attack the Enemy's Mission Capability</h4>
+<p>Target the enemy's <strong>strategic center of gravity</strong> — their ability to execute the invasion mission — rather than trying to destroy their entire military.</p>
+
+<h4>5. Shape Favorable Battlefield Conditions</h4>
+<p>Choose when and where to fight: where Taiwan has <strong>high survivability</strong> and <strong>complete kill chains</strong>.</p>
+
+<h4>6. Leverage Geography & Civilian Resources</h4>
+<p>The Taiwan Strait, Central Mountain Range, dense urban terrain, and abundant civilian infrastructure are all force multipliers. <strong>"Insufficient military resources + abundant civilian resources"</strong> is the ODC's philosophy.</p>
+
+<h4>7. Build a Credible Territorial Defense Force</h4>
+<p>Volunteer-based community defense units that demonstrate the population's will to resist — the ultimate deterrent.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 8 -->
+<section class="section" id="ch8">
+<div class="ch-header">
+<div class="ch-num">Chapter 8</div>
+<div class="ch-title">Force Building: How to Build the ODC</div>
+<div class="ch-quote">"Future battlefields will be dominated by large quantities of low-cost, mobile, distributed, lethal small weapons — not small numbers of expensive, concentrated, high-tech large platforms."</div>
+</div>
+
+<p>The ODC's force structure has <strong>three pillars</strong>:</p>
+
+<div class="phases">
+<div class="phase">
+<div class="phase-num">I</div>
+<div class="phase-name">High-Survivability Forces</div>
+<div class="phase-desc">Mobile ISR systems, hardened C2 networks, dispersed logistics, camouflage & deception. Priority: survive the first strike.</div>
+</div>
+<div class="phase">
+<div class="phase-num">II</div>
+<div class="phase-name">Conventional Forces</div>
+<div class="phase-desc">Existing air, naval, ground forces — used for peacetime deterrence and gray-zone response. "Maintain what you have" but don't expand.</div>
+</div>
+<div class="phase">
+<div class="phase-num">III</div>
+<div class="phase-name">Asymmetric Forces</div>
+<div class="phase-desc">The priority: mobile anti-ship missiles, sea mines, micro missile boats, drones, MANPADS, anti-armor weapons, electronic warfare.</div>
+</div>
+</div>
+
+<h3>Key Asymmetric Weapons</h3>
+
+<div class="weapons">
+<div class="weapon">
+<div class="weapon-type">Maritime Strike</div>
+<div class="weapon-name">Mobile Coastal Anti-Ship Missiles</div>
+<div class="weapon-desc">Hsiung Feng II/III missiles on mobile launchers, hidden across Taiwan's coast. Can strike targets 100+ km out while remaining mobile and concealed.</div>
+<div class="weapon-tag asym">Asymmetric</div><div class="weapon-tag surv">High Survival</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Maritime Strike</div>
+<div class="weapon-name">Micro Missile Assault Boats (60 boats)</div>
+<div class="weapon-desc">50-ton trimaran stealth boats — 30 manned, 30 unmanned. Can hide in 200+ small fishing ports. 40+ knot speed, equipped with Hsiung Feng missiles. The ODC's most controversial and most important proposal.</div>
+<div class="weapon-tag asym">Asymmetric</div><div class="weapon-tag surv">High Survival</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Sea Denial</div>
+<div class="weapon-name">Smart Mines</div>
+<div class="weapon-desc">Modern intelligent mines with acoustic signature recognition, self-propelled attack capability. Cheap, persistent deterrence that is extremely difficult to counter. "The best asymmetric weapon" for Taiwan defense.</div>
+<div class="weapon-tag asym">Asymmetric</div><div class="weapon-tag surv">Persistent</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">ISR Network</div>
+<div class="weapon-name">Drone Swarm Surveillance Network</div>
+<div class="weapon-desc">Hundreds or thousands of low-cost commercial-grade drones forming a resilient ISR mesh over the Taiwan Strait. Uses ultra-high frequency comms resistant to jamming. Can share targeting data with U.S. F-35s.</div>
+<div class="weapon-tag asym">Asymmetric</div><div class="weapon-tag asym">AI-Enabled</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Ground Attack</div>
+<div class="weapon-name">Loitering Munitions (Kamikaze Drones)</div>
+<div class="weapon-desc">Reconnaissance-strike UAVs that loiter over beachheads and attack landing vehicles autonomously. Small, cheap, low radar cross-section. "Imagine thousands hitting enemy forces as they unload on the beach."</div>
+<div class="weapon-tag asym">Asymmetric</div><div class="weapon-tag asym">AI-Enabled</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Underwater</div>
+<div class="weapon-name">Unmanned Underwater Vehicles (UUVs)</div>
+<div class="weapon-desc">Small, low-cost underwater drones for ISR and ambush attacks. High stealth, low development threshold, leveraging commercial technology.</div>
+<div class="weapon-tag asym">Asymmetric</div><div class="weapon-tag surv">Stealth</div>
+</div>
+</div>
+
+<h3>The Micro Missile Boat Controversy</h3>
+<p>Lee devotes extensive space to defending the micro missile boat program — cancelled in 2020 after he retired. He rebuts every criticism: not a throwback to old patrol boats (these are AI-networked trimaran stealth craft); not redundant with coastal launchers (sea-based missiles create multi-axis threats); not too fragile for rough seas (if boats can't sail, enemy can't land either); not lacking radar (deliberate design — they receive targeting from the network, avoiding electromagnetic emission that reveals position). Lee calls the cancellation a politically-motivated decision that <strong>"wasted already-invested funds and eliminated a critically important asymmetric capability."</strong></p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 9 -->
+<section class="section" id="ch9">
+<div class="ch-header">
+<div class="ch-num">Chapter 9</div>
+<div class="ch-title">Operational Concept: How to Execute the ODC</div>
+</div>
+
+<p>The ODC's operational concept has <strong>four sequential phases</strong>:</p>
+
+<!-- OPERATIONAL PHASES MAP -->
+<div class="map-container">
+<div class="map-label">ODC Operational Phases — Cross-Strait Defense</div>
+<svg class="map-svg" viewBox="0 0 800 400" style="background:#0d1520">
+<!-- Zones -->
+<rect x="0" y="0" width="200" height="400" fill="rgba(220,68,68,0.05)"/>
+<rect x="200" y="0" width="200" height="400" fill="rgba(59,130,246,0.04)"/>
+<rect x="400" y="0" width="150" height="400" fill="rgba(200,164,78,0.04)"/>
+<rect x="550" y="0" width="250" height="400" fill="rgba(34,197,94,0.04)"/>
+
+<!-- China -->
+<rect x="0" y="50" width="120" height="300" rx="5" fill="#1a2535" stroke="rgba(220,68,68,0.2)" stroke-width="1"/>
+<text x="60" y="200" fill="rgba(220,68,68,0.6)" font-family="DM Sans" font-size="12" text-anchor="middle" font-weight="700">CHINA</text>
+
+<!-- Phase labels -->
+<text x="300" y="30" fill="rgba(59,130,246,0.7)" font-family="DM Sans" font-size="11" text-anchor="middle" font-weight="700">PHASE 2: LITTORAL DECISIVE BATTLE</text>
+<text x="300" y="45" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle">濱海決勝</text>
+
+<text x="475" y="30" fill="rgba(200,164,78,0.7)" font-family="DM Sans" font-size="11" text-anchor="middle" font-weight="700">PHASE 3: BEACH ANNIHILATION</text>
+<text x="475" y="45" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle">灘岸殲敵</text>
+
+<text x="680" y="30" fill="rgba(34,197,94,0.7)" font-family="DM Sans" font-size="11" text-anchor="middle" font-weight="700">PHASE 4: DEFENSE IN DEPTH</text>
+<text x="680" y="45" fill="rgba(34,197,94,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle">縱深防禦</text>
+
+<!-- Taiwan -->
+<path d="M560,100 L580,90 L600,110 L610,180 L605,250 L590,310 L570,340 L555,330 L548,270 L545,200 L550,130Z" fill="#1e3a2e" stroke="rgba(34,197,94,0.4)" stroke-width="2"/>
+<text x="575" y="220" fill="rgba(34,197,94,0.8)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="700">TAIWAN</text>
+
+<!-- Sea area -->
+<text x="300" y="200" fill="rgba(59,130,246,0.15)" font-family="Source Serif 4" font-size="18" text-anchor="middle" font-style="italic">Taiwan Strait</text>
+
+<!-- Attack arrows -->
+<path d="M140,150 L350,150" stroke="rgba(220,68,68,0.3)" stroke-width="2" marker-end="url(#arrowR)"/>
+<path d="M140,200 L350,200" stroke="rgba(220,68,68,0.3)" stroke-width="2" marker-end="url(#arrowR)"/>
+<path d="M140,250 L350,250" stroke="rgba(220,68,68,0.3)" stroke-width="2" marker-end="url(#arrowR)"/>
+<defs><marker id="arrowR" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="rgba(220,68,68,0.4)"/></marker></defs>
+
+<!-- Defense icons -->
+<!-- Anti-ship missiles from coast -->
+<g>
+<circle cx="530" cy="150" r="4" fill="var(--accent)" opacity="0.6"/>
+<circle cx="535" cy="200" r="4" fill="var(--accent)" opacity="0.6"/>
+<circle cx="530" cy="260" r="4" fill="var(--accent)" opacity="0.6"/>
+<line x1="530" y1="150" x2="400" y2="160" stroke="var(--accent)" stroke-width="1" opacity="0.3" stroke-dasharray="3,2"/>
+<line x1="535" y1="200" x2="380" y2="195" stroke="var(--accent)" stroke-width="1" opacity="0.3" stroke-dasharray="3,2"/>
+<line x1="530" y1="260" x2="400" y2="245" stroke="var(--accent)" stroke-width="1" opacity="0.3" stroke-dasharray="3,2"/>
+</g>
+
+<!-- Mine field -->
+<g fill="rgba(200,164,78,0.4)">
+<circle cx="460" cy="130" r="3"/><circle cx="470" cy="145" r="3"/><circle cx="455" cy="155" r="3"/>
+<circle cx="475" cy="170" r="3"/><circle cx="460" cy="180" r="3"/><circle cx="470" cy="200" r="3"/>
+<circle cx="455" cy="215" r="3"/><circle cx="465" cy="235" r="3"/><circle cx="475" cy="255" r="3"/>
+<circle cx="460" cy="270" r="3"/><circle cx="470" cy="290" r="3"/>
+</g>
+<text x="465" y="320" fill="rgba(200,164,78,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">MINEFIELDS</text>
+
+<!-- Micro boats -->
+<g fill="rgba(59,130,246,0.5)">
+<rect x="490" y="140" width="8" height="3" rx="1"/><rect x="495" y="175" width="8" height="3" rx="1"/>
+<rect x="488" y="210" width="8" height="3" rx="1"/><rect x="492" y="250" width="8" height="3" rx="1"/>
+</g>
+
+<!-- Drone swarm -->
+<g fill="rgba(200,164,78,0.3)">
+<circle cx="380" cy="100" r="2"/><circle cx="395" cy="105" r="2"/><circle cx="410" cy="95" r="2"/>
+<circle cx="390" cy="115" r="2"/><circle cx="405" cy="110" r="2"/><circle cx="375" cy="90" r="2"/>
+<circle cx="420" cy="105" r="2"/>
+</g>
+<text x="395" y="82" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="6" text-anchor="middle">UAV ISR NETWORK</text>
+
+<!-- Legend -->
+<rect x="600" y="80" width="185" height="140" rx="5" fill="rgba(10,12,16,0.85)" stroke="rgba(200,164,78,0.1)"/>
+<text x="615" y="100" fill="var(--accent)" font-family="DM Sans" font-size="8" font-weight="700">DEFENSE LAYERS</text>
+<circle cx="620" cy="115" r="4" fill="var(--accent)" opacity="0.6"/>
+<text x="632" y="118" fill="var(--text2)" font-family="DM Sans" font-size="7">Mobile anti-ship missiles</text>
+<circle cx="620" cy="133" r="3" fill="rgba(200,164,78,0.4)"/>
+<text x="632" y="136" fill="var(--text2)" font-family="DM Sans" font-size="7">Smart minefields</text>
+<rect x="616" y="147" width="8" height="3" rx="1" fill="rgba(59,130,246,0.5)"/>
+<text x="632" y="152" fill="var(--text2)" font-family="DM Sans" font-size="7">Micro missile boats</text>
+<circle cx="620" cy="168" r="2" fill="rgba(200,164,78,0.3)"/>
+<text x="632" y="171" fill="var(--text2)" font-family="DM Sans" font-size="7">Drone surveillance swarm</text>
+<path d="M614,183 L626,183" stroke="rgba(220,68,68,0.4)" stroke-width="2" marker-end="url(#arrowR)"/>
+<text x="632" y="186" fill="var(--text2)" font-family="DM Sans" font-size="7">PLA invasion axis</text>
+
+<!-- Phase 1 note -->
+<rect x="610" y="240" width="175" height="60" rx="5" fill="rgba(10,12,16,0.85)" stroke="rgba(200,164,78,0.1)"/>
+<text x="625" y="258" fill="var(--accent)" font-family="DM Sans" font-size="8" font-weight="700">PHASE 1: FORCE PROTECTION</text>
+<text x="625" y="270" fill="var(--accent)" font-family="DM Sans" font-size="7" opacity="0.5">戰力防護</text>
+<text x="625" y="285" fill="var(--text2)" font-family="DM Sans" font-size="7">Disperse, conceal, harden</text>
+<text x="625" y="295" fill="var(--text2)" font-family="DM Sans" font-size="7">Survive the first strike</text>
+</svg>
+</div>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--green)">
+<div class="phase-num">1</div>
+<div class="phase-name">Force Preservation (戰力防護)</div>
+<div class="phase-desc">Survive the opening barrage. Disperse, conceal, harden, deceive. Mobile assets scatter to pre-planned positions. Priority: keep asymmetric forces alive.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">2</div>
+<div class="phase-name">Littoral Decisive Battle (濱海決勝)</div>
+<div class="phase-desc">Strike the invasion fleet at its most vulnerable — mid-strait crossing. Deploy anti-ship missiles from coast and sea, unleash drone swarms, activate mine barriers.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">3</div>
+<div class="phase-name">Beach Annihilation (灘岸殲敵)</div>
+<div class="phase-desc">Destroy landing forces at the beaches with mines, loitering munitions, artillery, and prepared defenses. Taiwan's coastline favors the defender — few viable landing beaches.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--red)">
+<div class="phase-num">4</div>
+<div class="phase-name">Defense in Depth (縱深防禦)</div>
+<div class="phase-desc">If forces land, conduct endless mobile guerrilla warfare in urban terrain. Small, dispersed units with anti-armor weapons. No decisive battles — only continuous attrition. "The best method is to keep forces alive and maintain tactical flexibility."</div>
+</div>
+</div>
+
+<h3>Defense in Depth: The Critical Last Phase</h3>
+<p>Lee argues that if the PLA lands, Taiwan must <strong>avoid large set-piece battles</strong> that the PLA can win with air superiority. Instead, small independent units using wheeled vehicles, MANPADS, anti-armor missiles, and tactical drones should conduct <strong>endless mobile denial operations</strong> in Taiwan's dense urban terrain. "No city has strategic value worth defending to the last; what matters is keeping the fight going indefinitely."</p>
+
+<p>This requires fundamental changes: <strong>replacing heavy tracked armor with wheeled vehicles</strong>, pushing weapons and authority down to company-level units, training for decentralized operations, and accepting that the army must transform from a conventional force into a modern guerrilla force.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 10 -->
+<section class="section" id="ch10">
+<div class="ch-header">
+<div class="ch-num">Chapter 10</div>
+<div class="ch-title">Deep Deterrence: Building a Territorial Defense Force</div>
+</div>
+
+<p>Taiwan's current reserve system is fundamentally broken — annual call-ups of reservists for cursory refresher training cannot produce meaningful combat capability. Lee proposes something entirely different: a <strong>Territorial Defense Force (TDF)</strong> modeled after successful examples worldwide.</p>
+
+<h3>The Territorial Defense Force Concept</h3>
+
+<h4>Structure</h4>
+<p>Primarily <strong>volunteer civilians</strong>, organized by community, led by active-duty or recently retired <strong>special operations personnel</strong>. Small, mobile guerrilla units equipped with light weapons stored at local military, police, fire, and coast guard stations.</p>
+
+<h4>Mission</h4>
+<p><strong>Not</strong> conventional city defense — but <strong>hit-and-run denial warfare</strong>. Blend into the civilian population, conduct ambushes, disrupt enemy logistics, make occupation impossible. "They don't even need uniforms."</p>
+
+<h4>The Real Purpose: Deterrence Through Will</h4>
+<div class="key-point">
+<p>"The most important aspect of the Territorial Defense Force is <strong>organization, not combat skills</strong>." Its existence communicates to Beijing: <em>even if you break through our regular military, you will face an endless insurgency. The last mile of conquering Taiwan will be the hardest, and it will never end.</em></p>
+</div>
+
+<h4>Ukraine as Proof of Concept</h4>
+<p>Lee points to Ukraine's Territorial Defense Forces — volunteer civilians who achieved stunning success against Russian regulars. "If Ukraine had expanded its territorial defense years earlier, imagine how much more effective they would be now." Taiwan must act now.</p>
+
+<p>Lee acknowledges this concept will face "severe criticism" but responds: <em>"Technical problems have always been an excuse for those reluctant to reform. The critical question is whether the government has the vision, determination, and courage to build an innovative, resilient national territorial defense mechanism."</em></p>
+
+<div class="warning-box">
+<p><strong>"The only wrong choice is to do nothing."</strong> That would waste the lessons Ukraine bought with an unimaginably expensive war.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PART IV ========== -->
+<section class="part-header" id="part4">
+<div class="part-num">Part IV</div>
+<div class="part-title">The Future of Taiwan's Defense</div>
+<div class="part-desc">Implementation challenges, institutional resistance, and the urgent need for a strategic paradigm shift.</div>
+</section>
+
+<!-- CHAPTER 11 -->
+<section class="section" id="ch11">
+<div class="ch-header">
+<div class="ch-num">Chapter 11</div>
+<div class="ch-title">Implementing the ODC: Practices & Challenges</div>
+<div class="ch-quote">"I know you face many obstacles, but the first person to try to change things always bleeds. It has always been so." —from the film <em>Moneyball</em></div>
+</div>
+
+<p>Lee provides a remarkably candid account of implementing the ODC from 2017-2019 and the institutional resistance it faced.</p>
+
+<h3>Initial Reception</h3>
+<p>The ODC was <strong>warmly received</strong> by the U.S. government, think tanks, and scholars — and featured in multiple Congressional bills (Taiwan Assurance Act 2019, NDAA 2021). President Tsai Ing-wen publicly endorsed it in speeches at CSIS, Hudson Institute, and ASPI. Young military officers embraced the concept.</p>
+
+<h3>The Rollback</h3>
+<p>After Lee's retirement in July 2019 and the tragic death of his successor General Shen Yi-ming, the ODC was <strong>progressively abandoned</strong>. The 2021 Quadrennial Defense Review reverted to traditional "air superiority, sea control, counter-landing" strategy. The term "ODC" became <strong>taboo</strong> within the military. Meanwhile, the PLA continued to modernize relentlessly.</p>
+
+<h3>Eight Pillars of Implementation</h3>
+<p>Lee outlines what successful ODC implementation requires:</p>
+
+<h4>1. Leadership Must Transform Its Thinking</h4>
+<p>The biggest obstacle is decades of traditional mindset. The ODC is "fundamentally an economics approach to solving military problems within limited resources" — not just a tactical method.</p>
+
+<h4>2. Build an Asymmetric Defense Strategy</h4>
+<p>The current strategy — "Resolute Defense, Multi-Domain Deterrence" — is too vague to guide asymmetric force building. Taiwan needs an explicit asymmetric defense strategy.</p>
+
+<h4>3. Reform to Top-Down Force Planning</h4>
+<p>Replace bottom-up "balanced force building" (each service competing for budget) with integrated requirements-based planning driven by the Joint Staff.</p>
+
+<h4>4. Acquire Asymmetric Weapons</h4>
+<p>"Platforms cannot kill — munitions can." Prioritize survivable precision weapons over expensive platforms.</p>
+
+<h4>5. Restructure Force Organization</h4>
+<p>Align unit structures with asymmetric operations — smaller, more mobile, more self-sufficient units.</p>
+
+<h4>6. Develop Asymmetric Doctrine</h4>
+<p>Current doctrine copies U.S. military manuals designed for power projection — the opposite of what Taiwan needs. Lee personally oversaw drafting new joint doctrine before retirement; it was shelved after he left.</p>
+
+<h4>7. Create Flexible Operational Plans</h4>
+<p>"You cannot use old traditional plans to execute a fundamentally new operational concept."</p>
+
+<h4>8. Reform Training</h4>
+<p>Training must match actual wartime needs. Annual Han Kuang exercises need to return to rigorous command post exercises rather than becoming showcase fire demonstrations.</p>
+
+<h3>Why So Much Resistance?</h3>
+<p>Lee identifies five causes: <strong>(1) political priorities</strong> favoring visible, impressive weapons; <strong>(2) deeply ingrained traditional military thinking</strong>; <strong>(3) misunderstanding of what "asymmetric" means</strong> (the M1A2 tank was described as "asymmetric" in official documents); <strong>(4) service parochialism</strong> fighting over budget; and <strong>(5) bureaucratic obstruction</strong> at the highest levels.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 12 -->
+<section class="section" id="ch12">
+<div class="ch-header">
+<div class="ch-num">Chapter 12</div>
+<div class="ch-title">Toward a New Defense Strategy</div>
+</div>
+
+<p>In the final chapter, Lee argues that Taiwan stands at a historic crossroads in the U.S.-China great power competition. The window for building credible deterrence is closing.</p>
+
+<h3>Taiwan Needs a Strategic Paradigm Shift</h3>
+
+<div class="key-point">
+<p>Lee's final argument is built on three truths:</p>
+<p><strong>1.</strong> Taiwan cannot compete with China in conventional arms — and throwing more money at traditional weapons only triggers an arms race Taiwan will lose.</p>
+<p><strong>2.</strong> The future of warfare belongs to <strong>large numbers of small, intelligent weapons</strong> — not small numbers of expensive platforms. This trend <em>favors</em> Taiwan if it acts.</p>
+<p><strong>3.</strong> The ODC is not about winning a war — it is about making a war <strong>so costly and so unlikely to succeed</strong> that Beijing's leadership concludes it should never happen.</p>
+</div>
+
+<h3>The Path Forward</h3>
+<p>Taiwan must simultaneously pursue three tracks: <strong>credible self-defense</strong> through asymmetric capabilities, <strong>international partnerships</strong> that make Taiwan's security integral to regional stability, and <strong>social resilience</strong> through a territorial defense force that demonstrates national resolve.</p>
+
+<p>The ODC represents the only viable strategic framework for a small democracy facing an authoritarian great power with overwhelming conventional superiority. Its principles — <strong>survive, deny, attrit, persist</strong> — transform Taiwan's geographic disadvantages into advantages and its resource limitations into strategic clarity.</p>
+
+<div class="concept-box">
+<p><strong>Admiral Lee's closing message:</strong> "This book's true goal is not how to fight a winning battle, but rather — by building credible and reliable asymmetric capabilities — to convince China's leadership that this cross-strait war should never happen, and is not worth attempting."</p>
+</div>
+
+<h3>Historical Timeline</h3>
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1949</div><div class="tl-text">Cross-strait separation begins; Taiwan adopts offensive "retake the mainland" posture</div></div>
+<div class="tl-item"><div class="tl-year">1954</div><div class="tl-text">U.S.-ROC Mutual Defense Treaty signed — America's explicit commitment to Taiwan's defense</div></div>
+<div class="tl-item"><div class="tl-year">1971</div><div class="tl-text">ROC expelled from the UN; geopolitical isolation begins</div></div>
+<div class="tl-item"><div class="tl-year">1979</div><div class="tl-text">U.S. switches recognition to PRC; Mutual Defense Treaty terminated; Taiwan Relations Act passed</div></div>
+<div class="tl-item"><div class="tl-year">1996</div><div class="tl-text">Third Taiwan Strait Crisis — PLA missile tests, U.S. carrier groups deployed (Lee commanded submarine Hai Hu)</div></div>
+<div class="tl-item"><div class="tl-year">2005</div><div class="tl-text">China passes Anti-Secession Law — legally reserving right to use force</div></div>
+<div class="tl-item"><div class="tl-year">2008</div><div class="tl-text">Taiwan begins all-volunteer military transition; Lee begins thinking about asymmetric concepts</div></div>
+<div class="tl-item"><div class="tl-year">2012</div><div class="tl-text">Xi Jinping takes power, launches "China Dream" and military modernization</div></div>
+<div class="tl-item"><div class="tl-year">2017</div><div class="tl-text">Lee becomes Chief of General Staff; launches the Overall Defense Concept</div></div>
+<div class="tl-item"><div class="tl-year">2019</div><div class="tl-text">Lee retires; ODC begins to face internal resistance</div></div>
+<div class="tl-item"><div class="tl-year">2020</div><div class="tl-text">Micro missile boat program cancelled; ODC terminology removed from official documents</div></div>
+<div class="tl-item"><div class="tl-year">2021</div><div class="tl-text">Quadrennial Defense Review reverts to traditional "air superiority, sea control" strategy</div></div>
+<div class="tl-item"><div class="tl-year">2022</div><div class="tl-text">Russia invades Ukraine — vindicating asymmetric defense principles; Lee publishes this book</div></div>
+<div class="tl-item"><div class="tl-year">2027</div><div class="tl-text">Projected year PLA achieves full invasion capability (per U.S. assessments)</div></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide summarizes <strong>《臺灣的勝算》(Taiwan's Victory Strategy)</strong> by Admiral Lee Hsi-min (李喜明).</p>
+<p style="margin-top:.5rem">Published by Linking Publishing (聯經出版), 2022. Translated and adapted for educational purposes.</p>
+<p style="margin-top:1rem;font-size:.75rem;color:rgba(200,164,78,.4)">Interactive presentation created for academic discussion</p>
+</footer>
+
+<script>
+// Nav visibility
+const nav = document.getElementById('nav');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+const curr = window.scrollY;
+nav.classList.toggle('visible', curr > 600);
+lastScroll = curr;
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.key-point, .warning-box, .concept-box, .compare, .weapons, .phases, .map-container, .timeline, h3').forEach(el => {
+el.classList.add('fade-in');
+observer.observe(el);
+});
+
+// Animate stat bars on scroll
+const barObserver = new IntersectionObserver((entries) => {
+entries.forEach(e => {
+if(e.isIntersecting) {
+const fill = e.target.querySelector('.stat-fill');
+if(fill) fill.style.width = fill.style.width;
+}
+});
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-bar').forEach(el => barObserver.observe(el));
+</script>
+</body>
+</html>

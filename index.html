@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>軍事理論課程 — 非對稱戰爭書籍導覽</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0c10;--bg2:#111318;--bg3:#181c24;--bg4:#1e2330;
+  --accent:#c8a44e;--accent2:#e8c55e;
+  --text:#d4d4d8;--text2:#9ca3af;--text3:#6b7280;
+  --red:#dc4444;--blue:#3b82f6;--green:#22c55e;--orange:#f59e0b;--purple:#a855f7;--cyan:#06b6d4;--pink:#ec4899;
+  --us:#3b82f6;--cn:#dc4444;--tw:#22c55e;--jp:#ec4899;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* HERO */
+.hero{padding:4rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);border-bottom:1px solid rgba(200,164,78,.1)}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;background:linear-gradient(135deg,var(--accent),#f0d878,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+.hero .subtitle{font-size:1.1rem;color:var(--text2);margin-bottom:1rem}
+.hero .course-info{font-size:.85rem;color:var(--text3);display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+.hero .course-info span{display:flex;align-items:center;gap:.4rem}
+
+/* FILTER BAR */
+.filter-section{padding:1.5rem 2rem;background:var(--bg2);border-bottom:1px solid rgba(200,164,78,.08);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.filter-container{max-width:1400px;margin:0 auto}
+.filter-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:.8rem}
+.filter-row:last-child{margin-bottom:0}
+.filter-label{font-size:.8rem;color:var(--accent);min-width:80px;font-weight:700}
+.filter-tags{display:flex;gap:.5rem;flex-wrap:wrap}
+.filter-tag{font-size:.75rem;padding:.35rem .8rem;border-radius:20px;border:1px solid var(--text3);color:var(--text2);cursor:pointer;transition:all .2s;background:transparent}
+.filter-tag:hover{border-color:var(--accent);color:var(--accent)}
+.filter-tag.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.filter-tag[data-type="us"]{border-color:rgba(59,130,246,.4);color:rgba(59,130,246,.8)}
+.filter-tag[data-type="us"].active{background:var(--us);border-color:var(--us);color:#fff}
+.filter-tag[data-type="cn"]{border-color:rgba(220,68,68,.4);color:rgba(220,68,68,.8)}
+.filter-tag[data-type="cn"].active{background:var(--cn);border-color:var(--cn);color:#fff}
+.filter-tag[data-type="tw"]{border-color:rgba(34,197,94,.4);color:rgba(34,197,94,.8)}
+.filter-tag[data-type="tw"].active{background:var(--tw);border-color:var(--tw);color:#fff}
+.filter-tag[data-type="jp"]{border-color:rgba(236,72,153,.4);color:rgba(236,72,153,.8)}
+.filter-tag[data-type="jp"].active{background:var(--jp);border-color:var(--jp);color:#fff}
+.clear-filters{font-size:.75rem;color:var(--text3);cursor:pointer;margin-left:auto;padding:.3rem .6rem;border-radius:4px;transition:all .2s}
+.clear-filters:hover{color:var(--accent);background:rgba(200,164,78,.1)}
+
+/* BOOK GRID */
+.books-section{padding:2rem;max-width:1400px;margin:0 auto}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+
+/* BOOK CARD */
+.book-card{background:var(--bg2);border:1px solid rgba(200,164,78,.08);border-radius:12px;padding:1.5rem;transition:all .3s;cursor:pointer;text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.book-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .3s}
+.book-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.book-card:hover::before{opacity:1}
+.book-card.hidden{display:none}
+
+.book-header{margin-bottom:1rem}
+.book-title{font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.3rem;line-height:1.3}
+.book-title-en{font-size:.85rem;color:var(--accent);opacity:.7;margin-bottom:.5rem;font-style:italic}
+.book-author{font-size:.85rem;color:var(--text2)}
+
+.book-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin:1rem 0}
+.tag{font-size:.7rem;padding:.25rem .6rem;border-radius:12px;font-weight:500}
+.tag.us{background:rgba(59,130,246,.15);color:var(--us);border:1px solid rgba(59,130,246,.3)}
+.tag.cn{background:rgba(220,68,68,.15);color:var(--cn);border:1px solid rgba(220,68,68,.3)}
+.tag.tw{background:rgba(34,197,94,.15);color:var(--tw);border:1px solid rgba(34,197,94,.3)}
+.tag.jp{background:rgba(236,72,153,.15);color:var(--jp);border:1px solid rgba(236,72,153,.3)}
+.tag.strategy{background:rgba(168,85,247,.12);color:var(--purple)}
+.tag.tactics{background:rgba(6,182,212,.12);color:var(--cyan)}
+.tag.pla{background:rgba(220,68,68,.2);color:#ff6b6b}
+.tag.mit{background:rgba(59,130,246,.2);color:#60a5fa}
+.tag.jsdf{background:rgba(236,72,153,.2);color:#f472b6}
+.tag.reform{background:rgba(34,197,94,.2);color:#4ade80}
+.tag.hawk{background:rgba(249,115,22,.15);color:var(--orange)}
+
+.book-desc{font-size:.9rem;color:var(--text2);line-height:1.7;flex-grow:1;margin-bottom:1rem}
+
+.book-meta{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid rgba(200,164,78,.08);margin-top:auto}
+.book-focus{display:flex;gap:.5rem;flex-wrap:wrap}
+.focus-tag{font-size:.65rem;padding:.2rem .5rem;border-radius:4px;background:var(--bg3);color:var(--text3)}
+.book-arrow{color:var(--accent);font-size:1.2rem;transition:transform .2s}
+.book-card:hover .book-arrow{transform:translateX(4px)}
+
+/* STATS */
+.stats-bar{padding:1rem 2rem;background:var(--bg2);border-bottom:1px solid rgba(200,164,78,.05);display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:'JetBrains Mono',monospace;font-size:1.5rem;color:var(--accent);font-weight:700}
+.stat-label{font-size:.75rem;color:var(--text3)}
+
+/* FOOTER */
+.footer{text-align:center;padding:3rem 2rem;color:var(--text3);font-size:.85rem;border-top:1px solid rgba(200,164,78,.05);margin-top:2rem}
+.footer strong{color:var(--accent)}
+
+/* NO RESULTS */
+.no-results{text-align:center;padding:4rem 2rem;color:var(--text3);display:none}
+.no-results.show{display:block}
+.no-results h3{color:var(--text2);margin-bottom:.5rem}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .books-grid{grid-template-columns:1fr}
+  .filter-row{flex-direction:column;align-items:flex-start}
+  .filter-label{margin-bottom:.3rem}
+  .hero h1{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>非對稱戰爭與軍事戰略</h1>
+  <p class="subtitle">課程推薦書籍導覽</p>
+  <div class="course-info">
+    <span>📚 共 15 本書籍</span>
+    <span>🌏 多國視角分析</span>
+    <span>⚔️ 涵蓋戰略與戰術層面</span>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">6</div><div class="stat-label">美國視角</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">中國視角</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">台灣視角</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">日本視角</div></div>
+</div>
+
+<section class="filter-section">
+  <div class="filter-container">
+    <div class="filter-row">
+      <span class="filter-label">作者背景</span>
+      <div class="filter-tags" id="author-filters">
+        <span class="filter-tag" data-filter="background" data-value="mit" data-type="us">MIT安全學派</span>
+        <span class="filter-tag" data-filter="background" data-value="pentagon" data-type="us">美國國防部</span>
+        <span class="filter-tag" data-filter="background" data-value="thinktank" data-type="us">美國智庫</span>
+        <span class="filter-tag" data-filter="background" data-value="pla" data-type="cn">中國解放軍</span>
+        <span class="filter-tag" data-filter="background" data-value="tw-reform" data-type="tw">台軍改革派</span>
+        <span class="filter-tag" data-filter="background" data-value="jsdf" data-type="jp">日本自衛隊</span>
+        <span class="filter-tag" data-filter="background" data-value="jp-academic" data-type="jp">日本學者</span>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">議題層面</span>
+      <div class="filter-tags" id="topic-filters">
+        <span class="filter-tag" data-filter="focus" data-value="us-strategy" data-type="us">美國戰略</span>
+        <span class="filter-tag" data-filter="focus" data-value="cn-strategy" data-type="cn">中國戰略</span>
+        <span class="filter-tag" data-filter="focus" data-value="tw-defense" data-type="tw">台灣防禦</span>
+        <span class="filter-tag" data-filter="focus" data-value="jp-security" data-type="jp">日本安保</span>
+        <span class="filter-tag" data-filter="focus" data-value="cross-strait">台海情勢</span>
+        <span class="filter-tag" data-filter="focus" data-value="asymmetric">非對稱作戰</span>
+      </div>
+      <span class="clear-filters" onclick="clearAllFilters()">✕ 清除篩選</span>
+    </div>
+  </div>
+</section>
+
+<main class="books-section">
+  <div class="no-results" id="no-results">
+    <h3>沒有符合條件的書籍</h3>
+    <p>請嘗試調整篩選條件</p>
+  </div>
+
+  <div class="books-grid" id="books-grid">
+
+    <!-- 1. 拒止戰略 -->
+    <a href="strategy_of_denial.html" class="book-card"
+       data-background="pentagon"
+       data-focus="us-strategy asymmetric cross-strait"
+       data-country="us">
+      <div class="book-header">
+        <div class="book-title">拒止戰略</div>
+        <div class="book-title-en">The Strategy of Denial</div>
+        <div class="book-author">乙爾布里奇·科爾比 (Elbridge Colby) — 前美國國防部副助理部長</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag us">美國</span>
+        <span class="tag mit">國防部</span>
+        <span class="tag strategy">戰略層面</span>
+      </div>
+      <div class="book-desc">美國如何在大國競爭時代防禦亞洲盟友？作者主張以「拒止」而非「懲罰」為核心的防禦戰略，聚焦台灣作為第一島鏈關鍵節點。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">對中</span>
+          <span class="focus-tag">台海</span>
+          <span class="focus-tag">聯盟</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 2. 積極防禦 -->
+    <a href="active_defense.html" class="book-card"
+       data-background="mit"
+       data-focus="cn-strategy"
+       data-country="us">
+      <div class="book-header">
+        <div class="book-title">積極防禦：1949年以來的中國軍事戰略</div>
+        <div class="book-title-en">Active Defense: China's Military Strategy Since 1949</div>
+        <div class="book-author">傅泰林 (M. Taylor Fravel) — MIT 安全研究教授</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag us">美國</span>
+        <span class="tag mit">MIT學派</span>
+        <span class="tag strategy">戰略層面</span>
+      </div>
+      <div class="book-desc">系統性分析中共建政以來的軍事戰略演變，解釋解放軍何時、為何改變其軍事準則。學術界研究中國軍事戰略的權威著作。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">中國</span>
+          <span class="focus-tag">解放軍</span>
+          <span class="focus-tag">歷史</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 3. 長期博弈 -->
+    <a href="the_long_game.html" class="book-card"
+       data-background="mit thinktank"
+       data-focus="cn-strategy us-strategy"
+       data-country="us">
+      <div class="book-header">
+        <div class="book-title">長期博弈：中國取代美國秩序的大戰略</div>
+        <div class="book-title-en">The Long Game</div>
+        <div class="book-author">杜如松 (Rush Doshi) — 前白宮國安會中國事務主任</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag us">美國</span>
+        <span class="tag mit">布魯金斯</span>
+        <span class="tag strategy">戰略層面</span>
+      </div>
+      <div class="book-desc">追溯中國自天安門事件以來的「大戰略」，分為削弱、建設、擴張三階段，系統性取代美國主導的國際秩序。拜登政府對中政策的理論基礎。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">對美</span>
+          <span class="focus-tag">大戰略</span>
+          <span class="focus-tag">秩序</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 4. 百年馬拉松 -->
+    <a href="hundred_year_marathon_interactive.html" class="book-card"
+       data-background="thinktank"
+       data-focus="cn-strategy us-strategy"
+       data-country="us">
+      <div class="book-header">
+        <div class="book-title">百年馬拉松：中國稱霸全球的秘密戰略</div>
+        <div class="book-title-en">The Hundred-Year Marathon</div>
+        <div class="book-author">白邦瑞 (Michael Pillsbury) — 哈德遜研究所中國戰略中心主任</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag us">美國</span>
+        <span class="tag hawk">鷹派</span>
+        <span class="tag strategy">戰略層面</span>
+      </div>
+      <div class="book-desc">揭露中國自1949年起的百年計劃：到2049年取代美國成為全球霸權。作者以其40年對中情報工作經驗，警告美國的戰略誤判。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">對美</span>
+          <span class="focus-tag">情報</span>
+          <span class="focus-tag">霸權</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 5. 中共攻台大解密 -->
+    <a href="chinese_invasion_threat_interactive.html" class="book-card"
+       data-background="thinktank"
+       data-focus="tw-defense cross-strait asymmetric"
+       data-country="us">
+      <div class="book-header">
+        <div class="book-title">中共攻台大解密</div>
+        <div class="book-title-en">The Chinese Invasion Threat</div>
+        <div class="book-author">易思安 (Ian Easton) — 2049計畫研究所研究員</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag us">美國</span>
+        <span class="tag thinktank">智庫</span>
+        <span class="tag tactics">戰術層面</span>
+      </div>
+      <div class="book-desc">基於解放軍內部文件，詳細分析中共攻台的具體作戰計畫、登陸地點、時間表，以及台灣的防禦優勢與脆弱點。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">對台</span>
+          <span class="focus-tag">入侵</span>
+          <span class="focus-tag">解放軍</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 6. 積極拒止（日本） -->
+    <a href="active_denial.html" class="book-card"
+       data-background="thinktank"
+       data-focus="jp-security asymmetric"
+       data-country="us">
+      <div class="book-header">
+        <div class="book-title">積極拒止：重塑日本對中國軍事挑戰的回應</div>
+        <div class="book-title-en">Active Denial: Redesigning Japan's Response</div>
+        <div class="book-author">CSIS 戰略與國際研究中心</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag us">美國</span>
+        <span class="tag jp">日本</span>
+        <span class="tag strategy">戰略層面</span>
+      </div>
+      <div class="book-desc">分析日本如何重新設計其防衛態勢以應對中國軍事挑戰，提出「積極拒止」概念作為日本新安保戰略的核心框架。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">日本</span>
+          <span class="focus-tag">對中</span>
+          <span class="focus-tag">拒止</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 7. 戰略學 -->
+    <a href="Science_of_Military_Strategy_Interactive.html" class="book-card"
+       data-background="pla"
+       data-focus="cn-strategy"
+       data-country="cn">
+      <div class="book-header">
+        <div class="book-title">戰略學（2020年版）</div>
+        <div class="book-title-en">Science of Military Strategy</div>
+        <div class="book-author">中國國防大學 — 解放軍官方教材</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag cn">中國</span>
+        <span class="tag pla">解放軍</span>
+        <span class="tag strategy">戰略層面</span>
+      </div>
+      <div class="book-desc">解放軍國防大學的官方戰略教材，系統闘述中國軍事戰略思想、戰爭準備、聯合作戰等核心概念。理解解放軍思維的第一手資料。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">中國</span>
+          <span class="focus-tag">官方</span>
+          <span class="focus-tag">準則</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 8. 中國夢 -->
+    <a href="china_dream.html" class="book-card"
+       data-background="pla"
+       data-focus="cn-strategy"
+       data-country="cn">
+      <div class="book-header">
+        <div class="book-title">中國夢：後美國時代的大國思維與戰略定位</div>
+        <div class="book-title-en">The China Dream</div>
+        <div class="book-author">劉明福 — 解放軍國防大學教授、大校</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag cn">中國</span>
+        <span class="tag pla">解放軍</span>
+        <span class="tag hawk">鷹派</span>
+      </div>
+      <div class="book-desc">習近平「中國夢」概念的理論來源之一。劉明福主張中國應追求「世界第一」，建設能與美國抗衡的軍事強國。代表解放軍鷹派思維。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">對美</span>
+          <span class="focus-tag">霸權</span>
+          <span class="focus-tag">民族主義</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 9. 帝國之弧 -->
+    <a href="arc_of_empire.html" class="book-card"
+       data-background="pla"
+       data-focus="cn-strategy us-strategy"
+       data-country="cn">
+      <div class="book-header">
+        <div class="book-title">帝國之弧：拋物線兩端的美國與中國</div>
+        <div class="book-title-en">Arc of Empire</div>
+        <div class="book-author">喬良 — 解放軍少將、《超限戰》作者</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag cn">中國</span>
+        <span class="tag pla">解放軍</span>
+        <span class="tag strategy">戰略層面</span>
+      </div>
+      <div class="book-desc">《超限戰》作者的新作，分析美國霸權的興衰軌跡，論述中國如何在美國衰落的「帝國之弧」下崛起。解放軍高級將領的戰略視野。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">對美</span>
+          <span class="focus-tag">霸權</span>
+          <span class="focus-tag">超限戰</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 10. 大國戰略 -->
+    <a href="great_power_strategy.html" class="book-card"
+       data-background="pla"
+       data-focus="cn-strategy"
+       data-country="cn">
+      <div class="book-header">
+        <div class="book-title">大國戰略</div>
+        <div class="book-title-en">Great Power Strategy</div>
+        <div class="book-author">金一南 等 — 解放軍國防大學教授群</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag cn">中國</span>
+        <span class="tag pla">解放軍</span>
+        <span class="tag strategy">戰略層面</span>
+      </div>
+      <div class="book-desc">解放軍國防大學教授群論述中國作為大國的戰略思維、國家安全、軍事現代化等議題。代表中國軍方學術界的主流觀點。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">中國</span>
+          <span class="focus-tag">大國</span>
+          <span class="focus-tag">現代化</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 11. 臺灣的勝算 -->
+    <a href="taiwan_strategy.html" class="book-card"
+       data-background="tw-reform"
+       data-focus="tw-defense asymmetric cross-strait"
+       data-country="tw">
+      <div class="book-header">
+        <div class="book-title">臺灣的勝算</div>
+        <div class="book-title-en">Taiwan's Victory Strategy</div>
+        <div class="book-author">李喜明 — 前參謀總長、海軍上將</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag tw">台灣</span>
+        <span class="tag reform">軍改革派</span>
+        <span class="tag tactics">戰術層面</span>
+      </div>
+      <div class="book-desc">前參謀總長提出的「整體防衛構想」(ODC)，主張以不對稱作戰取代傳統軍備競賽。台灣防衛改革最重要的理論著作。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">對中</span>
+          <span class="focus-tag">ODC</span>
+          <span class="focus-tag">不對稱</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 12. 阿共打來怎麼辦 -->
+    <a href="china_attacks.html" class="book-card"
+       data-background="tw-reform"
+       data-focus="tw-defense cross-strait"
+       data-country="tw">
+      <div class="book-header">
+        <div class="book-title">阿共打來怎麼辦</div>
+        <div class="book-title-en">What To Do If China Attacks</div>
+        <div class="book-author">王立、沈伯洋 — 台灣學者</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag tw">台灣</span>
+        <span class="tag tactics">戰術層面</span>
+      </div>
+      <div class="book-desc">以平易近人的方式分析中共可能的攻台情境、台灣的防禦能力、以及一般民眾應有的認知與準備。台灣國防教育的普及讀物。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">對中</span>
+          <span class="focus-tag">民防</span>
+          <span class="focus-tag">科普</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 13. 完全模擬台灣侵攻戰爭 -->
+    <a href="taiwan_invasion_simulation.html" class="book-card"
+       data-background="jsdf"
+       data-focus="tw-defense cross-strait jp-security"
+       data-country="jp">
+      <div class="book-header">
+        <div class="book-title">完全模擬：台灣侵攻戰爭</div>
+        <div class="book-title-en">Complete Simulation: Taiwan Invasion War</div>
+        <div class="book-author">山下裕貴 — 前陸上自衛隊中將</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag jp">日本</span>
+        <span class="tag jsdf">自衛隊</span>
+        <span class="tag tactics">戰術層面</span>
+      </div>
+      <div class="book-desc">前自衛隊高級將領以軍事專業模擬中共攻台的完整情境，包括作戰階段、兵力部署、日本可能的角色等。專業軍事視角的台海戰爭推演。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">對台</span>
+          <span class="focus-tag">模擬</span>
+          <span class="focus-tag">日本</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 14. 戰後日本的安全保障 -->
+    <a href="japan_security.html" class="book-card"
+       data-background="jp-academic"
+       data-focus="jp-security"
+       data-country="jp">
+      <div class="book-header">
+        <div class="book-title">戰後日本的安全保障</div>
+        <div class="book-title-en">Postwar Japan's Security</div>
+        <div class="book-author">千々和泰明 — 日本學者</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag jp">日本</span>
+        <span class="tag jp-academic">學者</span>
+        <span class="tag strategy">戰略層面</span>
+      </div>
+      <div class="book-desc">系統性分析戰後日本安全保障政策的演變，從日美同盟、憲法第九條到國家安全保障會議(NSC)的建立。理解日本安保體制的基礎讀物。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">日本</span>
+          <span class="focus-tag">美日同盟</span>
+          <span class="focus-tag">歷史</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 15. 日本の安全保障政策 -->
+    <a href="japan_security_policy.html" class="book-card"
+       data-background="jp-academic"
+       data-focus="jp-security"
+       data-country="jp">
+      <div class="book-header">
+        <div class="book-title">日本的安全保障政策</div>
+        <div class="book-title-en">Japan's Security Policy</div>
+        <div class="book-author">神保謙 — 慶應義塾大學教授</div>
+      </div>
+      <div class="book-tags">
+        <span class="tag jp">日本</span>
+        <span class="tag jp-academic">學者</span>
+        <span class="tag strategy">戰略層面</span>
+      </div>
+      <div class="book-desc">分析日本安全保障政策的理論與實務，探討日本在印太地區的角色、與美國的同盟關係、以及對中國崛起的回應。</div>
+      <div class="book-meta">
+        <div class="book-focus">
+          <span class="focus-tag">日本</span>
+          <span class="focus-tag">印太</span>
+          <span class="focus-tag">政策</span>
+        </div>
+        <span class="book-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <p><strong>軍事理論課程</strong> — 非對稱戰爭與戰略研究</p>
+  <p style="margin-top:.5rem;opacity:.7">點擊任一書籍卡片，進入詳細介紹頁面</p>
+</footer>
+
+<script>
+// 篩選功能
+const filterTags = document.querySelectorAll('.filter-tag');
+const bookCards = document.querySelectorAll('.book-card');
+const noResults = document.getElementById('no-results');
+
+let activeFilters = {
+  background: [],
+  focus: []
+};
+
+filterTags.forEach(tag => {
+  tag.addEventListener('click', () => {
+    const filterType = tag.dataset.filter;
+    const filterValue = tag.dataset.value;
+
+    if (tag.classList.contains('active')) {
+      tag.classList.remove('active');
+      activeFilters[filterType] = activeFilters[filterType].filter(v => v !== filterValue);
+    } else {
+      tag.classList.add('active');
+      activeFilters[filterType].push(filterValue);
+    }
+
+    applyFilters();
+  });
+});
+
+function applyFilters() {
+  let visibleCount = 0;
+
+  bookCards.forEach(card => {
+    const cardBackground = card.dataset.background || '';
+    const cardFocus = card.dataset.focus || '';
+
+    let backgroundMatch = activeFilters.background.length === 0 ||
+      activeFilters.background.some(f => cardBackground.includes(f));
+
+    let focusMatch = activeFilters.focus.length === 0 ||
+      activeFilters.focus.some(f => cardFocus.includes(f));
+
+    if (backgroundMatch && focusMatch) {
+      card.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  noResults.classList.toggle('show', visibleCount === 0);
+}
+
+function clearAllFilters() {
+  filterTags.forEach(tag => tag.classList.remove('active'));
+  activeFilters = { background: [], focus: [] };
+  bookCards.forEach(card => card.classList.remove('hidden'));
+  noResults.classList.remove('show');
+}
+</script>
+
+</body>
+</html>

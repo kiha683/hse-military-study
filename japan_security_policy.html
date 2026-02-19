@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan's Security Policy — A Comprehensive Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0c10;--bg2:#111318;--bg3:#181c24;--accent:#c8a44e;--accent2:#e8c55e;
+--text:#d4d4d8;--text2:#9ca3af;--red:#dc4444;--blue:#3b82f6;--green:#22c55e;
+--navy:#1e3a5f;--dark-red:#8b1a1a;--jp-red:#bc002d;--white:#ffffff;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0c10 0%,#121828 50%,#0a1020 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a44e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:900px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,var(--accent),#f0d878,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(.9rem,1.8vw,1.3rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:0.15em;text-transform:uppercase}
+.hero .author{font-size:1.1rem;color:var(--accent);margin:1.5rem 0;font-style:italic}
+.hero .epigraph{max-width:600px;margin:2rem auto;padding:1.5rem;border-left:3px solid var(--jp-red);text-align:left;color:var(--text2);font-style:italic;font-size:1.02rem}
+.hero .scroll-hint{margin-top:3rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.hero .scroll-hint span{display:block;width:2px;height:40px;background:var(--accent);margin:0 auto;opacity:.5}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,12,16,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,164,78,.1);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--accent);font-weight:700}
+.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+
+.section{max-width:1000px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:5rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;border:1px solid rgba(200,164,78,.1);border-radius:50%}
+.part-num{font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--jp-red);margin-bottom:.5rem}
+.part-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:900;color:#fff;margin-bottom:1rem}
+.part-desc{color:var(--text2);max-width:600px;margin:0 auto;font-size:1rem}
+
+.ch-header{margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(200,164,78,.15)}
+.ch-num{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--jp-red)}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--jp-red);padding-left:1rem;margin-top:1rem;font-size:.92rem}
+
+h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--jp-red)}
+h4{font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--accent);margin:2rem 0 .8rem;letter-spacing:.05em}
+p{margin-bottom:1.2rem;font-size:1rem}
+strong{color:#fff;font-weight:600}
+
+.ru{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--jp-red);opacity:.85;display:inline;margin-left:4px}
+
+.key-point{background:var(--bg3);border:1px solid rgba(200,164,78,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;background:var(--accent);color:var(--bg);padding:2px 10px;border-radius:3px;font-weight:700}
+.key-point p{margin-bottom:.5rem}
+
+.warning-box{background:rgba(220,68,68,.08);border:1px solid rgba(220,68,68,.2);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.warning-box strong{color:var(--red)}
+
+.concept-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+
+.map-container{background:var(--bg2);border:1px solid rgba(200,164,78,.12);border-radius:12px;overflow:hidden;margin:2rem 0;position:relative}
+.map-label{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(200,164,78,.1)}
+.map-svg{width:100%;display:block}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,164,78,.1);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.5rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.8rem;border-bottom:1px solid rgba(200,164,78,.1)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.5rem 0;font-size:.92rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.compare-col li::before{content:'→';color:var(--accent);margin-right:.5rem}
+
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--jp-red),var(--accent),transparent)}
+.tl-item{margin-bottom:1.8rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--jp-red);border:2px solid var(--bg);transform:translateX(-4px)}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--jp-red);font-weight:500}
+.tl-text{font-size:.92rem;color:var(--text2)}
+
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:8px;padding:1.5rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--accent);transform:translateY(-2px)}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:1.8rem;color:var(--jp-red);font-weight:700}
+.phase-name{font-family:'DM Sans',sans-serif;font-size:.85rem;color:#fff;margin:.5rem 0;font-weight:600}
+.phase-desc{font-size:.82rem;color:var(--text2);line-height:1.5}
+
+.stat-bar{margin:.8rem 0;display:flex;align-items:center;gap:.8rem}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);min-width:90px;text-align:right}
+.stat-track{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.stat-fill{height:100%;border-radius:4px;transition:width 1.5s ease-out}
+.stat-fill.red{background:linear-gradient(90deg,var(--red),#ff6666)}
+.stat-fill.blue{background:linear-gradient(90deg,var(--blue),#60a5fa)}
+.stat-fill.jp{background:linear-gradient(90deg,var(--jp-red),#e0405a)}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--text2);min-width:55px}
+
+.toc{background:var(--bg2);border:1px solid rgba(200,164,78,.1);border-radius:12px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.2rem;margin-bottom:1.5rem}
+.toc-part{margin-bottom:1.5rem}
+.toc-part-title{font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--jp-red);margin-bottom:.5rem}
+.toc-link{display:block;padding:.35rem 0 .35rem 1rem;color:var(--text2);text-decoration:none;font-size:.9rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--accent);border-left-color:var(--accent);padding-left:1.5rem}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(188,0,45,.2),transparent);margin:4rem 0}
+
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.82rem;background:var(--bg2);border-top:1px solid rgba(200,164,78,.08)}
+.footer strong{color:var(--accent)}
+
+/* GAME STYLES */
+.game-container{background:var(--bg2);border:1px solid rgba(200,164,78,.15);border-radius:12px;padding:2rem;margin:2rem 0}
+.game-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;margin-bottom:.5rem}
+.game-desc{font-size:.85rem;color:var(--text2);margin-bottom:1.5rem}
+.game-board{position:relative;width:100%;aspect-ratio:16/9;background:#0d1520;border-radius:8px;overflow:hidden;cursor:crosshair;border:1px solid rgba(200,164,78,.1)}
+.game-controls{display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;align-items:center}
+.game-btn{font-family:'DM Sans',sans-serif;font-size:.8rem;padding:.6rem 1.2rem;background:rgba(188,0,45,.15);color:var(--jp-red);border:1px solid rgba(188,0,45,.3);border-radius:6px;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.game-btn:hover{background:rgba(188,0,45,.25);transform:translateY(-1px)}
+.game-btn.active{background:var(--jp-red);color:#fff}
+.game-stat{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--text2);padding:.5rem 1rem;background:var(--bg3);border-radius:4px}
+
+/* QUIZ */
+.quiz-container{background:var(--bg2);border:1px solid rgba(200,164,78,.15);border-radius:12px;padding:2rem;margin:2rem 0}
+.quiz-q{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1.2rem}
+.quiz-opts{display:grid;gap:.6rem}
+.quiz-opt{font-family:'DM Sans',sans-serif;font-size:.88rem;padding:.8rem 1.2rem;background:var(--bg3);border:1px solid rgba(200,164,78,.08);border-radius:6px;cursor:pointer;transition:all .2s;color:var(--text)}
+.quiz-opt:hover{border-color:var(--accent);background:rgba(200,164,78,.05)}
+.quiz-opt.correct{background:rgba(34,197,94,.15);border-color:var(--green);color:var(--green)}
+.quiz-opt.wrong{background:rgba(220,68,68,.1);border-color:var(--red);color:var(--red)}
+.quiz-feedback{margin-top:1rem;font-size:.88rem;padding:1rem;border-radius:6px;display:none}
+
+/* SLIDER GAME */
+.slider-game{margin:2rem 0}
+.slider-row{display:flex;align-items:center;gap:1rem;margin:.8rem 0}
+.slider-label{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text2);min-width:120px}
+.slider-input{flex:1;-webkit-appearance:none;height:6px;background:var(--bg3);border-radius:3px;outline:none}
+.slider-input::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--jp-red);cursor:pointer}
+.slider-val{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);min-width:40px;text-align:right}
+.slider-result{margin-top:1.5rem;padding:1.2rem;background:var(--bg3);border-radius:8px;border:1px solid rgba(200,164,78,.1)}
+.slider-result p{margin-bottom:.3rem;font-size:.88rem}
+
+@media(max-width:768px){
+.compare{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:3rem 1.2rem}
+.phases{grid-template-columns:1fr}
+}
+
+.fade-in{opacity:0;transform:translateY(30px);transition:all .8s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+.flag-jp{display:inline-block;width:16px;height:11px;background:#fff;border:1px solid rgba(255,255,255,.2);position:relative;vertical-align:middle;margin:0 3px;border-radius:1px}
+.flag-jp::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:var(--jp-red)}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+<div class="nav-title"><span class="flag-jp"></span> Japan's Security Policy</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#paper1">Paper I: Jimbo</a>
+<a href="#paper2">Paper II: Takahashi</a>
+<a href="#paper3">Paper III: Chijiwa</a>
+<a href="#games">Simulations</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="subtitle">Three Academic Papers on Post-War Japanese Defense</div>
+<h1>Japan's Security Policy</h1>
+<div class="subtitle" style="font-size:.85rem;color:var(--text2);letter-spacing:.05em">日本の安全保障政策 — Политика безопасности Японии</div>
+<div class="author">
+Paper I: <strong>Jimbo Ken (神保 謙)</strong> — Prof., Keio University / API President<br>
+Paper II: <strong>Takahashi Sugio (高橋 杉雄)</strong> — NIDS Researcher<br>
+Paper III: <strong>Chijiwa Yasuaki (千々和 泰明)</strong> — NIDS Researcher
+</div>
+<div class="epigraph">
+"Japan's security policy is undergoing an unprecedented transformation — departing from the basic framework that has defined it since the end of World War II."
+<br><br>— Jimbo Ken, <em>Japan in the Age of Geopolitics</em>
+</div>
+<div class="epigraph" style="border-color:var(--accent)">
+These three papers collectively explain how Japan evolved from a pacifist, defense-only posture into a nation acquiring <strong style="color:var(--accent)">counterstrike capabilities</strong> and embracing a <strong style="color:var(--accent)">denial strategy</strong> — the most dramatic shift in Japanese defense since 1945.
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- TOC -->
+<section class="section" id="toc">
+<div class="toc">
+<h3 style="color:var(--accent)">Table of Contents — Содержание</h3>
+<div class="toc-part">
+<div class="toc-part-title">Paper I — Japan's Security Policy (Jimbo Ken)</div>
+<a href="#p1-intro" class="toc-link">Introduction: Historical Watershed Moments</a>
+<a href="#p1-s1" class="toc-link">§1: Deterrence & Escalation Management — Evolution</a>
+<a href="#p1-s2" class="toc-link">§2: The "Three-Front" Strategic Environment (China, DPRK, Russia)</a>
+<a href="#p1-s3" class="toc-link">§3: The 2022 Strategic Three Documents & Denial Strategy</a>
+<a href="#p1-s4" class="toc-link">§4: Stand-Off Defense & "Counterstrike Capability"</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Paper II — Enemy Base Strike Under Exclusively Defense-Oriented Policy (Takahashi)</div>
+<a href="#p2-intro" class="toc-link">The Concept of Senshu Bōei (Exclusively Defense-Oriented Policy)</a>
+<a href="#p2-s1" class="toc-link">§1: Legal Foundations for Strike Capability</a>
+<a href="#p2-s2" class="toc-link">§2: Gulf War "Scud Hunt" — Lessons Learned</a>
+<a href="#p2-s3" class="toc-link">§3: Iraq War — Improved Counter-Missile Operations</a>
+<a href="#p2-s4" class="toc-link">§4: Pre-Boost Phase Attack & BMD Integration</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Paper III — The 2022 Three Documents in Postwar History (Chijiwa)</div>
+<a href="#p3-intro" class="toc-link">From "One Document" to "Three Documents"</a>
+<a href="#p3-s1" class="toc-link">§1: From De-Threat to Threat-Based Approach</a>
+<a href="#p3-s2" class="toc-link">§2: From Force-Building Focus to Operational Focus</a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Interactive Simulations & Games</div>
+<a href="#game1" class="toc-link">🎮 Scud Hunt Simulation</a>
+<a href="#game2" class="toc-link">🎮 Budget Allocation Strategy Game</a>
+<a href="#quiz1" class="toc-link">📝 Knowledge Quiz</a>
+</div>
+</div>
+</section>
+
+<!-- ========== PAPER I ========== -->
+<section class="part-header" id="paper1">
+<div class="part-num">Paper I</div>
+<div class="part-title">Japan's Security Policy</div>
+<div class="part-desc">By Jimbo Ken (神保 謙) — Keio University Professor, API President, former NSC Advisor. A sweeping overview of Japan's postwar defense evolution and the 2022 strategic transformation.</div>
+</section>
+
+<section class="section" id="p1-intro">
+<div class="ch-header">
+<div class="ch-num">Paper I — Introduction</div>
+<div class="ch-title">Historical Watershed Moments</div>
+<div class="ch-quote">"Japan's security policy can be traced through several watershed turning points across the postwar era."</div>
+</div>
+
+<p>Jimbo Ken identifies Japan's postwar security policy as evolving through roughly <strong>decade-long phases</strong>, each shaped by dramatic shifts in the international environment:</p>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1950s–60s</div><div class="tl-text"><strong>Exclusively Defense-Oriented Policy (専守防衛 / Senshu Bōei)</strong> <span class="ru">Исключительно оборонительная политика</span> established under the San Francisco Peace Treaty and U.S.-Japan Security Alliance.</div></div>
+<div class="tl-item"><div class="tl-year">1970s–80s</div><div class="tl-text">Post-Nixon Doctrine expansion of defense posture; adjustment of <strong>U.S.-Japan alliance role-sharing</strong> <span class="ru">Распределение ролей в альянсе</span>.</div></div>
+<div class="tl-item"><div class="tl-year">1990s</div><div class="tl-text">Post-Cold War emphasis on <strong>international cooperation and regional security</strong> <span class="ru">Региональная безопасность</span>.</div></div>
+<div class="tl-item"><div class="tl-year">2000s</div><div class="tl-text">Global security engagement including the <strong>War on Terror</strong> <span class="ru">Война с терроризмом</span> — Indian Ocean refueling, Iraq humanitarian support.</div></div>
+<div class="tl-item"><div class="tl-year">2010s–present</div><div class="tl-text"><strong>Return to regional security & territorial defense</strong> <span class="ru">Возвращение к территориальной обороне</span> driven by China's military rise.</div></div>
+</div>
+
+<p>The two fundamental axes of Japan's defense evolution have been: <strong>(1) how to procure military power</strong> (Japan's own forces vs. U.S. military vs. international cooperation), and <strong>(2) where to project that power</strong> (homeland defense → surrounding areas → wider region → global space).</p>
+
+<div class="key-point">
+<p><strong>Core argument:</strong> Modern Japan's security policy represents a <strong>departure from the basic postwar framework</strong> — moving from passive defense under the U.S. umbrella toward autonomous deterrence and escalation management capabilities. <span class="ru">Ключевой аргумент: отход от послевоенной структуры</span></p>
+</div>
+
+<p>Throughout the postwar era, Japan's autonomous security role remained limited to <strong>partial territorial defense</strong> <span class="ru">частичная территориальная оборона</span>. All escalation scenarios assumed U.S. military involvement. Japan adopted the "<strong>Basic Defense Force Concept</strong>" <span class="ru">Концепция базовой обороноспособности</span> (基盤的防衛力構想 / Kiban-teki Bōeiryoku Kōsō) — maintaining the minimum necessary defense to avoid becoming a "power vacuum" rather than matching specific threats.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="p1-s1">
+<div class="ch-header">
+<div class="ch-num">Paper I — Section 1</div>
+<div class="ch-title">Deterrence & Escalation Management: The Evolution</div>
+</div>
+
+<h3>The Basic Defense Policy (1957)</h3>
+<p>Under the Kishi Nobusuke government, the 1957 "<strong>Basic Policy for National Defense</strong>" <span class="ru">Основная политика национальной обороны</span> (国防の基本方針) stated that Japan's defense purpose was to "prevent direct and indirect aggression, and repel it should it occur." However, it explicitly delegated external defense to the <strong>U.S.-Japan Security System</strong> "until the United Nations can effectively fulfill this function." Japan's own role was limited to "gradually building efficient defense capability to the minimum necessary extent for self-defense."</p>
+
+<h3>Exclusively Defense-Oriented Policy (Senshu Bōei)</h3>
+<p>The concept of <strong>Senshu Bōei</strong> <span class="ru">Сэнсю Боуэй</span> (専守防衛) established a "<strong>passive defensive strategy</strong>" — defense forces would only be used after an enemy attacked first, kept to the minimum necessary for self-defense. The core of deterrence rested with the United States; Japan's role was merely a "limited function."</p>
+
+<h3>The Basic Defense Force Concept & Guidelines (1976–78)</h3>
+<p>The 1976 <strong>National Defense Program Outline</strong> <span class="ru">Основные направления программы обороны</span> (防衛計画の大綱 / "51 Taikō") and the 1978 <strong>Guidelines for Japan-U.S. Defense Cooperation</strong> formalized the Basic Defense Force Concept. Rather than building forces to counter specific threats, Japan would maintain <strong>"minimum basic defense capability"</strong> to avoid becoming a destabilizing "power vacuum." Defense buildup was designed to handle only <strong>"limited and small-scale aggression"</strong> <span class="ru">ограниченная мелкомасштабная агрессия</span>, with anything beyond that relying on the U.S.-Japan alliance.</p>
+
+<h3>Post-Cold War Regional Engagement (1990s)</h3>
+<p>After the Cold War, with the Soviet threat receding, security concerns shifted to <strong>regional conflicts and WMD proliferation</strong>. The 1996 U.S.-Japan Security Joint Declaration and 1999 <strong>Surrounding Areas Emergency Law</strong> <span class="ru">Закон о чрезвычайных ситуациях в сопредельных районах</span> (周辺事態安全確保法) positioned the alliance as the foundation for <strong>regional deterrence and response</strong>.</p>
+
+<h3>Global Expansion (2000s) and the Return to Regional Focus (2010s)</h3>
+<p>After 9/11, Japan's security space expanded globally — JSDF deployed to the Indian Ocean and Iraq. But by the 2010s, China's military rise and North Korea's nuclear program forced a <strong>return to regional security and homeland defense</strong>. The spatial expansion reversed course.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="p1-s2">
+<div class="ch-header">
+<div class="ch-num">Paper I — Section 2</div>
+<div class="ch-title">The "Three-Front" Strategic Environment</div>
+<div class="ch-quote">"Japan must simultaneously confront three distinct military threats: China, North Korea, and Russia — each with different military characteristics."</div>
+</div>
+
+<!-- THREE-FRONT MAP -->
+<div class="map-container">
+<div class="map-label">Japan's "Three-Front" (三正面) Strategic Environment — Три фронта стратегической среды</div>
+<svg class="map-svg" viewBox="0 0 800 500" style="background:#0d1520">
+<rect width="800" height="500" fill="#0d1520"/>
+<g stroke="rgba(200,164,78,0.04)" stroke-width="0.5">
+<line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+<line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+<line x1="200" y1="0" x2="200" y2="500"/><line x1="400" y1="0" x2="400" y2="500"/><line x1="600" y1="0" x2="600" y2="500"/>
+</g>
+<!-- Russia -->
+<path d="M0,0 L800,0 L800,100 L600,120 L500,110 L400,100 L300,80 L200,60 L100,40 L0,30Z" fill="#1a2030" stroke="rgba(100,160,255,0.2)" stroke-width="1.5"/>
+<text x="400" y="55" fill="rgba(100,160,255,0.7)" font-family="DM Sans" font-size="14" text-anchor="middle" font-weight="700">RUSSIA</text>
+<text x="400" y="72" fill="rgba(100,160,255,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle">РОССИЯ — Strategic Spoiler</text>
+<!-- North Korea -->
+<ellipse cx="330" cy="200" rx="40" ry="30" fill="#1a2030" stroke="rgba(255,165,0,0.3)" stroke-width="1.5"/>
+<text x="330" y="198" fill="rgba(255,165,0,0.8)" font-family="DM Sans" font-size="9" text-anchor="middle" font-weight="700">DPRK</text>
+<text x="330" y="210" fill="rgba(255,165,0,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">КНДР</text>
+<!-- South Korea -->
+<ellipse cx="370" cy="250" rx="30" ry="25" fill="#1a2535" stroke="rgba(200,164,78,0.15)" stroke-width="1"/>
+<text x="370" y="252" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle">ROK</text>
+<!-- China -->
+<path d="M0,100 L200,80 L300,100 L280,180 L260,250 L240,330 L200,400 L150,450 L100,480 L0,500Z" fill="#1a2030" stroke="rgba(220,68,68,0.25)" stroke-width="1.5"/>
+<text x="130" y="280" fill="rgba(220,68,68,0.7)" font-family="DM Sans" font-size="16" text-anchor="middle" font-weight="700">CHINA</text>
+<text x="130" y="300" fill="rgba(220,68,68,0.4)" font-family="DM Sans" font-size="9" text-anchor="middle">КИТАЙ — Greatest Strategic Challenge</text>
+<!-- Japan -->
+<path d="M480,120 L500,110 L520,130 L530,170 L525,200 L510,220 L495,215 L485,180 L478,150Z" fill="#1e2a1e" stroke="rgba(188,0,45,0.5)" stroke-width="2"/>
+<text x="505" y="170" fill="rgba(188,0,45,0.9)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="700">JAPAN</text>
+<!-- Okinawa -->
+<ellipse cx="430" cy="310" rx="12" ry="5" fill="#1e2a1e" stroke="rgba(188,0,45,0.3)" stroke-width="1"/>
+<text x="430" y="328" fill="rgba(188,0,45,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">Okinawa</text>
+<!-- Taiwan -->
+<ellipse cx="310" cy="360" rx="12" ry="20" fill="#1e2a2e" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+<text x="310" y="363" fill="rgba(34,197,94,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">Taiwan</text>
+<!-- Threat arrows -->
+<defs><marker id="ar" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="rgba(220,68,68,0.4)"/></marker>
+<marker id="ao" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="rgba(255,165,0,0.4)"/></marker>
+<marker id="ab" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="rgba(100,160,255,0.4)"/></marker></defs>
+<!-- China A2/AD -->
+<circle cx="200" cy="300" r="180" fill="none" stroke="rgba(220,68,68,0.1)" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="200" y="140" fill="rgba(220,68,68,0.25)" font-family="DM Sans" font-size="7" text-anchor="middle">China A2/AD Envelope</text>
+<!-- NK missile -->
+<path d="M330,210 L470,175" stroke="rgba(255,165,0,0.3)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ao)"/>
+<text x="400" y="185" fill="rgba(255,165,0,0.4)" font-family="DM Sans" font-size="6" text-anchor="middle">Ballistic Missiles</text>
+<!-- Russia patrol -->
+<path d="M550,90 Q520,150 510,200" stroke="rgba(100,160,255,0.2)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ab)"/>
+<!-- Sino-Russian joint ops -->
+<path d="M200,80 Q350,90 480,130" stroke="rgba(180,130,255,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="340" y="95" fill="rgba(180,130,255,0.35)" font-family="DM Sans" font-size="6" text-anchor="middle">Sino-Russian Joint Air Patrols</text>
+<!-- Legend -->
+<rect x="580" y="330" width="200" height="145" rx="5" fill="rgba(10,12,16,0.85)" stroke="rgba(200,164,78,0.1)"/>
+<text x="595" y="350" fill="var(--accent)" font-family="DM Sans" font-size="8" font-weight="700">THREE FRONTS (三正面)</text>
+<circle cx="600" cy="368" r="4" fill="rgba(220,68,68,0.5)"/><text x="612" y="371" fill="rgba(220,68,68,0.7)" font-family="DM Sans" font-size="7">China — Greatest Challenge</text>
+<circle cx="600" cy="388" r="4" fill="rgba(255,165,0,0.5)"/><text x="612" y="391" fill="rgba(255,165,0,0.7)" font-family="DM Sans" font-size="7">DPRK — Imminent Threat</text>
+<circle cx="600" cy="408" r="4" fill="rgba(100,160,255,0.5)"/><text x="612" y="411" fill="rgba(100,160,255,0.7)" font-family="DM Sans" font-size="7">Russia — Strategic Spoiler</text>
+<line x1="592" y1="428" x2="608" y2="428" stroke="rgba(188,0,45,0.5)" stroke-width="2"/><text x="612" y="431" fill="rgba(188,0,45,0.7)" font-family="DM Sans" font-size="7">Japan (JSDF)</text>
+<circle cx="600" cy="448" r="4" fill="none" stroke="rgba(220,68,68,0.2)" stroke-width="1"/><text x="612" y="451" fill="rgba(220,68,68,0.4)" font-family="DM Sans" font-size="7">A2/AD Threat Range</text>
+<line x1="592" y1="465" x2="608" y2="465" stroke="rgba(180,130,255,0.3)" stroke-width="1" stroke-dasharray="3,3"/><text x="612" y="468" fill="rgba(180,130,255,0.5)" font-family="DM Sans" font-size="7">Joint Patrols</text>
+</svg>
+</div>
+
+<h3>Front 1: China — "Greatest Strategic Challenge" <span class="ru">Крупнейший стратегический вызов</span></h3>
+<p>Until the early 2000s, the strategic environment assumed overwhelming U.S. superiority over China and Japan's own ability to maintain air/sea superiority independently. Both conditions have evaporated. China's <strong>Anti-Access/Area Denial (A2/AD)</strong> <span class="ru">Воспрещение доступа / блокирование зоны (A2/AD)</span> capability now challenges U.S. forward-deployed forces. The 2018 Defense Outline acknowledged the terrifying scenario: <strong>"situations where securing maritime and air superiority has become difficult."</strong></p>
+
+<p>Japan alone can no longer maintain deterrence against China or manage escalation autonomously. China's defense budget is roughly <strong>5× Japan's</strong> (SIPRI data, 2021), with massive superiority in 4th/5th-generation fighters, destroyers, frigates, and submarines.</p>
+
+<h3>Front 2: North Korea — "More Imminent Than Ever" <span class="ru">Более неминуемая угроза, чем когда-либо</span></h3>
+<p>North Korea is assessed to have achieved <strong>nuclear weapon miniaturization and warhead capability</strong>. Its missiles are diversifying — longer range, varied launch platforms, saturation attack capability, improved concealment, and since March 2021, <strong>Iskander-type low-altitude maneuvering missiles</strong> <span class="ru">маневрирующие ракеты малой высоты типа «Искандер»</span> that can evade missile defense. This imposes rising defense costs on target nations.</p>
+
+<h3>Front 3: Russia — "Strategic Spoiler" <span class="ru">Стратегический спойлер</span></h3>
+<p>Before 2022, Japan pursued stable relations with Russia — for Northern Territories negotiations and to prevent Russia from aligning fully with China. This strategy collapsed with Russia's invasion of Ukraine. Russia now operates in East Asia <strong>without any constraint from Japanese relations</strong>.</p>
+
+<p>Critically, <strong>Sino-Russian military cooperation</strong> has deepened: joint strategic air patrols with Tu-95 and H-6 bombers (2019, 2022), large naval exercises in the Sea of Okhotsk and Sea of Japan ("Vostok" 2022). If Russia forces Japan to reinforce northern defenses, it could <strong>delay the JSDF's southwestern shift against China</strong> — a classic cost-imposition strategy.</p>
+
+<div class="warning-box">
+<p><strong>The critical problem:</strong> China, North Korea, and Russia each require different military responses. If they coordinate — which is increasingly happening — the operational planning burden on the JSDF multiplies exponentially. <span class="ru">Координация трёх фронтов многократно увеличивает нагрузку</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="p1-s3">
+<div class="ch-header">
+<div class="ch-num">Paper I — Section 3</div>
+<div class="ch-title">The 2022 Strategic Three Documents & Denial Strategy</div>
+</div>
+
+<p>In December 2022, Japan's Cabinet approved three landmark security documents — the <strong>National Security Strategy</strong> <span class="ru">Стратегия национальной безопасности</span>, <strong>National Defense Strategy</strong> <span class="ru">Стратегия национальной обороны</span>, and <strong>Defense Buildup Program</strong> <span class="ru">Программа наращивания обороноспособности</span>. Together, they represent <strong>"an unprecedented watershed in Japan's postwar history."</strong></p>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--jp-red)">
+<div class="phase-num">2%</div>
+<div class="phase-name">GDP Defense Spending</div>
+<div class="phase-desc">Doubling defense budget to 2% of GDP — massive increase from ~1%</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">反撃</div>
+<div class="phase-name">Counterstrike Capability</div>
+<div class="phase-desc">Long-range "counterstrike" (反撃能力) adopted for the first time <span class="ru">Возможность контрудара</span></div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">拒否</div>
+<div class="phase-name">Denial Strategy</div>
+<div class="phase-desc">Capability-based approach: make invasion "not worth the cost" <span class="ru">Стратегия отрицания / воспрещения</span></div>
+</div>
+</div>
+
+<h3>The "Denial Strategy" (拒否戦略) <span class="ru">Стратегия воспрещения</span></h3>
+<p>Jimbo characterizes the Three Documents as a <strong>"Japanese version of denial strategy"</strong>. The core idea: build capability to convince adversaries that <strong>"military invasion is not worth the cost."</strong> This is NOT about matching China's military quantity — China's defense budget is 5× larger, making parity impossible. Instead, it aims to <strong>deny the enemy's operational objectives</strong>.</p>
+
+<p>Three pillars of denial capability:</p>
+
+<div class="compare">
+<div class="compare-col" style="border-right:2px solid var(--jp-red)">
+<h4 style="color:var(--jp-red)">Denial Through Sustainment</h4>
+<ul>
+<li>Sustain operations rapidly and persistently</li>
+<li>Force the adversary to abandon invasion intent through protracted engagement</li>
+<li>Build ammunition stockpiles and war-sustaining capability (継戦能力)</li>
+</ul>
+</div>
+<div class="compare-col">
+<h4 style="color:var(--blue)">Denial Through Stand-Off</h4>
+<ul>
+<li>Deter invasion from a distance</li>
+<li>Intercept and eliminate invasion capability from long range</li>
+<li>Acquire cross-domain superiority if deterrence fails</li>
+</ul>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="p1-s4">
+<div class="ch-header">
+<div class="ch-num">Paper I — Section 4</div>
+<div class="ch-title">Stand-Off Defense & "Counterstrike Capability"</div>
+</div>
+
+<p>The National Defense Strategy promotes <strong>"advanced stand-off missiles"</strong> <span class="ru">продвинутые дальнобойные ракеты</span> and <strong>"counterstrike capability"</strong> (反撃能力 / Hangeki Nōryoku). The goal by 2032: <strong>"defense capability that can intercept and eliminate invasion early and at a distance"</strong> — adding <strong>strategic depth</strong> <span class="ru">стратегическая глубина</span> to Japan's operations.</p>
+
+<h3>Three Interpretations of Long-Range Strike</h3>
+
+<h4>Interpretation 1: Extended Stand-Off Defense</h4>
+<p>Strike enemy ships attempting to invade Japan from beyond their threat range — essentially an extension of close-in defense. This interpretation stays closest to traditional policy.</p>
+
+<h4>Interpretation 2: Wide-Area Strike Capability</h4>
+<p>Strike capabilities extending to the <strong>East China Sea, Sea of Japan, Chinese mainland, and North Korea</strong>. This includes anti-ship strikes against Chinese vessels far from Japan AND land-attack strikes against military targets on the continent. The 2032 goal reflects this interpretation. <span class="ru">Широкомасштабная ударная способность</span></p>
+
+<h4>Interpretation 3: Filling the Missile Gap</h4>
+<p>Cold War-era INF Treaty banned U.S. intermediate-range missiles (until withdrawal in 2019), creating a <strong>"missile gap"</strong> with China's massive arsenal. However, Japan's planned weapons (Type 12 upgraded missiles, hypersonic glide vehicles, Tomahawks) are precision-guided — fundamentally different from China's ballistic missile firepower. This interpretation is <strong>not supported</strong> by the actual strategy.</p>
+
+<div class="key-point">
+<p><strong>Key weapons in development:</strong> Type 12 Anti-Ship Missile (improved) <span class="ru">ракета Тип 12</span> — ground/ship/air-launched variants; Island Defense High-Speed Glide Projectile; Hypersonic Guided Missile <span class="ru">гиперзвуковая управляемая ракета</span>; Tomahawk cruise missiles (purchased from U.S.).</p>
+</div>
+
+<h3>Counterstrike & Collective Self-Defense</h3>
+<p>Critically, the Three Documents define counterstrike under the <strong>2015 Three Conditions for Use of Force</strong> — which include <strong>limited collective self-defense</strong>. This means counterstrike capability could be used even in scenarios where Japan is not directly attacked — such as a <strong>Taiwan Strait crisis</strong> <span class="ru">Тайваньский кризис</span>. This point deserves explicit acknowledgment.</p>
+
+<div class="concept-box">
+<p><strong>Jimbo's conclusion:</strong> The long-range strike capabilities add <strong>spatial strategic depth</strong> to Japan's defense strategy, expanding the JSDF's ability to conduct independent escalation management. In a strategic environment where U.S. conventional superiority over China is no longer guaranteed, JSDF joint operations support U.S. theater operations while expanding Japan's autonomous response capability.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PAPER II ========== -->
+<section class="part-header" id="paper2">
+<div class="part-num">Paper II</div>
+<div class="part-title">Enemy Base Strike Under<br>Exclusively Defense-Oriented Policy</div>
+<div class="part-desc">By Takahashi Sugio (高橋 杉雄) — NIDS Research Dept. A detailed military-technical analysis of strike capability against mobile missile launchers, with Gulf War and Iraq War case studies.</div>
+</section>
+
+<section class="section" id="p2-intro">
+<div class="ch-header">
+<div class="ch-num">Paper II — Introduction</div>
+<div class="ch-title">Senshu Bōei and the Strike Paradox</div>
+</div>
+
+<p>Takahashi begins with the fundamental tension: Japan's <strong>Senshu Bōei</strong> (専守防衛) — "exclusively defense-oriented policy" — is a <strong>"passive defensive strategy"</strong> where forces are used only after being attacked, kept to the minimum necessary for self-defense. Japan has not only <em>declared</em> this policy but <em>implemented</em> it by deliberately constraining its force structure: air power centered on interceptors, naval power on anti-submarine warfare, with extremely limited power projection.</p>
+
+<p>Specifically, Japan has refrained from acquiring: <strong>ICBMs, strategic bombers, and attack aircraft carriers</strong> <span class="ru">МБР, стратегические бомбардировщики, ударные авианосцы</span> — classified as weapons "exclusively for striking other nations."</p>
+
+<div class="concept-box">
+<p><strong>The legal foundation:</strong> PM Hatoyama Ichirō's 1956 parliamentary answer established that even under the current Constitution, if there is "no other appropriate means" and Japan faces "imminent and unjust aggression," striking enemy missile bases is <strong>legally permissible as self-defense</strong> — rather than "sitting and waiting to die." <span class="ru">Юридическая основа: удар по базам допустим как самооборона</span></p>
+</div>
+
+<p>However, this has remained <strong>purely theoretical</strong>. No Defense Outline has ever included enemy base strike as a function. No defense buildup plan has ever procured such capability. Japan has <strong>policy-constrained</strong> itself from acquiring strike capability, even though the legal interpretation permits it.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="p2-s1">
+<div class="ch-header">
+<div class="ch-num">Paper II — Section 1</div>
+<div class="ch-title">Why Mobile Launchers Are So Hard to Hit</div>
+</div>
+
+<p>The critical problem: modern theater ballistic missiles (like North Korea's Nodong) are launched from <strong>mobile launchers</strong> <span class="ru">мобильные пусковые установки (МПУ)</span> (移動式ランチャー). A mobile launcher can only be targeted if tracked in <strong>real-time</strong>. The fundamental challenge is the <strong>sensor-to-shooter time lag</strong>:</p>
+
+<div class="key-point">
+<p>If a target moves at 30 km/h and it takes 1 hour from detection to strike, by the time the weapon arrives, the target has moved <strong>30 km from its original position</strong>. Effective mobile target attack requires near-real-time tracking AND near-real-time information transmission to strike platforms. <span class="ru">Задержка передачи данных от сенсора к стрелку</span></p>
+</div>
+
+<p>This has been a fundamental military challenge since World War I. Despite enormous advances in sensors, communications, and precision munitions, striking mobile missile launchers remains <strong>one of the most difficult military operations</strong>.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="p2-s2">
+<div class="ch-header">
+<div class="ch-num">Paper II — Section 2</div>
+<div class="ch-title">Gulf War "Scud Hunt" — A Cautionary Tale</div>
+</div>
+
+<p>The 1991 Gulf War's "<strong>Scud Hunt</strong>" <span class="ru">«Охота на «Скады»</span> was the most extensive military operation ever conducted against mobile missile launchers. Despite massive resources, it demonstrated how extraordinarily difficult this mission is.</p>
+
+<h3>The Scud Hunt Campaign</h3>
+<p>Iraq launched Scud missiles at Israel and Saudi Arabia. The U.S. responded with a massive air campaign:</p>
+
+<p>On Day 1 (Jan 17, 1991): <strong>154 sorties</strong> against suspected launcher sites. Despite this, the next four days saw 7, 4, 8, and 7 Scud launches respectively. Full-scale Scud Hunt began Jan 21 with <strong>165 sorties</strong>, eventually growing to include:</p>
+
+<p>Standing combat air patrols: 4× F-15E + 4× F-16 (with IR targeting pods) + 2× A-10 continuously over launch zones, rotating every 4 hours. Strike packages: 20× F-111F escorted by 8× F-15C fighters + 4× F-4G + 2× EF-111 electronic warfare aircraft. Total campaign: <strong>4,750 sorties</strong> dedicated to Scud hunting.</p>
+
+<!-- SCUD HUNT DATA VISUALIZATION -->
+<div class="map-container">
+<div class="map-label">Scud Hunt Data — Daily Sorties vs. Scud Launches (Jan-Feb 1991)</div>
+<svg class="map-svg" viewBox="0 0 800 300" style="background:#0d1520">
+<text x="400" y="20" fill="var(--accent)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="700">SCUD HUNT: Coalition Sorties (gold) vs. Iraqi Scud Launches (red)</text>
+<!-- Y axis -->
+<line x1="60" y1="30" x2="60" y2="260" stroke="rgba(200,164,78,0.2)" stroke-width="1"/>
+<text x="55" y="45" fill="var(--text2)" font-family="JetBrains Mono" font-size="7" text-anchor="end">165</text>
+<text x="55" y="260" fill="var(--text2)" font-family="JetBrains Mono" font-size="7" text-anchor="end">0</text>
+<!-- Data bars - simplified key days -->
+<g id="scud-data">
+<!-- Jan 17 --> <rect x="70" y="95" width="10" height="165" fill="rgba(200,164,78,0.3)" rx="1"/><rect x="82" y="255" width="8" height="5" fill="rgba(220,68,68,0.7)" rx="1"/>
+<!-- Jan 18 --> <rect x="96" y="128" width="10" height="132" fill="rgba(200,164,78,0.3)" rx="1"/><rect x="108" y="225" width="8" height="35" fill="rgba(220,68,68,0.7)" rx="1"/>
+<!-- Jan 20 --> <rect x="122" y="162" width="10" height="98" fill="rgba(200,164,78,0.3)" rx="1"/><rect x="134" y="220" width="8" height="40" fill="rgba(220,68,68,0.7)" rx="1"/>
+<!-- Jan 21 --> <rect x="148" y="60" width="10" height="200" fill="rgba(200,164,78,0.5)" rx="1"/><rect x="160" y="255" width="8" height="5" fill="rgba(220,68,68,0.7)" rx="1"/>
+<!-- Jan 25 --> <rect x="200" y="112" width="10" height="148" fill="rgba(200,164,78,0.3)" rx="1"/><rect x="212" y="210" width="8" height="50" fill="rgba(220,68,68,0.7)" rx="1"/>
+<!-- Feb 7 --> <rect x="360" y="98" width="10" height="162" fill="rgba(200,164,78,0.3)" rx="1"/><rect x="372" y="255" width="8" height="5" fill="rgba(220,68,68,0.7)" rx="1"/>
+<!-- Feb 14 --> <rect x="430" y="106" width="10" height="154" fill="rgba(200,164,78,0.3)" rx="1"/><rect x="442" y="235" width="8" height="25" fill="rgba(220,68,68,0.7)" rx="1"/>
+<!-- Feb 21 --> <rect x="520" y="145" width="10" height="115" fill="rgba(200,164,78,0.3)" rx="1"/><rect x="532" y="230" width="8" height="30" fill="rgba(220,68,68,0.7)" rx="1"/>
+<!-- Feb 25 --> <rect x="560" y="145" width="10" height="115" fill="rgba(200,164,78,0.3)" rx="1"/><rect x="572" y="235" width="8" height="25" fill="rgba(220,68,68,0.7)" rx="1"/>
+</g>
+<!-- Annotations -->
+<text x="160" y="53" fill="rgba(34,197,94,0.6)" font-family="DM Sans" font-size="7" text-anchor="middle">Full Scud Hunt begins</text>
+<line x1="155" y1="55" x2="155" y2="60" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+<!-- Legend -->
+<rect x="620" y="70" width="160" height="70" rx="4" fill="rgba(10,12,16,0.8)" stroke="rgba(200,164,78,0.1)"/>
+<rect x="635" y="85" width="10" height="10" fill="rgba(200,164,78,0.4)" rx="1"/><text x="652" y="93" fill="var(--text2)" font-family="DM Sans" font-size="7">Coalition Sorties</text>
+<rect x="635" y="102" width="10" height="10" fill="rgba(220,68,68,0.7)" rx="1"/><text x="652" y="110" fill="var(--text2)" font-family="DM Sans" font-size="7">Scud Launches</text>
+<text x="635" y="130" fill="var(--text2)" font-family="DM Sans" font-size="6">Total: 4,750 sorties / 88 Scuds</text>
+<!-- Summary -->
+<rect x="620" y="170" width="160" height="80" rx="4" fill="rgba(220,68,68,0.05)" stroke="rgba(220,68,68,0.15)"/>
+<text x="700" y="188" fill="rgba(220,68,68,0.8)" font-family="DM Sans" font-size="8" text-anchor="middle" font-weight="700">KEY FINDING</text>
+<text x="700" y="203" fill="var(--text2)" font-family="DM Sans" font-size="7" text-anchor="middle">Pilots reported ~100</text>
+<text x="700" y="215" fill="var(--text2)" font-family="DM Sans" font-size="7" text-anchor="middle">launchers destroyed.</text>
+<text x="700" y="227" fill="rgba(220,68,68,0.7)" font-family="DM Sans" font-size="7" text-anchor="middle" font-weight="700">Post-war analysis: nearly</text>
+<text x="700" y="239" fill="rgba(220,68,68,0.7)" font-family="DM Sans" font-size="7" text-anchor="middle" font-weight="700">ALL were decoys/trucks.</text>
+</svg>
+</div>
+
+<div class="warning-box">
+<p><strong>Result:</strong> Pilots reported destroying ~100 launchers. Post-war investigation found <strong>almost all were decoys and misidentified tanker trucks</strong>. Even JSTARS ground surveillance radar couldn't distinguish real launchers from large vehicles. Of 42 cases where airborne pilots visually spotted Scud launches, only 8 led to weapons release — and <strong>none confirmed a launcher kill</strong>. <span class="ru">Ни одно уничтожение пусковой установки не подтверждено</span></p>
+</div>
+
+<p>However, the Scud Hunt did achieve a <strong>"suppression effect"</strong> <span class="ru">эффект подавления</span> (制圧効果): 35 of 88 total Scuds (40%) were launched in the first 7 days. After the full campaign began, launch rates dropped significantly — proving that sustained air operations can <strong>constrain launcher freedom of action</strong> even without destroying them.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="p2-s3">
+<div class="ch-header">
+<div class="ch-num">Paper II — Section 3</div>
+<div class="ch-title">Iraq War (2003) — Improved But Still Limited</div>
+</div>
+
+<p>By 2003, the U.S. military's <strong>Revolution in Military Affairs (RMA)</strong> <span class="ru">Революция в военном деле (РВД)</span> had dramatically improved capabilities. Air Tasking Order modifications dropped from 4 hours to <strong>30 minutes</strong>. Time from intelligence to strike: the attack on Saddam's location on March 19 took 3 hours including Washington decision-making; subsequent strikes on April 7 and 10 took only <strong>45 and 30 minutes</strong> respectively.</p>
+
+<h3>Results Against Mobile Launchers</h3>
+<p>Iraq launched 18 ballistic missiles and 4 cruise missiles. The U.S. allocated <strong>10.2% of total air sorties</strong> to ballistic missile/WMD missions. Result: <strong>46 launchers destroyed by air strikes</strong> (out of ~80 total), including 3 pre-war — a <strong>55% attrition rate</strong>. Another 15 were captured on the ground.</p>
+
+<div class="compare">
+<div class="compare-col red">
+<h4 style="color:var(--red)">Gulf War 1991</h4>
+<ul>
+<li>4,750 sorties dedicated</li>
+<li>~0 confirmed launcher kills</li>
+<li>Suppression effect only</li>
+<li>88 Scuds launched total</li>
+<li>Limited ISR capability</li>
+</ul>
+</div>
+<div class="compare-col" style="border-left:2px solid var(--green)">
+<h4 style="color:var(--green)">Iraq War 2003</h4>
+<ul>
+<li>10.2% of total sorties</li>
+<li>46 launchers destroyed (55%)</li>
+<li>Suppression + attrition</li>
+<li>22 missiles launched total</li>
+<li>Advanced UAVs, networks, SOF</li>
+</ul>
+</div>
+</div>
+
+<div class="key-point">
+<p><strong>Critical caveats:</strong> Iraq 2003 was fought under special conditions — Iraq's air force was negligible, allowing near-absolute U.S. air superiority. Special forces operated from nearby Kuwait. Against an adversary with even <strong>limited air defense capability</strong> or without <strong>nearby staging bases</strong>, results would be far worse. <span class="ru">Результаты были бы гораздо хуже при иных условиях</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="p2-s4">
+<div class="ch-header">
+<div class="ch-num">Paper II — Section 4</div>
+<div class="ch-title">Pre-Boost Phase Attack & Integrated BMD</div>
+</div>
+
+<p>Takahashi evaluates three possible strategic purposes for Japanese strike capability:</p>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--red)">
+<div class="phase-num">❌</div>
+<div class="phase-name">Retaliatory Deterrence</div>
+<div class="phase-desc">Strike enemy cities after attack. Requires nuclear weapons for credibility → violates Constitution. U.S. already provides this. <span class="ru">Требует ядерного оружия</span></div>
+</div>
+<div class="phase" style="border-top:3px solid var(--red)">
+<div class="phase-num">❌</div>
+<div class="phase-name">First-Strike Disarmament</div>
+<div class="phase-desc">Destroy ALL launchers preemptively. Impossible (Gulf/Iraq War proved this). Creates "crisis instability" — enemy has incentive to strike first. <span class="ru">Невозможно и дестабилизирует</span></div>
+</div>
+<div class="phase" style="border-top:3px solid var(--green)">
+<div class="phase-num">✓</div>
+<div class="phase-name">Pre-Boost Phase BMD</div>
+<div class="phase-desc">Integrate strike as the "4th layer" of multi-layered missile defense. Suppress + attrit launchers over time. Complement interceptors. <span class="ru">Интеграция в многослойную ПРО</span></div>
+</div>
+</div>
+
+<div class="key-point">
+<p><strong>Takahashi's recommendation:</strong> If Japan develops strike capability, it should be embedded within a <strong>comprehensive Ballistic Missile Defense system</strong> as a "Pre-Boost Phase" layer — suppressing enemy launcher activity and attriting launchers over time to <strong>reduce the number of missiles that interceptors must handle</strong>. This must be developed within the <strong>U.S.-Japan alliance framework</strong>, as Japan alone lacks the ISR, network, and special operations capabilities required. <span class="ru">Удар как элемент комплексной ПРО в рамках альянса</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PAPER III ========== -->
+<section class="part-header" id="paper3">
+<div class="part-num">Paper III</div>
+<div class="part-title">The 2022 Three Documents<br>in Postwar History</div>
+<div class="part-desc">By Chijiwa Yasuaki (千々和 泰明) — NIDS. A historical analysis placing the 2022 reform within the arc of postwar Japanese defense policy — from "de-threat" to "threat-based," from "force-building" to "operations-focused."</div>
+</section>
+
+<section class="section" id="p3-intro">
+<div class="ch-header">
+<div class="ch-num">Paper III — Introduction</div>
+<div class="ch-title">The Strange Birth Order of the Three Documents</div>
+</div>
+
+<p>Chijiwa makes a fascinating observation: the Three Documents were created in <strong>reverse hierarchical order</strong>:</p>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1976</div><div class="tl-text"><strong>Middle document first:</strong> Defense Program Outline (防衛計画の大綱) created.</div></div>
+<div class="tl-item"><div class="tl-year">1985 (+9 years)</div><div class="tl-text"><strong>Lower document second:</strong> Mid-Term Defense Program (中期防衛力整備計画) created.</div></div>
+<div class="tl-item"><div class="tl-year">2013 (+28 years)</div><div class="tl-text"><strong>Upper document last:</strong> National Security Strategy (国家安全保障戦略) created.</div></div>
+<div class="tl-item"><div class="tl-year">2022</div><div class="tl-text"><strong>First simultaneous revision</strong> of all three documents. <span class="ru">Первый одновременный пересмотр всех трёх документов</span></div></div>
+</div>
+
+<p>This peculiar chronology reveals the essence of postwar Japanese security policy: Japan didn't need a "strategy" because its contribution to the Western bloc was <strong>simply providing bases to the U.S.</strong> The focus was on gradual defense force-building, not strategic planning. Using the word "strategy" risked accusations of "militarism revival."</p>
+
+<h3>Why "5th Defense Plan" Was Never Created</h3>
+<p>The 4th Defense Plan (1972) was devastated by budget cuts — losing ¥600 billion and ending with over 25% of naval vessels unbuilt. The détente era and post-oil-crisis recession made another 5-year plan politically impossible. So planners invented the <strong>"Defense Outline"</strong> format — no fixed timeline, no specified budget — to avoid Treasury scrutiny. The <strong>Basic Defense Force Concept</strong> (脱脅威 / "de-threat") provided the intellectual justification: since forces weren't pegged to specific threats, no timeline was needed.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="p3-s1">
+<div class="ch-header">
+<div class="ch-num">Paper III — Section 1</div>
+<div class="ch-title">From "De-Threat" to Threat-Based Approach</div>
+</div>
+
+<p>The <strong>Basic Defense Force Concept</strong> <span class="ru">Концепция базовой обороноспособности</span> (基盤的防衛力構想) was officially characterized as "de-threat" (脱脅威) — defense forces were NOT sized to counter specific threats but to maintain "minimum necessary capability to avoid becoming a power vacuum." However, Chijiwa reveals that internally, defense officials understood it as <strong>"low threat-response"</strong> — a reduced version of threat-based planning, not truly threat-free.</p>
+
+<p>The "de-threat" framing served a specific political purpose: it was used <strong>twice</strong> to deflect downward pressure on defense budgets — first during détente (1970s), then after the Cold War ended (1990s). Both times, the argument was: "Our defense forces aren't tied to threats, so the disappearance of threats doesn't justify cuts."</p>
+
+<h3>The 2010 Break and 2022 Culmination</h3>
+<p>The 2010 Defense Outline formally abandoned the Basic Defense Force Concept, replacing it with the <strong>"Dynamic Defense Force"</strong> <span class="ru">Динамическая оборонная сила</span> (動的防衛力). The 2022 reform completed this transition — the expert panel explicitly called for <strong>"focusing on concrete threatening capabilities, building defense forces that can deter, prevent, and repel invasion based on how wars will be fought in 5 to 10 years."</strong></p>
+
+<div class="concept-box">
+<p><strong>The shift:</strong> From "we don't build forces against threats" (de-threat / 脱脅威) → "we build forces specifically to deny the enemy's operational capability" (threat-based denial / 脅威対抗拒否). <span class="ru">От «безотносительно угроз» к «противодействию конкретным угрозам»</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="p3-s2">
+<div class="ch-header">
+<div class="ch-num">Paper III — Section 2</div>
+<div class="ch-title">From Force-Building Focus to Operational Focus</div>
+</div>
+
+<p>Chijiwa identifies a second fundamental shift. Under the Basic Defense Force Concept, "independent response to limited small-scale aggression" was NOT an operational plan — it was a <strong>force-building benchmark</strong>. As former Defense Counselor Shiota Akira testified: <em>"The Outline says the JSDF will fight independently against limited small-scale attacks. But that's not an actual battle plan — it's just saying we want to build forces to that level. But everyone reads it as 'the JSDF will fight alone until America arrives.' I suffered endlessly explaining that distinction."</em></p>
+
+<p>This meant postwar Japan engaged in <strong>"force-building for the sake of force-building"</strong> — without deeply considering how those forces would actually be used in combat.</p>
+
+<h3>The Operational Turn</h3>
+<p>The shift began with the 1995 Outline (removing the "independent response" concept), accelerated through the "Dynamic Defense Force" (2010) and "Multi-Domain Defense Force" (2018), and culminated in the 2022 reform — which specifically incorporates <strong>counterstrike capability</strong> and <strong>war-sustaining capability (継戦能力)</strong> <span class="ru">способность вести продолжительные боевые действия</span> based on actual operational requirements.</p>
+
+<div class="key-point">
+<p><strong>Chijiwa's summary:</strong> The 2022 Three Documents represent the <strong>culmination of two long-term trends</strong>: (1) from "de-threat" to threat-based planning, and (2) from force-building-focused to operations-focused defense policy. Both the GNP 1% ceiling and the Defense Outline format were products of the détente-era Miki administration. The current geopolitical competition era has produced a new consensus — it is time to <strong>move beyond the legacy of the 1970s</strong>. <span class="ru">Время выйти за рамки наследия 1970-х годов</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== GAMES ========== -->
+<section class="part-header" id="games">
+<div class="part-num">Interactive</div>
+<div class="part-title">Simulations & Games</div>
+<div class="part-desc">Test your understanding with interactive simulations based on the concepts from all three papers.</div>
+</section>
+
+<!-- GAME 1: SCUD HUNT -->
+<section class="section" id="game1">
+<div class="game-container">
+<div class="game-title">🎯 Scud Hunt Simulator</div>
+<div class="game-desc">Based on Paper II (Takahashi). Mobile launchers appear randomly on the board. Click to strike before they move! Launchers only stay visible briefly. Can you destroy more than the U.S. did in 1991? <span class="ru">Симулятор охоты на «Скады»</span></div>
+<div class="game-board" id="scudBoard">
+<svg width="100%" height="100%" viewBox="0 0 800 450" id="scudSvg">
+<rect width="800" height="450" fill="#0d1520"/>
+<text x="400" y="30" fill="rgba(200,164,78,0.3)" font-family="DM Sans" font-size="12" text-anchor="middle">WESTERN IRAQ — SCUD LAUNCH ZONE</text>
+<g stroke="rgba(200,164,78,0.04)" stroke-width="0.5">
+<line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/><line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+<line x1="200" y1="0" x2="200" y2="450"/><line x1="400" y1="0" x2="400" y2="450"/><line x1="600" y1="0" x2="600" y2="450"/>
+</g>
+<!-- Terrain features -->
+<rect x="100" y="180" width="60" height="40" rx="3" fill="rgba(200,164,78,0.03)" stroke="rgba(200,164,78,0.06)"/>
+<rect x="350" y="100" width="80" height="30" rx="3" fill="rgba(200,164,78,0.03)" stroke="rgba(200,164,78,0.06)"/>
+<rect x="550" y="280" width="70" height="50" rx="3" fill="rgba(200,164,78,0.03)" stroke="rgba(200,164,78,0.06)"/>
+<text x="130" y="205" fill="rgba(200,164,78,0.08)" font-family="DM Sans" font-size="7" text-anchor="middle">compound</text>
+<text x="390" y="120" fill="rgba(200,164,78,0.08)" font-family="DM Sans" font-size="7" text-anchor="middle">storage facility</text>
+</svg>
+</div>
+<div class="game-controls">
+<button class="game-btn" id="scudStart" onclick="startScudHunt()">▶ START HUNT</button>
+<button class="game-btn" id="scudReset" onclick="resetScudHunt()">↻ RESET</button>
+<div class="game-stat">Time: <span id="scudTime">60</span>s</div>
+<div class="game-stat">Hits: <span id="scudHits">0</span></div>
+<div class="game-stat">Missed: <span id="scudMissed">0</span></div>
+<div class="game-stat">Scuds Launched: <span id="scudLaunched">0</span></div>
+<div class="game-stat">Decoys Hit: <span id="scudDecoys">0</span></div>
+</div>
+</div>
+</section>
+
+<!-- GAME 2: BUDGET ALLOCATION -->
+<section class="section" id="game2">
+<div class="game-container">
+<div class="game-title">💰 Defense Budget Allocation Strategy</div>
+<div class="game-desc">Based on Paper II (Takahashi) & Paper I (Jimbo). Allocate Japan's defense budget between interceptors and strike capability. Find the optimal "best mix" that maximizes total BMD effectiveness. <span class="ru">Стратегическое распределение оборонного бюджета</span></div>
+<div class="slider-game">
+<div class="slider-row">
+<div class="slider-label">Interceptor Budget</div>
+<input type="range" class="slider-input" id="interceptSlider" min="0" max="100" value="75" oninput="updateBudget()">
+<div class="slider-val" id="interceptVal">75%</div>
+</div>
+<div class="slider-row">
+<div class="slider-label">Strike Capability</div>
+<input type="range" class="slider-input" id="strikeSlider" min="0" max="100" value="25" oninput="updateBudgetReverse()">
+<div class="slider-val" id="strikeVal">25%</div>
+</div>
+<div class="slider-result" id="budgetResult">
+<p><strong>Total BMD Effectiveness:</strong> <span id="bmdEff" style="color:var(--green)">78%</span></p>
+<p><strong>Interception Rate:</strong> <span id="intRate">65%</span> | <strong>Suppression Effect:</strong> <span id="supEff">13%</span></p>
+<p><strong>Cost Efficiency:</strong> <span id="costEff" style="color:var(--accent)">Good</span></p>
+<p style="font-size:.8rem;color:var(--text2);margin-top:.8rem" id="budgetAdvice">Balanced approach — strike capability reduces incoming missiles, boosting interceptor effectiveness.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- QUIZ -->
+<section class="section" id="quiz1">
+<div class="quiz-container">
+<div class="game-title">📝 Comprehension Quiz</div>
+<div class="game-desc">Test your understanding of all three papers. <span class="ru">Проверьте ваше понимание всех трёх статей</span></div>
+
+<div id="quizArea">
+<div class="quiz-q" id="qText">Q1: What is "Senshu Bōei" (専守防衛)?</div>
+<div class="quiz-opts" id="qOpts"></div>
+<div class="quiz-feedback" id="qFeedback"></div>
+</div>
+<div class="game-controls" style="margin-top:1rem">
+<div class="game-stat">Score: <span id="quizScore">0</span>/<span id="quizTotal">0</span></div>
+<button class="game-btn" id="nextQ" onclick="nextQuestion()" style="display:none">Next Question →</button>
+</div>
+</div>
+</section>
+
+<!-- COMPREHENSIVE TIMELINE -->
+<section class="section">
+<h3 style="text-align:center;border:none;padding:0">Complete Historical Timeline <span class="ru">Полная хронология</span></h3>
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1945</div><div class="tl-text">Japan surrenders; complete disarmament under Allied occupation</div></div>
+<div class="tl-item"><div class="tl-year">1950</div><div class="tl-text">Korean War begins; U.S. orders Japan to create National Police Reserve (later JSDF)</div></div>
+<div class="tl-item"><div class="tl-year">1954</div><div class="tl-text">Self-Defense Forces (自衛隊) formally established; Defense Agency created</div></div>
+<div class="tl-item"><div class="tl-year">1956</div><div class="tl-text">PM Hatoyama: enemy base strike legally permissible as self-defense in extremis</div></div>
+<div class="tl-item"><div class="tl-year">1957</div><div class="tl-text">"Basic Policy for National Defense" + 1st Defense Build-Up Plan adopted</div></div>
+<div class="tl-item"><div class="tl-year">1976</div><div class="tl-text">1st Defense Program Outline — Basic Defense Force Concept adopted; GNP 1% ceiling</div></div>
+<div class="tl-item"><div class="tl-year">1978</div><div class="tl-text">1st U.S.-Japan Defense Cooperation Guidelines — roles defined</div></div>
+<div class="tl-item"><div class="tl-year">1985</div><div class="tl-text">1st Mid-Term Defense Program (¥18.4 trillion); sea-lane defense enhanced</div></div>
+<div class="tl-item"><div class="tl-year">1987</div><div class="tl-text">GNP 1% ceiling abolished</div></div>
+<div class="tl-item"><div class="tl-year">1991</div><div class="tl-text">Gulf War — Scud Hunt demonstrates limits of counter-launcher operations</div></div>
+<div class="tl-item"><div class="tl-year">1995</div><div class="tl-text">New Defense Outline — "limited small-scale aggression" concept removed</div></div>
+<div class="tl-item"><div class="tl-year">1996</div><div class="tl-text">U.S.-Japan Security Joint Declaration; Taiwan Strait Crisis</div></div>
+<div class="tl-item"><div class="tl-year">1998</div><div class="tl-text">North Korea fires Taepodong over Japan — sparks enemy base strike debate</div></div>
+<div class="tl-item"><div class="tl-year">2003</div><div class="tl-text">Iraq War — improved counter-launcher ops (55% attrition). Diet debates strike capability</div></div>
+<div class="tl-item"><div class="tl-year">2010</div><div class="tl-text">Defense Outline: Basic Defense Force Concept formally abandoned → "Dynamic Defense Force"</div></div>
+<div class="tl-item"><div class="tl-year">2013</div><div class="tl-text">First-ever National Security Strategy; NSC created; "Proactive Contribution to Peace"</div></div>
+<div class="tl-item"><div class="tl-year">2015</div><div class="tl-text">Peace & Security Legislation — limited collective self-defense authorized</div></div>
+<div class="tl-item"><div class="tl-year">2019</div><div class="tl-text">Sino-Russian joint strategic air patrol (Tu-95 + H-6) around Japan</div></div>
+<div class="tl-item"><div class="tl-year">2022 Feb</div><div class="tl-text">Russia invades Ukraine — Japan imposes comprehensive sanctions; Japan-Russia relations collapse</div></div>
+<div class="tl-item"><div class="tl-year">2022 Dec</div><div class="tl-text"><strong>Three Documents simultaneously revised</strong> — counterstrike capability, 2% GDP, denial strategy</div></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide synthesizes three academic papers on Japanese security policy:</p>
+<p style="margin-top:.5rem"><strong>Paper I:</strong> Jimbo Ken, "Japan's Security Policy" — from <em>Japan in the Age of Geopolitics</em></p>
+<p><strong>Paper II:</strong> Takahashi Sugio, "On Enemy Base Strike Capability Under Exclusively Defense-Oriented Policy" — NIDS Bulletin Vol. 8 No. 1 (2005)</p>
+<p><strong>Paper III:</strong> Chijiwa Yasuaki, "The 2022 Security Three Documents Reform in Postwar History" — Security Strategy Studies Vol. 5 No. 1 (2024)</p>
+<p style="margin-top:1rem;font-size:.75rem;color:rgba(200,164,78,.4)">Created for academic presentation — all key terms include Russian translations (Русские переводы ключевых терминов включены)</p>
+</footer>
+
+<script>
+// NAV
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('visible',window.scrollY>500)});
+
+// FADE IN
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.key-point,.warning-box,.concept-box,.compare,.map-container,.timeline,.phases,h3,.game-container,.quiz-container').forEach(el=>{el.classList.add('fade-in');obs.observe(el)});
+
+// ========== SCUD HUNT GAME ==========
+let scudInterval,scudTimer,scudTime=60,scudHits=0,scudMissed=0,scudLaunched=0,scudDecoys=0,scudRunning=false;
+const scudSvg=document.getElementById('scudSvg');
+function startScudHunt(){
+if(scudRunning)return;scudRunning=true;
+document.getElementById('scudStart').classList.add('active');
+scudInterval=setInterval(spawnTarget,1800);
+scudTimer=setInterval(()=>{
+scudTime--;document.getElementById('scudTime').textContent=scudTime;
+if(scudTime<=0){clearInterval(scudInterval);clearInterval(scudTimer);scudRunning=false;
+document.getElementById('scudStart').classList.remove('active');
+alert(`Time's up!\nHits: ${scudHits} | Decoys: ${scudDecoys} | Scuds Launched: ${scudLaunched}\n\nFor reference: In 1991, the US confirmed 0 launcher kills despite 4,750 sorties.`);}
+},1000);
+}
+function resetScudHunt(){
+clearInterval(scudInterval);clearInterval(scudTimer);scudRunning=false;
+scudTime=60;scudHits=0;scudMissed=0;scudLaunched=0;scudDecoys=0;
+['scudTime','scudHits','scudMissed','scudLaunched','scudDecoys'].forEach((id,i)=>{
+document.getElementById(id).textContent=[60,0,0,0,0][i];});
+document.getElementById('scudStart').classList.remove('active');
+scudSvg.querySelectorAll('.target').forEach(t=>t.remove());
+}
+function spawnTarget(){
+const isReal=Math.random()>.55;const x=80+Math.random()*640;const y=60+Math.random()*340;
+const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.classList.add('target');
+g.setAttribute('transform',`translate(${x},${y})`);
+g.innerHTML=isReal?
+`<rect x="-15" y="-5" width="30" height="10" rx="2" fill="rgba(220,68,68,0.6)" stroke="rgba(220,68,68,0.8)" stroke-width="1"/><rect x="10" y="-8" width="4" height="16" rx="1" fill="rgba(220,68,68,0.5)"/><text x="0" y="3" fill="#fff" font-family="DM Sans" font-size="5" text-anchor="middle">TEL</text>`:
+`<rect x="-14" y="-5" width="28" height="10" rx="2" fill="rgba(200,164,78,0.25)" stroke="rgba(200,164,78,0.3)" stroke-width="1"/><circle cx="8" cy="5" r="3" fill="none" stroke="rgba(200,164,78,0.2)"/><circle cx="-6" cy="5" r="3" fill="none" stroke="rgba(200,164,78,0.2)"/>`;
+g.style.cursor='crosshair';
+g.addEventListener('click',function(e){
+e.stopPropagation();
+if(isReal){scudHits++;document.getElementById('scudHits').textContent=scudHits;
+const exp=document.createElementNS('http://www.w3.org/2000/svg','circle');
+exp.setAttribute('cx',x);exp.setAttribute('cy',y);exp.setAttribute('r','20');exp.setAttribute('fill','rgba(255,100,50,0.4)');
+scudSvg.appendChild(exp);setTimeout(()=>exp.remove(),400);
+}else{scudDecoys++;document.getElementById('scudDecoys').textContent=scudDecoys;
+const miss=document.createElementNS('http://www.w3.org/2000/svg','text');
+miss.setAttribute('x',x);miss.setAttribute('y',y);miss.setAttribute('fill','rgba(255,165,0,0.7)');
+miss.setAttribute('font-family','DM Sans');miss.setAttribute('font-size','8');miss.setAttribute('text-anchor','middle');
+miss.textContent='DECOY!';scudSvg.appendChild(miss);setTimeout(()=>miss.remove(),800);
+}
+g.remove();
+});
+scudSvg.appendChild(g);
+const lifespan=isReal?2200+Math.random()*1500:4000+Math.random()*3000;
+setTimeout(()=>{if(g.parentNode){g.remove();if(isReal){scudLaunched++;document.getElementById('scudLaunched').textContent=scudLaunched;
+const launch=document.createElementNS('http://www.w3.org/2000/svg','text');
+launch.setAttribute('x',x);launch.setAttribute('y',y-15);launch.setAttribute('fill','rgba(220,68,68,0.8)');
+launch.setAttribute('font-family','DM Sans');launch.setAttribute('font-size','8');launch.setAttribute('text-anchor','middle');
+launch.textContent='🚀 LAUNCHED!';scudSvg.appendChild(launch);setTimeout(()=>launch.remove(),1200);
+}else{scudMissed++;document.getElementById('scudMissed').textContent=scudMissed;}}},lifespan);
+// Move target
+if(isReal){let dx=(Math.random()-.5)*2,dy=(Math.random()-.5)*2;
+const moveInt=setInterval(()=>{if(!g.parentNode){clearInterval(moveInt);return;}
+const t=g.getAttribute('transform').match(/translate\(([^,]+),([^)]+)\)/);
+if(t){const nx=parseFloat(t[1])+dx,ny=parseFloat(t[2])+dy;
+if(nx>30&&nx<770&&ny>40&&ny<420)g.setAttribute('transform',`translate(${nx},${ny})`);}},100);}
+}
+
+// ========== BUDGET GAME ==========
+function updateBudget(){
+const v=parseInt(document.getElementById('interceptSlider').value);
+document.getElementById('strikeSlider').value=100-v;
+document.getElementById('interceptVal').textContent=v+'%';
+document.getElementById('strikeVal').textContent=(100-v)+'%';
+calcBudget(v,100-v);
+}
+function updateBudgetReverse(){
+const v=parseInt(document.getElementById('strikeSlider').value);
+document.getElementById('interceptSlider').value=100-v;
+document.getElementById('interceptVal').textContent=(100-v)+'%';
+document.getElementById('strikeVal').textContent=v+'%';
+calcBudget(100-v,v);
+}
+function calcBudget(intPct,strPct){
+// Diminishing returns on interceptors, suppression effect from strike
+const intEff=Math.min(85,intPct*0.85*(1-intPct/300));
+const supEff=strPct>0?Math.min(25,strPct*0.5*(1+strPct/200)):0;
+// Strike reduces incoming missiles, boosting interception rate
+const synergy=strPct>10&&intPct>30?Math.min(10,(strPct*intPct)/500):0;
+const total=Math.min(95,intEff+supEff+synergy);
+document.getElementById('bmdEff').textContent=Math.round(total)+'%';
+document.getElementById('bmdEff').style.color=total>75?'var(--green)':total>50?'var(--accent)':'var(--red)';
+document.getElementById('intRate').textContent=Math.round(intEff)+'%';
+document.getElementById('supEff').textContent=Math.round(supEff+synergy)+'%';
+let advice='',eff='';
+if(strPct===0){advice='Pure interceptor approach. No suppression effect. Enemy can launch freely.';eff='Suboptimal';}
+else if(strPct<15){advice='Minimal strike investment. Some suppression but not enough for synergy effects.';eff='Below Average';}
+else if(strPct>=15&&strPct<=35){advice='Balanced approach — strike reduces incoming missiles, boosting interceptor effectiveness. Takahashi would approve.';eff='Optimal';}
+else if(strPct<=50){advice='Heavy strike investment. Good suppression but interceptor capability weakening.';eff='Good';}
+else if(strPct<=75){advice='Strike-heavy approach. High suppression but insufficient interceptors for leakers.';eff='Poor';}
+else{advice='Almost no interceptors! Missiles that survive strike will hit undefended.';eff='Critical';}
+document.getElementById('costEff').textContent=eff;
+document.getElementById('costEff').style.color=eff==='Optimal'?'var(--green)':eff==='Good'?'var(--accent)':'var(--red)';
+document.getElementById('budgetAdvice').textContent=advice;
+}
+
+// ========== QUIZ ==========
+const questions=[
+{q:"Q1: What is 'Senshu Bōei' (専守防衛)?",opts:["Japan's preemptive strike doctrine","An exclusively defense-oriented passive strategy","The JSDF's offensive naval doctrine","Japan's nuclear deterrence policy"],correct:1,
+fb:"Correct! Senshu Bōei is Japan's foundational passive defensive strategy — forces are only used after being attacked, and only to the minimum necessary extent."},
+{q:"Q2: What was the 'Basic Defense Force Concept' (基盤的防衛力構想) designed to prevent?",opts:["Chinese invasion","Arms race with the USSR","Japan becoming a 'power vacuum'","Nuclear proliferation"],correct:2,
+fb:"Correct! The concept aimed to maintain minimum forces so Japan wouldn't become a destabilizing power vacuum — rather than sizing forces against specific threats."},
+{q:"Q3: In the Gulf War Scud Hunt, how many mobile launchers were confirmed destroyed?",opts:["About 100","46 (55% of total)","Nearly zero","All of them"],correct:2,
+fb:"Correct! Despite 4,750 sorties and pilot reports of ~100 kills, post-war analysis found nearly all were decoys or misidentified vehicles. Essentially zero confirmed mobile launcher kills."},
+{q:"Q4: What does Jimbo call Japan's 2022 strategic approach?",opts:["Offensive realism","Japanese denial strategy (拒否戦略)","Nuclear hedging","Bandwagoning with China"],correct:1,
+fb:"Correct! Jimbo characterizes it as a Japanese-version 'denial strategy' — making invasion too costly for the adversary rather than matching their military quantity."},
+{q:"Q5: Which three countries constitute Japan's 'Three-Front' challenge?",opts:["USA, China, Russia","China, North Korea, South Korea","China, North Korea, Russia","Russia, India, China"],correct:2,
+fb:"Correct! Japan faces simultaneous challenges from China (greatest strategic challenge), North Korea (imminent missile/nuclear threat), and Russia (strategic spoiler)."},
+{q:"Q6: What was Takahashi's recommended purpose for Japanese strike capability?",opts:["Retaliatory deterrence against cities","First-strike disarmament of all launchers","Pre-boost phase BMD layer integrated with interceptors","Strategic nuclear deterrence"],correct:2,
+fb:"Correct! Takahashi argued strike capability should serve as the 'Pre-Boost Phase' of multi-layered BMD — suppressing and attriting launchers to reduce the burden on interceptors."},
+{q:"Q7: Why were the Three Documents created in 'reverse order' historically?",opts:["Bureaucratic incompetence","Japan didn't need 'strategy' when its role was just providing bases to the US","International pressure from China","The Emperor's decision"],correct:1,
+fb:"Correct! Japan's Cold War contribution was primarily providing bases. Active strategic planning wasn't needed, and using the word 'strategy' risked accusations of militarism."},
+{q:"Q8: What is the 2022 defense budget target as % of GDP?",opts:["1% (maintained)","1.5%","2%","3%"],correct:2,
+fb:"Correct! The 2022 reform targets 2% of GDP for defense — roughly doubling the long-standing ~1% level, with ¥43 trillion allocated over 5 years."},
+];
+let qIdx=0,score=0;
+function renderQ(){
+const q=questions[qIdx];
+document.getElementById('qText').textContent=q.q;
+document.getElementById('quizTotal').textContent=questions.length;
+const opts=document.getElementById('qOpts');opts.innerHTML='';
+document.getElementById('qFeedback').style.display='none';
+document.getElementById('nextQ').style.display='none';
+q.opts.forEach((o,i)=>{
+const d=document.createElement('div');d.className='quiz-opt';d.textContent=o;
+d.onclick=()=>checkAnswer(i);opts.appendChild(d);
+});
+}
+function checkAnswer(i){
+const q=questions[qIdx];const opts=document.querySelectorAll('.quiz-opt');
+opts.forEach((o,j)=>{o.onclick=null;if(j===q.correct)o.classList.add('correct');else if(j===i)o.classList.add('wrong');});
+if(i===q.correct)score++;
+document.getElementById('quizScore').textContent=score;
+const fb=document.getElementById('qFeedback');fb.style.display='block';
+fb.style.background=i===q.correct?'rgba(34,197,94,0.08)':'rgba(220,68,68,0.08)';
+fb.style.border=i===q.correct?'1px solid rgba(34,197,94,0.2)':'1px solid rgba(220,68,68,0.2)';
+fb.textContent=q.fb;
+if(qIdx<questions.length-1)document.getElementById('nextQ').style.display='inline-block';
+else{document.getElementById('nextQ').style.display='inline-block';document.getElementById('nextQ').textContent=`Final Score: ${score}/${questions.length}`; document.getElementById('nextQ').onclick=()=>{qIdx=0;score=0;document.getElementById('quizScore').textContent=0;document.getElementById('nextQ').textContent='Next Question →';document.getElementById('nextQ').onclick=nextQuestion;renderQ();};}
+}
+function nextQuestion(){qIdx++;renderQ();}
+renderQ();
+calcBudget(75,25);
+</script>
+</body>
+</html>

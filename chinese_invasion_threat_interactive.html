@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chinese Invasion Threat — Ian Easton | Interactive Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0c10;--bg2:#111318;--bg3:#181c24;--accent:#c8a44e;--accent2:#e8c55e;
+--text:#d4d4d8;--text2:#9ca3af;--red:#dc4444;--blue:#3b82f6;--green:#22c55e;
+--navy:#1e3a5f;--dark-red:#8b1a1a;--orange:#f59e0b;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0c10 0%,#121828 50%,#0a1020 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a44e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:950px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,var(--accent),#f0d878,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(.85rem,1.8vw,1.3rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:0.15em;text-transform:uppercase}
+.hero .author{font-size:1.1rem;color:var(--accent);margin:1.5rem 0;font-style:italic}
+.hero .epigraph{max-width:620px;margin:1.5rem auto;padding:1.2rem 1.5rem;border-left:3px solid var(--accent);text-align:left;color:var(--text2);font-style:italic;font-size:1rem}
+.hero .scroll-hint{margin-top:2.5rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.hero .scroll-hint span{display:block;width:2px;height:40px;background:var(--accent);margin:0 auto;opacity:.5}
+.hero-badge{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.7rem;padding:4px 14px;border:1px solid rgba(200,164,78,.3);border-radius:20px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,12,16,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,164,78,.1);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--accent);font-weight:700}
+.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-lang{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text2);border:1px solid rgba(200,164,78,.2);padding:3px 10px;border-radius:4px;cursor:pointer;transition:all .2s}
+.nav-lang:hover{border-color:var(--accent);color:var(--accent)}
+
+.section{max-width:1000px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:6rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border:1px solid rgba(200,164,78,.1);border-radius:50%}
+.part-num{font-family:'DM Sans',sans-serif;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.part-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:1rem}
+.part-desc{color:var(--text2);max-width:600px;margin:0 auto;font-size:1.05rem}
+
+.ch-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(200,164,78,.15)}
+.ch-num{font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--accent);padding-left:1rem;margin-top:1rem;font-size:.95rem}
+
+h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--accent)}
+h4{font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--accent);margin:2rem 0 .8rem;letter-spacing:.05em}
+p{margin-bottom:1.2rem;font-size:1.02rem}
+strong{color:#fff;font-weight:600}
+
+.ru{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--blue);opacity:.8;cursor:help;border-bottom:1px dotted rgba(59,130,246,.3)}
+.ru::before{content:'рус: '}
+
+.key-point{background:var(--bg3);border:1px solid rgba(200,164,78,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;background:var(--accent);color:var(--bg);padding:2px 10px;border-radius:3px;font-weight:700}
+.key-point p{margin-bottom:.5rem}
+
+.warning-box{background:rgba(220,68,68,.08);border:1px solid rgba(220,68,68,.2);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.warning-box strong{color:var(--red)}
+
+.concept-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+
+.intel-box{background:rgba(200,164,78,.05);border:1px solid rgba(200,164,78,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.intel-box::before{content:'🔍 INTELLIGENCE';display:block;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;color:var(--accent);margin-bottom:.8rem;font-weight:700}
+
+.map-container{background:var(--bg2);border:1px solid rgba(200,164,78,.12);border-radius:12px;overflow:hidden;margin:2rem 0;position:relative}
+.map-label{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(200,164,78,.1)}
+.map-svg{width:100%;display:block}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,164,78,.1);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.5rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.8rem;border-bottom:1px solid rgba(200,164,78,.1)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.5rem 0;font-size:.93rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.compare-col li::before{content:'→';color:var(--accent);margin-right:.5rem}
+
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),transparent)}
+.tl-item{margin-bottom:2rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);transform:translateX(-4px)}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent);font-weight:500}
+.tl-text{font-size:.95rem;color:var(--text2)}
+
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:8px;padding:1.5rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--accent);transform:translateY(-2px)}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);font-weight:700}
+.phase-name{font-family:'DM Sans',sans-serif;font-size:.9rem;color:#fff;margin:.5rem 0;font-weight:600}
+.phase-desc{font-size:.85rem;color:var(--text2);line-height:1.5}
+
+.stat-bar{margin:.8rem 0;display:flex;align-items:center;gap:1rem}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.78rem;color:var(--text2);min-width:120px;text-align:right}
+.stat-track{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.stat-fill{height:100%;border-radius:4px;transition:width 1.5s ease-out}
+.stat-fill.red{background:linear-gradient(90deg,var(--red),#ff6666)}
+.stat-fill.blue{background:linear-gradient(90deg,var(--blue),#60a5fa)}
+.stat-fill.green{background:linear-gradient(90deg,var(--green),#4ade80)}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--text2);min-width:80px}
+
+.weapons{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.weapon{background:var(--bg3);border:1px solid rgba(200,164,78,.08);border-radius:8px;padding:1.5rem;transition:all .3s}
+.weapon:hover{border-color:var(--accent);background:var(--bg2)}
+.weapon-type{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.weapon-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+.weapon-desc{font-size:.88rem;color:var(--text2);line-height:1.6}
+.weapon-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.65rem;padding:2px 8px;border-radius:3px;margin-top:.5rem;margin-right:.3rem;border:1px solid}
+.weapon-tag.asym{color:var(--green);border-color:rgba(34,197,94,.3)}
+.weapon-tag.trad{color:var(--red);border-color:rgba(220,68,68,.3)}
+.weapon-tag.surv{color:var(--blue);border-color:rgba(59,130,246,.3)}
+.weapon-tag.warn{color:var(--orange);border-color:rgba(245,158,11,.3)}
+
+.toc{background:var(--bg2);border:1px solid rgba(200,164,78,.1);border-radius:12px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.3rem;margin-bottom:1.5rem}
+.toc-part{margin-bottom:1.5rem}
+.toc-part-title{font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.toc-link{display:block;padding:.4rem 0 .4rem 1rem;color:var(--text2);text-decoration:none;font-size:.95rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--accent);border-left-color:var(--accent);padding-left:1.5rem}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(200,164,78,.2),transparent);margin:4rem 0}
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.85rem;background:var(--bg2);border-top:1px solid rgba(200,164,78,.08)}
+.footer strong{color:var(--accent)}
+
+/* GAME / SIMULATION */
+.game-container{background:var(--bg2);border:1px solid rgba(200,164,78,.15);border-radius:12px;overflow:hidden;margin:2.5rem 0}
+.game-header{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(200,164,78,.1);display:flex;justify-content:space-between;align-items:center}
+.game-body{padding:1.5rem}
+.game-btn{font-family:'DM Sans',sans-serif;font-size:.8rem;padding:8px 20px;border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:5px;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.game-btn:hover{background:var(--accent);color:var(--bg)}
+.game-btn.active{background:var(--accent);color:var(--bg)}
+.game-btn.red{border-color:var(--red);color:var(--red)}
+.game-btn.red:hover,.game-btn.red.active{background:var(--red);color:#fff}
+.game-btn.blue{border-color:var(--blue);color:var(--blue)}
+.game-btn.blue:hover,.game-btn.blue.active{background:var(--blue);color:#fff}
+.game-btn.green{border-color:var(--green);color:var(--green)}
+.game-btn.green:hover,.game-btn.green.active{background:var(--green);color:#fff}
+.game-controls{display:flex;gap:.8rem;flex-wrap:wrap;margin:1rem 0}
+.game-log{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--text2);background:var(--bg);border:1px solid rgba(200,164,78,.08);border-radius:6px;padding:1rem;max-height:200px;overflow-y:auto;margin-top:1rem}
+.game-log .entry{padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.02)}
+.game-log .entry.red{color:var(--red)}
+.game-log .entry.blue{color:var(--blue)}
+.game-log .entry.green{color:var(--green)}
+.game-log .entry.gold{color:var(--accent)}
+.game-status{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.8rem;margin:1rem 0}
+.game-stat{background:var(--bg);border:1px solid rgba(200,164,78,.08);border-radius:6px;padding:.8rem;text-align:center}
+.game-stat-val{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700}
+.game-stat-label{font-family:'DM Sans',sans-serif;font-size:.65rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem}
+
+/* BEACH ASSESSMENT */
+.beach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:2rem 0}
+.beach-card{background:var(--bg3);border:1px solid rgba(200,164,78,.08);border-radius:8px;padding:1.2rem;transition:all .3s;cursor:pointer}
+.beach-card:hover{border-color:var(--accent)}
+.beach-card.selected{border-color:var(--red);background:rgba(220,68,68,.05)}
+.beach-name{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:.3rem}
+.beach-loc{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text2);margin-bottom:.5rem}
+.beach-meter{height:4px;background:var(--bg);border-radius:2px;overflow:hidden;margin:.3rem 0}
+.beach-meter-fill{height:100%;border-radius:2px}
+.beach-stat{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text2);display:flex;justify-content:space-between;margin:.2rem 0}
+
+/* GLOSSARY */
+.glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:.8rem;margin:2rem 0}
+.gloss-item{background:var(--bg3);border:1px solid rgba(200,164,78,.06);border-radius:6px;padding:1rem;display:flex;gap:1rem;align-items:flex-start}
+.gloss-en{font-family:'DM Sans',sans-serif;font-size:.9rem;color:#fff;font-weight:600;flex:1}
+.gloss-ru{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--blue);text-align:right;min-width:120px}
+
+/* Responsive */
+@media(max-width:768px){
+.compare{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:3rem 1.2rem}
+.beach-grid{grid-template-columns:1fr}
+.glossary{grid-template-columns:1fr}
+}
+
+.fade-in{opacity:0;transform:translateY(30px);transition:all .8s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Scenario tabs */
+.scenario-tabs{display:flex;gap:0;margin:2rem 0 0;border-bottom:2px solid rgba(200,164,78,.1)}
+.scenario-tab{font-family:'DM Sans',sans-serif;font-size:.8rem;padding:.8rem 1.5rem;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;letter-spacing:.03em}
+.scenario-tab:hover{color:var(--accent)}
+.scenario-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.scenario-content{display:none;padding:1.5rem 0}
+.scenario-content.active{display:block}
+
+/* Collapsible */
+.collapsible{margin:1rem 0}
+.collapsible-header{font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--accent);padding:.8rem 1rem;background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:6px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:all .2s}
+.collapsible-header:hover{border-color:var(--accent)}
+.collapsible-header::after{content:'▸';transition:transform .2s}
+.collapsible-header.open::after{transform:rotate(90deg)}
+.collapsible-body{display:none;padding:1rem;border:1px solid rgba(200,164,78,.05);border-top:none;border-radius:0 0 6px 6px;background:var(--bg2)}
+.collapsible-body.open{display:block}
+
+/* Progress bar for invasion sim */
+.progress-container{margin:1rem 0}
+.progress-label{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);margin-bottom:.3rem;display:flex;justify-content:space-between}
+.progress-bar{height:12px;background:var(--bg);border-radius:6px;overflow:hidden;position:relative}
+.progress-fill{height:100%;border-radius:6px;transition:width .5s ease}
+.progress-bar.striped .progress-fill{background-image:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(0,0,0,.15) 8px,rgba(0,0,0,.15) 16px)}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+<div class="nav-title">The Chinese Invasion Threat — Ian Easton</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#ch1">Ch.1</a><a href="#ch2">Ch.2</a><a href="#ch3">Ch.3</a><a href="#ch4">Ch.4</a>
+<a href="#ch5">Ch.5</a><a href="#ch6">Ch.6</a><a href="#ch7">Ch.7</a><a href="#ch8">Ch.8</a>
+<a href="#sim">Simulation</a>
+<a href="#glossary">Glossary</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="hero-badge">Project 2049 Institute · 2017</div>
+<div class="subtitle">Ian Easton</div>
+<h1>The Chinese Invasion Threat</h1>
+<div class="subtitle" style="font-size:.85rem;color:var(--text2);letter-spacing:.08em">Taiwan's Defense and American Strategy in Asia</div>
+<div class="author">A comprehensive analysis of China's war plans for invading Taiwan,<br>drawn from leaked PLA internal military manuals and Taiwanese intelligence sources.</div>
+<div class="epigraph">
+"14 possible landing beaches, 4 weeks of permissive weather twice a year, and 1,000 individual targets for air strikes in the run-up to an invasion. These are some of the facts and figures readers will take away from this unique and indispensable trove of insights into the PLA's preparations."
+<br><br>—Jacqueline Deal, President, Long Term Strategy Group
+</div>
+<div class="epigraph" style="border-color:var(--red)">
+"This book will refer to the date of a future Chinese invasion of Taiwan as <strong style="color:var(--red)">'Zero Day'</strong> (Z-Day) — a term used by Winston Churchill when discussing a potential Nazi invasion of England."
+<br><br>—Author's Note on Terms
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="section" id="toc">
+<div class="toc">
+<h3 style="color:var(--accent)">Table of Contents · Содержание</h3>
+<div class="toc-part">
+<div class="toc-part-title">The Strategic Context</div>
+<a href="#ch1" class="toc-link">Chapter 1: Why Invade Taiwan? <span class="ru" style="float:right;font-size:.7rem">Зачем вторгаться на Тайвань?</span></a>
+<a href="#ch2" class="toc-link">Chapter 2: An Evolving Flashpoint <span class="ru" style="float:right;font-size:.7rem">Развивающаяся горячая точка</span></a>
+<a href="#ch3" class="toc-link">Chapter 3: Warning Signs <span class="ru" style="float:right;font-size:.7rem">Предупредительные сигналы</span></a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">China's War Plan</div>
+<a href="#ch4" class="toc-link">Chapter 4: China's War Plan <span class="ru" style="float:right;font-size:.7rem">Военный план Китая</span></a>
+<a href="#ch5" class="toc-link">Chapter 5: Planning Problems <span class="ru" style="float:right;font-size:.7rem">Проблемы планирования</span></a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Defense & Strategy</div>
+<a href="#ch6" class="toc-link">Chapter 6: How Taiwan Would Fight <span class="ru" style="float:right;font-size:.7rem">Как Тайвань будет сражаться</span></a>
+<a href="#ch7" class="toc-link">Chapter 7: American Strategy in Asia <span class="ru" style="float:right;font-size:.7rem">Американская стратегия в Азии</span></a>
+<a href="#ch8" class="toc-link">Chapter 8: What Lies Ahead? <span class="ru" style="float:right;font-size:.7rem">Что ждёт впереди?</span></a>
+</div>
+<div class="toc-part">
+<div class="toc-part-title">Interactive Elements</div>
+<a href="#sim" class="toc-link">🎮 Invasion Simulation Game</a>
+<a href="#scenarios" class="toc-link">📋 Five Scenarios Analysis</a>
+<a href="#glossary" class="toc-link">📖 Military Glossary (English–Russian)</a>
+</div>
+</div>
+</section>
+
+<!-- ============ CHAPTER 1 ============ -->
+<section class="section" id="ch1">
+<div class="ch-header">
+<div class="ch-num">Chapter One · Глава Первая</div>
+<div class="ch-title">Why Invade Taiwan?</div>
+<div class="ch-quote">"We will not succumb to pressure from China.... Taiwan is a sovereign, independent country." —ROC President Tsai Ing-wen<br><span class="ru">«Мы не поддадимся давлению Китая... Тайвань — суверенное, независимое государство.»</span></div>
+</div>
+
+<p>Taiwan <span class="ru">Тайвань</span> stands to lose more from the emergence of the People's Republic of China (PRC) <span class="ru">КНР — Китайская Народная Республика</span> as a twenty-first-century superpower than any other country in the world. China's rise threatens the interests of many nations, but only Taiwan has its <strong>life at stake</strong>. Only Taiwan faces the possibility of having its cities bombed, its shores invaded, its president assassinated, and its democracy destroyed.</p>
+
+<p>Authorities in the Chinese Communist Party (CCP) <span class="ru">КПК — Коммунистическая партия Китая</span> are funneling massive national-level resources into a powerful military machine. Their buildup is principally focused on acquiring the capabilities needed to annex Taiwan — what Chinese publications euphemistically call <strong>"achieving national unification"</strong> <span class="ru">«достижение национального объединения»</span>.</p>
+
+<div class="key-point">
+<p><strong>The PLA's central mission:</strong> Since the fall of the Soviet Union, China's military has been driven by the perceived need to get ready for a future war in the Taiwan Strait <span class="ru">Тайваньский пролив</span>. The war plan for fighting a Taiwan "liberation" campaign is tattooed onto the PLA's corporate memory — it defines them and gives their military service purpose and meaning.</p>
+</div>
+
+<p>The Chinese military almost certainly could not prosecute a full-scale invasion of Taiwan today and succeed. Even if a few hawkish generals were prepared to roll the dice, the costs and risks would be enormous and potentially fatal for the regime. PLA strategists know they still have a long way to go before they can execute such a complex campaign. However, trends are not encouraging for Taiwan's defenders.</p>
+
+<h3>Why Taiwan Matters</h3>
+<p>Easton presents multiple reasons why China obsessively pursues Taiwan:</p>
+
+<h4>1. Legitimacy of the CCP Regime</h4>
+<p>The CCP views "recovering" Taiwan as essential to its historical narrative of national rejuvenation <span class="ru">национальное возрождение</span>. The existence of a prosperous, democratic Chinese-speaking society directly across the strait is a living rebuke to the Party's claim that authoritarianism is necessary for Chinese civilization.</p>
+
+<h4>2. Strategic Geography</h4>
+<p>Taiwan sits at the center of the <strong>First Island Chain</strong> <span class="ru">Первая островная цепь</span> — the string of islands running from Japan through Taiwan to the Philippines that constrains China's naval access to the open Pacific. Controlling Taiwan would break this chain and give the PLA Navy unrestricted access to the Pacific Ocean.</p>
+
+<h4>3. The Semiconductor Factor</h4>
+<p>Taiwan produces over 60% of the world's advanced semiconductors through TSMC. Control of Taiwan would give Beijing enormous leverage over the global technology supply chain.</p>
+
+<h4>4. Domino Effect</h4>
+<p>If Taiwan falls, Japan's southern flank would be exposed, the credibility of U.S. alliances across Asia would collapse, and countries from South Korea to the Philippines would be forced to accommodate Beijing's demands.</p>
+
+<!-- FIRST ISLAND CHAIN MAP -->
+<div class="map-container">
+<div class="map-label">Strategic Map — Taiwan's Position in the First Island Chain · Первая островная цепь</div>
+<svg class="map-svg" viewBox="0 0 800 520" style="background:#0d1520">
+<rect width="800" height="520" fill="#0d1520"/>
+<g stroke="rgba(200,164,78,0.04)" stroke-width="0.5">
+<line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+<line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+<line x1="200" y1="0" x2="200" y2="520"/><line x1="400" y1="0" x2="400" y2="520"/>
+<line x1="600" y1="0" x2="600" y2="520"/>
+</g>
+<!-- China mainland -->
+<path d="M0,30 L160,35 L180,60 L195,100 L185,160 L195,220 L175,270 L185,330 L170,390 L150,440 L110,500 L0,520Z" fill="#1a2535" stroke="rgba(220,68,68,0.25)" stroke-width="1.5"/>
+<text x="70" y="230" fill="rgba(220,68,68,0.6)" font-family="DM Sans" font-size="16" font-weight="700" text-anchor="middle">CHINA</text>
+<text x="70" y="250" fill="rgba(220,68,68,0.3)" font-family="JetBrains Mono" font-size="8" text-anchor="middle">Китай · КНР</text>
+<!-- Staging areas -->
+<circle cx="185" cy="160" r="5" fill="rgba(220,68,68,0.4)"/><text x="175" y="148" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="6" text-anchor="end">Ningbo 宁波</text>
+<circle cx="195" cy="220" r="5" fill="rgba(220,68,68,0.4)"/><text x="185" y="210" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="6" text-anchor="end">Fuzhou 福州</text>
+<circle cx="175" cy="270" r="5" fill="rgba(220,68,68,0.4)"/><text x="165" y="260" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="6" text-anchor="end">Xiamen 厦门</text>
+<circle cx="155" cy="320" r="4" fill="rgba(220,68,68,0.3)"/><text x="145" y="310" fill="rgba(220,68,68,0.4)" font-family="DM Sans" font-size="6" text-anchor="end">Shantou 汕头</text>
+<!-- Taiwan -->
+<path d="M330,175 L348,163 L358,180 L363,215 L360,255 L350,285 L337,302 L327,296 L322,262 L320,222 L324,190Z" fill="#1e3a2e" stroke="rgba(34,197,94,0.5)" stroke-width="2"/>
+<text x="342" y="240" fill="rgba(34,197,94,0.9)" font-family="DM Sans" font-size="12" font-weight="700" text-anchor="middle">TAIWAN</text>
+<text x="342" y="255" fill="rgba(34,197,94,0.5)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">Тайвань · ROC</text>
+<!-- Taipei marker -->
+<circle cx="337" cy="183" r="3" fill="var(--green)"/>
+<text x="352" y="178" fill="rgba(34,197,94,0.7)" font-family="DM Sans" font-size="7">Taipei 台北</text>
+<!-- Taiwan Strait -->
+<text x="260" y="230" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="9" text-anchor="middle" transform="rotate(-12,260,230)">TAIWAN STRAIT</text>
+<text x="260" y="245" fill="rgba(59,130,246,0.25)" font-family="DM Sans" font-size="7" text-anchor="middle" transform="rotate(-12,260,245)">~130 km · Тайваньский пролив</text>
+<!-- Japan -->
+<path d="M490,20 L510,15 L520,30 L515,60 L505,85 L490,80 L486,55Z" fill="#1a2535" stroke="rgba(200,164,78,0.2)" stroke-width="1"/>
+<text x="500" y="52" fill="rgba(200,164,78,0.5)" font-family="DM Sans" font-size="9" text-anchor="middle">JAPAN</text>
+<text x="500" y="64" fill="rgba(200,164,78,0.3)" font-family="JetBrains Mono" font-size="6" text-anchor="middle">Япония</text>
+<!-- Okinawa -->
+<ellipse cx="445" cy="125" rx="16" ry="5" fill="#1a2535" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+<text x="445" y="112" fill="rgba(59,130,246,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">Okinawa (US bases)</text>
+<text x="445" y="100" fill="rgba(59,130,246,0.3)" font-family="JetBrains Mono" font-size="6" text-anchor="middle">Окинава</text>
+<!-- Philippines -->
+<path d="M370,410 L392,398 L402,420 L396,455 L380,465 L365,442Z" fill="#1a2535" stroke="rgba(200,164,78,0.2)" stroke-width="1"/>
+<text x="384" y="435" fill="rgba(200,164,78,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle">Philippines</text>
+<text x="384" y="448" fill="rgba(200,164,78,0.25)" font-family="JetBrains Mono" font-size="6" text-anchor="middle">Филиппины</text>
+<!-- First Island Chain -->
+<path d="M510,15 Q470,90 445,125 Q410,195 350,302 Q370,370 385,400" fill="none" stroke="rgba(200,164,78,0.45)" stroke-width="2" stroke-dasharray="8,4"/>
+<text x="430" y="340" fill="rgba(200,164,78,0.5)" font-family="DM Sans" font-size="9" font-weight="600" transform="rotate(-55,430,340)">FIRST ISLAND CHAIN</text>
+<text x="415" y="355" fill="rgba(200,164,78,0.3)" font-family="JetBrains Mono" font-size="6" transform="rotate(-55,415,355)">Первая островная цепь</text>
+<!-- Second Island Chain -->
+<path d="M700,15 Q680,140 655,245 Q635,350 595,500" fill="none" stroke="rgba(200,164,78,0.12)" stroke-width="1" stroke-dasharray="5,5"/>
+<text x="660" y="290" fill="rgba(200,164,78,0.2)" font-family="DM Sans" font-size="7" transform="rotate(-78,660,290)">SECOND ISLAND CHAIN</text>
+<!-- Guam -->
+<circle cx="695" cy="275" r="4" fill="#1a2535" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+<text x="695" y="264" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Guam (US) · Гуам</text>
+<!-- PLA missile range circles -->
+<circle cx="190" cy="230" r="160" fill="none" stroke="rgba(220,68,68,0.12)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="340" y="105" fill="rgba(220,68,68,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">Short-Range Ballistic Missiles</text>
+<circle cx="190" cy="230" r="360" fill="none" stroke="rgba(220,68,68,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
+<!-- Invasion arrows -->
+<defs><marker id="arrowR" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="rgba(220,68,68,0.35)"/></marker></defs>
+<path d="M200,190 Q260,185 315,185" stroke="rgba(220,68,68,0.25)" stroke-width="1.5" fill="none" marker-end="url(#arrowR)" stroke-dasharray="4,3"/>
+<path d="M200,230 Q260,230 318,235" stroke="rgba(220,68,68,0.25)" stroke-width="1.5" fill="none" marker-end="url(#arrowR)" stroke-dasharray="4,3"/>
+<path d="M185,275 Q250,280 320,275" stroke="rgba(220,68,68,0.25)" stroke-width="1.5" fill="none" marker-end="url(#arrowR)" stroke-dasharray="4,3"/>
+<!-- Legend -->
+<rect x="555" y="25" width="225" height="145" rx="5" fill="rgba(10,12,16,0.85)" stroke="rgba(200,164,78,0.1)"/>
+<text x="572" y="46" fill="var(--accent)" font-family="DM Sans" font-size="8" font-weight="700">LEGEND · ЛЕГЕНДА</text>
+<line x1="572" y1="62" x2="598" y2="62" stroke="rgba(200,164,78,0.45)" stroke-width="2" stroke-dasharray="8,4"/>
+<text x="606" y="65" fill="rgba(200,164,78,0.6)" font-family="DM Sans" font-size="7">First Island Chain · 1-я цепь</text>
+<circle cx="585" cy="82" r="3" fill="none" stroke="rgba(220,68,68,0.3)" stroke-width="1"/>
+<text x="606" y="85" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="7">PLA Missile Range · Дальность ракет</text>
+<line x1="572" y1="102" x2="598" y2="102" stroke="rgba(34,197,94,0.5)" stroke-width="2"/>
+<text x="606" y="105" fill="rgba(34,197,94,0.5)" font-family="DM Sans" font-size="7">Taiwan (ROC) · Тайвань</text>
+<line x1="572" y1="122" x2="598" y2="122" stroke="rgba(220,68,68,0.3)" stroke-width="1.5"/>
+<text x="606" y="125" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="7">PRC Territory · Территория КНР</text>
+<circle cx="585" cy="140" r="4" fill="rgba(220,68,68,0.4)"/>
+<text x="606" y="143" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="7">PLA Staging Areas · Базы НОАК</text>
+<path d="M572,158 L598,158" stroke="rgba(220,68,68,0.25)" stroke-width="1.5" marker-end="url(#arrowR)" stroke-dasharray="4,3"/>
+<text x="606" y="161" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="7">Invasion Axes · Оси вторжения</text>
+</svg>
+</div>
+
+<h3>The Central Question</h3>
+<p>Easton frames the book around three sets of questions: <strong>(1)</strong> How do internal Chinese military writings depict the campaign to conquer Taiwan? <strong>(2)</strong> How does Taiwan's military plan to defend the island? How long could they hold out before American assistance is required? <strong>(3)</strong> What are the implications for American strategy in Asia?</p>
+
+<div class="warning-box">
+<p><strong>Easton's core argument:</strong> The PRC is actively planning and preparing for invasion scenarios against Taiwan. The war plan is not theoretical — it is maintained, updated, and rehearsed at the highest levels of the PLA. Deterrence of this invasion should be the primary objective of both Taiwan and the United States.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ CHAPTER 2 ============ -->
+<section class="section" id="ch2">
+<div class="ch-header">
+<div class="ch-num">Chapter Two · Глава Вторая</div>
+<div class="ch-title">An Evolving Flashpoint</div>
+<div class="ch-quote">"Taiwan must be liberated! We must liberate Taiwan." —CCP Propaganda Slogan<br><span class="ru">«Тайвань должен быть освобождён! Мы должны освободить Тайвань.»</span></div>
+</div>
+
+<p>The PLA's strategy for conquering Taiwan was first developed from June 1949 to June 1950. Generals under Mao Zedong undertook intensive battle planning for what was to become the PRC's formative strategic challenge.</p>
+
+<h3>The Korean War Intervention</h3>
+<p>An unexpected turn of history kept Mao from executing his invasion plan. On June 25, 1950, North Korea invaded South Korea, and President Truman ordered the <strong>U.S. Seventh Fleet</strong> <span class="ru">7-й флот ВМС США</span> to prevent a possible Chinese invasion across the Taiwan Strait. The PRC aborted the Taiwan invasion and redeployed forces to Korea. Operations to conquer Taiwan were postponed — but not forgotten.</p>
+
+<h3>Historical Timeline of the Cross-Strait Conflict</h3>
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1949</div><div class="tl-text">PRC founded. Mao begins planning Taiwan invasion. ROC government retreats to Taiwan. <span class="ru">Основание КНР. Мао начинает планирование вторжения.</span></div></div>
+<div class="tl-item"><div class="tl-year">1950</div><div class="tl-text">Korean War erupts — U.S. 7th Fleet deployed to Taiwan Strait. Invasion plan aborted. <span class="ru">Корейская война — 7-й флот США развёрнут в Тайваньском проливе.</span></div></div>
+<div class="tl-item"><div class="tl-year">1954</div><div class="tl-text">First Taiwan Strait Crisis. U.S.-ROC Mutual Defense Treaty signed. <span class="ru">Первый Тайваньский кризис. Подписан Договор о взаимной обороне.</span></div></div>
+<div class="tl-item"><div class="tl-year">1955</div><div class="tl-text">PLA seizes Yijiangshan Islands — Taiwan's first territorial loss. <span class="ru">НОАК захватывает острова Ицзяншань.</span></div></div>
+<div class="tl-item"><div class="tl-year">1958</div><div class="tl-text">Second Taiwan Strait Crisis — massive artillery bombardment of Kinmen (Quemoy). <span class="ru">Второй Тайваньский кризис — артобстрел острова Цзиньмэнь.</span></div></div>
+<div class="tl-item"><div class="tl-year">1971</div><div class="tl-text">ROC expelled from the United Nations. <span class="ru">Китайская Республика исключена из ООН.</span></div></div>
+<div class="tl-item"><div class="tl-year">1979</div><div class="tl-text">U.S. switches recognition to PRC. Mutual Defense Treaty terminated. Taiwan Relations Act (TRA) passed. <span class="ru">США признают КНР. Принят Закон об отношениях с Тайванем.</span></div></div>
+<div class="tl-item"><div class="tl-year">1995–96</div><div class="tl-text">Third Taiwan Strait Crisis — PLA missile tests near Taiwan. U.S. deploys two carrier battle groups. <span class="ru">Третий Тайваньский кризис — ракетные испытания НОАК.</span></div></div>
+<div class="tl-item"><div class="tl-year">2005</div><div class="tl-text">China passes Anti-Secession Law — legally reserving right to use force. <span class="ru">Китай принимает Закон о противодействии расколу государства.</span></div></div>
+<div class="tl-item"><div class="tl-year">2012</div><div class="tl-text">Xi Jinping takes power. Launches massive PLA modernization. <span class="ru">Си Цзиньпин приходит к власти.</span></div></div>
+<div class="tl-item"><div class="tl-year">2017</div><div class="tl-text">Easton publishes this book. PLA continues accelerating buildup. <span class="ru">Истон публикует эту книгу.</span></div></div>
+</div>
+
+<h3>The Spy Who Saved Taiwan</h3>
+<p>Easton reveals a previously little-known episode: in the early 1950s, the Kuomintang's intelligence services uncovered and dismantled a <strong>CCP spy ring</strong> operating within Taiwan's military. Had this espionage network succeeded, it could have facilitated a communist takeover from within. The spy case, led by CCP agent <strong>Cai Xiaoqian</strong>, aimed to subvert Taiwan's military from the inside — demonstrating that even at Taiwan's most vulnerable moment, the threat extended beyond military invasion to political subversion <span class="ru">политическая подрывная деятельность</span>.</p>
+
+<h3>The 1995-96 Crisis</h3>
+<p>When Taiwan's President Lee Teng-hui visited Cornell University in 1995, Beijing was furious. The PLA launched missile tests into waters near Taiwan, simulating a blockade. President Clinton responded by deploying <strong>two carrier battle groups</strong> <span class="ru">две авианосные ударные группы</span> near Taiwan — the largest American military deployment in Asia since Vietnam. China deescalated, but the crisis fundamentally reshaped cross-strait dynamics:</p>
+
+<div class="key-point">
+<p><strong>After the 1996 crisis:</strong> China began sharply ramping up military spending. Advanced weapons systems poured in from Russia. The PLA was downsized and restructured to become more lethal. Two decades later, the amphibious threat facing Taiwan appeared increasingly credible. The probability appears to be growing that at some point in the 2020s, China's military could be ready to launch a cross-Strait invasion.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ CHAPTER 3 ============ -->
+<section class="section" id="ch3">
+<div class="ch-header">
+<div class="ch-num">Chapter Three · Глава Третья</div>
+<div class="ch-title">Warning Signs</div>
+<div class="ch-quote">"The issue of political disagreements that exist between the two sides must reach a final resolution... these issues cannot be passed on from generation to generation." —Xi Jinping<br><span class="ru">«Вопрос политических разногласий между двумя сторонами должен быть окончательно решён...»</span></div>
+</div>
+
+<p>It is sometimes assumed that China could mount a <strong>surprise attack</strong> <span class="ru">внезапное нападение</span> on Taiwan with little or no warning. However, Easton argues this assumption deserves close scrutiny. An amphibious invasion of the scale required to conquer Taiwan would produce enormous observable indicators — making true strategic surprise extremely difficult.</p>
+
+<h3>Indications and Warning (I&W)</h3>
+<p>Drawing on Cynthia Grabo's seminal work <em>Anticipating Surprise</em>, Easton outlines the intelligence process of <strong>indications and warning</strong> <span class="ru">обнаружение и предупреждение</span>: evidence that China is preparing to attack. An indication can be "an absence of something, a fragment of information, a photograph, a propaganda broadcast, a call-up of reservists, a deployment of forces, or anything else."</p>
+
+<h3>What to Watch For</h3>
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--red)">
+<div class="phase-num">⚠</div>
+<div class="phase-name">Political Signals</div>
+<div class="phase-desc">Heightened propaganda, diplomatic messaging, "red line" declarations, evacuation of PRC citizens from Taiwan, closure of cross-strait communications.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--orange)">
+<div class="phase-num">⚠</div>
+<div class="phase-name">Military Mobilization</div>
+<div class="phase-desc">Large-scale troop movements to coastal areas, activation of reserve and militia forces, call-up of civilian shipping, stockpiling of supplies at staging areas.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">⚠</div>
+<div class="phase-name">Naval Preparations</div>
+<div class="phase-desc">Concentration of amphibious shipping at Fujian and Zhejiang ports, submarine deployment, mine warfare preparations, commercial shipping commandeered.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">⚠</div>
+<div class="phase-name">Cyber & Information</div>
+<div class="phase-desc">Intensified cyber attacks on Taiwan's infrastructure, information warfare campaigns, GPS interference, communications jamming tests.</div>
+</div>
+</div>
+
+<h3>Mobilization Timeline</h3>
+<p>A PLA invasion would require <strong>weeks to months</strong> of visible preparation: moving hundreds of thousands of troops and equipment to coastal staging areas; loading thousands of ships; conducting large-scale amphibious exercises (which could serve as cover for the real operation); and restricting international shipping traffic near assembly areas.</p>
+
+<div class="intel-box">
+<p>According to a Taiwanese military textbook scenario presented to officer candidates: authoritative tactical warning information comes from <strong>American intelligence authorities</strong>, who confirm that Taipei's worst nightmare is about to come true — the exercises are actually a cover story, and China's real intention is to invade Taiwan. Within hours of Washington's message, Taiwan's president orders the military to its highest state of alert. All reservists are activated, fully mobilizing millions of men.</p>
+</div>
+
+<div class="concept-box">
+<p><strong>Key insight:</strong> True strategic surprise against Taiwan is extremely difficult because the scale of preparations required is enormous. The PLA would need to mobilize so many forces, ships, and aircraft that concealment from satellite reconnaissance and signals intelligence would be nearly impossible. The real danger is not surprise, but rather the interpretation of warning signs — analysts might see the indicators but dismiss or misinterpret them.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ CHAPTER 4 ============ -->
+<section class="section" id="ch4">
+<div class="ch-header">
+<div class="ch-num">Chapter Four · Глава Четвёртая</div>
+<div class="ch-title">China's War Plan</div>
+<div class="ch-quote">"Only by militarily occupying The Island can we fundamentally conquer the 'separatist' force's natural living space, and totally end the long military standoff across the Strait." —PLA Field Manual<br><span class="ru">«Только военная оккупация Острова позволит окончательно уничтожить жизненное пространство „сепаратистских" сил.» — Полевой устав НОАК</span></div>
+</div>
+
+<p>Easton draws on <strong>leaked internal PLA military manuals</strong> <span class="ru">секретные военные уставы НОАК</span> and Taiwanese intelligence to reconstruct what he calls the <strong>Joint Island Attack Campaign</strong> <span class="ru">Совместная операция по захвату острова</span> — China's operational plan for conquering Taiwan. This chapter represents the most detailed English-language account of PLA invasion planning ever published.</p>
+
+<h3>The Three Phases of Invasion</h3>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--red)">
+<div class="phase-num">I</div>
+<div class="phase-name">Blockade & Bombing</div>
+<div class="phase-desc">Obtain control over airwaves, airspace, and seascapes. Massed missile raids, electronic warfare, air superiority, naval blockade. <br><span class="ru">Блокада и бомбардировка</span></div>
+</div>
+<div class="phase" style="border-top:3px solid var(--orange)">
+<div class="phase-num">II</div>
+<div class="phase-name">Amphibious Landing</div>
+<div class="phase-desc">Capture beaches, ports, and airfields near Taipei. Mine clearing, surprise assaults, multiple amphibious divisions in two major waves. <br><span class="ru">Высадка морского десанта</span></div>
+</div>
+<div class="phase" style="border-top:3px solid var(--dark-red)">
+<div class="phase-num">III</div>
+<div class="phase-name">Island Combat</div>
+<div class="phase-desc">Occupy Taiwan. Capture Taipei, institute martial law, clear defenders from mountains and cities. <br><span class="ru">Бои на острове</span></div>
+</div>
+</div>
+
+<h3>Phase 1: The Opening Barrage</h3>
+<p>The war would begin with a <strong>massive missile and electronic warfare assault</strong>. PLA writings envision:</p>
+
+<div class="weapons">
+<div class="weapon">
+<div class="weapon-type">First Strike · Первый удар</div>
+<div class="weapon-name">Decapitation Strikes</div>
+<div class="weapon-desc">Cruise and ballistic missiles targeting the <strong>Presidential Office Building</strong>, Executive Yuan, Ministry of Foreign Affairs, and other government buildings. The goal: assassinate leaders and destroy command structures within the first hours.</div>
+<div class="weapon-tag trad">Phase 1</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Electronic Warfare · Радиоэлектронная борьба</div>
+<div class="weapon-name">Cyber & EMP Attacks</div>
+<div class="weapon-desc">High-powered microwave and laser weapons to damage computer hardware. Massive cyber attacks on infrastructure. Communications and internet disruption. <span class="ru">Кибератаки и электромагнитные удары</span></div>
+<div class="weapon-tag trad">Phase 1</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Infrastructure Destruction</div>
+<div class="weapon-name">Critical Systems Targeting</div>
+<div class="weapon-desc">Oil refineries, tank farms, power plants, electrical transformers, and command nodes in the power grid. Taiwan's air bases would be cratered to prevent fighter operations.</div>
+<div class="weapon-tag trad">Phase 1</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Military Targets</div>
+<div class="weapon-name">Command Bunker Strikes</div>
+<div class="weapon-desc">Missiles targeting Hengshan Mountain joint command complex, MND headquarters, Army/Navy/Air Force commands. Penetrating "bunker buster" bombs against underground facilities. <span class="ru">Удары по командным бункерам</span></div>
+<div class="weapon-tag trad">Phase 1</div>
+</div>
+</div>
+
+<h3>Phase 2: The Amphibious Assault</h3>
+<p>After establishing air and sea dominance, the PLA would launch its invasion fleet across the Taiwan Strait — the most complex and dangerous military operation imaginable. Easton details the force structure:</p>
+
+<h4>Eastern Theater Command <span class="ru">Восточное оперативное командование</span></h4>
+<p>The primary command for Taiwan operations, headquartered in Nanjing. In wartime, it would likely become the <strong>Joint Taiwan Attack Command</strong> with forces from other theaters assigned to it by the Central Military Commission (CMC) <span class="ru">Центральная военная комиссия (ЦВК)</span>.</p>
+
+<h4>Key Invasion Forces</h4>
+<div class="stat-bar"><div class="stat-label">Ground Forces</div><div class="stat-track"><div class="stat-fill red" style="width:85%"></div></div><div class="stat-val">6+ Group Armies</div></div>
+<div class="stat-bar"><div class="stat-label">Amphibious Units</div><div class="stat-track"><div class="stat-fill red" style="width:60%"></div></div><div class="stat-val">Multiple Divisions</div></div>
+<div class="stat-bar"><div class="stat-label">Marine Brigades</div><div class="stat-track"><div class="stat-fill red" style="width:40%"></div></div><div class="stat-val">1st & 2nd Marine Bde</div></div>
+<div class="stat-bar"><div class="stat-label">Airborne</div><div class="stat-track"><div class="stat-fill red" style="width:50%"></div></div><div class="stat-val">15th Airborne Corps</div></div>
+<div class="stat-bar"><div class="stat-label">Naval (East Sea Fleet)</div><div class="stat-track"><div class="stat-fill red" style="width:70%"></div></div><div class="stat-val">18 subs, 28 destroyers/frigates</div></div>
+<div class="stat-bar"><div class="stat-label">Air Force</div><div class="stat-track"><div class="stat-fill red" style="width:75%"></div></div><div class="stat-val">3 fighter + 1 bomber div</div></div>
+<div class="stat-bar"><div class="stat-label">Rocket Force</div><div class="stat-track"><div class="stat-fill red" style="width:65%"></div></div><div class="stat-val">Base 52 (missiles)</div></div>
+
+<h3>Phase 3: Seizing Taiwan</h3>
+<p>Once beachheads are established, the PLA plan calls for: <strong>securing footholds → building up landing zones → capturing strategic terrain → capturing Taipei and major cities → instituting martial law → clearing defenders from mountains</strong>. PLA writings express deep concern about Taiwan's urban warfare capabilities and mountain defenses.</p>
+
+<!-- WAR PLAN MAP -->
+<div class="map-container">
+<div class="map-label">China's War Plan — Joint Island Attack Campaign · Совместная операция по захвату острова</div>
+<svg class="map-svg" viewBox="0 0 800 450" style="background:#0d1520">
+<rect width="800" height="450" fill="#0d1520"/>
+<!-- Phase zones -->
+<rect x="0" y="0" width="250" height="450" fill="rgba(220,68,68,0.03)"/>
+<rect x="250" y="0" width="200" height="450" fill="rgba(245,158,11,0.03)"/>
+<rect x="450" y="0" width="350" height="450" fill="rgba(200,164,78,0.03)"/>
+<!-- Phase labels -->
+<text x="125" y="25" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="600">PHASE 1: BLOCKADE & BOMBING</text>
+<text x="125" y="38" fill="rgba(220,68,68,0.3)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">Блокада и бомбардировка</text>
+<text x="350" y="25" fill="rgba(245,158,11,0.5)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="600">PHASE 2: AMPHIBIOUS LANDING</text>
+<text x="350" y="38" fill="rgba(245,158,11,0.3)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">Высадка морского десанта</text>
+<text x="625" y="25" fill="rgba(200,164,78,0.5)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="600">PHASE 3: ISLAND COMBAT</text>
+<text x="625" y="38" fill="rgba(200,164,78,0.3)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">Бои на острове</text>
+<!-- China coast -->
+<rect x="0" y="60" width="100" height="340" rx="3" fill="#1a2535" stroke="rgba(220,68,68,0.2)" stroke-width="1"/>
+<text x="50" y="230" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="13" text-anchor="middle" font-weight="700">PRC</text>
+<!-- Staging areas -->
+<rect x="105" y="100" width="70" height="25" rx="3" fill="rgba(220,68,68,0.1)" stroke="rgba(220,68,68,0.2)"/>
+<text x="140" y="116" fill="rgba(220,68,68,0.6)" font-family="DM Sans" font-size="7" text-anchor="middle">Staging Areas</text>
+<rect x="105" y="180" width="70" height="25" rx="3" fill="rgba(220,68,68,0.1)" stroke="rgba(220,68,68,0.2)"/>
+<text x="140" y="196" fill="rgba(220,68,68,0.6)" font-family="DM Sans" font-size="7" text-anchor="middle">Naval Assembly</text>
+<rect x="105" y="260" width="70" height="25" rx="3" fill="rgba(220,68,68,0.1)" stroke="rgba(220,68,68,0.2)"/>
+<text x="140" y="276" fill="rgba(220,68,68,0.6)" font-family="DM Sans" font-size="7" text-anchor="middle">Air Bases</text>
+<!-- Missiles arcing over -->
+<path d="M130,100 Q250,50 530,130" fill="none" stroke="rgba(220,68,68,0.3)" stroke-width="1" stroke-dasharray="3,2"/>
+<path d="M130,120 Q250,70 530,160" fill="none" stroke="rgba(220,68,68,0.3)" stroke-width="1" stroke-dasharray="3,2"/>
+<path d="M140,260 Q280,200 530,200" fill="none" stroke="rgba(220,68,68,0.2)" stroke-width="1" stroke-dasharray="3,2"/>
+<!-- Invasion fleet arrows -->
+<defs><marker id="arrowO" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="rgba(245,158,11,0.5)"/></marker></defs>
+<path d="M180,112 L450,150" stroke="rgba(245,158,11,0.3)" stroke-width="2" fill="none" marker-end="url(#arrowO)"/>
+<path d="M180,192 L450,220" stroke="rgba(245,158,11,0.3)" stroke-width="2" fill="none" marker-end="url(#arrowO)"/>
+<path d="M180,272 L450,300" stroke="rgba(245,158,11,0.3)" stroke-width="2" fill="none" marker-end="url(#arrowO)"/>
+<!-- Ship icons -->
+<g fill="rgba(245,158,11,0.4)">
+<rect x="280" y="140" width="12" height="5" rx="2"/><rect x="310" y="150" width="12" height="5" rx="2"/>
+<rect x="290" y="185" width="12" height="5" rx="2"/><rect x="320" y="195" width="12" height="5" rx="2"/>
+<rect x="270" y="265" width="12" height="5" rx="2"/><rect x="300" y="275" width="12" height="5" rx="2"/>
+</g>
+<!-- Taiwan -->
+<path d="M470,90 L495,78 L510,100 L518,160 L515,220 L505,280 L488,320 L475,312 L468,260 L465,195 L467,120Z" fill="#1e3a2e" stroke="rgba(34,197,94,0.4)" stroke-width="2"/>
+<text x="490" y="200" fill="rgba(34,197,94,0.7)" font-family="DM Sans" font-size="11" text-anchor="middle" font-weight="700">TAIWAN</text>
+<!-- Taipei -->
+<circle cx="488" cy="105" r="5" fill="rgba(34,197,94,0.6)" stroke="rgba(34,197,94,0.3)"/>
+<text x="504" y="100" fill="rgba(34,197,94,0.8)" font-family="DM Sans" font-size="8" font-weight="600">TAIPEI</text>
+<text x="504" y="111" fill="rgba(34,197,94,0.4)" font-family="DM Sans" font-size="6">Primary Target</text>
+<!-- Landing beaches markers -->
+<g>
+<circle cx="467" cy="130" r="3" fill="rgba(245,158,11,0.6)"/><text x="455" y="128" fill="rgba(245,158,11,0.5)" font-family="DM Sans" font-size="5" text-anchor="end">Beach 1</text>
+<circle cx="465" cy="160" r="3" fill="rgba(245,158,11,0.6)"/><text x="453" y="158" fill="rgba(245,158,11,0.5)" font-family="DM Sans" font-size="5" text-anchor="end">Beach 2</text>
+<circle cx="475" cy="240" r="3" fill="rgba(245,158,11,0.5)"/><text x="463" y="238" fill="rgba(245,158,11,0.4)" font-family="DM Sans" font-size="5" text-anchor="end">Beach 3</text>
+<circle cx="488" cy="305" r="3" fill="rgba(245,158,11,0.4)"/><text x="476" y="303" fill="rgba(245,158,11,0.3)" font-family="DM Sans" font-size="5" text-anchor="end">Beach 4</text>
+</g>
+<!-- Phase 3 arrows inland -->
+<defs><marker id="arrowG" markerWidth="5" markerHeight="3" refX="4" refY="1.5" orient="auto"><path d="M0,0 L5,1.5 L0,3" fill="rgba(200,164,78,0.4)"/></marker></defs>
+<path d="M510,100 L580,100" stroke="rgba(200,164,78,0.3)" stroke-width="1.5" fill="none" marker-end="url(#arrowG)"/>
+<path d="M520,160 L600,170" stroke="rgba(200,164,78,0.2)" stroke-width="1" fill="none" marker-end="url(#arrowG)"/>
+<path d="M520,220 L600,230" stroke="rgba(200,164,78,0.2)" stroke-width="1" fill="none" marker-end="url(#arrowG)"/>
+<!-- Urban warfare zones -->
+<rect x="560" y="85" width="80" height="35" rx="4" fill="rgba(200,164,78,0.05)" stroke="rgba(200,164,78,0.15)"/>
+<text x="600" y="102" fill="rgba(200,164,78,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">Urban Combat</text>
+<text x="600" y="113" fill="rgba(200,164,78,0.3)" font-family="JetBrains Mono" font-size="6" text-anchor="middle">Городские бои</text>
+<!-- Mountain zone -->
+<path d="M540,150 L560,120 L580,145 L600,115 L620,140 L640,110 L660,135 L680,160 L660,200 L640,240 L620,280 L580,310 L560,280 L540,250 L535,200Z" fill="rgba(200,164,78,0.03)" stroke="rgba(200,164,78,0.08)" stroke-width="1"/>
+<text x="610" y="210" fill="rgba(200,164,78,0.3)" font-family="DM Sans" font-size="8" text-anchor="middle">Central Mountain</text>
+<text x="610" y="222" fill="rgba(200,164,78,0.3)" font-family="DM Sans" font-size="8" text-anchor="middle">Range</text>
+<text x="610" y="236" fill="rgba(200,164,78,0.2)" font-family="JetBrains Mono" font-size="6" text-anchor="middle">Центральный хребет</text>
+<!-- Legend -->
+<rect x="625" y="310" width="165" height="110" rx="5" fill="rgba(10,12,16,0.85)" stroke="rgba(200,164,78,0.1)"/>
+<text x="640" y="328" fill="var(--accent)" font-family="DM Sans" font-size="7" font-weight="700">WAR PLAN PHASES</text>
+<path d="M640,342 L660,342" stroke="rgba(220,68,68,0.3)" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="668" y="345" fill="rgba(220,68,68,0.5)" font-family="DM Sans" font-size="6">Missile strikes</text>
+<path d="M640,358 L660,358" stroke="rgba(245,158,11,0.3)" stroke-width="2" marker-end="url(#arrowO)"/>
+<text x="668" y="361" fill="rgba(245,158,11,0.5)" font-family="DM Sans" font-size="6">Invasion fleet</text>
+<circle cx="650" cy="375" r="3" fill="rgba(245,158,11,0.6)"/>
+<text x="668" y="378" fill="rgba(245,158,11,0.5)" font-family="DM Sans" font-size="6">Landing beaches</text>
+<path d="M640,392 L660,392" stroke="rgba(200,164,78,0.3)" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<text x="668" y="395" fill="rgba(200,164,78,0.5)" font-family="DM Sans" font-size="6">Inland advance</text>
+<circle cx="650" cy="408" r="4" fill="rgba(34,197,94,0.5)"/>
+<text x="668" y="411" fill="rgba(34,197,94,0.5)" font-family="DM Sans" font-size="6">Key targets</text>
+</svg>
+</div>
+
+<div class="warning-box">
+<p><strong>PLA's own assessment:</strong> A prolonged and bloody fight is expected which could easily result in stalemate or defeat. China's top military strategists recognize this would be the most complex operation in modern military history — far exceeding D-Day in difficulty. The PLA "hardly expects to be able to run over Taiwan's defenders and capture the island in a few days' time."</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ CHAPTER 5 ============ -->
+<section class="section" id="ch5">
+<div class="ch-header">
+<div class="ch-num">Chapter Five · Глава Пятая</div>
+<div class="ch-title">Planning Problems</div>
+<div class="ch-quote">"No plan of operations extends with any certainty beyond first contact with the main hostile force." —Field Marshal Moltke the Elder<br><span class="ru">«Ни один план операций не выдерживает первого столкновения с главными силами противника.» — Мольтке Старший</span></div>
+</div>
+
+<p>If China ever puts its war plan into action, PLA generals will face a large number of problems with no easy solutions. Easton identifies <strong>three critical planning challenges</strong>: <strong>WHERE</strong> to land, <strong>WHEN</strong> to attack, and <strong>WHO</strong> leads the assault.</p>
+
+<h3>Problem 1: Where to Land — The 14 Beaches</h3>
+<p>Taiwan has only <strong>14 potential invasion beaches</strong> <span class="ru">14 потенциальных пляжей для высадки</span>, and all are well-known to both sides. The principal factors in selecting landing sites are: suitable beach geography, proximity to airfields and ports, distance from Taipei (the main prize), length of voyage across the Strait, and nature of inland terrain for subsequent operations.</p>
+
+<!-- BEACH ASSESSMENT INTERACTIVE -->
+<div class="game-container" id="beach-game">
+<div class="game-header">
+<span>🏖️ INTERACTIVE: Assess Taiwan's 14 Landing Beaches · Оценка пляжей для высадки</span>
+<span style="font-size:.6rem;color:var(--text2)">Click beaches to see PLA assessment</span>
+</div>
+<div class="game-body">
+<div class="beach-grid" id="beachGrid">
+<!-- Beaches will be populated by JS -->
+</div>
+<div id="beachDetail" style="display:none;margin-top:1rem;padding:1rem;background:var(--bg);border:1px solid rgba(200,164,78,.1);border-radius:6px">
+</div>
+</div>
+</div>
+
+<h3>Problem 2: When to Attack — Weather Windows</h3>
+<p>It is sometimes assumed China could invade Taiwan whenever it wanted. <strong>Nothing could be farther from the truth.</strong> The complexity of natural conditions means finding a good Z-Day is extraordinarily difficult.</p>
+
+<div class="key-point">
+<p><strong>The Taiwan Strait has only approximately 4 weeks of permissive weather per year</strong> — roughly two 2-week windows in April and October. The factors include: monsoon seasons (Northeast monsoon Nov–Mar brings heavy seas; Southwest monsoon Jun–Sep brings typhoons); wave heights (must be under 1.5 meters for amphibious operations); tidal conditions; and visibility.</p>
+</div>
+
+<h4>Seasonal Assessment</h4>
+<div class="compare">
+<div class="compare-col" style="border-right:1px solid rgba(200,164,78,.1)">
+<h4 style="color:var(--red)">❌ Unfavorable Periods</h4>
+<ul>
+<li><strong>Nov–Mar:</strong> Northeast monsoon — heavy seas, poor visibility, waves 3–5m <span class="ru">СВ муссон — сильные волны</span></li>
+<li><strong>Jun–Sep:</strong> Typhoon season — unpredictable violent storms <span class="ru">Сезон тайфунов</span></li>
+<li><strong>~8 months</strong> of the year are unsuitable for amphibious operations</li>
+</ul>
+</div>
+<div class="compare-col">
+<h4 style="color:var(--green)">✓ Potential Windows</h4>
+<ul>
+<li><strong>April:</strong> Brief calm between monsoons (~2 weeks) <span class="ru">Апрель — короткое затишье</span></li>
+<li><strong>October:</strong> Brief calm before northeast monsoon (~2 weeks) <span class="ru">Октябрь — затишье перед муссоном</span></li>
+<li>Even these windows are highly weather-dependent and unreliable</li>
+</ul>
+</div>
+</div>
+
+<h3>Problem 3: Who Leads the Attack — Force Structure</h3>
+<p>The PLA would need to assemble the largest amphibious force in history — far exceeding D-Day. The critical limiting factor is <strong>available shipping</strong>: landing ships, transport vessels, and civilian ships pressed into service.</p>
+
+<div class="concept-box">
+<p><strong>The Shipping Problem (Проблема транспортных средств):</strong> Even with all available military and commandeered civilian vessels, the PLA can only transport a fraction of its total force in the first wave. The first wave would be the most vulnerable, crossing 100+ km of open water under fire, with Taiwan's missiles, mines, and submarines targeting the slow-moving invasion fleet.</p>
+</div>
+
+<h4>Additional Planning Problems</h4>
+<p>Easton identifies numerous additional challenges the PLA faces: <strong>logistics and supply chain</strong> (maintaining forces across 130 km of contested water); <strong>command and control</strong> (the "fog of war" effect on centralized PLA command culture); <strong>homeland security</strong> (concern about ethnic unrest in Tibet and Xinjiang during wartime); <strong>regional complications</strong> (India, Japan, Vietnam could exploit a China distracted by Taiwan); and <strong>nuclear escalation risks</strong> (the possibility that a losing PLA might contemplate nuclear use).</p>
+
+<div class="warning-box">
+<p><strong>PLA's nightmare scenario:</strong> Internal PLA writings express deep concern that a failed Taiwan invasion could trigger a "chain reaction" — ethnic separatists in border areas, religious extremists, and foreign forces could all take advantage. A military defeat at Taiwan could threaten the survival of the CCP regime itself. <span class="ru">Внутренние документы НОАК выражают обеспокоенность тем, что неудачное вторжение может спровоцировать «цепную реакцию».</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ CHAPTER 6 ============ -->
+<section class="section" id="ch6">
+<div class="ch-header">
+<div class="ch-num">Chapter Six · Глава Шестая</div>
+<div class="ch-title">How Taiwan Would Fight</div>
+<div class="ch-quote">"China would have to be stupid to invade Taiwan. It would be about as smart as getting into a land war in Asia." —U.S. Army colonel in Taipei<br><span class="ru">«Китай должен быть глупым, чтобы вторгнуться на Тайвань.» — полковник армии США</span></div>
+</div>
+
+<p>Taiwan's national defense plan, codenamed the <strong>Gu'an Operational Plan</strong> <span class="ru">Оперативный план «Гуань» (固安 — «Прочность и безопасность»)</span>, provides the overarching blueprint for Taiwan's all-out national defense. Nothing matters more to Taiwan's survival as a free country than overcoming the long-term threat of Chinese invasion.</p>
+
+<h3>Defense Education & National Mobilization</h3>
+<p>Because of the extreme nature of the threat, defense education in Taiwan is emphasized to a degree unthinkable in most countries. Nearly every high school and college has uniformed officers teaching military affairs courses. If war comes, <strong>everyone will be involved</strong> — and everyone will be expected to contribute. Taiwan maintains a massive reserve force of millions who can be mobilized.</p>
+
+<h3>Taiwan's Defense Phases</h3>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--green)">
+<div class="phase-num">1</div>
+<div class="phase-name">Force Preservation</div>
+<div class="phase-desc">Survive the opening missile barrage. Disperse forces to pre-planned positions. Hide, harden, deceive. <span class="ru">Сохранение сил</span></div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">2</div>
+<div class="phase-name">Counter-Strike</div>
+<div class="phase-desc">Launch missiles against PLA staging areas and invasion fleet. Taiwan's long-range Hsiung Feng missiles strike ships in port and at sea. <span class="ru">Контрудар</span></div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">3</div>
+<div class="phase-name">Beach Defense</div>
+<div class="phase-desc">Destroy landing forces at the beaches using mines, artillery, pre-positioned obstacles, and armored counterattack brigades. <span class="ru">Оборона побережья</span></div>
+</div>
+<div class="phase" style="border-top:3px solid var(--red)">
+<div class="phase-num">4</div>
+<div class="phase-name">Island Defense</div>
+<div class="phase-desc">If PLA forces land, conduct urban warfare and mountain defense. Delay, attrit, deny. Hold until U.S. forces arrive. <span class="ru">Оборона острова</span></div>
+</div>
+</div>
+
+<h3>Taiwan's Fortress: Defenses in Depth</h3>
+<p>Taiwan has spent decades fortifying its coastline. According to PLA assessments cited by Easton:</p>
+
+<div class="intel-box">
+<p>"The Island's urban battlefield has undergone many years of buildup. Its defensive deployments are quite complete. All defensive works have been hardened and perfected. Detailed pre-war plans are in place for emplacing obstacles at every critical transportation point from the coast into city depths." —Internal PLA study <span class="ru">«Городское поле боя Острова формировалось многие годы. Оборонительные сооружения полностью укреплены.» — Внутреннее исследование НОАК</span></p>
+</div>
+
+<h4>Defensive Measures</h4>
+<div class="weapons">
+<div class="weapon">
+<div class="weapon-type">Coastal Defense · Береговая оборона</div>
+<div class="weapon-name">Beach Fortifications</div>
+<div class="weapon-desc">Extensive minefields, concrete obstacles, anti-tank barriers, underwater demolitions, and pre-positioned artillery covering every viable landing beach. Plans to collapse bridges, block roads, and string steel cables to trap helicopters.</div>
+<div class="weapon-tag asym">Defense</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Rapid Reaction · Силы быстрого реагирования</div>
+<div class="weapon-name">Armored Counter-Attack Brigades</div>
+<div class="weapon-desc">Thousands of tanks, self-propelled rocket launchers, artillery guns, and armored fighting vehicles hidden at inland sites — caves, tunnels, civilian infrastructure. Mission: converge on and smash into landing zones before they consolidate.</div>
+<div class="weapon-tag surv">High Survival</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Missile Force · Ракетные войска</div>
+<div class="weapon-name">Hsiung Feng II/III Anti-Ship Missiles</div>
+<div class="weapon-desc">Long-range anti-ship cruise missiles capable of striking PLA ships in port and at sea. Taiwan's most potent asymmetric capability — mobile, concealable, highly lethal. <span class="ru">Противокорабельные ракеты «Сюнфэн»</span></div>
+<div class="weapon-tag asym">Asymmetric</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Urban Warfare · Городская война</div>
+<div class="weapon-name">Prepared City Defenses</div>
+<div class="weapon-desc">Every major city has defense plans including barricades, tunnels, civilian shelters, and supply caches. Anti-tank mines, caltrops on roads, collapsed buildings as barriers. Even barrage balloons with explosive charges to trap helicopters.</div>
+<div class="weapon-tag surv">Resilience</div>
+</div>
+</div>
+
+<h3>The Force Preservation Challenge</h3>
+<p>Taiwan's military hides its most critical assets in <strong>hardened mountain bunkers</strong>, dispersed across civilian infrastructure, and concealed in caves and tunnels. PLA writings express deep concern that Taiwan's main forces could "go to ground" across the island's population centers and hinterlands, making them nearly impossible to neutralize before Z-Day. Many prime hide-sites are never used in exercises to maintain secrecy — some exist only in the minds of battalion commanders.</p>
+
+<div class="key-point">
+<p><strong>The PLA's dilemma:</strong> Finding and hitting mobile Taiwanese units in the fog of war would "soak up all available intelligence, targeting, and strike assets, drawing them away from amphibious operations just as they were surging to their climax." Presenting the aggressor with these hard, confusing dilemmas is at the heart of Taiwan's defense strategy. <span class="ru">Дилемма НОАК: поиск и поражение мобильных целей отвлекает ресурсы от десантной операции.</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ CHAPTER 7 ============ -->
+<section class="section" id="ch7">
+<div class="ch-header">
+<div class="ch-num">Chapter Seven · Глава Седьмая</div>
+<div class="ch-title">American Strategy in Asia</div>
+<div class="ch-quote">"I will prevent disease whenever I can, for prevention is preferable to cure." —Hippocratic Oath<br><span class="ru">«Я буду предотвращать болезнь, когда смогу, ибо профилактика лучше лечения.»</span></div>
+</div>
+
+<p>Easton uses a powerful analogy: like people living under a slowly failing dam, many observers of the Taiwan Strait are convinced disaster will not strike as long as no trigger event occurs. But proximate causes of war are unimportant when the situation is <strong>structurally unstable</strong>. Sooner or later, the dam is probably going to surrender to the pressure and break.</p>
+
+<h3>The U.S.-China Strategic Competition</h3>
+<p>The United States and China are firmly entrenched in what will likely be a long and intense strategic competition <span class="ru">стратегическое соперничество</span>. In February 2016, Secretary of Defense Ashton Carter announced that great power competition has reemerged as the Pentagon's top priority. The same month, the Commander of Pacific Command, Admiral Harry Harris, warned that <strong>China seeks hegemony in East Asia</strong> <span class="ru">Китай стремится к гегемонии в Восточной Азии</span>.</p>
+
+<h3>What America Must Do</h3>
+<p>Easton argues the U.S. must:</p>
+
+<h4>1. Strengthen Taiwan's Military</h4>
+<p>High-impact arms sales conducted regularly and predictably. Technology transfers for asymmetric weapons. Integration of Taiwan into regional security architecture — maritime domain awareness, missile defense, and joint training.</p>
+
+<h4>2. Forward Deploy Forces</h4>
+<p>Maintain credible military presence in the Western Pacific. Ensure rapid deployment capability to the Taiwan Strait. Strengthen alliances with Japan, South Korea, Australia, and the Philippines.</p>
+
+<h4>3. Reform Diplomatic Approach</h4>
+<p>Treat Taiwan with the respect and dignity it deserves as a democracy. Move beyond self-imposed restrictions that treat Taiwan as a pariah while treating an increasingly authoritarian PRC with deference.</p>
+
+<h4>4. Prepare for the Worst Case</h4>
+<p>The basic PLA assumptions for invasion include: <strong>(1)</strong> the U.S. will intervene, but can be slowed or deterred; <strong>(2)</strong> a rapid and decisive war is imperative; and <strong>(3)</strong> surprise and speed are critical but viewed as highly unlikely to fully achieve.</p>
+
+<div class="key-point">
+<p><strong>Easton's strategic principle:</strong> American strategists should prepare for the worst case, while using all instruments of national power to prevent conflict. The goal is not to fight a war over Taiwan — it is to make war impossible by making the cost of aggression obviously catastrophic for the aggressor. <span class="ru">Американские стратеги должны готовиться к худшему, используя все инструменты для предотвращения конфликта.</span></p>
+</div>
+
+<!-- US BASES MAP -->
+<div class="map-container">
+<div class="map-label">U.S. Military Bases in the Western Pacific · Военные базы США в Западной части Тихого океана</div>
+<svg class="map-svg" viewBox="0 0 800 420" style="background:#0d1520">
+<rect width="800" height="420" fill="#0d1520"/>
+<!-- Grid -->
+<g stroke="rgba(59,130,246,0.03)" stroke-width="0.5">
+<line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+<line x1="0" y1="300" x2="800" y2="300"/>
+<line x1="200" y1="0" x2="200" y2="420"/><line x1="400" y1="0" x2="400" y2="420"/>
+<line x1="600" y1="0" x2="600" y2="420"/>
+</g>
+<!-- China -->
+<path d="M0,30 L140,35 L160,60 L170,100 L165,150 L170,200 L155,240 L165,290 L150,340 L130,380 L100,420 L0,420Z" fill="#1a2535" stroke="rgba(220,68,68,0.15)" stroke-width="1"/>
+<text x="60" y="200" fill="rgba(220,68,68,0.4)" font-family="DM Sans" font-size="14" text-anchor="middle" font-weight="700">CHINA</text>
+<!-- Taiwan -->
+<path d="M290,165 L305,155 L312,170 L315,200 L312,230 L305,255 L295,268 L288,262 L285,235 L283,200 L286,175Z" fill="#1e3a2e" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"/>
+<text x="300" y="215" fill="rgba(34,197,94,0.6)" font-family="DM Sans" font-size="8" text-anchor="middle">TAIWAN</text>
+<!-- Japan -->
+<path d="M390,20 L410,15 L418,28 L415,55 L408,75 L395,72 L390,50Z" fill="#1a2535" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+<text x="403" y="48" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="9" text-anchor="middle">JAPAN</text>
+<!-- S Korea -->
+<path d="M340,60 L360,55 L365,75 L355,90 L342,85Z" fill="#1a2535" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+<text x="352" y="75" fill="rgba(59,130,246,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">S.KOREA</text>
+<!-- Philippines -->
+<path d="M310,330 L330,320 L338,340 L332,365 L318,372 L305,355Z" fill="#1a2535" stroke="rgba(200,164,78,0.15)" stroke-width="1"/>
+<!-- US Base markers -->
+<g>
+<!-- Yokosuka -->
+<circle cx="415" cy="45" r="6" fill="none" stroke="rgba(59,130,246,0.6)" stroke-width="1.5"/>
+<circle cx="415" cy="45" r="2" fill="rgba(59,130,246,0.8)"/>
+<text x="428" y="42" fill="rgba(59,130,246,0.7)" font-family="DM Sans" font-size="7" font-weight="600">Yokosuka</text>
+<text x="428" y="52" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="5">7th Fleet HQ · Йокосука</text>
+<!-- Okinawa -->
+<circle cx="370" cy="120" r="6" fill="none" stroke="rgba(59,130,246,0.6)" stroke-width="1.5"/>
+<circle cx="370" cy="120" r="2" fill="rgba(59,130,246,0.8)"/>
+<text x="383" y="118" fill="rgba(59,130,246,0.7)" font-family="DM Sans" font-size="7" font-weight="600">Okinawa</text>
+<text x="383" y="128" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="5">Marines/Air · Окинава</text>
+<!-- Guam -->
+<circle cx="560" cy="250" r="8" fill="none" stroke="rgba(59,130,246,0.6)" stroke-width="1.5"/>
+<circle cx="560" cy="250" r="3" fill="rgba(59,130,246,0.8)"/>
+<text x="575" y="248" fill="rgba(59,130,246,0.7)" font-family="DM Sans" font-size="7" font-weight="600">Guam</text>
+<text x="575" y="258" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="5">Andersen AFB / Naval · Гуам</text>
+<!-- Camp Humphreys -->
+<circle cx="348" cy="68" r="5" fill="none" stroke="rgba(59,130,246,0.5)" stroke-width="1"/>
+<circle cx="348" cy="68" r="2" fill="rgba(59,130,246,0.6)"/>
+<text x="328" y="95" fill="rgba(59,130,246,0.5)" font-family="DM Sans" font-size="6">Camp Humphreys</text>
+<!-- Hawaii (off map indicator) -->
+<text x="720" y="180" fill="rgba(59,130,246,0.3)" font-family="DM Sans" font-size="7" text-anchor="middle">→ Hawaii (PACOM HQ)</text>
+<text x="720" y="193" fill="rgba(59,130,246,0.2)" font-family="JetBrains Mono" font-size="6" text-anchor="middle">~6,000 km →</text>
+</g>
+<!-- Response time circles -->
+<circle cx="370" cy="120" r="60" fill="none" stroke="rgba(59,130,246,0.08)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="370" y="68" fill="rgba(59,130,246,0.15)" font-family="DM Sans" font-size="5" text-anchor="middle">~2 hrs air response</text>
+<circle cx="560" cy="250" r="120" fill="none" stroke="rgba(59,130,246,0.05)" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="560" y="140" fill="rgba(59,130,246,0.1)" font-family="DM Sans" font-size="5" text-anchor="middle">~4 hrs air response from Guam</text>
+<!-- Legend -->
+<rect x="580" y="20" width="200" height="80" rx="5" fill="rgba(10,12,16,0.85)" stroke="rgba(59,130,246,0.1)"/>
+<text x="595" y="38" fill="rgba(59,130,246,0.7)" font-family="DM Sans" font-size="7" font-weight="700">U.S. FORCES · СИЛЫ США</text>
+<circle cx="600" cy="55" r="4" fill="none" stroke="rgba(59,130,246,0.6)" stroke-width="1.5"/>
+<text x="612" y="58" fill="rgba(59,130,246,0.5)" font-family="DM Sans" font-size="6">Major military base</text>
+<circle cx="600" cy="73" r="30" fill="none" stroke="rgba(59,130,246,0.1)" stroke-width="0.5" stroke-dasharray="2,2" transform="scale(0.3) translate(1520,170)"/>
+<text x="612" y="77" fill="rgba(59,130,246,0.4)" font-family="DM Sans" font-size="6">Air response radius</text>
+</svg>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ CHAPTER 8 ============ -->
+<section class="section" id="ch8">
+<div class="ch-header">
+<div class="ch-num">Chapter Eight · Глава Восьмая</div>
+<div class="ch-title">What Lies Ahead?</div>
+<div class="ch-quote">"Regimes planted by bayonets do not take root." —U.S. President Ronald Reagan<br><span class="ru">«Режимы, насаждённые штыками, не пускают корни.» — Рональд Рейган</span></div>
+</div>
+
+<p>American foreign policy in Asia has evolved in an absurd fashion, Easton argues. Taiwan has become a vibrant democracy, only to be treated like an international pariah. At the same time, the PRC has become more authoritarian, only to be treated with deference. An entire generation of young Americans has been brought up believing this is the natural order of things.</p>
+
+<h3>Taiwan's Strengths</h3>
+<p>Despite the PLA's buildup, the situation has not passed beyond the defending side's capabilities:</p>
+
+<div class="concept-box">
+<p><strong>Key findings:</strong> Taiwan's investments in long-range missiles make its air force and navy <strong>more lethal now than they have ever been</strong>. Surviving Taiwanese fighter jets would probably inflict a loss ratio of two or even three to one against Chinese pilots over the adverse conditions of the Strait. Trends in precision strike technology could provide Taiwan with a significant advantage — making it next to impossible for China to invade. <span class="ru">Инвестиции Тайваня в дальнобойные ракеты делают его ВВС и ВМС более смертоносными, чем когда-либо.</span></p>
+</div>
+
+<h3>Policy Recommendations</h3>
+<p>Easton's concluding recommendations for U.S. policymakers include:</p>
+
+<h4>For Taiwan:</h4>
+<p>Invest heavily in asymmetric defense capabilities — mobile anti-ship missiles, sea mines, drones, hardened command-and-control infrastructure. Maintain a credible reserve force. Build social resilience and national will.</p>
+
+<h4>For the United States:</h4>
+<p>Treat Taiwan as the strategic asset it is. Conduct regular, predictable arms sales. Integrate Taiwan into regional security planning. Forward deploy sufficient forces to make intervention credible. Demonstrate resolve through exercises, ship visits, and senior-level contacts.</p>
+
+<h4>For the International Community:</h4>
+<p>Recognize that Taiwan's security is integral to regional stability. A Chinese conquest of Taiwan would fundamentally reshape the Indo-Pacific power balance in Beijing's favor, threatening freedom of navigation, democratic governance, and the rules-based international order.</p>
+
+<div class="key-point">
+<p><strong>Easton's final argument:</strong> There is every reason to expect that Taiwan, with American help, can meet the threat it faces. It is almost unimaginable that a force of several hundred thousand troops could be transported across the sea and maintained against Taiwan's superior ground forces. As long as Taiwan's air force and navy exist — even if reduced to "fleets in being" — they provide a powerful partner to the army in preventing amphibious landings. The prospect of war and peace hinges on what the United States and its allies do in the years ahead. <span class="ru">Есть все основания полагать, что Тайвань, при поддержке Америки, способен противостоять угрозе.</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ FIVE SCENARIOS ============ -->
+<section class="section" id="scenarios">
+<div class="ch-header">
+<div class="ch-num">Appendix · Приложение</div>
+<div class="ch-title">Five Scenarios for the Taiwan Strait</div>
+</div>
+
+<p>Based on his research, Easton outlines five possible scenarios for how the cross-strait situation might develop:</p>
+
+<div class="scenario-tabs">
+<div class="scenario-tab active" data-tab="s1">1. Gray Zone</div>
+<div class="scenario-tab" data-tab="s2">2. Blockade</div>
+<div class="scenario-tab" data-tab="s3">3. Limited Strike</div>
+<div class="scenario-tab" data-tab="s4">4. Full Invasion</div>
+<div class="scenario-tab" data-tab="s5">5. Stalemate</div>
+</div>
+
+<div class="scenario-content active" id="s1">
+<h4>Scenario 1: Prolonged Gray-Zone Coercion <span class="ru">Затяжное давление в серой зоне</span></h4>
+<p>China increases military, economic, and diplomatic pressure on Taiwan short of war. Daily PLA sorties around Taiwan, cyberattacks, economic coercion, international isolation. Goal: force Taiwan to negotiate on Beijing's terms without firing a shot.</p>
+<div class="concept-box"><p><strong>Probability: HIGH.</strong> This is already happening and likely to intensify. It exhausts Taiwan's limited military resources and tests public resolve without crossing the threshold of armed conflict.</p></div>
+</div>
+
+<div class="scenario-content" id="s2">
+<h4>Scenario 2: Naval Blockade <span class="ru">Морская блокада</span></h4>
+<p>China declares a maritime exclusion zone around Taiwan, interdicting commercial shipping. Uses submarines, surface combatants, and mines to enforce the blockade. Taiwan, heavily dependent on imported energy and food, faces economic strangulation.</p>
+<div class="warning-box"><p><strong>Probability: MODERATE.</strong> Less risky than invasion but still an act of war. Would likely trigger U.S. and Japanese responses. Taiwan maintains 90-day strategic petroleum reserves but would face severe shortages of food and raw materials.</p></div>
+</div>
+
+<div class="scenario-content" id="s3">
+<h4>Scenario 3: Limited Missile Strikes <span class="ru">Ограниченные ракетные удары</span></h4>
+<p>China launches precision strikes against specific military targets — air bases, radar sites, command centers — as a coercive signal. The strikes are intended to demonstrate capability and resolve without triggering full-scale war.</p>
+<div class="warning-box"><p><strong>Probability: LOW-MODERATE.</strong> Highly escalatory. Any attack on Taiwan risks U.S. intervention and international condemnation. Also risks triggering full mobilization of Taiwan's defenses.</p></div>
+</div>
+
+<div class="scenario-content" id="s4">
+<h4>Scenario 4: Full-Scale Invasion <span class="ru">Полномасштабное вторжение</span></h4>
+<p>China launches the Joint Island Attack Campaign — the scenario this book focuses on in detail. Begins with massive missile and cyber attacks, followed by naval blockade, air superiority campaign, and multi-axis amphibious assault. The most dangerous and consequential scenario.</p>
+<div class="warning-box"><p><strong>Probability: LOW (but catastrophic if it occurs).</strong> This remains the scenario that must drive defense planning because it is existential. The PLA is building toward this capability even if the political decision to use it has not been made.</p></div>
+</div>
+
+<div class="scenario-content" id="s5">
+<h4>Scenario 5: Prolonged Stalemate <span class="ru">Затяжной тупик</span></h4>
+<p>China determines that invasion is too risky and costly, but refuses to abandon the goal of unification. The result is an indefinite military standoff — a "cold war" across the Taiwan Strait that consumes massive resources on both sides and periodically flares into dangerous crises.</p>
+<div class="concept-box"><p><strong>Probability: MODERATE-HIGH.</strong> This may be the most likely long-term outcome if deterrence holds. China continues to build military capabilities while Taiwan, the U.S., and regional allies maintain sufficient defense to prevent a decision to attack. This is the outcome that good policy aims to perpetuate.</p></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ INVASION SIMULATION GAME ============ -->
+<section class="section" id="sim">
+<div class="ch-header">
+<div class="ch-num">🎮 Interactive Simulation · Интерактивная симуляция</div>
+<div class="ch-title">Cross-Strait Invasion Wargame</div>
+</div>
+
+<p>This simulation lets you experience the key decisions and challenges of a cross-strait invasion scenario from <strong>both perspectives</strong>. Based on the factors identified throughout the book, make strategic choices and see how they affect the outcome.</p>
+
+<div class="game-container" id="wargame">
+<div class="game-header">
+<span>⚔️ TAIWAN STRAIT WARGAME — Interactive Simulation</span>
+<button class="game-btn" onclick="resetGame()">Reset · Сброс</button>
+</div>
+<div class="game-body">
+<div id="gamePhase" style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:1rem">Phase 0: Setup — Choose Your Side</div>
+<div id="gameDesc" style="margin-bottom:1rem;font-size:.95rem"></div>
+
+<div class="game-status" id="gameStatus">
+<div class="game-stat"><div class="game-stat-val" style="color:var(--red)" id="plaForce">100%</div><div class="game-stat-label">PLA Force · Силы НОАК</div></div>
+<div class="game-stat"><div class="game-stat-val" style="color:var(--green)" id="rocForce">100%</div><div class="game-stat-label">ROC Force · Силы Тайваня</div></div>
+<div class="game-stat"><div class="game-stat-val" style="color:var(--blue)" id="usReady">0%</div><div class="game-stat-label">U.S. Response · Реакция США</div></div>
+<div class="game-stat"><div class="game-stat-val" style="color:var(--accent)" id="dayCount">Z-30</div><div class="game-stat-label">Day · День</div></div>
+</div>
+
+<div class="progress-container">
+<div class="progress-label"><span>PLA Mission Progress · Прогресс операции НОАК</span><span id="missionPct">0%</span></div>
+<div class="progress-bar striped"><div class="progress-fill" id="missionBar" style="width:0%;background:linear-gradient(90deg,var(--red),#ff6666)"></div></div>
+</div>
+<div class="progress-container">
+<div class="progress-label"><span>Taiwan Defense Integrity · Целостность обороны Тайваня</span><span id="defensePct">100%</span></div>
+<div class="progress-bar"><div class="progress-fill" id="defenseBar" style="width:100%;background:linear-gradient(90deg,var(--green),#4ade80)"></div></div>
+</div>
+
+<div class="game-controls" id="gameControls"></div>
+<div class="game-log" id="gameLog"><div class="entry gold">System initialized. Select your side to begin the simulation...</div></div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ GLOSSARY ============ -->
+<section class="section" id="glossary">
+<div class="ch-header">
+<div class="ch-num">Military Glossary · Военный глоссарий</div>
+<div class="ch-title">Key Terms: English — Russian</div>
+</div>
+
+<div class="glossary">
+<div class="gloss-item"><div class="gloss-en">People's Liberation Army (PLA)</div><div class="gloss-ru">НОАК — Народно-освободительная армия Китая</div></div>
+<div class="gloss-item"><div class="gloss-en">Chinese Communist Party (CCP)</div><div class="gloss-ru">КПК — Коммунистическая партия Китая</div></div>
+<div class="gloss-item"><div class="gloss-en">Republic of China (ROC) / Taiwan</div><div class="gloss-ru">Китайская Республика (Тайвань)</div></div>
+<div class="gloss-item"><div class="gloss-en">Central Military Commission (CMC)</div><div class="gloss-ru">ЦВК — Центральная военная комиссия</div></div>
+<div class="gloss-item"><div class="gloss-en">Taiwan Relations Act (TRA)</div><div class="gloss-ru">Закон об отношениях с Тайванем</div></div>
+<div class="gloss-item"><div class="gloss-en">Anti-Secession Law</div><div class="gloss-ru">Закон о противодействии расколу государства</div></div>
+<div class="gloss-item"><div class="gloss-en">First Island Chain</div><div class="gloss-ru">Первая островная цепь</div></div>
+<div class="gloss-item"><div class="gloss-en">Taiwan Strait</div><div class="gloss-ru">Тайваньский пролив</div></div>
+<div class="gloss-item"><div class="gloss-en">Amphibious assault</div><div class="gloss-ru">Морская десантная операция</div></div>
+<div class="gloss-item"><div class="gloss-en">Joint Island Attack Campaign</div><div class="gloss-ru">Совместная операция по захвату острова</div></div>
+<div class="gloss-item"><div class="gloss-en">Zero Day (Z-Day)</div><div class="gloss-ru">День Ноль (День «З»)</div></div>
+<div class="gloss-item"><div class="gloss-en">Decapitation strike</div><div class="gloss-ru">Обезглавливающий удар</div></div>
+<div class="gloss-item"><div class="gloss-en">Blockade</div><div class="gloss-ru">Блокада</div></div>
+<div class="gloss-item"><div class="gloss-en">Ballistic missile</div><div class="gloss-ru">Баллистическая ракета</div></div>
+<div class="gloss-item"><div class="gloss-en">Cruise missile</div><div class="gloss-ru">Крылатая ракета</div></div>
+<div class="gloss-item"><div class="gloss-en">Anti-ship missile</div><div class="gloss-ru">Противокорабельная ракета</div></div>
+<div class="gloss-item"><div class="gloss-en">Electronic warfare (EW)</div><div class="gloss-ru">Радиоэлектронная борьба (РЭБ)</div></div>
+<div class="gloss-item"><div class="gloss-en">Air superiority</div><div class="gloss-ru">Превосходство в воздухе</div></div>
+<div class="gloss-item"><div class="gloss-en">Naval blockade</div><div class="gloss-ru">Морская блокада</div></div>
+<div class="gloss-item"><div class="gloss-en">Beachhead / Landing zone</div><div class="gloss-ru">Плацдарм / Зона высадки</div></div>
+<div class="gloss-item"><div class="gloss-en">Area denial (A2/AD)</div><div class="gloss-ru">Ограничение / воспрещение доступа</div></div>
+<div class="gloss-item"><div class="gloss-en">Urban warfare</div><div class="gloss-ru">Городской бой</div></div>
+<div class="gloss-item"><div class="gloss-en">Indications and warning (I&W)</div><div class="gloss-ru">Обнаружение и предупреждение</div></div>
+<div class="gloss-item"><div class="gloss-en">Force preservation</div><div class="gloss-ru">Сохранение боевого потенциала</div></div>
+<div class="gloss-item"><div class="gloss-en">Counterattack brigade</div><div class="gloss-ru">Бригада контрудара</div></div>
+<div class="gloss-item"><div class="gloss-en">Reserves / Reservists</div><div class="gloss-ru">Резервисты / Запас</div></div>
+<div class="gloss-item"><div class="gloss-en">Strategic ambiguity</div><div class="gloss-ru">Стратегическая неопределённость</div></div>
+<div class="gloss-item"><div class="gloss-en">Deterrence</div><div class="gloss-ru">Сдерживание</div></div>
+<div class="gloss-item"><div class="gloss-en">Asymmetric warfare</div><div class="gloss-ru">Асимметричная война</div></div>
+<div class="gloss-item"><div class="gloss-en">Theater command</div><div class="gloss-ru">Оперативное командование театра</div></div>
+<div class="gloss-item"><div class="gloss-en">Group Army</div><div class="gloss-ru">Армейская группа</div></div>
+<div class="gloss-item"><div class="gloss-en">Landing ship</div><div class="gloss-ru">Десантный корабль</div></div>
+<div class="gloss-item"><div class="gloss-en">Submarine flotilla</div><div class="gloss-ru">Флотилия подводных лодок</div></div>
+<div class="gloss-item"><div class="gloss-en">Airborne corps</div><div class="gloss-ru">Воздушно-десантный корпус</div></div>
+<div class="gloss-item"><div class="gloss-en">Rocket Force (PLA)</div><div class="gloss-ru">Ракетные войска (НОАК)</div></div>
+<div class="gloss-item"><div class="gloss-en">Carrier battle group</div><div class="gloss-ru">Авианосная ударная группа</div></div>
+<div class="gloss-item"><div class="gloss-en">Surface-to-air missile (SAM)</div><div class="gloss-ru">Зенитная управляемая ракета (ЗУР)</div></div>
+<div class="gloss-item"><div class="gloss-en">Mine warfare</div><div class="gloss-ru">Минная война</div></div>
+<div class="gloss-item"><div class="gloss-en">Martial law</div><div class="gloss-ru">Военное положение</div></div>
+<div class="gloss-item"><div class="gloss-en">National mobilization</div><div class="gloss-ru">Всеобщая мобилизация</div></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide summarizes <strong>"The Chinese Invasion Threat: Taiwan's Defense and American Strategy in Asia"</strong> by Ian Easton.</p>
+<p style="margin-top:.5rem">Published by Project 2049 Institute / Eastbridge Books, 2017. ISBN: 978-1-910736-60-9</p>
+<p style="margin-top:.5rem">Russian military terminology (Русская военная терминология) included for academic reference.</p>
+<p style="margin-top:1rem;font-size:.75rem;color:rgba(200,164,78,.4)">Interactive presentation created for academic discussion · Интерактивная презентация для академического обсуждения</p>
+</footer>
+
+<script>
+// ===== NAV =====
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('visible',window.scrollY>600)});
+
+// ===== FADE IN =====
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.key-point,.warning-box,.concept-box,.intel-box,.compare,.weapons,.phases,.map-container,.timeline,.game-container,h3,.beach-grid,.glossary').forEach(el=>{el.classList.add('fade-in');obs.observe(el)});
+
+// ===== SCENARIO TABS =====
+document.querySelectorAll('.scenario-tab').forEach(tab=>{
+tab.addEventListener('click',()=>{
+document.querySelectorAll('.scenario-tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.scenario-content').forEach(c=>c.classList.remove('active'));
+tab.classList.add('active');
+document.getElementById(tab.dataset.tab).classList.add('active');
+});
+});
+
+// ===== BEACH ASSESSMENT GAME =====
+const beaches=[
+{name:"Linkou 林口",loc:"NW Taiwan, near Taipei",suit:75,def:80,prox:"15 km to Taipei",notes:"Closest to capital. Rocky coastline with limited beach width. Heavy fortifications. PLA's likely primary target despite difficulties."},
+{name:"Taoyuan 桃園",loc:"NW Taiwan",suit:85,def:70,prox:"30 km to Taipei",notes:"Widest beaches on NW coast. Near Taoyuan International Airport. Most suitable for large-scale landing. Primary landing zone in PLA assessments."},
+{name:"Hsinchu 新竹",loc:"NW Taiwan",suit:65,def:60,prox:"70 km to Taipei",notes:"Moderate beach access. Hsinchu Science Park (Taiwan's 'Silicon Valley') nearby — strategic economic target."},
+{name:"Taixi/Mailiao 臺西/麥寮",loc:"W Central Taiwan",suit:55,def:50,prox:"180 km to Taipei",notes:"Mudflats complicate landing. Near Formosa Plastics industrial complex. Far from Taipei — secondary target."},
+{name:"Budai/Dongshi 布袋/東石",loc:"SW Taiwan",suit:50,def:45,prox:"250 km to Taipei",notes:"Shallow waters, extensive mudflats. Limited tactical value. Far from primary objectives."},
+{name:"Tainan 台南",loc:"SW Taiwan",suit:60,def:65,prox:"280 km to Taipei",notes:"Historical capital. Good port facilities. Air base nearby. But very far from Taipei — would require long ground campaign."},
+{name:"Kaohsiung 高雄",loc:"S Taiwan",suit:55,def:70,prox:"340 km to Taipei",notes:"Major port city — Taiwan's largest port. Heavy naval presence. Strong defenses. Maximum distance from PRC staging areas."},
+{name:"Kenting/Hengchun 墾丁/恆春",loc:"S Tip",suit:35,def:30,prox:"380 km to Taipei",notes:"Remote location with difficult terrain. Limited tactical value. Not viable for main landing operation."},
+{name:"Taitung 台東",loc:"SE Taiwan",suit:30,def:40,prox:"300 km to Taipei",notes:"East coast — much longer transit across open Pacific. Mountains immediately inland. Extremely difficult terrain."},
+{name:"Hualien 花蓮",loc:"E Taiwan",suit:25,def:55,prox:"200 km to Taipei",notes:"Major air base in mountain valley. East coast approach — longest transit. Mountain terrain prevents rapid advance."},
+{name:"Yilan/Suao 宜蘭/蘇澳",loc:"NE Taiwan",suit:60,def:65,prox:"60 km to Taipei",notes:"Shorter distance to Taipei via mountains. Naval base at Suao. Limited beach access. Could serve as secondary landing."},
+{name:"Jinshan/Wanli 金山/萬里",loc:"N Coast",suit:45,def:75,prox:"25 km to Taipei",notes:"Very close to capital but extremely narrow beaches. Rocky coastline. Heavily fortified. Extremely difficult approach."},
+{name:"Penghu 澎湖",loc:"Offshore Islands",suit:70,def:55,prox:"Stepping stone",notes:"Strategically vital offshore island group. Must be captured to secure the Strait. Airfield and naval facilities. Stepping stone for main invasion."},
+{name:"Kinmen/Matsu 金門/馬祖",loc:"Offshore Islands",suit:80,def:50,prox:"Frontline",notes:"Just km from mainland China. First targets in any invasion. Symbolic importance — 1958 artillery crisis occurred here. Limited military value but huge political significance."},
+];
+const bg=document.getElementById('beachGrid');
+beaches.forEach((b,i)=>{
+const d=document.createElement('div');d.className='beach-card';d.innerHTML=`
+<div class="beach-name">${b.name}</div>
+<div class="beach-loc">${b.loc}</div>
+<div class="beach-stat"><span>Landing Suitability</span><span>${b.suit}%</span></div>
+<div class="beach-meter"><div class="beach-meter-fill" style="width:${b.suit}%;background:${b.suit>70?'var(--red)':b.suit>50?'var(--orange)':'var(--text2)'}"></div></div>
+<div class="beach-stat"><span>Defense Strength</span><span>${b.def}%</span></div>
+<div class="beach-meter"><div class="beach-meter-fill" style="width:${b.def}%;background:${b.def>60?'var(--green)':b.def>40?'var(--accent)':'var(--text2)'}"></div></div>`;
+d.onclick=()=>{
+document.querySelectorAll('.beach-card').forEach(c=>c.classList.remove('selected'));
+d.classList.add('selected');
+const det=document.getElementById('beachDetail');
+det.style.display='block';
+det.innerHTML=`<h4 style="margin-top:0">${b.name}</h4><p style="font-size:.9rem"><strong>Proximity to Taipei:</strong> ${b.prox}</p><p style="font-size:.9rem">${b.notes}</p>`;
+};
+bg.appendChild(d);
+});
+
+// ===== WARGAME SIMULATION =====
+let gs={phase:0,side:null,day:-30,plaForce:100,rocForce:100,usReady:0,mission:0,defense:100,log:[]};
+
+function log(msg,cls=''){
+const l=document.getElementById('gameLog');
+const d=document.createElement('div');d.className='entry '+(cls||'');d.textContent=msg;
+l.appendChild(d);l.scrollTop=l.scrollHeight;
+}
+
+function updateUI(){
+document.getElementById('plaForce').textContent=Math.max(0,Math.round(gs.plaForce))+'%';
+document.getElementById('rocForce').textContent=Math.max(0,Math.round(gs.rocForce))+'%';
+document.getElementById('usReady').textContent=Math.min(100,Math.round(gs.usReady))+'%';
+document.getElementById('dayCount').textContent=gs.day<0?`Z${gs.day}`:`Z+${gs.day}`;
+document.getElementById('missionPct').textContent=Math.min(100,Math.round(gs.mission))+'%';
+document.getElementById('missionBar').style.width=Math.min(100,gs.mission)+'%';
+document.getElementById('defensePct').textContent=Math.max(0,Math.round(gs.defense))+'%';
+document.getElementById('defenseBar').style.width=Math.max(0,gs.defense)+'%';
+}
+
+function setControls(btns){
+const c=document.getElementById('gameControls');c.innerHTML='';
+btns.forEach(b=>{
+const btn=document.createElement('button');
+btn.className='game-btn '+(b.cls||'');
+btn.textContent=b.text;
+btn.onclick=b.fn;
+c.appendChild(btn);
+});
+}
+
+function setPhase(name,desc){
+document.getElementById('gamePhase').textContent=name;
+document.getElementById('gameDesc').textContent=desc;
+}
+
+function resetGame(){
+gs={phase:0,side:null,day:-30,plaForce:100,rocForce:100,usReady:0,mission:0,defense:100};
+document.getElementById('gameLog').innerHTML='<div class="entry gold">System reset. Select your side...</div>';
+updateUI();
+startGame();
+}
+
+function rand(min,max){return Math.floor(Math.random()*(max-min+1))+min}
+
+function startGame(){
+setPhase('Phase 0: Setup','Choose your role in the simulation.');
+setControls([
+{text:'🇨🇳 Play as PLA Commander',cls:'red',fn:()=>startAsPLA()},
+{text:'🇹🇼 Play as ROC Defender',cls:'green',fn:()=>startAsROC()},
+]);
+}
+
+function startAsPLA(){
+gs.side='pla';
+log('You are commanding the PLA Joint Taiwan Attack Campaign.','red');
+log('Objective: Achieve 100% mission progress (capture Taiwan) before defense integrity or your forces collapse.','red');
+phase1_pla();
+}
+
+function startAsROC(){
+gs.side='roc';
+log('You are commanding ROC forces defending Taiwan.','green');
+log('Objective: Maintain defense integrity above 0% until U.S. forces arrive (100% readiness).','green');
+phase1_roc();
+}
+
+function phase1_pla(){
+gs.day=-30;updateUI();
+setPhase('Phase 1: Pre-War Preparations (Z-30)','You have 30 days before Z-Day. How do you prepare? Более длительная подготовка увеличивает силы, но даёт Тайваню больше предупреждения.');
+setControls([
+{text:'Maximum Secrecy (Fewer forces, less warning)',cls:'',fn:()=>{
+gs.plaForce=75;gs.usReady=5;gs.rocForce=95;
+log('Chose maximum secrecy — limited mobilization. PLA at 75% strength. Taiwan has minimal warning.','red');
+phase2_pla();
+}},
+{text:'Balanced Preparation',cls:'',fn:()=>{
+gs.plaForce=90;gs.usReady=20;gs.rocForce=85;
+log('Balanced preparation — moderate mobilization detected. Taiwan partially mobilized.','red');
+phase2_pla();
+}},
+{text:'Full Mobilization (Maximum force, full warning)',cls:'',fn:()=>{
+gs.plaForce=100;gs.usReady=40;gs.rocForce=75;
+log('Full mobilization — massive troop movements detected by satellites. Taiwan fully alerted. U.S. begins deploying.','red');
+phase2_pla();
+}},
+]);
+}
+
+function phase1_roc(){
+gs.day=-30;updateUI();
+setPhase('Phase 1: Intelligence Warning (Z-30)','Satellites detect unusual PLA activity along the Fujian coast. How do you respond? Спутники обнаружили необычную активность НОАК.');
+setControls([
+{text:'Full Alert — Mobilize Everything',cls:'green',fn:()=>{
+gs.rocForce=95;gs.defense=95;gs.usReady=25;
+log('Full mobilization ordered. Millions of reservists activated. Beaches fortified. U.S. alerted.','green');
+phase2_roc();
+}},
+{text:'Partial Alert — Avoid Provocation',cls:'',fn:()=>{
+gs.rocForce=85;gs.defense=85;gs.usReady=15;
+log('Partial mobilization. Some reservists activated. Main forces dispersing. Trying not to escalate.','green');
+phase2_roc();
+}},
+{text:'Monitor Closely — No Mobilization',cls:'',fn:()=>{
+gs.rocForce=80;gs.defense=75;gs.usReady=5;
+log('No mobilization — monitoring only. If this is a real invasion, precious preparation time is lost.','green');
+phase2_roc();
+}},
+]);
+}
+
+function phase2_pla(){
+gs.day=0;updateUI();
+setPhase('Z-Day: Opening Barrage','1,000+ missiles launched at Taiwan. Cyber attacks underway. Where do you focus your strikes? День Ноль: более 1000 ракет запущены по Тайваню.');
+setControls([
+{text:'Target Military Bases',cls:'red',fn:()=>{
+let dmg=rand(15,30);gs.rocForce-=dmg;gs.defense-=dmg*0.6;gs.mission+=8;
+log(`Missile salvo hits air bases and naval facilities. ROC military loses ${dmg}% combat power.`,'red');
+phase3_pla();
+}},
+{text:'Decapitation — Target Leadership',cls:'red',fn:()=>{
+let success=rand(0,100)>70;
+if(success){gs.defense-=25;gs.mission+=15;log('Decapitation partially successful! Command disruption significant.','red');}
+else{gs.defense-=8;gs.mission+=5;log('Decapitation failed — leaders survived in hardened bunkers. Wasted high-value munitions.','red');}
+phase3_pla();
+}},
+{text:'Infrastructure — Power/Communications',cls:'red',fn:()=>{
+gs.defense-=15;gs.rocForce-=5;gs.mission+=6;
+log('Power grid and communications severely damaged. But military forces largely intact.','red');
+phase3_pla();
+}},
+]);
+}
+
+function phase2_roc(){
+gs.day=0;updateUI();
+setPhase('Z-Day: Under Attack!','Massive missile barrage incoming! 1,000+ missiles targeting military and civilian infrastructure. День Ноль: массированная ракетная атака!');
+setControls([
+{text:'Disperse & Shelter — Protect Forces',cls:'green',fn:()=>{
+let saved=rand(10,20);gs.rocForce-=rand(5,15);gs.defense-=rand(5,10);
+log(`Forces dispersed to pre-planned positions. Losses moderate. Key assets survived in hardened shelters.`,'green');
+gs.usReady+=10;
+phase3_roc();
+}},
+{text:'Counter-Strike — Launch Missiles at Staging Areas',cls:'green',fn:()=>{
+let dmg=rand(5,15);gs.plaForce-=dmg;gs.rocForce-=rand(10,20);gs.defense-=rand(8,15);
+log(`Hsiung Feng missiles launched at PLA staging areas! PLA loses ${dmg}% forces. But defensive positioning delayed.`,'green');
+gs.usReady+=10;
+phase3_roc();
+}},
+]);
+}
+
+function phase3_pla(){
+gs.day=1;gs.usReady+=15;updateUI();
+setPhase('Z+1: Amphibious Crossing','Your invasion fleet is crossing the Strait. 130 km of open water. Taiwan\'s missiles and submarines are hunting. Десантный флот пересекает пролив.');
+setControls([
+{text:'Northern Route — Toward Taipei',cls:'red',fn:()=>{
+let loss=rand(10,25);gs.plaForce-=loss;gs.mission+=rand(12,20);
+log(`Northern landing attempted near Taoyuan. Heavy losses crossing strait: ${loss}% fleet attrition. But forces reaching beaches.`,'red');
+gs.usReady+=10;
+phase4_pla();
+}},
+{text:'Multi-Axis — Split Forces',cls:'red',fn:()=>{
+let loss=rand(15,30);gs.plaForce-=loss;gs.mission+=rand(8,15);
+log(`Multi-axis assault launched. Forces spread thin. Losses severe: ${loss}%. Some beachheads established but precarious.`,'red');
+gs.usReady+=10;
+phase4_pla();
+}},
+]);
+}
+
+function phase3_roc(){
+gs.day=1;gs.usReady+=15;updateUI();
+setPhase('Z+1: The Invasion Fleet Approaches','PLA ships detected crossing the Strait. Hundreds of vessels approaching. What is your priority? Корабли НОАК обнаружены в проливе.');
+setControls([
+{text:'Sea Mines + Anti-Ship Missiles — Maximum Sea Denial',cls:'green',fn:()=>{
+let kill=rand(15,30);gs.plaForce-=kill;gs.defense-=rand(0,5);
+log(`Sea mines and Hsiung Feng missiles devastate the invasion fleet! PLA loses ${kill}% of crossing forces!`,'green');
+gs.usReady+=10;
+phase4_roc();
+}},
+{text:'Air Force Sortie — Attack the Fleet',cls:'green',fn:()=>{
+let kill=rand(10,20);let lost=rand(5,15);gs.plaForce-=kill;gs.rocForce-=lost;
+log(`Air Force strikes invasion fleet — PLA loses ${kill}%. But ${lost}% of aircraft lost to PLA air defense.`,'green');
+gs.usReady+=10;
+phase4_roc();
+}},
+]);
+}
+
+function phase4_pla(){
+gs.day=3;gs.usReady+=20;updateUI();
+if(gs.plaForce<30){endGame('pla_loss');return;}
+setPhase('Z+3: Beach Battles','Your forces are fighting for beachheads. Taiwan\'s armored brigades are counterattacking. U.S. forces mobilizing. Бои на пляжах. Танковые бригады Тайваня контратакуют.');
+setControls([
+{text:'Push Inland Aggressively',cls:'red',fn:()=>{
+let prog=rand(10,20);let loss=rand(10,20);gs.mission+=prog;gs.plaForce-=loss;gs.defense-=rand(5,15);
+log(`Aggressive push inland. Mission progress +${prog}% but costly: PLA loses ${loss}% in fierce fighting.`,'red');
+gs.usReady+=15;
+endPhase_pla();
+}},
+{text:'Consolidate Beachheads First',cls:'red',fn:()=>{
+let prog=rand(5,12);let loss=rand(5,10);gs.mission+=prog;gs.plaForce-=loss;gs.defense-=rand(3,8);
+log(`Consolidating beachheads. Slower progress (+${prog}%) but lower losses. Taiwan counterattacks stalling advance.`,'red');
+gs.usReady+=15;
+endPhase_pla();
+}},
+]);
+}
+
+function phase4_roc(){
+gs.day=3;gs.usReady+=20;updateUI();
+setPhase('Z+3: Beach Defense','PLA forces attempting to establish beachheads. Your armored brigades are ready to counterattack. НОАК пытается закрепиться на побережье.');
+setControls([
+{text:'Counterattack Immediately — Drive Them Into the Sea!',cls:'green',fn:()=>{
+let kill=rand(10,25);let lost=rand(5,15);gs.plaForce-=kill;gs.rocForce-=lost;gs.defense-=rand(0,5);
+log(`Armored counterattack on beachheads! PLA loses ${kill}%! But ROC loses ${lost}% of counterattack forces.`,'green');
+gs.usReady+=15;
+endPhase_roc();
+}},
+{text:'Defend in Depth — Attrit Them Slowly',cls:'green',fn:()=>{
+let kill=rand(5,15);gs.plaForce-=kill;gs.defense-=rand(5,10);
+log(`Defense in depth — attriting PLA forces slowly. PLA loses ${kill}%. Your forces largely preserved.`,'green');
+gs.usReady+=15;
+endPhase_roc();
+}},
+]);
+}
+
+function endPhase_pla(){
+gs.day=7;gs.usReady+=25;updateUI();
+if(gs.mission>=80){endGame('pla_win');return;}
+if(gs.plaForce<20){endGame('pla_loss');return;}
+if(gs.usReady>=100){
+let usDmg=rand(15,30);gs.plaForce-=usDmg;
+log(`Z+7: U.S. FORCES ARRIVE. Carrier battle groups engaging PLA fleet. PLA loses ${usDmg}%. Strategic situation now desperate for PLA.`,'blue');
+gs.usReady=100;
+}
+setPhase('Z+7: The Critical Moment','A week into the campaign. Your forces are depleted. U.S. forces arriving. Continue or withdraw? Критический момент: силы истощены, прибывают силы США.');
+setControls([
+{text:'All-Out Push for Taipei',cls:'red',fn:()=>{
+let prog=rand(5,20);let loss=rand(15,30);gs.mission+=prog;gs.plaForce-=loss;
+log(`Desperate push for Taipei. Progress: +${prog}%. But catastrophic losses: ${loss}%.`,'red');
+endGame(gs.mission>=80?'pla_win':'pla_loss');
+}},
+{text:'Negotiate Ceasefire',cls:'',fn:()=>{
+log('PLA command requests ceasefire. The invasion has failed to achieve its objectives within the required timeframe.','gold');
+endGame('stalemate');
+}},
+{text:'Withdraw — Cut Losses',cls:'',fn:()=>{
+log('PLA begins withdrawal across the Strait. The invasion has failed.','gold');
+endGame('pla_loss');
+}},
+]);
+}
+
+function endPhase_roc(){
+gs.day=7;gs.usReady+=25;updateUI();
+if(gs.defense<=0){endGame('roc_loss');return;}
+if(gs.usReady>=100){
+let usDmg=rand(15,30);gs.plaForce-=usDmg;
+log(`Z+7: U.S. CARRIER BATTLE GROUPS ARRIVE! Engaging PLA fleet. PLA loses ${usDmg}%.`,'blue');
+gs.usReady=100;
+}
+setPhase('Z+7: Holding the Line','One week of fighting. Your forces battered but holding. U.S. forces arriving. Неделя боёв. Силы потрёпаны, но держатся. Прибывают силы США.');
+setControls([
+{text:'Major Counteroffensive',cls:'green',fn:()=>{
+let kill=rand(15,30);let lost=rand(10,20);gs.plaForce-=kill;gs.rocForce-=lost;
+log(`Major counteroffensive launched! PLA forces crumbling — lose ${kill}%. But ROC loses ${lost}%.`,'green');
+endGame(gs.plaForce<20?'roc_win':'stalemate');
+}},
+{text:'Continue Attrition Defense',cls:'green',fn:()=>{
+let kill=rand(10,20);gs.plaForce-=kill;gs.defense-=rand(3,8);
+log(`Continued attrition. PLA losing ${kill}% more. Their supply lines across the Strait are being cut.`,'green');
+endGame(gs.plaForce<25?'roc_win':'stalemate');
+}},
+]);
+}
+
+function endGame(result){
+updateUI();
+const msgs={
+'pla_win':'⚠️ RESULT: PLA captures Taipei. Taiwan falls. A catastrophic outcome — but historically very unlikely given the enormous challenges the PLA faces.',
+'pla_loss':'✅ RESULT: PLA invasion FAILS. Forces withdraw across the Strait. Taiwan survives. This is the most likely outcome according to the book\'s analysis.',
+'roc_win':'✅ RESULT: Taiwan successfully repels the invasion with U.S. support. PLA forces destroyed or withdrawn. Тайвань успешно отразил вторжение.',
+'roc_loss':'⚠️ RESULT: Taiwan\'s defenses collapse before U.S. arrival. This scenario is possible if Taiwan fails to invest in asymmetric defense.',
+'stalemate':'🤝 RESULT: Stalemate. Neither side achieves decisive victory. Ceasefire negotiations begin. The most likely outcome of an actual invasion attempt. Патовая ситуация.',
+};
+log(msgs[result]||'Simulation complete.','gold');
+log('Key lesson from the book: "The costs of aggression are expected to be crippling, even if the Chinese military of tomorrow is far more capable than it is today."','gold');
+setControls([{text:'🔄 Play Again',cls:'',fn:resetGame}]);
+}
+
+startGame();
+</script>
+</body>
+</html>

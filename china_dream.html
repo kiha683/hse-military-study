@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The China Dream — Liu Mingfu (刘明福)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0c10;--bg2:#111318;--bg3:#181c24;--accent:#c8a44e;--accent2:#e8c55e;
+--text:#d4d4d8;--text2:#9ca3af;--red:#dc4444;--blue:#3b82f6;--green:#22c55e;
+--navy:#1e3a5f;--dark-red:#8b1a1a;--china-red:#c41e3a;--gold:#d4a843;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0c10 0%,#1a1018 50%,#0a1020 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a44e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:900px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,var(--china-red),var(--accent),var(--china-red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(1rem,2vw,1.4rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:0.15em;text-transform:uppercase}
+.hero .author{font-size:1.2rem;color:var(--accent);margin:1.5rem 0;font-style:italic}
+.hero .epigraph{max-width:600px;margin:2rem auto;padding:1.5rem;border-left:3px solid var(--accent);text-align:left;color:var(--text2);font-style:italic;font-size:1.05rem}
+.hero .scroll-hint{margin-top:3rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.hero .scroll-hint span{display:block;width:2px;height:40px;background:var(--accent);margin:0 auto;opacity:.5}
+.dragon-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;opacity:.03;pointer-events:none}
+
+/* FLOATING NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,12,16,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,164,78,.1);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--accent);font-weight:700}
+.nav-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+
+/* SECTIONS */
+.section{max-width:1000px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:6rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border:1px solid rgba(200,164,78,.1);border-radius:50%}
+.part-num{font-family:'DM Sans',sans-serif;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.part-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:1rem}
+.part-desc{color:var(--text2);max-width:600px;margin:0 auto;font-size:1.05rem}
+
+.ch-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(200,164,78,.15)}
+.ch-num{font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--accent);padding-left:1rem;margin-top:1rem;font-size:.95rem}
+
+h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--accent)}
+h4{font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--accent);margin:2rem 0 .8rem;letter-spacing:.05em}
+p{margin-bottom:1.2rem;font-size:1.02rem}
+strong{color:#fff;font-weight:600}
+
+/* RUSSIAN TERM */
+.ru{color:var(--accent);cursor:help;border-bottom:1px dotted rgba(200,164,78,.4);position:relative}
+.ru::after{content:attr(data-ru);position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--accent);padding:4px 10px;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.75rem;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;z-index:10}
+.ru:hover::after{opacity:1}
+
+/* KEY POINTS */
+.key-point{background:var(--bg3);border:1px solid rgba(200,164,78,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;background:var(--accent);color:var(--bg);padding:2px 10px;border-radius:3px;font-weight:700}
+.key-point p{margin-bottom:.5rem}
+
+.warning-box{background:rgba(220,68,68,.08);border:1px solid rgba(220,68,68,.2);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.warning-box strong{color:var(--red)}
+
+.concept-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+
+.china-box{background:rgba(196,30,58,.06);border:1px solid rgba(196,30,58,.2);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.china-box strong{color:var(--china-red)}
+
+/* MAP CONTAINER */
+.map-container{background:var(--bg2);border:1px solid rgba(200,164,78,.12);border-radius:12px;overflow:hidden;margin:2rem 0;position:relative}
+.map-label{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(200,164,78,.1)}
+.map-svg{width:100%;display:block}
+
+/* COMPARISON TABLE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,164,78,.1);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.5rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.8rem;border-bottom:1px solid rgba(200,164,78,.1)}
+.compare-col.red h4{color:var(--red)}
+.compare-col.blue h4{color:var(--blue)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.5rem 0;font-size:.95rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.compare-col li::before{content:'→';color:var(--accent);margin-right:.5rem}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--china-red),var(--accent),transparent)}
+.tl-item{margin-bottom:2rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);transform:translateX(-4px)}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent);font-weight:500}
+.tl-text{font-size:.95rem;color:var(--text2)}
+
+/* PHASE DIAGRAM */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:8px;padding:1.5rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--accent);transform:translateY(-2px)}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);font-weight:700}
+.phase-name{font-family:'DM Sans',sans-serif;font-size:.9rem;color:#fff;margin:.5rem 0;font-weight:600}
+.phase-desc{font-size:.85rem;color:var(--text2);line-height:1.5}
+
+/* STATS BAR */
+.stat-bar{margin:1rem 0;display:flex;align-items:center;gap:1rem}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text2);min-width:120px;text-align:right}
+.stat-track{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;position:relative}
+.stat-fill{height:100%;border-radius:4px;transition:width 1.5s ease-out}
+.stat-fill.red{background:linear-gradient(90deg,var(--china-red),#ff6666)}
+.stat-fill.blue{background:linear-gradient(90deg,var(--blue),#60a5fa)}
+.stat-fill.gold{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--text2);min-width:80px}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.card{background:var(--bg3);border:1px solid rgba(200,164,78,.08);border-radius:8px;padding:1.5rem;transition:all .3s}
+.card:hover{border-color:var(--accent);background:var(--bg2)}
+.card-type{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.card-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+.card-desc{font-size:.9rem;color:var(--text2);line-height:1.6}
+.card-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.65rem;padding:2px 8px;border-radius:3px;margin-top:.5rem;margin-right:.3rem;border:1px solid}
+.card-tag.cn{color:var(--china-red);border-color:rgba(196,30,58,.3)}
+.card-tag.us{color:var(--blue);border-color:rgba(59,130,246,.3)}
+.card-tag.key{color:var(--green);border-color:rgba(34,197,94,.3)}
+
+/* TOC */
+.toc{background:var(--bg2);border:1px solid rgba(200,164,78,.1);border-radius:12px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.3rem;margin-bottom:1.5rem}
+.toc-link{display:block;padding:.4rem 0 .4rem 1rem;color:var(--text2);text-decoration:none;font-size:.95rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--accent);border-left-color:var(--accent);padding-left:1.5rem}
+
+/* GAME CONTAINER */
+.game-container{background:var(--bg2);border:1px solid rgba(200,164,78,.15);border-radius:12px;padding:2rem;margin:2rem 0}
+.game-title{font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.game-title::before{content:'🎮 '}
+.quiz-q{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem}
+.quiz-opts{display:grid;gap:.5rem}
+.quiz-opt{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:6px;padding:.8rem 1.2rem;cursor:pointer;transition:all .2s;font-size:.95rem;text-align:left;color:var(--text);font-family:'Source Serif 4',serif}
+.quiz-opt:hover{border-color:var(--accent);background:rgba(200,164,78,.05)}
+.quiz-opt.correct{border-color:var(--green);background:rgba(34,197,94,.1);color:var(--green)}
+.quiz-opt.wrong{border-color:var(--red);background:rgba(220,68,68,.1);color:var(--red)}
+.quiz-explain{margin-top:1rem;padding:1rem;background:rgba(200,164,78,.05);border-radius:6px;font-size:.9rem;color:var(--text2);display:none}
+.quiz-score{font-family:'JetBrains Mono',monospace;font-size:1.5rem;color:var(--accent);text-align:center;margin:1rem 0}
+
+/* STRATEGY GAME */
+.strat-game{position:relative}
+.strat-board{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin:1rem 0}
+.strat-cell{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:6px;padding:1rem;min-height:80px;cursor:pointer;transition:all .3s;text-align:center}
+.strat-cell:hover{border-color:var(--accent)}
+.strat-cell.selected{border-color:var(--green);background:rgba(34,197,94,.08)}
+.strat-cell .cell-title{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--accent);margin-bottom:.3rem}
+.strat-cell .cell-val{font-family:'JetBrains Mono',monospace;font-size:1.2rem;color:#fff}
+.strat-result{padding:1rem;background:var(--bg3);border-radius:6px;margin-top:1rem;display:none}
+.strat-meter{height:12px;background:var(--bg3);border-radius:6px;overflow:hidden;margin:.5rem 0}
+.strat-meter-fill{height:100%;transition:width 1s ease-out;border-radius:6px}
+.btn{font-family:'DM Sans',sans-serif;padding:.6rem 1.5rem;border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:4px;cursor:pointer;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;margin-top:.5rem}
+.btn:hover{background:var(--accent);color:var(--bg)}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(200,164,78,.2),transparent);margin:4rem 0}
+
+/* GLOSSARY */
+.glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.8rem;margin:2rem 0}
+.gloss-item{background:var(--bg3);border:1px solid rgba(200,164,78,.06);border-radius:6px;padding:1rem;display:flex;align-items:flex-start;gap:.8rem}
+.gloss-en{font-family:'DM Sans',sans-serif;font-size:.85rem;color:#fff;font-weight:600;min-width:120px}
+.gloss-ru{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--accent)}
+.gloss-cn{font-size:.8rem;color:var(--text2)}
+
+/* LEADER PROFILES */
+.leaders{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin:2rem 0}
+.leader{background:var(--bg3);border:1px solid rgba(200,164,78,.1);border-radius:12px;padding:1.5rem;text-align:center;transition:all .3s}
+.leader:hover{border-color:var(--accent);transform:translateY(-3px)}
+.leader-icon{font-size:3rem;margin-bottom:.5rem}
+.leader-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.3rem}
+.leader-cn{font-size:.85rem;color:var(--accent);margin-bottom:.5rem}
+.leader-role{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.8rem}
+.leader-desc{font-size:.9rem;color:var(--text2);line-height:1.6;text-align:left}
+
+/* FOOTER */
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.85rem;background:var(--bg2);border-top:1px solid rgba(200,164,78,.08)}
+.footer strong{color:var(--accent)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.compare{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:3rem 1.2rem}
+.glossary{grid-template-columns:1fr}
+.strat-board{grid-template-columns:1fr}
+}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:all .8s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Power meter for game */
+.power-display{display:flex;gap:2rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
+.power-item{text-align:center}
+.power-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em}
+.power-val{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700}
+.power-val.cn-col{color:var(--china-red)}
+.power-val.us-col{color:var(--blue)}
+
+/* Tabs */
+.tabs{display:flex;gap:0;margin:2rem 0 0;border-bottom:1px solid rgba(200,164,78,.15)}
+.tab{font-family:'DM Sans',sans-serif;font-size:.8rem;padding:.8rem 1.5rem;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;text-transform:uppercase;letter-spacing:.1em}
+.tab:hover{color:var(--accent)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-content{display:none;padding:1.5rem 0}
+.tab-content.active{display:block}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+<div class="nav-title">中国梦 — The China Dream</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#ch1">Ch.1</a>
+<a href="#ch2">Ch.2</a>
+<a href="#ch3">Ch.3</a>
+<a href="#ch4">Ch.4</a>
+<a href="#ch5">Ch.5</a>
+<a href="#ch6">Ch.6</a>
+<a href="#ch7">Ch.7</a>
+<a href="#ch8">Ch.8</a>
+<a href="#glossary">Glossary</a>
+<a href="#game-final">Game</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<svg class="dragon-bg" viewBox="0 0 500 500"><circle cx="250" cy="250" r="200" fill="none" stroke="rgba(196,30,58,.08)" stroke-width="1"/><circle cx="250" cy="250" r="150" fill="none" stroke="rgba(200,164,78,.06)" stroke-width="1"/><circle cx="250" cy="250" r="100" fill="none" stroke="rgba(196,30,58,.04)" stroke-width="1"/><text x="250" y="260" text-anchor="middle" fill="rgba(196,30,58,.06)" font-size="80" font-family="serif">梦</text></svg>
+<div class="hero-content">
+<div class="subtitle">Colonel Liu Mingfu (刘明福) — PLA National Defense University</div>
+<h1>The China Dream</h1>
+<div class="subtitle" style="font-size:.9rem;color:var(--text2);letter-spacing:.05em">中国梦 — Great Power Thinking & Strategic Posture in the Post-American Era</div>
+<div class="author">By Senior Colonel Liu Mingfu, Professor at China's National Defense University.<br>First published 2010; English edition 2015 (CN Times Books).</div>
+<div class="epigraph">
+"It has been China's dream for a century to become the world's leading nation. It's a dream that combines the ideals of three of China's greatest leaders: <strong style="color:var(--accent)">Sun Yat-sen</strong>, <strong style="color:var(--accent)">Mao Zedong</strong>, and <strong style="color:var(--accent)">Deng Xiaoping</strong>."
+<br><br>—Chapter 1
+</div>
+<div class="epigraph" style="border-color:var(--china-red)">
+"China's dream is not America's nightmare. Sino-American competition will be the defining game of the century — for both sides, the process will be magnificent, the outcomes brilliant."
+<br><br>—Foreword
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="section" id="toc">
+<div class="toc">
+<h3 style="color:var(--accent)">Table of Contents — Содержание</h3>
+<a href="#foreword" class="toc-link">Foreword: The Sino-American "Double Gamble" — Предисловие</a>
+<a href="#ch1" class="toc-link">Chapter 1: China's Dream for a Century — Мечта Китая</a>
+<a href="#ch2" class="toc-link">Chapter 2: The Fight for the Century — Борьба века</a>
+<a href="#ch3" class="toc-link">Chapter 3: The Chinese Century: An Age of Global Prosperity — Китайский век</a>
+<a href="#ch4" class="toc-link">Chapter 4: Building a Benevolent China — Благожелательный Китай</a>
+<a href="#ch5" class="toc-link">Chapter 5: A Great Strategy Requires Great Thinking — Великая стратегия</a>
+<a href="#ch6" class="toc-link">Chapter 6: Learning from Mistakes Made Abroad — Уроки из-за рубежа</a>
+<a href="#ch7" class="toc-link">Chapter 7: The Reason for Military Development — Военное развитие</a>
+<a href="#ch8" class="toc-link">Chapter 8: A Call for the Coming Collapse of China — Призыв к бдительности</a>
+<a href="#glossary" class="toc-link">📖 Trilingual Glossary (EN / RU / 中文)</a>
+<a href="#game-final" class="toc-link">🎮 Interactive Strategy Simulation</a>
+</div>
+</section>
+
+<!-- FOREWORD -->
+<section class="section" id="foreword">
+<div class="ch-header">
+<div class="ch-num">Foreword — Предисловие</div>
+<div class="ch-title">The Sino-American "Double Gamble"</div>
+<div class="ch-quote">"China and America are playing the largest game of global power in human history."</div>
+</div>
+
+<p>David Lampton, one of President Obama's most important advisors on China, once asserted that China and the United States are involuntarily engaged in a <strong>"double gamble"</strong> (<span class="ru" data-ru="двойная ставка">double gamble</span>) with history. The United States seeks to maintain its political and economic status; China will rise to challenge the United States as another leading world power in the 21st century.</p>
+
+<p>China is required to bet that America will provide support and cooperation during its rise. America is required to bet that the rise of a strong China will provide a strong, active partner that shares responsibilities in the <span class="ru" data-ru="международная арена">international arena</span> without threatening American interests.</p>
+
+<div class="key-point">
+<p><strong>Liu Mingfu's core thesis:</strong> The competition between China and the United States in the 21st century represents a new era in human history. America — tough but young — and China — strong and ancient — separated by the vast Pacific Ocean, are playing the largest game of <span class="ru" data-ru="глобальная власть">global power</span> in human history.</p>
+</div>
+
+<p>Liu insists this competition need not be hostile: <strong>"While America and China are indeed competitors, they are far from enemies or antagonists. China's dream is not America's nightmare."</strong> He envisions a <span class="ru" data-ru="цивилизованное соревнование">civilized competition</span> — like a track-and-field meet — where both sides develop and progress through the struggle.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 1 -->
+<section class="section" id="ch1">
+<div class="ch-header">
+<div class="ch-num">Chapter 1 — Глава 1</div>
+<div class="ch-title">China's Dream for a Century</div>
+<div class="ch-quote">"It has been China's dream for a century to become the world's leading nation."</div>
+</div>
+
+<p>Liu Mingfu frames the <span class="ru" data-ru="Китайская мечта">China Dream</span> (中国梦) as a century-long aspiration shared by three transformative leaders, each contributing a different dimension to the vision of China as the world's leading nation.</p>
+
+<h3>Three Architects of the Dream</h3>
+
+<div class="leaders">
+<div class="leader">
+<div class="leader-icon">🏛️</div>
+<div class="leader-name">Sun Yat-sen</div>
+<div class="leader-cn">孙中山 (1866–1925)</div>
+<div class="leader-role">Architect of the Republic</div>
+<div class="leader-desc">Sun demanded China become the world's <strong>most prosperous nation</strong> — his "Six Utmosts" (utmost size, excellence, progress, dignity, wealth, and happiness) and "Four Mosts" (most strength, wealth, just government, happiest citizens). He believed Chinese students' consistent academic superiority in American schools proved the inherent quality of the Chinese people. He advocated an <strong>Open Door policy</strong> and <strong>innovation</strong> — his Five Branches of Government added impeachment and examinations to the Western model of three.</div>
+</div>
+<div class="leader">
+<div class="leader-icon">⭐</div>
+<div class="leader-name">Mao Zedong</div>
+<div class="leader-cn">毛泽东 (1893–1976)</div>
+<div class="leader-role">Founder of New China</div>
+<div class="leader-desc">Mao believed <strong>catching up to and surpassing the United States</strong> was China's national responsibility. In 1955 he said: "The US only has 100 million people, while China has 600 million. Only on the day China catches up to and surpasses America can the Chinese people rest." His <strong>Great Leap Forward</strong> sought to surpass Britain in 15 years and America in 20–30 — ultimately a failure, but the ambition shaped China's strategic psyche permanently.</div>
+</div>
+<div class="leader">
+<div class="leader-icon">🔄</div>
+<div class="leader-name">Deng Xiaoping</div>
+<div class="leader-cn">邓小平 (1904–1997)</div>
+<div class="leader-role">Designer of Reform & Opening</div>
+<div class="leader-desc">Deng transformed Mao's ambition into a <strong>pragmatic three-step plan</strong>: (1) basic sustenance for all by ~1990; (2) healthy growth to a "moderately prosperous society" (<span class="ru" data-ru="общество малого достатка">xiaokang</span> 小康) by 2000; (3) a "moderately developed nation" by mid-21st century. He enabled more material progress than any other modern Chinese leader, but deliberately kept a <strong>low profile</strong> — "hide your strength, bide your time" (韬光养晦).</div>
+</div>
+</div>
+
+<h3>International Predictions of China's Rise</h3>
+<p>Liu catalogues Western predictions confirming the trajectory: Zbigniew Brzezinski predicted China would equal the U.S. within 20 years. A 2009 <em>Financial Times</em> survey showed <strong>87% of respondents</strong> believed China's global influence would grow significantly. Goldman Sachs and Price Waterhouse Coopers both projected China's GDP would surpass America's between <strong>2025–2030</strong>.</p>
+
+<div class="key-point">
+<p><strong>The Core Dream:</strong> For China to become the world's <span class="ru" data-ru="нация-чемпион">champion nation</span> — not just a great power, but <em>the</em> leading nation — requires the world's largest economy, the strongest comprehensive national power, and a civilization model that others wish to emulate.</p>
+</div>
+
+<!-- Timeline: Three Leaders -->
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1894</div><div class="tl-text">Sun Yat-sen petitions Qing viceroy Li Hongzhang with national reform agenda — calls for China to surpass Europe</div></div>
+<div class="tl-item"><div class="tl-year">1911</div><div class="tl-text">Xinhai Revolution overthrows Qing Dynasty; Sun Yat-sen's Republic of China established</div></div>
+<div class="tl-item"><div class="tl-year">1949</div><div class="tl-text">Mao Zedong founds the People's Republic of China — "The Chinese people have stood up"</div></div>
+<div class="tl-item"><div class="tl-year">1955</div><div class="tl-text">Mao declares: China must catch up to and surpass the United States — this is a national responsibility</div></div>
+<div class="tl-item"><div class="tl-year">1958</div><div class="tl-text">Great Leap Forward launched: "Surpass Britain in 15 years, America in 20-30 years"</div></div>
+<div class="tl-item"><div class="tl-year">1978</div><div class="tl-text">Deng Xiaoping launches Reform and Opening Up (改革开放) — begins pragmatic three-step plan</div></div>
+<div class="tl-item"><div class="tl-year">2010</div><div class="tl-text">China becomes world's second-largest economy; Liu Mingfu publishes The China Dream</div></div>
+<div class="tl-item"><div class="tl-year">2012</div><div class="tl-text">Xi Jinping takes power; adopts "China Dream" as official slogan for national rejuvenation</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 2 -->
+<section class="section" id="ch2">
+<div class="ch-header">
+<div class="ch-num">Chapter 2 — Глава 2</div>
+<div class="ch-title">The Fight for the Century</div>
+<div class="ch-quote">"In every century there seems to emerge a country with the power, the will, and the intellectual and moral impetus to reshape the entire international system in accordance with its own values." —Henry Kissinger</div>
+</div>
+
+<p>Liu constructs an elaborate theory of <span class="ru" data-ru="нации-чемпионы">champion nations</span> (冠军国家) — the highest tier in international competition, a status held by only one nation at a time, changing roughly once per century.</p>
+
+<h3>The Hierarchy of Nations</h3>
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--china-red)">
+<div class="phase-num">I</div>
+<div class="phase-name">Champion Nation</div>
+<div class="phase-desc"><span class="ru" data-ru="Нация-чемпион">Champion nation</span> — Only one per era. Reshapes the international system. Created miracles for mankind.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">II</div>
+<div class="phase-name">Great Power</div>
+<div class="phase-desc"><span class="ru" data-ru="Великая держава">Great power</span> — Major states with significant global influence, but not the singular leader.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">III</div>
+<div class="phase-name">Developing Nation</div>
+<div class="phase-desc"><span class="ru" data-ru="Развивающаяся страна">Developing nation</span> — On the path of growth, aspiring to great power status.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--text2)">
+<div class="phase-num">IV</div>
+<div class="phase-name">Surviving Nation</div>
+<div class="phase-desc"><span class="ru" data-ru="Выживающее государство">Surviving nation</span> — Existence guaranteed, but minimal influence on global order.</div>
+</div>
+</div>
+
+<h3>The Changing of Champions</h3>
+<p>Liu traces the succession of <span class="ru" data-ru="гегемония">hegemonic</span> powers over five centuries:</p>
+
+<!-- Champion Nations Map -->
+<div class="map-container">
+<div class="map-label">Historical Champion Nations — 500 Years of Global Leadership</div>
+<svg class="map-svg" viewBox="0 0 900 300" style="background:#0d1520">
+<defs><linearGradient id="gflow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="rgba(196,30,58,.4)"/><stop offset="100%" stop-color="rgba(200,164,78,.4)"/></linearGradient></defs>
+<!-- Timeline base -->
+<line x1="50" y1="200" x2="850" y2="200" stroke="rgba(200,164,78,.2)" stroke-width="1"/>
+<!-- Era blocks -->
+<rect x="50" y="60" width="120" height="120" rx="4" fill="rgba(200,164,78,.06)" stroke="rgba(200,164,78,.15)" stroke-width="1"/>
+<text x="110" y="90" text-anchor="middle" fill="rgba(200,164,78,.7)" font-family="DM Sans" font-size="10" font-weight="700">PORTUGAL</text>
+<text x="110" y="105" text-anchor="middle" fill="rgba(200,164,78,.4)" font-family="DM Sans" font-size="8">& SPAIN</text>
+<text x="110" y="130" text-anchor="middle" fill="rgba(200,164,78,.3)" font-family="JetBrains Mono" font-size="9">15th–16th C</text>
+<text x="110" y="150" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="8">Age of Discovery</text>
+
+<rect x="185" y="60" width="120" height="120" rx="4" fill="rgba(200,164,78,.06)" stroke="rgba(200,164,78,.15)" stroke-width="1"/>
+<text x="245" y="90" text-anchor="middle" fill="rgba(200,164,78,.7)" font-family="DM Sans" font-size="10" font-weight="700">NETHERLANDS</text>
+<text x="245" y="130" text-anchor="middle" fill="rgba(200,164,78,.3)" font-family="JetBrains Mono" font-size="9">17th C</text>
+<text x="245" y="150" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="8">Trade Empire</text>
+<text x="245" y="164" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="7">16,000 trade ships</text>
+
+<rect x="320" y="40" width="140" height="140" rx="4" fill="rgba(59,130,246,.06)" stroke="rgba(59,130,246,.15)" stroke-width="1"/>
+<text x="390" y="75" text-anchor="middle" fill="rgba(59,130,246,.7)" font-family="DM Sans" font-size="11" font-weight="700">GREAT BRITAIN</text>
+<text x="390" y="110" text-anchor="middle" fill="rgba(59,130,246,.3)" font-family="JetBrains Mono" font-size="9">18th–19th C</text>
+<text x="390" y="130" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="8">Industrial Revolution</text>
+<text x="390" y="144" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="7">40% of global trade</text>
+<text x="390" y="158" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="7">100,000km²/yr colonial</text>
+
+<rect x="475" y="30" width="160" height="150" rx="4" fill="rgba(59,130,246,.08)" stroke="rgba(59,130,246,.2)" stroke-width="1"/>
+<text x="555" y="65" text-anchor="middle" fill="rgba(59,130,246,.8)" font-family="DM Sans" font-size="12" font-weight="700">UNITED STATES</text>
+<text x="555" y="100" text-anchor="middle" fill="rgba(59,130,246,.3)" font-family="JetBrains Mono" font-size="9">20th C</text>
+<text x="555" y="120" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="8">"American Century"</text>
+<text x="555" y="134" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="7">Won both World Wars</text>
+<text x="555" y="148" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="7">Won Cold War</text>
+<text x="555" y="162" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="7">85% world working capital</text>
+
+<rect x="650" y="30" width="200" height="150" rx="4" fill="rgba(196,30,58,.06)" stroke="rgba(196,30,58,.2)" stroke-width="1" stroke-dasharray="6,3"/>
+<text x="750" y="65" text-anchor="middle" fill="rgba(196,30,58,.8)" font-family="DM Sans" font-size="12" font-weight="700">CHINA?</text>
+<text x="750" y="85" text-anchor="middle" fill="rgba(196,30,58,.5)" font-family="DM Sans" font-size="9">中国</text>
+<text x="750" y="110" text-anchor="middle" fill="rgba(196,30,58,.3)" font-family="JetBrains Mono" font-size="9">21st C?</text>
+<text x="750" y="130" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="8">"Chinese Century"</text>
+<text x="750" y="144" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="7">1.4 billion people</text>
+<text x="750" y="158" text-anchor="middle" fill="var(--text2)" font-family="Source Serif 4" font-size="7">5,000 years civilization</text>
+
+<!-- Flow arrows -->
+<path d="M170,120 L185,120" stroke="var(--accent)" stroke-width="1" marker-end="url(#arr)"/>
+<path d="M305,120 L320,120" stroke="var(--accent)" stroke-width="1" marker-end="url(#arr)"/>
+<path d="M460,120 L475,120" stroke="var(--accent)" stroke-width="1" marker-end="url(#arr)"/>
+<path d="M635,120 L650,120" stroke="var(--china-red)" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arr2)"/>
+<defs>
+<marker id="arr" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="var(--accent)"/></marker>
+<marker id="arr2" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="var(--china-red)"/></marker>
+</defs>
+
+<!-- Timeline markers -->
+<text x="110" y="220" text-anchor="middle" fill="var(--text2)" font-family="JetBrains Mono" font-size="8">1500</text>
+<text x="245" y="220" text-anchor="middle" fill="var(--text2)" font-family="JetBrains Mono" font-size="8">1600</text>
+<text x="390" y="220" text-anchor="middle" fill="var(--text2)" font-family="JetBrains Mono" font-size="8">1700-1900</text>
+<text x="555" y="220" text-anchor="middle" fill="var(--text2)" font-family="JetBrains Mono" font-size="8">1900-2000</text>
+<text x="750" y="220" text-anchor="middle" fill="var(--china-red)" font-family="JetBrains Mono" font-size="8">2000→?</text>
+
+<text x="450" y="260" text-anchor="middle" fill="rgba(200,164,78,.3)" font-family="DM Sans" font-size="9" font-weight="700">CHAMPION NATIONS — НАЦИИ-ЧЕМПИОНЫ — 冠军国家</text>
+<text x="450" y="280" text-anchor="middle" fill="rgba(200,164,78,.2)" font-family="DM Sans" font-size="7">Each created miracles for mankind and reshaped the international order</text>
+</svg>
+</div>
+
+<h3>The Track-and-Field Model</h3>
+<p>Liu proposes a revolutionary framework for the Sino-American competition: the <strong>"Track and Field Model"</strong> (<span class="ru" data-ru="модель лёгкой атлетики">track and field model</span>) — a civilized, rules-based competition where both nations run in parallel lanes without colliding.</p>
+
+<div class="compare">
+<div class="compare-col red">
+<h4>❌ Previous Competition Models</h4>
+<ul>
+<li><strong>War Model:</strong> UK vs. Germany, US vs. Japan in WWII — total destruction</li>
+<li><strong>Cold War Model:</strong> US vs. USSR — nuclear brinkmanship, proxy wars</li>
+<li><strong>Containment Model:</strong> Deliberate suppression of rival</li>
+</ul>
+</div>
+<div class="compare-col" style="border-left:2px solid var(--green)">
+<h4 style="color:var(--green)">✓ Track & Field Model (Proposed)</h4>
+<ul>
+<li><strong>Parallel competition:</strong> Each runs in own lane</li>
+<li><strong>Rules-based:</strong> No fouls, no tackling</li>
+<li><strong>Both benefit:</strong> Competition drives improvement</li>
+<li><strong>No zero-sum:</strong> One winning doesn't destroy the other</li>
+</ul>
+</div>
+</div>
+
+<div class="concept-box">
+<p><strong>Eight Differences from the Cold War:</strong> Liu argues Sino-American competition differs from US-Soviet rivalry in critical ways: (1) no opposing military alliances, (2) deeply intertwined economies, (3) no ideological crusade to convert the other, (4) no nuclear arms race, (5) different strategic objectives, (6) shared global challenges (climate, terrorism), (7) mutual economic dependence, (8) nuclear weapons make total war unthinkable.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 3 -->
+<section class="section" id="ch3">
+<div class="ch-header">
+<div class="ch-num">Chapter 3 — Глава 3</div>
+<div class="ch-title">The Chinese Century: An Age of Global Prosperity</div>
+<div class="ch-quote">"The appearance of every champion nation begins a new era. Launching the China Age is China's historic mission."</div>
+</div>
+
+<p>Liu envisions the <span class="ru" data-ru="Китайский век">Chinese Century</span> not as an era of domination but as a new stage in human civilization — one characterized by prosperity, cultural flourishing, and a <span class="ru" data-ru="мир без гегемона">hegemon-free world</span>.</p>
+
+<h3>Why China Can Lead</h3>
+
+<h4>The Three Great Transformations</h4>
+<p>Liu identifies three macro-historical transformations that frame China's rise:</p>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">1</div>
+<div class="phase-name">Feudalism → Capitalism</div>
+<div class="phase-desc">The rise of Western nations through industrialization and the capitalist revolution (16th–19th centuries)</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--china-red)">
+<div class="phase-num">2</div>
+<div class="phase-name">Capitalism → Socialism</div>
+<div class="phase-desc">The socialist revolutions and the rise of the Soviet model as a competing system (20th century)</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">3</div>
+<div class="phase-name">Chinese Model</div>
+<div class="phase-desc">China's synthesis: combining elements of both capitalism and socialism into a uniquely Chinese path (<span class="ru" data-ru="китайская модель">Chinese model</span>)</div>
+</div>
+</div>
+
+<h3>China's Cultural Flags</h3>
+<p>Liu argues every champion nation raised a <strong>"cultural flag"</strong> (<span class="ru" data-ru="культурное знамя">cultural flag</span>) — an ideological banner that inspired the world. Britain raised <strong>industrialism</strong>; America raised <strong>democracy and human rights</strong>; the USSR raised <strong>socialist revolution</strong>. China must raise its own flags:</p>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Cultural Flag 1</div>
+<div class="card-name">Peace & Development</div>
+<div class="card-desc">China's rise through peaceful development — proving great power transitions need not involve war.</div>
+<div class="card-tag cn">和平发展</div>
+</div>
+<div class="card">
+<div class="card-type">Cultural Flag 2</div>
+<div class="card-name">Harmonious World</div>
+<div class="card-desc">Building a harmonious world based on cooperation rather than domination — rejecting hegemonism.</div>
+<div class="card-tag cn">和谐世界</div>
+</div>
+<div class="card">
+<div class="card-type">Cultural Flag 3</div>
+<div class="card-name">Hegemon-Free World</div>
+<div class="card-desc">Ending the era where one power dominates all others — creating a truly multipolar, cooperative order.</div>
+<div class="card-tag cn">无霸权世界</div>
+</div>
+<div class="card">
+<div class="card-type">Cultural Flag 4</div>
+<div class="card-name">Morality-Based Power</div>
+<div class="card-desc">A "kingly" (王道) rather than "hegemonic" (霸道) approach — leading through moral authority, not force.</div>
+<div class="card-tag cn">王道</div>
+</div>
+</div>
+
+<h3>A Leading Nation Needn't Be a Hegemonic Nation</h3>
+<div class="key-point">
+<p><strong>Liu's core argument about the Chinese Century:</strong> China will prove that a nation can become the world's leading power without becoming a <span class="ru" data-ru="гегемон">hegemon</span>. Unlike Britain (colonial empire) or America (military-based primacy), China will lead through economic strength, cultural influence, and moral authority — the "kingly way" (王道 wángdào) rather than the "hegemonic way" (霸道 bàdào).</p>
+</div>
+
+<h4>Strategic Reassurance for America</h4>
+<p>Liu proposes mutual <span class="ru" data-ru="стратегические гарантии">strategic reassurances</span>: China pledges not to seek global hegemony; America pledges not to contain China's rise. Both commit to a <strong>nuclear-free, hegemon-free world</strong> as the ultimate strategic guarantee for global peace.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 4 -->
+<section class="section" id="ch4">
+<div class="ch-header">
+<div class="ch-num">Chapter 4 — Глава 4</div>
+<div class="ch-title">Building a Benevolent China</div>
+<div class="ch-quote">"In 1615 Matteo Ricci observed that it is truly remarkable that a people of such immense territory, with the most powerful army and the most advanced weapons, has no desire for conquest." </div>
+</div>
+
+<p>This chapter is Liu's most ambitious claim: that China's <span class="ru" data-ru="национальный характер">national character</span> is fundamentally peaceful and benevolent, rooted in thousands of years of continental, agrarian civilization.</p>
+
+<h3>The Chinese Phenomenon</h3>
+<p>Liu presents what he calls the <strong>"Chinese Phenomenon"</strong> — a set of historical patterns unique to China:</p>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Historical Pattern</div>
+<div class="card-name">No Colonialism</div>
+<div class="card-desc">Despite being the world's most powerful nation for centuries (Han, Tang, Ming dynasties), China never established overseas colonies or attempted to conquer distant territories.</div>
+<div class="card-tag key">Unique</div>
+</div>
+<div class="card">
+<div class="card-type">Historical Pattern</div>
+<div class="card-name">Defensive Military Culture</div>
+<div class="card-desc">China's wars throughout history were primarily defensive. The Great Wall itself is the ultimate symbol — the world's largest defensive structure, not an offensive weapon.</div>
+<div class="card-tag key">Defensive</div>
+</div>
+<div class="card">
+<div class="card-type">Historical Pattern</div>
+<div class="card-name">Tribute, Not Empire</div>
+<div class="card-desc">China's traditional foreign relations operated through the "tributary system" — a voluntary, ceremonial relationship fundamentally different from Western colonialism. Gifts returned exceeded tributes received.</div>
+<div class="card-tag key">和平</div>
+</div>
+<div class="card">
+<div class="card-type">Historical Pattern</div>
+<div class="card-name">Zheng He vs. Columbus</div>
+<div class="card-desc">Admiral Zheng He's fleet (1405-1433) was the largest the world had ever seen — yet it traded and gave gifts rather than conquering. Compare this with Columbus, who immediately enslaved indigenous peoples.</div>
+<div class="card-tag key">1405-1433</div>
+</div>
+<div class="card">
+<div class="card-type">Historical Pattern</div>
+<div class="card-name">No-First-Strike Nuclear Policy</div>
+<div class="card-desc">China is the only nuclear power to have announced a no-first-strike policy. The US, Russia, UK, France, and Israel have never made such a commitment.</div>
+<div class="card-tag key">Nuclear</div>
+</div>
+<div class="card">
+<div class="card-type">Historical Pattern</div>
+<div class="card-name">No Military Alliances</div>
+<div class="card-desc">China lists no nation as its enemy and maintains no military alliance targeting another country. It does not build overseas military bases for power projection.</div>
+<div class="card-tag key">Non-aligned</div>
+</div>
+</div>
+
+<h3>The Chinese Art of War</h3>
+<p>Liu contrasts the Western and Chinese military philosophical traditions:</p>
+
+<div class="compare">
+<div class="compare-col" style="border-right:2px solid var(--china-red)">
+<h4 style="color:var(--china-red)">Sun Tzu's Art of War (孙子兵法)</h4>
+<ul>
+<li>"The supreme art of war is to subdue the enemy without fighting"</li>
+<li>Peace first, victory second</li>
+<li>Strategic, defensive orientation</li>
+<li>Uses softness to overpower steel</li>
+<li>Moral and civilized approach to conflict</li>
+<li>Goal: achieve peace, not annihilation</li>
+</ul>
+</div>
+<div class="compare-col blue">
+<h4>Clausewitz's On War (论战争)</h4>
+<ul>
+<li>"War is the continuation of politics by other means"</li>
+<li>Victory first, peace as consequence</li>
+<li>Tactical, offensive orientation</li>
+<li>Uses force to overpower the enemy</li>
+<li>Political instrument approach to conflict</li>
+<li>Goal: destroy enemy's capacity to resist</li>
+</ul>
+</div>
+</div>
+
+<h3>Why China Is Peaceful: Geographic Determinism</h3>
+<p>Liu argues China's peaceful character stems from <strong>geography</strong>: China is a <span class="ru" data-ru="континентальная цивилизация">continental civilization</span> (大陆文明), born between the Yellow and Yangtze Rivers, with vast agricultural plains that rewarded cultivation over conquest. Maritime peoples (Europeans) developed on barren peninsulas, driving them outward; China's rich interior drove its people inward. This created fundamentally different national characters.</p>
+
+<h4>Eight "Will Nots" — China's Pledges to America</h4>
+<p>Liu lists eight things China <strong>will not</strong> do:</p>
+<div class="china-box">
+<p>1. China will not challenge U.S. global leadership position</p>
+<p>2. China will not seek to overthrow the existing international order</p>
+<p>3. China will not build an anti-American military alliance</p>
+<p>4. China will not export its political system</p>
+<p>5. China will not engage in an arms race</p>
+<p>6. China will not seek territorial expansion</p>
+<p>7. China will not threaten neighbors militarily</p>
+<p>8. China will not organize any form of alliance against the United States</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 5 -->
+<section class="section" id="ch5">
+<div class="ch-header">
+<div class="ch-num">Chapter 5 — Глава 5</div>
+<div class="ch-title">A Great Strategy Requires Great Thinking</div>
+<div class="ch-quote">"Strategy decides the direction and the future of a nation. Strategy is the lifeblood of a nation and a people."</div>
+</div>
+
+<p>Liu argues that China's rise requires not just economic growth but <span class="ru" data-ru="великая стратегия">grand strategy</span> (大战略) — and that China has historically excelled at strategic thinking when its leaders were competent, and failed catastrophically when they were not.</p>
+
+<h3>America's Grand Strategic Lessons</h3>
+<p>Liu devotes extensive analysis to America's own rise, identifying strategic brilliance that China should learn from:</p>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1796</div><div class="tl-text"><strong>Washington's Farewell Address:</strong> Established <span class="ru" data-ru="изоляционизм">isolationism</span> — "Why quit our own to stand upon foreign ground?" Kept America out of European wars.</div></div>
+<div class="tl-item"><div class="tl-year">1823</div><div class="tl-text"><strong>Monroe Doctrine:</strong> Declared the Americas off-limits to European colonization — America's first assertion of <span class="ru" data-ru="региональная гегемония">regional hegemony</span>.</div></div>
+<div class="tl-item"><div class="tl-year">1890s</div><div class="tl-text"><strong>Mahan & Manifest Destiny:</strong> Shifted from continental to maritime strategy — seized Hawaii, Philippines, built the Panama Canal.</div></div>
+<div class="tl-item"><div class="tl-year">1918</div><div class="tl-text"><strong>Wilson's Idealism:</strong> Attempted to lead the world through moral authority — created the League of Nations (which America then rejected).</div></div>
+<div class="tl-item"><div class="tl-year">1945</div><div class="tl-text"><strong>Roosevelt's Globalism:</strong> Built the post-war international order — UN, Bretton Woods, NATO. America finally accepted global leadership.</div></div>
+<div class="tl-item"><div class="tl-year">1947</div><div class="tl-text"><strong>Kennan's Containment:</strong> Established the framework for <span class="ru" data-ru="сдерживание">containment</span> of the Soviet Union — "long telegram" and the Truman Doctrine.</div></div>
+</div>
+
+<h3>"America's Art of the Cheapest Rise"</h3>
+<p>Liu identifies a pattern: America rose to global leadership at remarkably <strong>low cost</strong>. While European powers exhausted themselves in two world wars, America stayed out until the decisive moment, then swooped in to reshape the post-war order. Liu admires this strategic patience: <strong>"Even with the capacity to lead the world, America did not do so rashly"</strong> — it waited until conditions were perfect.</p>
+
+<div class="key-point">
+<p><strong>The lesson for China:</strong> Like America, China must be patient and strategic. Deng Xiaoping's "hide your strength, bide your time" (韬光养晦) was the Chinese equivalent of Washington's isolationism — creating space to build power without provoking premature confrontation.</p>
+</div>
+
+<h3>China's Four Strategic Eras</h3>
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--china-red)">
+<div class="phase-num">1</div>
+<div class="phase-name">Establishment Strategy</div>
+<div class="phase-desc">Mao era: Establish the nation, consolidate power, achieve basic security (1949-1976)</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">2</div>
+<div class="phase-name">Development Strategy</div>
+<div class="phase-desc">Deng era: Reform, open up, build economic strength, keep a low profile (1978-2000s)</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">3</div>
+<div class="phase-name">Transition Strategy</div>
+<div class="phase-desc">Current era: Transition from developing to great power, expanding international role</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--green)">
+<div class="phase-num">4</div>
+<div class="phase-name">Rising Strategy</div>
+<div class="phase-desc">Future: Achieve champion-nation status through comprehensive national rejuvenation</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 6 -->
+<section class="section" id="ch6">
+<div class="ch-header">
+<div class="ch-num">Chapter 6 — Глава 6</div>
+<div class="ch-title">Learning from Mistakes Made Abroad</div>
+<div class="ch-quote">"The first strategic issue for Chinese people in the 21st century involves facing America."</div>
+</div>
+
+<p>This chapter examines how America has historically <span class="ru" data-ru="сдерживание конкурентов">contained rival powers</span> — and what China can learn from these precedents.</p>
+
+<h3>How America Curbed Japan</h3>
+<p>Liu provides a detailed case study of the US-Japan economic confrontation in the 1980s — when Japan appeared poised to overtake America as the world's leading economy:</p>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1977</div><div class="tl-text">US semiconductor products account for only 3% of Japanese market; Japanese products reach 1.6% of US market</div></div>
+<div class="tl-item"><div class="tl-year">1985</div><div class="tl-text"><strong>Plaza Accord:</strong> US forces Japan to revalue the yen — devastating blow to Japanese exports</div></div>
+<div class="tl-item"><div class="tl-year">1988</div><div class="tl-text">Japan's per capita GDP surpasses Sweden — ranked #1 in the world. "Japan as Number One" hysteria peaks</div></div>
+<div class="tl-item"><div class="tl-year">1989</div><div class="tl-text">Ezra Vogel publishes <em>Japan as Number One</em>; fears that Japan would overtake US peak</div></div>
+<div class="tl-item"><div class="tl-year">1991</div><div class="tl-text">Japanese asset bubble bursts — begins "Lost Decade" (later extended to Lost Decades)</div></div>
+<div class="tl-item"><div class="tl-year">2000s</div><div class="tl-text">Japan economically stagnant; US experiences longest peacetime expansion under Clinton</div></div>
+</div>
+
+<div class="warning-box">
+<p><strong>Liu's lesson from Japan:</strong> America used economic pressure (<span class="ru" data-ru="Плазское соглашение">Plaza Accord</span>), trade restrictions, technology controls, and political manipulation to curb Japan's rise — <em>even though Japan was a military ally</em>. China, as a strategic competitor, should expect far harsher treatment.</p>
+</div>
+
+<h3>How America Curbed the Soviet Union</h3>
+<p>Liu analyzes the Cold War as a comprehensive case study in <span class="ru" data-ru="стратегическое соревнование">strategic competition</span>:</p>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Cold War Dimension</div>
+<div class="card-name">Military Competition</div>
+<div class="card-desc">Nuclear arms race, conventional force buildups, proxy wars across the globe. The material basis of the Cold War was nuclear weapons — the nuclear balance prevented direct conflict.</div>
+<div class="card-tag us">Military</div>
+</div>
+<div class="card">
+<div class="card-type">Cold War Dimension</div>
+<div class="card-name">Ideological War</div>
+<div class="card-desc">The US weaponized "democracy" and "human rights" as ideological tools, creating a commanding height from which to attack Soviet legitimacy. Radio Free Europe, cultural diplomacy, and moral framing.</div>
+<div class="card-tag us">Ideology</div>
+</div>
+<div class="card">
+<div class="card-type">Cold War Dimension</div>
+<div class="card-name">Economic Exhaustion</div>
+<div class="card-desc">The US leveraged its economic superiority to drag the Soviet Union into an unsustainable arms race. Soviet military spending consumed 15-25% of GDP, starving civilian economy.</div>
+<div class="card-tag us">Economy</div>
+</div>
+<div class="card">
+<div class="card-type">Cold War Dimension</div>
+<div class="card-name">Alliance Systems</div>
+<div class="card-desc">NATO vs. Warsaw Pact created competing blocks. US alliance network was ultimately stronger because it was based on shared economic prosperity, not just military coercion.</div>
+<div class="card-tag us">Alliances</div>
+</div>
+</div>
+
+<h3>How America Faces China: A Third Type of Rival</h3>
+<p>Liu argues China represents a <strong>fundamentally new type of rival</strong> — different from both Japan (ally turned economic competitor) and the Soviet Union (ideological enemy). China is:</p>
+
+<div class="concept-box">
+<p><strong>Neither enemy nor ally</strong> — China is the world's most civilized country without extensive military deployments abroad, the largest developing nation with the fastest economic growth, and a nuclear power committed to no-first-use. America has never encountered a rival quite like this, and its traditional containment playbook may not work.</p>
+</div>
+
+<h3>America's Need for Enemies</h3>
+<p>Liu makes a provocative argument: America <em>needs</em> enemies to maintain domestic cohesion and justify its global military posture. After the Soviet collapse, America cycled through potential enemies — terrorism, rogue states, and increasingly, <strong>China</strong>. Liu cites Thomas Barnett's observation: after 9/11, "China fell off the radar overnight" because terrorism became the new enemy. But as terrorism faded as a unifying threat, China returned to focus.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 7 -->
+<section class="section" id="ch7">
+<div class="ch-header">
+<div class="ch-num">Chapter 7 — Глава 7</div>
+<div class="ch-title">The Reason for Military Development</div>
+<div class="ch-quote">"In the 21st century, China will rise and confront the threat of the United States. China must have huge armies to guarantee that there will be no aggression from the US."</div>
+</div>
+
+<p>This is the book's most controversial chapter. Liu argues that China's <span class="ru" data-ru="военный подъём">military rise</span> is essential for national rejuvenation — not for aggression, but for <span class="ru" data-ru="сдерживание">deterrence</span> and self-defense.</p>
+
+<h3>The Martial Spirit</h3>
+<p>Liu argues China must recover its <strong>martial spirit</strong> (<span class="ru" data-ru="воинский дух">martial spirit</span>, 尚武精神), which weakened dramatically after the Song Dynasty (960-1279). He traces this decline:</p>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">Pre-Song</div><div class="tl-text">China possessed strong martial spirit — Han and Tang dynasties combined cultural sophistication with military power</div></div>
+<div class="tl-item"><div class="tl-year">Song Dynasty</div><div class="tl-text">Martial spirit declined catastrophically. Song prioritized civil over military officials. The military became underfunded, staffed with "vagrants." Emperor chose to attack the weaker Shu State rather than confront the powerful Liao — strategic cowardice.</div></div>
+<div class="tl-item"><div class="tl-year">1840-1945</div><div class="tl-text">Over 100 years of humiliation: China was forced to sign 745+ unequal treaties. Lack of fighting capability was the root cause.</div></div>
+<div class="tl-item"><div class="tl-year">1950</div><div class="tl-text"><strong>Korean War:</strong> China's martial spirit revived — stood up to the world's leading power. "The Korean War showed China had the courage to face the leading power."</div></div>
+<div class="tl-item"><div class="tl-year">1964</div><div class="tl-text">China detonates first nuclear weapon — achieves nuclear deterrence</div></div>
+<div class="tl-item"><div class="tl-year">21st Century</div><div class="tl-text">Military modernization essential: "To realize a peaceful rise, the military must rise. To realize peace, prepare for war."</div></div>
+</div>
+
+<h3>Why China Needs Military Power</h3>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--china-red)">
+<div class="phase-num">1</div>
+<div class="phase-name">Deter US Aggression</div>
+<div class="phase-desc">A powerful Chinese military ensures no US military aggression — it is the fundamental guarantee for preventing war between the two powers.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">2</div>
+<div class="phase-name">National Reunification</div>
+<div class="phase-desc">China will not give up reunification for the purpose of peace, nor tolerate division for peace. Military capability is the guarantor of eventual Taiwan reunification.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">3</div>
+<div class="phase-name">Protect Economic Rise</div>
+<div class="phase-desc">A nation that combines richness with powerfulness is secure; one that is rich but weak invites predators. Military power protects economic gains.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--green)">
+<div class="phase-num">4</div>
+<div class="phase-name">World Peace</div>
+<div class="phase-desc">Paradoxically, a strong China promotes world peace by balancing US hegemony. A world with only one superpower is inherently unstable.</div>
+</div>
+</div>
+
+<h3>Military Budget Comparison</h3>
+<div class="stat-bar"><div class="stat-label">US Military</div><div class="stat-track"><div class="stat-fill blue" style="width:85%"></div></div><div class="stat-val">~$700B+</div></div>
+<div class="stat-bar"><div class="stat-label">China Military</div><div class="stat-track"><div class="stat-fill red" style="width:15%"></div></div><div class="stat-val">~$100B</div></div>
+<div class="stat-bar"><div class="stat-label">US as % GDP</div><div class="stat-track"><div class="stat-fill blue" style="width:35%"></div></div><div class="stat-val">~3.5%</div></div>
+<div class="stat-bar"><div class="stat-label">China as % GDP</div><div class="stat-track"><div class="stat-fill red" style="width:18%"></div></div><div class="stat-val">~1.8%</div></div>
+
+<p style="font-size:.85rem;color:var(--text2);margin-top:.5rem">* Figures approximate, from time of book's publication (2010/2015)</p>
+
+<div class="key-point">
+<p><strong>Liu's central argument on military power:</strong> China's military development is fundamentally different from hegemonic military buildups. China is like a <strong>panda</strong> — powerful deterrent force, but no aggressive intent. "Animals with offensive capability are relatively safe... China is a country that has powerful deterrence and does not threaten other countries." The right to be powerful is a form of national sovereignty with no ceiling.</p>
+</div>
+
+<h3>Nuclear Weapons and Strategic Stability</h3>
+<p>Liu argues that <span class="ru" data-ru="ядерное сдерживание">nuclear deterrence</span> was the material foundation that made the Cold War "cold" rather than hot. Similarly, China's nuclear arsenal prevents the US from considering military action against China. However, Liu insists China does not seek parity — China needs only enough to make attack unthinkable, maintaining its <strong>no-first-use</strong> policy.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 8 -->
+<section class="section" id="ch8">
+<div class="ch-header">
+<div class="ch-num">Chapter 8 — Глава 8</div>
+<div class="ch-title">A Call for the Coming Collapse of China</div>
+<div class="ch-quote">"The national anthem of New China was written when the Chinese people were at their most vulnerable time. The idea of being prepared for danger in times of peace is the greatest wisdom."</div>
+</div>
+
+<p>In a surprising final chapter, Liu pivots from optimism to <strong>warning</strong>. He argues that China's greatest threats are <em>internal</em>, not external — and that complacency, corruption, and elite failure could cause China's rise to collapse from within.</p>
+
+<h3>The Fate of a Nation Can Change in One Night</h3>
+<p>Liu cites dramatic examples of sudden national collapse: the French Revolution (July 14, 1789), the fall of the Berlin Wall (November 9, 1989), the dissolution of the Soviet Union. Deng Xiaoping himself warned: <em>"There is no risk in 10 or 20 years, and even more so 40 or 50 years later."</em></p>
+
+<h3>The Threats to China's Rise</h3>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Internal Threat</div>
+<div class="card-name">The Elite Crisis</div>
+<div class="card-desc"><strong>The most deadly crisis.</strong> Liu argues the Soviet Union fell not because of external pressure but because its elite degenerated — from Lenin's brilliance to Brezhnev's senility to Gorbachev's naivety. China must ensure its leaders remain competent, visionary, and uncorrupt.</div>
+<div class="card-tag cn">Most Dangerous</div>
+</div>
+<div class="card">
+<div class="card-type">Internal Threat</div>
+<div class="card-name">Corruption</div>
+<div class="card-desc">Liu cites China's low ranking in Transparency International's corruption index. He calls for "sunshine laws" — mandatory public disclosure of officials' assets — as the cheapest and most effective anti-corruption tool.</div>
+<div class="card-tag cn">Systemic</div>
+</div>
+<div class="card">
+<div class="card-type">Internal Threat</div>
+<div class="card-name">Social Inequality</div>
+<div class="card-desc">Mass incidents of unrest, rural-urban divide, healthcare ranked #144 globally, medical equity ranked fourth from bottom. China's current economic model may not be sustainable long-term.</div>
+<div class="card-tag cn">Structural</div>
+</div>
+<div class="card">
+<div class="card-type">Internal Threat</div>
+<div class="card-name">Peaceful Evolution</div>
+<div class="card-desc">The risk that "socialism with Chinese characteristics" could quietly transform into "capitalism with Chinese characteristics" — abandoning the social mission while keeping the authoritarian structure.</div>
+<div class="card-tag cn">Ideological</div>
+</div>
+<div class="card">
+<div class="card-type">External Threat</div>
+<div class="card-name">US Containment</div>
+<div class="card-desc">America will never willingly accept being surpassed. The US has multiple tools: economic pressure, military encirclement, ideological warfare, and support for separatist movements.</div>
+<div class="card-tag us">Strategic</div>
+</div>
+<div class="card">
+<div class="card-type">External Threat</div>
+<div class="card-name">International Isolation</div>
+<div class="card-desc">If China is perceived as threatening, it could face the kind of coalition that has historically contained rising powers. China must manage its image and relationships carefully.</div>
+<div class="card-tag us">Diplomatic</div>
+</div>
+</div>
+
+<h3>Lessons from the Soviet Collapse</h3>
+
+<div class="warning-box">
+<p><strong>The Soviet Elite Degeneration:</strong> Liu traces the decline from Lenin (brilliant theorist) → Stalin (ruthless but effective) → Khrushchev (reformer but erratic) → Brezhnev (who "would sit there blankly, and was not very clear-minded") → Chernenko (who could "neither show his own merits nor contribute") → Gorbachev (who dismantled the system from within). <em>"The rise and fall of elites determines the rise and fall of nations."</em></p>
+</div>
+
+<h3>Three American Political Laws That Won't Work in China</h3>
+<p>Liu concludes by asserting that Western democratization pressure will fail in China because:</p>
+<div class="china-box">
+<p><strong>1. The "economic development leads to democracy" law:</strong> China's economic model does not require Western-style multiparty democracy to function effectively.</p>
+<p><strong>2. The "middle class demands democracy" law:</strong> China's emerging middle class seeks stability and prosperity, not necessarily Western political forms.</p>
+<p><strong>3. The "information openness leads to political liberalization" law:</strong> China has demonstrated that internet and information technology can coexist with its political system.</p>
+</div>
+
+<div class="key-point">
+<p><strong>Liu's closing message:</strong> China's rise is not inevitable. It requires constant vigilance, competent leadership, anti-corruption reforms, social equity, and strategic wisdom. The greatest danger is not America's containment — it is China's own <span class="ru" data-ru="самоуспокоенность">complacency</span> and internal decay. Deng Xiaoping's warning applies forever: <em>"If China, with its one billion people, keeps to socialism and proceeds on the road of peace, it is a force for maintaining peace in the world... But if China pursued hegemony, that would be a disaster for the world."</em></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GLOSSARY -->
+<section class="section" id="glossary">
+<div class="ch-header">
+<div class="ch-num">Trilingual Glossary</div>
+<div class="ch-title">Key Terms — Ключевые термины — 关键术语</div>
+</div>
+
+<div class="glossary">
+<div class="gloss-item"><div class="gloss-en">China Dream</div><div class="gloss-ru">Китайская мечта</div><div class="gloss-cn">中国梦</div></div>
+<div class="gloss-item"><div class="gloss-en">Champion Nation</div><div class="gloss-ru">Нация-чемпион</div><div class="gloss-cn">冠军国家</div></div>
+<div class="gloss-item"><div class="gloss-en">Great Power</div><div class="gloss-ru">Великая держава</div><div class="gloss-cn">大国</div></div>
+<div class="gloss-item"><div class="gloss-en">Hegemony</div><div class="gloss-ru">Гегемония</div><div class="gloss-cn">霸权</div></div>
+<div class="gloss-item"><div class="gloss-en">Kingly Way</div><div class="gloss-ru">Путь вана (благородный)</div><div class="gloss-cn">王道</div></div>
+<div class="gloss-item"><div class="gloss-en">Hegemonic Way</div><div class="gloss-ru">Путь гегемона</div><div class="gloss-cn">霸道</div></div>
+<div class="gloss-item"><div class="gloss-en">Grand Strategy</div><div class="gloss-ru">Великая стратегия</div><div class="gloss-cn">大战略</div></div>
+<div class="gloss-item"><div class="gloss-en">Peaceful Rise</div><div class="gloss-ru">Мирный подъём</div><div class="gloss-cn">和平崛起</div></div>
+<div class="gloss-item"><div class="gloss-en">Harmonious World</div><div class="gloss-ru">Гармоничный мир</div><div class="gloss-cn">和谐世界</div></div>
+<div class="gloss-item"><div class="gloss-en">Reform & Opening</div><div class="gloss-ru">Реформы и открытость</div><div class="gloss-cn">改革开放</div></div>
+<div class="gloss-item"><div class="gloss-en">National Rejuvenation</div><div class="gloss-ru">Национальное возрождение</div><div class="gloss-cn">民族复兴</div></div>
+<div class="gloss-item"><div class="gloss-en">Moderately Prosperous</div><div class="gloss-ru">Общество малого достатка</div><div class="gloss-cn">小康社会</div></div>
+<div class="gloss-item"><div class="gloss-en">Hide Strength, Bide Time</div><div class="gloss-ru">Скрывать силу, выжидать</div><div class="gloss-cn">韬光养晦</div></div>
+<div class="gloss-item"><div class="gloss-en">Martial Spirit</div><div class="gloss-ru">Воинский дух</div><div class="gloss-cn">尚武精神</div></div>
+<div class="gloss-item"><div class="gloss-en">Art of War</div><div class="gloss-ru">Искусство войны</div><div class="gloss-cn">孙子兵法</div></div>
+<div class="gloss-item"><div class="gloss-en">Containment</div><div class="gloss-ru">Сдерживание</div><div class="gloss-cn">遏制</div></div>
+<div class="gloss-item"><div class="gloss-en">Cold War</div><div class="gloss-ru">Холодная война</div><div class="gloss-cn">冷战</div></div>
+<div class="gloss-item"><div class="gloss-en">Tribute System</div><div class="gloss-ru">Даннич. система</div><div class="gloss-cn">朝贡体系</div></div>
+<div class="gloss-item"><div class="gloss-en">Unequal Treaties</div><div class="gloss-ru">Неравные договоры</div><div class="gloss-cn">不平等条约</div></div>
+<div class="gloss-item"><div class="gloss-en">Century of Humiliation</div><div class="gloss-ru">Век унижения</div><div class="gloss-cn">百年耻辱</div></div>
+<div class="gloss-item"><div class="gloss-en">Nuclear Deterrence</div><div class="gloss-ru">Ядерное сдерживание</div><div class="gloss-cn">核威慑</div></div>
+<div class="gloss-item"><div class="gloss-en">No-First-Use</div><div class="gloss-ru">Неприменение первым</div><div class="gloss-cn">不首先使用</div></div>
+<div class="gloss-item"><div class="gloss-en">Peaceful Evolution</div><div class="gloss-ru">Мирная эволюция</div><div class="gloss-cn">和平演变</div></div>
+<div class="gloss-item"><div class="gloss-en">Track & Field Model</div><div class="gloss-ru">Модель лёгкой атлетики</div><div class="gloss-cn">田径赛模式</div></div>
+<div class="gloss-item"><div class="gloss-en">Cultural Flag</div><div class="gloss-ru">Культурное знамя</div><div class="gloss-cn">文化旗帜</div></div>
+<div class="gloss-item"><div class="gloss-en">Double Gamble</div><div class="gloss-ru">Двойная ставка</div><div class="gloss-cn">双重赌博</div></div>
+<div class="gloss-item"><div class="gloss-en">Monroe Doctrine</div><div class="gloss-ru">Доктрина Монро</div><div class="gloss-cn">门罗主义</div></div>
+<div class="gloss-item"><div class="gloss-en">Isolationism</div><div class="gloss-ru">Изоляционизм</div><div class="gloss-cn">孤立主义</div></div>
+<div class="gloss-item"><div class="gloss-en">Plaza Accord</div><div class="gloss-ru">Плазское соглашение</div><div class="gloss-cn">广场协议</div></div>
+<div class="gloss-item"><div class="gloss-en">Comprehensive Nat'l Power</div><div class="gloss-ru">Совокуп. нац. мощь</div><div class="gloss-cn">综合国力</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INTERACTIVE QUIZ -->
+<section class="section" id="quiz">
+<div class="game-container">
+<div class="game-title">Knowledge Quiz: Test Your Understanding — Проверка знаний</div>
+<div id="quiz-area"></div>
+<div class="quiz-score" id="quiz-score" style="display:none"></div>
+<button class="btn" id="quiz-restart" style="display:none" onclick="startQuiz()">Restart Quiz — Начать заново</button>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STRATEGY SIMULATION -->
+<section class="section" id="game-final">
+<div class="game-container">
+<div class="game-title">Strategy Simulation: Build China's Path to Champion Nation</div>
+<p style="font-size:.9rem;color:var(--text2);margin-bottom:1.5rem">You are advising China's leadership. Make strategic choices across six dimensions. Each choice has trade-offs — balancing economic growth, military power, international reputation, and internal stability. Can you achieve Champion Nation status without triggering conflict?</p>
+
+<div id="sim-area">
+<div class="power-display" id="sim-meters">
+<div class="power-item"><div class="power-label">Economy</div><div class="power-val cn-col" id="m-econ">50</div></div>
+<div class="power-item"><div class="power-label">Military</div><div class="power-val cn-col" id="m-mil">30</div></div>
+<div class="power-item"><div class="power-label">Reputation</div><div class="power-val" style="color:var(--green)" id="m-rep">60</div></div>
+<div class="power-item"><div class="power-label">Stability</div><div class="power-val" style="color:var(--accent)" id="m-stab">70</div></div>
+<div class="power-item"><div class="power-label">US Tension</div><div class="power-val us-col" id="m-tens">30</div></div>
+</div>
+<div id="sim-round"></div>
+<div id="sim-result" style="display:none"></div>
+</div>
+<button class="btn" id="sim-restart" style="display:none" onclick="startSim()">Play Again — Играть снова</button>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide summarizes <strong>《中国梦》(The China Dream)</strong> by Senior Colonel Liu Mingfu (刘明福).</p>
+<p style="margin-top:.5rem">PLA National Defense University. Published by CN Times Books, 2015 (English edition). Original Chinese edition 2010.</p>
+<p style="margin-top:.5rem;font-size:.8rem;color:var(--text2)">Translated, adapted, and presented for academic discussion in Professor Pivovarenko's course.</p>
+<p style="margin-top:1rem;font-size:.75rem;color:rgba(200,164,78,.4)">Interactive educational presentation — HSE Military Analysis in Regional Research</p>
+</footer>
+
+<script>
+// Nav visibility
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('visible',window.scrollY>600)});
+
+// Fade-in
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.key-point,.warning-box,.concept-box,.china-box,.compare,.cards,.phases,.map-container,.timeline,.leaders,.glossary,h3,.game-container').forEach(el=>{el.classList.add('fade-in');obs.observe(el)});
+
+// QUIZ
+const quizData=[
+{q:"According to Liu Mingfu, which three leaders' dreams combine to form the 'China Dream'?",
+opts:["Mao, Deng, Xi Jinping","Sun Yat-sen, Mao, Deng Xiaoping","Confucius, Sun Tzu, Mao","Deng, Jiang Zemin, Hu Jintao"],
+ans:1,explain:"Liu traces the China Dream to Sun Yat-sen (prosperity), Mao Zedong (national strength), and Deng Xiaoping (reform and modernization)."},
+{q:"What is Liu's proposed model for Sino-American competition?",
+opts:["Cold War Model — Модель холодной войны","Boxing Ring Model — Модель бокса","Track and Field Model — Модель лёгкой атлетики","Chess Model — Шахматная модель"],
+ans:2,explain:"Liu proposes the 'Track and Field Model' (田径赛模式) — both nations compete in parallel lanes without physical collision, unlike war or Cold War models."},
+{q:"What does Liu mean by 'Champion Nation' (冠军国家)?",
+opts:["A nation that wins the most Olympic medals","The singular leading power that reshapes the global order each century","Any nation in the UN Security Council","A nation with nuclear weapons"],
+ans:1,explain:"Champion Nation is Liu's term for the singular leading power that emerges once per century — Portugal/Spain, Netherlands, Britain, then the US."},
+{q:"What is the 'Kingly Way' (王道) vs. 'Hegemonic Way' (霸道)?",
+opts:["Military vs. economic power","Democratic vs. authoritarian rule","Leading through moral authority vs. leading through force","Eastern vs. Western philosophy"],
+ans:2,explain:"王道 (wángdào) means leading through moral authority, cultural influence, and benevolence; 霸道 (bàdào) means leading through military force and coercion."},
+{q:"Why does Liu argue China is fundamentally peaceful?",
+opts:["Because of Marxist ideology","Because of continental/agrarian civilization producing inward-looking culture","Because China has always been weak militarily","Because of United Nations membership"],
+ans:1,explain:"Liu argues China's continental, agrarian civilization (between Yellow and Yangtze rivers) produced an inward-looking, self-sufficient culture — unlike maritime/peninsular Europeans who were driven outward."},
+{q:"What was the Plaza Accord (1985)?",
+opts:["A peace treaty ending the Korean War","A US-forced revaluation of the Japanese yen that devastated Japanese exports","China's entry into the WTO","A nuclear arms reduction treaty"],
+ans:1,explain:"The Plaza Accord forced Japan to revalue the yen, making Japanese exports more expensive — Liu cites this as a key example of how America curbs economic rivals."},
+{q:"What does Liu identify as the 'most deadly crisis' threatening China?",
+opts:["US military invasion","Economic recession","The Elite Crisis — degeneration of leadership quality","Natural disasters"],
+ans:2,explain:"Liu argues the 'Elite Crisis' — the degeneration of leadership quality — is the most dangerous internal threat, citing the Soviet leadership decline from Lenin to Gorbachev."},
+{q:"What is Deng Xiaoping's famous strategic maxim?",
+opts:["Strike first, ask questions later","Hide your strength, bide your time (韬光养晦)","The best defense is a good offense","Diplomacy is war by other means"],
+ans:1,explain:"韬光养晦 (tāo guāng yǎng huì) — 'hide your brightness, nourish your obscurity' — was Deng's strategy of keeping a low international profile while building economic strength."}
+];
+
+let qIdx=0,score=0;
+function startQuiz(){
+qIdx=0;score=0;
+document.getElementById('quiz-score').style.display='none';
+document.getElementById('quiz-restart').style.display='none';
+showQuestion();
+}
+function showQuestion(){
+if(qIdx>=quizData.length){
+document.getElementById('quiz-area').innerHTML='';
+const sc=document.getElementById('quiz-score');
+sc.style.display='block';
+sc.textContent=score+'/'+quizData.length+' correct — '+(score>=7?'Excellent! Отлично!':score>=5?'Good! Хорошо!':'Keep studying! Учите ещё!');
+document.getElementById('quiz-restart').style.display='inline-block';
+return;
+}
+const d=quizData[qIdx];
+let h='<div class="quiz-q">'+(qIdx+1)+'/'+quizData.length+': '+d.q+'</div><div class="quiz-opts">';
+d.opts.forEach((o,i)=>{h+='<button class="quiz-opt" onclick="checkAns('+i+','+d.ans+')">'+o+'</button>'});
+h+='</div><div class="quiz-explain" id="qexp">'+d.explain+'</div>';
+document.getElementById('quiz-area').innerHTML=h;
+}
+function checkAns(sel,correct){
+const btns=document.querySelectorAll('.quiz-opt');
+btns.forEach((b,i)=>{
+b.disabled=true;
+if(i===correct)b.classList.add('correct');
+if(i===sel&&sel!==correct)b.classList.add('wrong');
+});
+if(sel===correct)score++;
+document.getElementById('qexp').style.display='block';
+setTimeout(()=>{qIdx++;showQuestion()},2500);
+}
+startQuiz();
+
+// STRATEGY SIMULATION
+const simRounds=[
+{title:"Round 1: Economic Strategy — Экономическая стратегия",
+desc:"How should China pursue economic growth?",
+opts:[
+{label:"Aggressive Export-Led Growth",desc:"Push maximum exports, undercut competitors on price",econ:20,mil:0,rep:-10,stab:5,tens:20},
+{label:"Balanced Development",desc:"Invest in domestic consumption, gradual trade expansion",econ:12,mil:0,rep:5,stab:10,tens:5},
+{label:"Innovation-First Strategy",desc:"Heavy R&D investment, build technological independence",econ:8,mil:5,rep:10,stab:5,tens:10}
+]},
+{title:"Round 2: Military Posture — Военная позиция",
+desc:"How should China develop its military?",
+opts:[
+{label:"Rapid Military Expansion",desc:"Dramatically increase budget, build carrier fleet, challenge US presence",econ:-10,mil:25,rep:-15,stab:5,tens:30},
+{label:"Defensive Modernization",desc:"Focus on defensive capabilities, A2/AD, nuclear deterrence",econ:-5,mil:15,rep:5,stab:5,tens:10},
+{label:"Minimal Military Growth",desc:"Keep military spending low, focus on diplomacy",econ:5,mil:5,rep:10,stab:-5,tens:-5}
+]},
+{title:"Round 3: International Relations — Международные отношения",
+desc:"How should China engage with the world?",
+opts:[
+{label:"Challenge US-Led Order",desc:"Build alternative institutions, form anti-hegemonic bloc",econ:5,mil:5,rep:-10,stab:0,tens:25},
+{label:"Work Within Existing System",desc:"Join international institutions, follow norms while seeking reform",econ:10,mil:0,rep:15,stab:5,tens:-5},
+{label:"Strategic Autonomy",desc:"Maintain independence, selective engagement, BRI-style initiatives",econ:8,mil:0,rep:5,stab:5,tens:10}
+]},
+{title:"Round 4: Domestic Governance — Внутреннее управление",
+desc:"How should China handle internal challenges?",
+opts:[
+{label:"Tighten Control",desc:"Strengthen party discipline, control information, suppress dissent",econ:-5,mil:5,rep:-10,stab:15,tens:5},
+{label:"Anti-Corruption + Reform",desc:"Major anti-corruption campaign, incremental social reforms, sunshine laws",econ:5,mil:0,rep:10,stab:10,tens:0},
+{label:"Political Liberalization",desc:"Expand civil liberties, experiment with local elections, free press",econ:0,mil:-5,rep:15,stab:-15,tens:-10}
+]},
+{title:"Round 5: Taiwan Question — Тайваньский вопрос",
+desc:"How should China approach reunification?",
+opts:[
+{label:"Military Pressure",desc:"Increase military exercises, intimidate into submission",econ:-10,mil:10,rep:-20,stab:5,tens:35},
+{label:"Strategic Patience",desc:"Maintain status quo, focus on economic integration and soft power",econ:5,mil:0,rep:10,stab:5,tens:-5},
+{label:"Diplomatic Offensive",desc:"Propose new framework, engage international mediation",econ:0,mil:0,rep:15,stab:0,tens:5}
+]},
+{title:"Round 6: Cultural Strategy — Культурная стратегия",
+desc:"How should China project its civilization?",
+opts:[
+{label:"Confucius Institutes + Soft Power",desc:"Massive cultural diplomacy, education exchange, media expansion",econ:-5,mil:0,rep:15,stab:5,tens:5},
+{label:"Lead by Example",desc:"Focus on domestic quality of life — let success speak for itself",econ:5,mil:0,rep:10,stab:10,tens:0},
+{label:"Ideological Competition",desc:"Actively promote Chinese model as alternative to Western democracy",econ:0,mil:0,rep:-5,stab:5,tens:15}
+]}
+];
+
+let simR=0,simStats={econ:50,mil:30,rep:60,stab:70,tens:30};
+function startSim(){
+simR=0;simStats={econ:50,mil:30,rep:60,stab:70,tens:30};
+document.getElementById('sim-result').style.display='none';
+document.getElementById('sim-restart').style.display='none';
+updateMeters();
+showRound();
+}
+function updateMeters(){
+['econ','mil','rep','stab','tens'].forEach(k=>{
+simStats[k]=Math.max(0,Math.min(100,simStats[k]));
+document.getElementById('m-'+k).textContent=simStats[k];
+});
+}
+function showRound(){
+if(simR>=simRounds.length){showSimResult();return}
+const r=simRounds[simR];
+let h='<h4 style="margin-top:0">'+r.title+'</h4><p style="font-size:.9rem;color:var(--text2)">'+r.desc+'</p><div class="strat-board">';
+r.opts.forEach((o,i)=>{
+h+='<div class="strat-cell" onclick="pickStrat('+i+')"><div class="cell-title">'+o.label+'</div><div style="font-size:.8rem;color:var(--text2);margin-top:.3rem">'+o.desc+'</div></div>';
+});
+h+='</div>';
+document.getElementById('sim-round').innerHTML=h;
+}
+function pickStrat(i){
+const o=simRounds[simR].opts[i];
+simStats.econ+=o.econ;simStats.mil+=o.mil;simStats.rep+=o.rep;simStats.stab+=o.stab;simStats.tens+=o.tens;
+updateMeters();
+document.querySelectorAll('.strat-cell').forEach((c,j)=>{if(j===i)c.classList.add('selected')});
+simR++;
+setTimeout(showRound,800);
+}
+function showSimResult(){
+document.getElementById('sim-round').innerHTML='';
+const s=simStats;
+const composite=Math.round((s.econ*0.3+s.mil*0.2+s.rep*0.25+s.stab*0.25)-s.tens*0.3);
+let verdict,color;
+if(s.tens>=80){verdict="WAR — Your aggressive policies triggered a military confrontation with the US. China's rise ends in catastrophe.";color="var(--red)"}
+else if(s.stab<=20){verdict="INTERNAL COLLAPSE — Social instability and elite crisis caused China to implode from within, just as Liu warned.";color="var(--red)"}
+else if(composite>=60){verdict="CHAMPION NATION — Through balanced strategy, China achieved economic leadership, maintained peace, and earned global respect. Liu Mingfu's dream realized!";color="var(--green)"}
+else if(composite>=40){verdict="GREAT POWER — China became a major power but fell short of champion-nation status. The dream continues...";color="var(--accent)"}
+else{verdict="STAGNATION — Poor strategic choices left China stuck between great power ambitions and domestic challenges.";color="var(--text2)"}
+
+let h='<h4 style="color:'+color+';margin-top:0">Result: Score '+composite+'/100</h4>';
+h+='<p style="color:'+color+'">'+verdict+'</p>';
+h+='<div style="margin-top:1rem">';
+h+='<div class="strat-meter"><div class="strat-meter-fill" style="width:'+s.econ+'%;background:var(--china-red)"></div></div><div style="font-size:.75rem;color:var(--text2)">Economy: '+s.econ+'</div>';
+h+='<div class="strat-meter"><div class="strat-meter-fill" style="width:'+s.mil+'%;background:var(--accent)"></div></div><div style="font-size:.75rem;color:var(--text2)">Military: '+s.mil+'</div>';
+h+='<div class="strat-meter"><div class="strat-meter-fill" style="width:'+s.rep+'%;background:var(--green)"></div></div><div style="font-size:.75rem;color:var(--text2)">Reputation: '+s.rep+'</div>';
+h+='<div class="strat-meter"><div class="strat-meter-fill" style="width:'+s.stab+'%;background:var(--blue)"></div></div><div style="font-size:.75rem;color:var(--text2)">Stability: '+s.stab+'</div>';
+h+='<div class="strat-meter"><div class="strat-meter-fill" style="width:'+s.tens+'%;background:var(--red)"></div></div><div style="font-size:.75rem;color:var(--text2)">US Tension: '+s.tens+'</div>';
+h+='</div>';
+const res=document.getElementById('sim-result');
+res.innerHTML=h;res.style.display='block';
+document.getElementById('sim-restart').style.display='inline-block';
+}
+startSim();
+</script>
+</body>
+</html>

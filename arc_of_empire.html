@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arc of Empire — Qiao Liang | 帝国之弧 — 乔良</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#08090d;--bg2:#0e1016;--bg3:#14161f;--bg4:#1a1d28;
+--gold:#c9a227;--gold2:#e4bf3b;--gold3:#f5d654;--gold-dim:rgba(201,162,39,.15);
+--text:#c8c8d0;--text2:#8a8a98;--text3:#5a5a68;
+--red:#e04040;--red-dim:rgba(224,64,64,.12);
+--blue:#4488dd;--blue-dim:rgba(68,136,221,.1);
+--green:#3daa6d;--green-dim:rgba(61,170,109,.1);
+--cyan:#3dc9c9;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--gold) var(--bg)}
+body{font-family:'Crimson Pro',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.85;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--bg)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 30% 50%,#151a28 0%,#0a0c12 60%,#060810 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 Q60 25 50 50 Q40 75 50 100' stroke='%23c9a227' stroke-opacity='0.03' fill='none' stroke-width='0.5'/%3E%3C/svg%3E");opacity:.6}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 40%,rgba(201,162,39,.04) 0%,transparent 50%)}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:850px}
+.hero-series{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:1rem}
+.hero h1{font-family:'Cinzel',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:900;letter-spacing:.05em;line-height:1.05;margin-bottom:.8rem;background:linear-gradient(160deg,var(--gold),var(--gold3),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:none}
+.hero .sub-cn{font-size:clamp(1.2rem,3vw,1.8rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:.1em}
+.hero .subtitle{font-family:'Outfit',sans-serif;font-size:clamp(.85rem,1.6vw,1.15rem);color:var(--text2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2rem}
+.hero .author-box{display:inline-block;padding:1rem 2rem;border:1px solid rgba(201,162,39,.2);border-radius:4px;margin-bottom:2rem;background:rgba(201,162,39,.03)}
+.hero .author-box .name{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--gold);font-weight:700}
+.hero .author-box .title{font-family:'Outfit',sans-serif;font-size:.8rem;color:var(--text2);margin-top:.3rem}
+.hero .author-box .ru{font-size:.75rem;color:var(--text3);margin-top:.2rem;font-style:italic}
+.hero .epigraph{max-width:580px;margin:0 auto 2rem;padding:1.2rem 1.5rem;border-left:3px solid var(--gold);text-align:left;color:var(--text2);font-style:italic;font-size:1rem;background:rgba(201,162,39,.02)}
+.hero .scroll-hint{margin-top:2.5rem;animation:bounce 2.5s infinite ease-in-out}
+@keyframes bounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(12px);opacity:.8}}
+.hero .scroll-hint span{display:block;width:1px;height:50px;background:linear-gradient(to bottom,transparent,var(--gold));margin:0 auto}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,13,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,162,39,.08);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Cinzel',serif;font-size:.9rem;color:var(--gold);font-weight:700;letter-spacing:.05em}
+.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.nav-links a{font-family:'Outfit',sans-serif;font-size:.7rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.12em;transition:color .2s;padding:.3rem .5rem}
+.nav-links a:hover{color:var(--gold)}
+
+/* SECTIONS */
+.section{max-width:920px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:6rem 2rem 4rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;border:1px solid rgba(201,162,39,.08);border-radius:50%}
+.part-header::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border:1px solid rgba(201,162,39,.05);border-radius:50%}
+.part-num{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.part-title{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:900;color:#fff;margin-bottom:.8rem;letter-spacing:.03em}
+.part-title-cn{font-size:1rem;color:var(--text3);margin-bottom:.5rem}
+.part-desc{color:var(--text2);max-width:580px;margin:0 auto;font-size:1rem}
+
+.ch-header{margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(201,162,39,.12)}
+.ch-num{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.ch-title{font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:700;color:#fff;margin:.4rem 0;letter-spacing:.02em}
+.ch-title-cn{font-size:.9rem;color:var(--text3);margin-bottom:.3rem}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--gold);padding-left:1rem;margin-top:.8rem;font-size:.92rem}
+
+h3{font-family:'Cinzel',serif;font-size:1.25rem;color:#fff;margin:2.5rem 0 .8rem;padding-left:1rem;border-left:3px solid var(--gold);letter-spacing:.02em}
+h4{font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--gold);margin:1.8rem 0 .6rem;letter-spacing:.05em;font-weight:600}
+p{margin-bottom:1.1rem;font-size:1rem}
+strong{color:#e0e0e8;font-weight:600}
+
+.ru{font-family:'Outfit',sans-serif;font-size:.75rem;color:var(--cyan);opacity:.7;font-style:italic}
+
+/* BOXES */
+.key-point{background:var(--bg3);border:1px solid rgba(201,162,39,.1);border-radius:6px;padding:1.4rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY INSIGHT';position:absolute;top:-10px;left:14px;font-family:'Outfit',sans-serif;font-size:.6rem;letter-spacing:.15em;background:var(--gold);color:var(--bg);padding:2px 10px;border-radius:2px;font-weight:600}
+.warning-box{background:var(--red-dim);border:1px solid rgba(224,64,64,.18);border-radius:6px;padding:1.4rem;margin:1.5rem 0}
+.warning-box strong{color:var(--red)}
+.concept-box{background:var(--blue-dim);border:1px solid rgba(68,136,221,.15);border-radius:6px;padding:1.4rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+.china-box{background:var(--green-dim);border:1px solid rgba(61,170,109,.15);border-radius:6px;padding:1.4rem;margin:1.5rem 0}
+.china-box strong{color:var(--green)}
+
+/* MAP */
+.map-container{background:var(--bg2);border:1px solid rgba(201,162,39,.1);border-radius:10px;overflow:hidden;margin:2rem 0}
+.map-label{font-family:'Outfit',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);padding:.8rem 1.2rem;background:var(--bg3);border-bottom:1px solid rgba(201,162,39,.08)}
+.map-svg{width:100%;display:block}
+
+/* COMPARE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,162,39,.08);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.3rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.6rem;border-bottom:1px solid rgba(201,162,39,.08)}
+.compare-col.red h4{color:var(--red)}
+.compare-col.blue h4{color:var(--blue)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.4rem 0;font-size:.9rem;border-bottom:1px solid rgba(255,255,255,.02)}
+.compare-col li::before{content:'→';color:var(--gold);margin-right:.4rem;font-size:.8rem}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,162,39,.2),transparent)}
+.tl-item{margin-bottom:1.8rem;position:relative;cursor:default}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.4rem;width:8px;height:8px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);transform:translateX(-3px)}
+.tl-year{font-family:'Space Mono',monospace;font-size:.8rem;color:var(--gold);font-weight:700}
+.tl-text{font-size:.9rem;color:var(--text2)}
+.tl-ru{font-size:.75rem;color:var(--cyan);opacity:.5;font-style:italic}
+
+/* PHASES */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(201,162,39,.08);border-radius:6px;padding:1.2rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 30px rgba(201,162,39,.08)}
+.phase-num{font-family:'Space Mono',monospace;font-size:1.8rem;color:var(--gold);font-weight:700}
+.phase-name{font-family:'Outfit',sans-serif;font-size:.8rem;color:#fff;margin:.4rem 0;font-weight:600;letter-spacing:.03em}
+.phase-desc{font-size:.8rem;color:var(--text2);line-height:1.5}
+
+/* STAT BARS */
+.stat-bar{margin:.7rem 0;display:flex;align-items:center;gap:.8rem}
+.stat-label{font-family:'Outfit',sans-serif;font-size:.7rem;color:var(--text2);min-width:90px;text-align:right}
+.stat-track{flex:1;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.stat-fill{height:100%;border-radius:3px;transition:width 1.5s ease-out}
+.stat-fill.red{background:linear-gradient(90deg,var(--red),#ff6666)}
+.stat-fill.blue{background:linear-gradient(90deg,var(--blue),#66aaee)}
+.stat-fill.gold{background:linear-gradient(90deg,var(--gold),var(--gold3))}
+.stat-fill.green{background:linear-gradient(90deg,var(--green),#55cc88)}
+.stat-val{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--text2);min-width:50px}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.8rem;margin:2rem 0}
+.card{background:var(--bg3);border:1px solid rgba(201,162,39,.06);border-radius:6px;padding:1.2rem;transition:all .3s}
+.card:hover{border-color:var(--gold);background:var(--bg4)}
+.card-type{font-family:'Outfit',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.card-name{font-family:'Cinzel',serif;font-size:1rem;color:#fff;margin-bottom:.3rem}
+.card-desc{font-size:.85rem;color:var(--text2);line-height:1.55}
+.card-tag{display:inline-block;font-family:'Outfit',sans-serif;font-size:.6rem;padding:2px 7px;border-radius:2px;margin-top:.4rem;margin-right:.2rem;border:1px solid}
+.card-tag.fin{color:var(--gold);border-color:rgba(201,162,39,.3)}
+.card-tag.mil{color:var(--red);border-color:rgba(224,64,64,.3)}
+.card-tag.geo{color:var(--blue);border-color:rgba(68,136,221,.3)}
+.card-tag.cn{color:var(--green);border-color:rgba(61,170,109,.3)}
+
+/* TOC */
+.toc{background:var(--bg2);border:1px solid rgba(201,162,39,.08);border-radius:10px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.2rem;margin-bottom:1.2rem}
+.toc-part{margin-bottom:1.2rem}
+.toc-part-title{font-family:'Outfit',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.toc-link{display:block;padding:.3rem 0 .3rem 1rem;color:var(--text2);text-decoration:none;font-size:.9rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--gold);border-left-color:var(--gold);padding-left:1.5rem}
+.toc-ru{font-size:.7rem;color:var(--cyan);opacity:.4;margin-left:.5rem}
+
+/* GAME / INTERACTIVE */
+.game-container{background:var(--bg2);border:1px solid rgba(201,162,39,.1);border-radius:10px;overflow:hidden;margin:2rem 0}
+.game-header{font-family:'Outfit',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);padding:.8rem 1.2rem;background:var(--bg3);border-bottom:1px solid rgba(201,162,39,.08);display:flex;justify-content:space-between;align-items:center}
+.game-body{padding:1.5rem}
+.game-btn{font-family:'Outfit',sans-serif;font-size:.7rem;padding:.4rem 1rem;background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.3);color:var(--gold);border-radius:3px;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.game-btn:hover{background:rgba(201,162,39,.25);transform:translateY(-1px)}
+.game-btn.active{background:var(--gold);color:var(--bg)}
+.game-slider{-webkit-appearance:none;width:100%;height:4px;background:var(--bg3);border-radius:2px;outline:none;margin:1rem 0}
+.game-slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid var(--bg)}
+.game-display{font-family:'Space Mono',monospace;font-size:2rem;color:var(--gold);text-align:center;padding:1rem}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,39,.15),transparent);margin:4rem 0}
+
+/* FOOTER */
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.8rem;background:var(--bg2);border-top:1px solid rgba(201,162,39,.06)}
+.footer strong{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.compare{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:3rem 1.2rem}
+.cards{grid-template-columns:1fr}
+}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(25px);transition:all .7s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* FLOW ANIMATION */
+@keyframes flow{0%{stroke-dashoffset:20}100%{stroke-dashoffset:0}}
+.flow-line{animation:flow 1.5s linear infinite}
+
+/* PULSE */
+@keyframes pulse{0%,100%{r:4}50%{r:7}}
+.pulse-dot{animation:pulse 2s ease-in-out infinite}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+<div class="nav-title">帝国之弧 — Arc of Empire</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#intro">Introduction</a>
+<a href="#part1">I. Empire</a>
+<a href="#part2">II. Finance</a>
+<a href="#part3">III. Magic Wand</a>
+<a href="#part4">IV. Wars</a>
+<a href="#part5">V. Conspiracy</a>
+<a href="#part6">VI. Pivot</a>
+<a href="#part7">VII. Rise</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="hero-series">帝国论 I — On Empire, Volume I</div>
+<h1>ARC OF EMPIRE</h1>
+<div class="sub-cn">帝 国 之 弧</div>
+<div class="subtitle">America & China at Both Ends of the Parabola</div>
+<div class="subtitle" style="font-size:.75rem;color:var(--text3);letter-spacing:.06em;margin-top:-1rem">抛物线两端的美国与中国</div>
+<div class="author-box">
+<div class="name">Qiao Liang 乔良</div>
+<div class="title">PLA Air Force Major General · Professor, PLA National Defense University<br>Co-author of <em>Unrestricted Warfare</em> (超限战, 1999)</div>
+<div class="ru">Цяо Лян — генерал-майор ВВС НОАК, профессор Университета национальной обороны</div>
+</div>
+<div class="epigraph">
+"We never understand history this way: first came bronze and iron, then came Caesar and Qin Shi Huang; first came stirrups and gunpowder, then came Genghis Khan; first came the steam engine, then came global trade and the 'sun never sets'; first came the dollar's de-linking from gold, then came financial hegemony and globalization. <strong style="color:var(--gold)">Technology is the humble servant that controls humanity's fate.</strong>"
+<br><br>—Author's Preface
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="section" id="toc">
+<div class="toc">
+<h3 style="color:var(--gold)">Table of Contents <span class="ru">Содержание</span></h3>
+
+<div class="toc-part">
+<div class="toc-part-title">Preface & Introduction</div>
+<a href="#preface" class="toc-link">Author's Preface: When "Empire" Becomes Outdated <span class="toc-ru">Предисловие</span></a>
+<a href="#intro" class="toc-link">Introduction: 9/11 — Turning Point of American Destiny <span class="toc-ru">Введение</span></a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part I — Prehistory of Empire: Old Europe's Decline & America's Rise</div>
+<a href="#ch1-1" class="toc-link">Understanding War Through Capital</a>
+<a href="#ch1-2" class="toc-link">The Overlooked Power of Resources and Capital</a>
+<a href="#ch1-3" class="toc-link">The Allied Powers: Blood vs. Capital</a>
+<a href="#ch1-4" class="toc-link">The Entente: From Creditors to Debtors</a>
+<a href="#ch1-5" class="toc-link">The Only Beneficiary: America</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part II — Financial Colonialism: The Logic of Paper Money</div>
+<a href="#ch2-1" class="toc-link">Neo-Colonialism: "Green Paper" for Real Goods</a>
+<a href="#ch2-2" class="toc-link">The Essence of Globalization Is Dollar Globalization</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part III — The Financial Magic Wand: America's Survival Mode</div>
+<a href="#ch3-1" class="toc-link">The Dollar Cycle: "Roller Coaster" & "Shearing the Sheep"</a>
+<a href="#ch3-2" class="toc-link">Dollar Disaster I: Latin American Crisis</a>
+<a href="#ch3-3" class="toc-link">Dollar Disaster II: Southeast Asian Crisis</a>
+<a href="#ch3-4" class="toc-link">The Financial Tsunami Disrupted the Third "Shearing"</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part IV — Behind the Smoke: Why America Fights</div>
+<a href="#ch4-1" class="toc-link">Was the Iraq War About Oil? NO</a>
+<a href="#ch4-2" class="toc-link">Kosovo: The War That Targeted the Euro</a>
+<a href="#ch4-3" class="toc-link">Afghanistan: Restoring Capital's Confidence</a>
+<a href="#ch4-4" class="toc-link">Global Rapid Strike: War Controls Capital Flow</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part V — Financial War & Conspiracy Theories</div>
+<a href="#ch5-1" class="toc-link">Who Held the World Hostage with Currency?</a>
+<a href="#ch5-2" class="toc-link">"Financial Colonialism": Alarmist or Reality?</a>
+<a href="#ch5-3" class="toc-link">How Chinese Wealth Became Wall Street's Feast</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part VI — Revival or Decline: America's Strategic Pivot</div>
+<a href="#ch6-1" class="toc-link">The Strategic Pivot to Asia-Pacific</a>
+<a href="#ch6-2" class="toc-link">New Military Strategy for Strategic Contraction</a>
+<a href="#ch6-3" class="toc-link">Is This Really the Decline?</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part VII — Who Will Rise: What Should China Do?</div>
+<a href="#ch7-1" class="toc-link">Why Paul Kennedy's Prediction Didn't Come True</a>
+<a href="#ch7-2" class="toc-link">The Internet Dissolves the Last Empire</a>
+<a href="#ch7-3" class="toc-link">Prayer: May Fate Favor China</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Appendices</div>
+<a href="#app1" class="toc-link">Appendix: Financial Globalization & Wealth Transfer</a>
+<a href="#app2" class="toc-link">Appendix: Great Power Rivalry — Global Times Interview</a>
+</div>
+</div>
+</section>
+
+<!-- PREFACE -->
+<section class="section" id="preface">
+<div class="ch-header">
+<div class="ch-num">Author's Preface · 自序</div>
+<div class="ch-title">When "Empire" Becomes an Outdated Topic</div>
+<div class="ch-title-cn">当帝国即将成为过时的话题</div>
+</div>
+
+<p>Is America an empire? <span class="ru">(Является ли Америка империей?)</span> Some say yes, some say no. If so, America is unlike any empire in history — it has no overseas colonies, does not openly plunder conquered nations' resources, and does not enslave occupied populations. By these measures, America does not resemble an empire at all.</p>
+
+<p>But if we conclude from this that America is <em>not</em> an empire, then why has America been pursuing and actually exercising <strong>hegemony</strong> <span class="ru">(гегемония)</span>? For over 40 years, using a financial system built on the U.S. dollar, America has drawn the entire world into an unprecedented era of <strong>financial civilization</strong> <span class="ru">(финансовая цивилизация)</span> and profited from the globe. How did America become the most powerful empire in history?</p>
+
+<div class="key-point">
+<p><strong>Qiao Liang's core thesis:</strong> We have never understood history correctly. We focus on great events (wars, revolutions) and great men (Caesar, Napoleon, Mao), but behind every historical transformation lies <strong>technology</strong>. First came bronze and iron, then Caesar; first came stirrups and gunpowder, then Genghis Khan; first came the steam engine, then global trade; first came the dollar's de-linking from gold, then came financial hegemony. <strong>Technology is the "servant" that actually controls humanity's destiny.</strong></p>
+</div>
+
+<p>Today, the most consequential technology is <strong>finance</strong> — specifically, the dollar-based financial system that America weaponized into the most powerful instrument of global control ever devised. This book traces the arc of that imperial power: how it rose, how it operates, and whether it is now falling.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- INTRODUCTION -->
+<section class="section" id="intro">
+<div class="ch-header">
+<div class="ch-num">Introduction · 引言</div>
+<div class="ch-title">9/11 — Turning Point of American Destiny</div>
+<div class="ch-title-cn">"9·11"，美国国运的拐点</div>
+</div>
+
+<p>On September 11, 2001, three hijacked planes struck the World Trade Center in New York — symbol of global economic power — and the Pentagon in Washington — symbol of the world's mightiest military. The Twin Towers collapsed in billowing smoke. Nearly 3,000 people perished. <span class="ru">(11 сентября 2001 года — поворотный момент судьбы Америки)</span></p>
+
+<p>At the time of 9/11, <strong>70% of American employment was in finance and financial services</strong>. Americans had long developed a unique way of life: by spending beyond their means (credit), they could live better than everyone else. This survival mode was possible because America produced a special product: <strong>the U.S. dollar</strong> <span class="ru">(доллар США)</span>.</p>
+
+<p>To this day, few truly understand that the dollar's nature completely changed after 1971. When President Nixon severed the dollar's link to gold, the dollar became — for the first time in human history — a <strong>purely fiat global reserve currency backed by nothing but American power</strong>. This single fact reshaped the entire world.</p>
+
+<div class="concept-box">
+<p><strong>Qiao Liang's thesis on 9/11:</strong> The attacks were not merely a terrorist event — they marked the <strong>inflection point</strong> <span class="ru">(точка перегиба)</span> of American national destiny. 9/11 shattered the psychological illusion of American invincibility, triggered two ruinous wars that drained trillions of dollars, and accelerated the very imperial overstretch that now threatens to end the American era.</p>
+</div>
+
+<p>Americans at the end of the 20th century confidently proclaimed: the 20th century was America's, and the 21st would be too. But almost as soon as the 21st century opened its curtain, America's supremacy was questioned — and in the most dramatic way possible.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART I ===== -->
+<section class="part-header" id="part1">
+<div class="part-num">Part I · 第一部分</div>
+<div class="part-title">Prehistory of Empire</div>
+<div class="part-title-cn">帝国前史：老欧洲没落与美国的崛起</div>
+<div class="part-desc">How World War I destroyed Old Europe, transformed creditors into debtors, and made America — the only nation that understood war as a capital operation — the sole winner.</div>
+</section>
+
+<section class="section" id="ch1-1">
+<div class="ch-header">
+<div class="ch-num">Chapter 1</div>
+<div class="ch-title">Understanding War Through Capital</div>
+<div class="ch-title-cn">用资本的方式理解战争</div>
+</div>
+
+<p>On June 28, 1914, Archduke Franz Ferdinand of Austria-Hungary was assassinated in Sarajevo. Within weeks, the great powers of Europe plunged into the most devastating war the world had yet seen. Over four years of slaughter: <strong>6,500 warships engaged, 1,000 submarines deployed, 2,000 aircraft used, land mines numbered 270 million</strong>. Some 15 million died.</p>
+
+<p>But Qiao Liang asks a question that most historians overlook: <strong>Who financed this war? And who profited from it?</strong> <span class="ru">(Кто финансировал эту войну? И кто от неё выиграл?)</span></p>
+
+<div class="key-point">
+<p><strong>The capital interpretation of WWI:</strong> Before 1914, the European great powers were <em>creditor nations</em> — Britain, France, and Germany were the world's financiers. After 1918, every single European power — winners and losers alike — was <strong>deeply in debt to one country: the United States</strong>. The war transferred the entire accumulated wealth of 400 years of European colonialism across the Atlantic in four short years.</p>
+</div>
+
+<!-- WWI FINANCIAL FLOW MAP -->
+<div class="map-container">
+<div class="map-label">World War I: Capital Flows — From European Creditors to American Empire</div>
+<svg class="map-svg" viewBox="0 0 800 400" style="background:#0a0d14">
+<rect width="800" height="400" fill="#0a0d14"/>
+<!-- Grid -->
+<g stroke="rgba(201,162,39,0.03)" stroke-width="0.5">
+<line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/><line x1="0" y1="300" x2="800" y2="300"/>
+<line x1="200" y1="0" x2="200" y2="400"/><line x1="400" y1="0" x2="400" y2="400"/><line x1="600" y1="0" x2="600" y2="400"/>
+</g>
+<!-- Atlantic Ocean -->
+<text x="350" y="220" fill="rgba(68,136,221,0.1)" font-family="Crimson Pro" font-size="20" text-anchor="middle" font-style="italic">Atlantic Ocean</text>
+<!-- Europe -->
+<path d="M450,60 L530,50 L580,70 L600,100 L590,140 L560,170 L520,190 L480,200 L460,190 L440,160 L430,120 L440,80Z" fill="#151b2a" stroke="rgba(224,64,64,0.25)" stroke-width="1.5"/>
+<text x="510" y="125" fill="rgba(224,64,64,0.6)" font-family="Outfit" font-size="10" text-anchor="middle" font-weight="600">EUROPE</text>
+<text x="510" y="138" fill="rgba(224,64,64,0.3)" font-family="Outfit" font-size="7" text-anchor="middle">Old Empires</text>
+<!-- UK -->
+<ellipse cx="440" cy="85" rx="12" ry="8" fill="#151b2a" stroke="rgba(68,136,221,0.3)" stroke-width="1"/>
+<text x="440" y="78" fill="rgba(68,136,221,0.5)" font-family="Outfit" font-size="6" text-anchor="middle">UK</text>
+<!-- France -->
+<text x="470" y="170" fill="rgba(68,136,221,0.4)" font-family="Outfit" font-size="6" text-anchor="middle">France</text>
+<!-- Germany -->
+<text x="530" y="100" fill="rgba(224,64,64,0.4)" font-family="Outfit" font-size="6" text-anchor="middle">Germany</text>
+<!-- USA -->
+<path d="M80,100 L220,90 L250,110 L240,140 L200,160 L120,170 L70,150 L60,120Z" fill="#152a1e" stroke="rgba(61,170,109,0.3)" stroke-width="1.5"/>
+<text x="155" y="130" fill="rgba(201,162,39,0.8)" font-family="Outfit" font-size="12" text-anchor="middle" font-weight="700">USA</text>
+<text x="155" y="145" fill="rgba(201,162,39,0.4)" font-family="Outfit" font-size="7" text-anchor="middle">Rising Power</text>
+<!-- Gold/Capital flow arrows from Europe to USA -->
+<path d="M440,130 Q350,100 250,120" fill="none" stroke="rgba(201,162,39,0.4)" stroke-width="2" stroke-dasharray="6,3" class="flow-line"/>
+<path d="M460,170 Q350,160 240,145" fill="none" stroke="rgba(201,162,39,0.3)" stroke-width="1.5" stroke-dasharray="6,3" class="flow-line" style="animation-delay:.5s"/>
+<path d="M520,180 Q380,200 250,150" fill="none" stroke="rgba(201,162,39,0.2)" stroke-width="1.5" stroke-dasharray="6,3" class="flow-line" style="animation-delay:1s"/>
+<!-- Labels for flows -->
+<text x="340" y="95" fill="rgba(201,162,39,0.5)" font-family="Space Mono" font-size="7" text-anchor="middle">War Loans →</text>
+<text x="350" y="145" fill="rgba(201,162,39,0.4)" font-family="Space Mono" font-size="6" text-anchor="middle">Gold Reserves →</text>
+<text x="370" y="195" fill="rgba(201,162,39,0.3)" font-family="Space Mono" font-size="6" text-anchor="middle">Interest Payments →</text>
+<!-- Before/After boxes -->
+<rect x="50" y="240" width="300" height="60" rx="4" fill="rgba(10,13,20,0.8)" stroke="rgba(201,162,39,0.1)"/>
+<text x="65" y="258" fill="var(--gold)" font-family="Outfit" font-size="8" font-weight="600">BEFORE WWI (1914)</text>
+<text x="65" y="272" fill="var(--text2)" font-family="Crimson Pro" font-size="8">Europe: World's creditor, 400 years of colonial wealth</text>
+<text x="65" y="284" fill="var(--text2)" font-family="Crimson Pro" font-size="8">USA: Regional power, debtor nation, $3B in foreign debt</text>
+<rect x="430" y="240" width="340" height="60" rx="4" fill="rgba(10,13,20,0.8)" stroke="rgba(201,162,39,0.1)"/>
+<text x="445" y="258" fill="var(--gold)" font-family="Outfit" font-size="8" font-weight="600">AFTER WWI (1918)</text>
+<text x="445" y="272" fill="var(--text2)" font-family="Crimson Pro" font-size="8">Europe: Devastated, deeply indebted to America</text>
+<text x="445" y="284" fill="var(--text2)" font-family="Crimson Pro" font-size="8">USA: World's largest creditor, held 40% of global gold</text>
+<!-- Annotations -->
+<rect x="550" y="320" width="230" height="55" rx="4" fill="rgba(10,13,20,0.8)" stroke="rgba(224,64,64,0.1)"/>
+<text x="565" y="338" fill="rgba(224,64,64,0.6)" font-family="Outfit" font-size="7" font-weight="600">KEY INSIGHT (Ключевой вывод)</text>
+<text x="565" y="352" fill="var(--text2)" font-family="Crimson Pro" font-size="7">WWI transferred 400 years of European</text>
+<text x="565" y="363" fill="var(--text2)" font-family="Crimson Pro" font-size="7">accumulated wealth to America in just 4 years.</text>
+</svg>
+</div>
+</section>
+
+<section class="section" id="ch1-2">
+<h3>Resources and Capital: The Overlooked Factors <span class="ru">(Ресурсы и капитал)</span></h3>
+
+<p>Traditional history views WWI through the lens of nations, alliances, and battlefield tactics. Qiao Liang insists we must view it through <strong>capital</strong>. The real question is: which side had the <strong>resources and capital endurance</strong> to sustain a protracted industrial war?</p>
+
+<p>Germany and Austria-Hungary, the <strong>Central Powers</strong> <span class="ru">(Центральные державы)</span>, had formidable armies but were resource-poor. Britain's naval blockade slowly strangled their economies. Meanwhile, the <strong>Entente Powers</strong> — Britain, France, Russia — could draw on their colonial empires for raw materials. But even they discovered a terrifying truth: <strong>modern industrial warfare consumes resources at a rate that no single nation — not even a colonial empire — can sustain alone.</strong></p>
+
+<h3 id="ch1-3">The Allied Powers: Blood vs. Capital <span class="ru">(Союзные державы)</span></h3>
+
+<p>Germany poured the blood of its young men onto the Western Front but lacked the <strong>capital reserves</strong> to purchase war materials on global markets. As the British blockade tightened, Germany couldn't import rubber, oil, copper, or food. Its economy began collapsing long before its military did.</p>
+
+<h3 id="ch1-4">The Entente: From Creditors to Debtors</h3>
+
+<p>Britain entered WWI as the world's greatest <strong>creditor nation</strong> <span class="ru">(страна-кредитор)</span> and financial center. By 1918, it was deeply in debt to American banks. France was worse — it had lent massively to Russia (which defaulted after the Bolshevik revolution) and borrowed massively from America. <strong>The entire European financial system collapsed inward.</strong></p>
+
+<div class="compare">
+<div class="compare-col red">
+<h4>Europe Before WWI</h4>
+<ul>
+<li>World's financial center (London)</li>
+<li>Global creditor nations</li>
+<li>400 years of colonial wealth</li>
+<li>Gold standard anchored in Europe</li>
+<li>Industrial and military supremacy</li>
+</ul>
+</div>
+<div class="compare-col" style="border-left:2px solid var(--green)">
+<h4 style="color:var(--green)">Europe After WWI</h4>
+<ul>
+<li>Financial center shifted to New York</li>
+<li>Every power indebted to America</li>
+<li>Colonial wealth consumed by war</li>
+<li>Gold flowed to U.S. Federal Reserve</li>
+<li>Economies shattered, populations decimated</li>
+</ul>
+</div>
+</div>
+
+<h3 id="ch1-5">The Only Beneficiary: America <span class="ru">(Единственный выгодоприобретатель — Америка)</span></h3>
+
+<p>The United States entered WWI late (April 1917) after lending billions to the Entente. American banks — especially J.P. Morgan — financed Britain and France's war purchases. When victory came, America held the IOUs of every European power.</p>
+
+<div class="warning-box">
+<p><strong>Qiao Liang's provocative thesis:</strong> America did not stumble into becoming a global power — it <em>discovered a model</em> for profiting from others' wars through capital. WWI was the prototype. WWII would perfect it. And the post-1971 dollar system would make it permanent.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART II ===== -->
+<section class="part-header" id="part2">
+<div class="part-num">Part II · 第二部分</div>
+<div class="part-title">Financial Colonialism</div>
+<div class="part-title-cn">金融殖民：纸币的历史逻辑和轨迹</div>
+<div class="part-desc">How the dollar replaced gold, and how "green paper" became the most powerful tool of extraction in human history — surpassing any colonial army.</div>
+</section>
+
+<section class="section" id="ch2-1">
+<div class="ch-header">
+<div class="ch-num">The Bretton Woods System & Its Collapse</div>
+<div class="ch-title">Neo-Colonialism: "Green Paper" for Real Goods</div>
+<div class="ch-title-cn">新殖民主义："绿纸"换实物</div>
+</div>
+
+<p>In 1960, American economist Robert Triffin published <em>Gold and the Dollar Crisis</em>, identifying what became known as the <strong>Triffin Dilemma</strong> <span class="ru">(дилемма Триффина)</span>: because the dollar was pegged to gold while serving as the world's reserve currency, America faced two contradictory requirements — maintaining dollar stability (requiring trade surpluses) and providing global liquidity (requiring trade deficits). This paradox would eventually destroy the Bretton Woods system.</p>
+
+<h3 id="ch2-2">The Essence of Globalization Is Dollar Globalization <span class="ru">(Глобализация = глобализация доллара)</span></h3>
+
+<p>On August 15, 1971, President Nixon announced that the U.S. would no longer convert dollars to gold. This <strong>"Nixon Shock"</strong> <span class="ru">(Никсон-шок)</span> was perhaps the most consequential economic decision in modern history.</p>
+
+<!-- THE DOLLAR EVOLUTION TIMELINE -->
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1944</div><div class="tl-text"><strong>Bretton Woods:</strong> Dollar pegged to gold at $35/oz. All other currencies pegged to dollar. America holds 75% of world's gold.</div><div class="tl-ru">Бреттон-Вудская система</div></div>
+<div class="tl-item"><div class="tl-year">1960</div><div class="tl-text"><strong>Triffin Dilemma:</strong> Robert Triffin warns the system is unsustainable — America must run deficits to provide liquidity, but deficits undermine confidence.</div><div class="tl-ru">Дилемма Триффина</div></div>
+<div class="tl-item"><div class="tl-year">1971</div><div class="tl-text"><strong>Nixon Shock:</strong> Dollar unlinked from gold. For the first time in human history, the world's reserve currency is backed by nothing tangible.</div><div class="tl-ru">Никсон-шок — отвязка доллара от золота</div></div>
+<div class="tl-item"><div class="tl-year">1973</div><div class="tl-text"><strong>Petrodollar Deal:</strong> After the Yom Kippur War and oil crisis, U.S. Treasury Secretary William Simon secretly negotiates with Saudi Arabia — oil will be priced exclusively in dollars.</div><div class="tl-ru">Нефтедоллар — нефть торгуется только в долларах</div></div>
+<div class="tl-item"><div class="tl-year">1974–</div><div class="tl-text"><strong>Dollar Hegemony Established:</strong> The dollar, no longer anchored to gold, is now anchored to oil — the world's most essential commodity. Every nation needs dollars to buy oil.</div><div class="tl-ru">Долларовая гегемония установлена</div></div>
+</div>
+
+<div class="key-point">
+<p><strong>The "Green Paper" Exchange:</strong> After 1971, America could print unlimited dollars — literal green paper — and exchange them for real goods, real labor, and real resources from the entire world. Qiao Liang calls this <strong>"the most brilliant and the most secret of all national strategies"</strong> — the financial equivalent of the colonial extraction that European empires once achieved with armies and navies, but achieved silently through monetary mechanics.</p>
+<p class="ru" style="margin-top:.5rem">«Зелёная бумага» в обмен на реальные товары — финансовый аналог колониальной эксплуатации</p>
+</div>
+
+<p>Qiao Liang describes this as <strong>America's highest national secret</strong>. Every president, upon receiving the nuclear briefcase, is also told this truth: America only needs to <em>produce dollars</em>, while the rest of the world must produce goods <em>purchasable with dollars</em>. This is the <strong>true international division of labor</strong> — and the <strong>true meaning of "globalization."</strong></p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART III ===== -->
+<section class="part-header" id="part3">
+<div class="part-num">Part III · 第三部分</div>
+<div class="part-title">The Financial Magic Wand</div>
+<div class="part-title-cn">金融魔杖：美国的国家生存方式</div>
+<div class="part-desc">How America weaponized the dollar cycle to systematically harvest wealth from developing nations — the "roller coaster" of dollar expansion and contraction.</div>
+</section>
+
+<section class="section" id="ch3-1">
+<div class="ch-header">
+<div class="ch-num">The Dollar Cycle</div>
+<div class="ch-title">The "Roller Coaster" & "Shearing the Sheep"</div>
+<div class="ch-title-cn">美元指数周期律："过山车"与"剪羊毛"原理</div>
+</div>
+
+<p>This is the heart of Qiao Liang's analysis — the mechanism by which America extracts wealth from the world on a roughly <strong>10-year cycle</strong>. <span class="ru">(«Стрижка овец» — долларовый цикл)</span></p>
+
+<!-- INTERACTIVE DOLLAR CYCLE GAME -->
+<div class="game-container">
+<div class="game-header">
+<span>🎮 INTERACTIVE: The Dollar Cycle Simulator <span class="ru">(Симулятор долларового цикла)</span></span>
+<span style="color:var(--text2)">Slide to see how it works</span>
+</div>
+<div class="game-body" id="dollarGame">
+<div style="display:flex;gap:1rem;margin-bottom:1rem;flex-wrap:wrap">
+<button class="game-btn active" onclick="setPhase(1)">Phase 1: Expansion</button>
+<button class="game-btn" onclick="setPhase(2)">Phase 2: Investment</button>
+<button class="game-btn" onclick="setPhase(3)">Phase 3: Crisis</button>
+<button class="game-btn" onclick="setPhase(4)">Phase 4: Harvest</button>
+</div>
+<div class="game-display" id="dollarDisplay">
+<span id="dollarIcon">📈</span> Dollar Index: <span id="dollarVal">LOW (Weak Dollar)</span>
+</div>
+<input type="range" class="game-slider" id="dollarSlider" min="1" max="4" value="1" oninput="updateDollar(this.value)">
+<div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:.6rem;color:var(--text3)">
+<span>WEAK $</span><span>INVESTMENT</span><span>CRISIS</span><span>STRONG $</span>
+</div>
+<div id="dollarDesc" style="margin-top:1rem;padding:1rem;background:var(--bg3);border-radius:4px;font-size:.9rem;color:var(--text2);min-height:80px">
+<strong style="color:var(--gold)">Phase 1 — Dollar Expansion (Ослабление доллара):</strong><br>
+The Federal Reserve lowers interest rates and prints money. Cheap dollars flood into developing countries as "hot money" investment. These economies boom — stock markets soar, real estate rises, GDP grows impressively. The "sheep" are getting fat.
+</div>
+</div>
+</div>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--green)">
+<div class="phase-num">1</div>
+<div class="phase-name">EXPANSION</div>
+<div class="phase-desc">Fed prints money, dollar weakens. Cheap capital floods developing nations. Asset bubbles form.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">2</div>
+<div class="phase-name">FATTENING</div>
+<div class="phase-desc">Target economies boom. Property, stocks skyrocket. Foreign investment creates dependency.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--red)">
+<div class="phase-num">3</div>
+<div class="phase-name">CRISIS</div>
+<div class="phase-desc">A regional crisis erupts — sometimes naturally, sometimes engineered. Currencies crash. Capital flees.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--gold)">
+<div class="phase-num">4</div>
+<div class="phase-name">HARVEST</div>
+<div class="phase-desc">Fed raises rates. Strong dollar buys collapsed assets at cents on the dollar. Wealth transfers to America.</div>
+</div>
+</div>
+
+<h3 id="ch3-2">Dollar Disaster I: Latin America (1980s) <span class="ru">(Латиноамериканский кризис)</span></h3>
+
+<p>The <strong>first "shearing"</strong>: In the 1970s, cheap petrodollars flooded Latin America. Countries like Mexico, Brazil, and Argentina borrowed heavily — their economies boomed. Then in 1979, Fed Chairman Paul Volcker raised interest rates to 20%. The dollar soared. Latin American currencies collapsed. Nations defaulted. American banks and corporations swept in to buy assets at fire-sale prices. <strong>An entire continent's wealth was harvested.</strong></p>
+
+<h3 id="ch3-3">Dollar Disaster II: Southeast Asia (1997) <span class="ru">(Азиатский финансовый кризис)</span></h3>
+
+<p>The <strong>second "shearing"</strong>: Through the early 1990s, hot money poured into the "Asian Tigers." Then in 1997, George Soros and hedge funds attacked the Thai baht, triggering a cascading crisis across Southeast Asia. The dollar strengthened. Asian currencies fell 30-80%. The IMF imposed brutal structural adjustment. American capital bought devastated Asian companies and real estate at a fraction of their value.</p>
+
+<h3 id="ch3-4">The Third Shearing That Failed: 2008 <span class="ru">(Третья «стрижка» провалилась)</span></h3>
+
+<p>The <strong>planned third "shearing"</strong> was supposed to target Europe — specifically to destroy the nascent <strong>euro</strong> <span class="ru">(евро)</span> before it could challenge dollar supremacy. But the plan backfired: the <strong>2008 financial crisis</strong> detonated inside America itself, originating in the U.S. subprime mortgage market. For the first time, the "shearer" was sheared by its own mechanism.</p>
+
+<div class="warning-box">
+<p><strong>Qiao Liang's argument:</strong> These crises were not random market failures — they were <em>structural features</em> of the dollar system. The cycle of dollar expansion → investment → crisis → harvest is the core mechanism of American financial empire. "Anyone who thinks this is conspiracy theory should examine the pattern: every 10 years, a major crisis strikes a region that had just experienced a dollar-fueled boom. Coincidence?"</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART IV ===== -->
+<section class="part-header" id="part4">
+<div class="part-num">Part IV · 第四部分</div>
+<div class="part-title">Behind the Smoke</div>
+<div class="part-title-cn">硝烟背后：美国为何而战</div>
+<div class="part-desc">Why every American war in the past 20 years was not about what you think — it was about controlling the flow of global capital through the dollar system.</div>
+</section>
+
+<section class="section" id="ch4-1">
+<div class="ch-header">
+<div class="ch-num">Wars & Capital</div>
+<div class="ch-title">Was the Iraq War About Oil? NO.</div>
+<div class="ch-title-cn">发动伊拉克战争是为了石油？NO</div>
+</div>
+
+<p>This is perhaps Qiao Liang's most provocative argument. He contends that in the past 20 years, America fought <strong>four wars in three different regions</strong> — and not a single one was for the commonly assumed reason. The true objective in every case was <strong>controlling global capital flows</strong> <span class="ru">(контроль глобальных потоков капитала)</span>.</p>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">War I · 1999</div>
+<div class="card-name">Kosovo War <span class="ru">(Война в Косово)</span></div>
+<div class="card-desc">The euro launched January 1, 1999. Within weeks, NATO bombed Yugoslavia — in the heart of Europe. Capital fled the eurozone. The euro fell from $1.07 to $0.82. <strong>The war targeted the euro, not Milošević.</strong></div>
+<div class="card-tag fin">Financial War</div><div class="card-tag geo">Europe</div>
+</div>
+<div class="card">
+<div class="card-type">War II · 2001</div>
+<div class="card-name">Afghanistan <span class="ru">(Афганистан)</span></div>
+<div class="card-desc">After 9/11 shattered global confidence in America, a swift military victory was needed to show American power remained unbroken. The goal: <strong>restore global capital's confidence in the dollar system.</strong></div>
+<div class="card-tag fin">Confidence Restoration</div><div class="card-tag mil">Military</div>
+</div>
+<div class="card">
+<div class="card-type">War III · 2003</div>
+<div class="card-name">Iraq <span class="ru">(Ирак)</span></div>
+<div class="card-desc">NOT about oil. Saddam's real crime: in 2000, he switched Iraq's oil sales from dollars to <strong>euros</strong>. If other OPEC nations followed, the petrodollar system — the anchor of dollar hegemony — would collapse.</div>
+<div class="card-tag fin">Petrodollar Defense</div><div class="card-tag geo">Middle East</div>
+</div>
+<div class="card">
+<div class="card-type">War IV · 2011</div>
+<div class="card-name">Libya <span class="ru">(Ливия)</span></div>
+<div class="card-desc">Gaddafi proposed a gold-backed African currency (the "gold dinar") to replace the dollar and euro in African trade. He was overthrown. The gold dinar died with him.</div>
+<div class="card-tag fin">Currency Defense</div><div class="card-tag geo">Africa</div>
+</div>
+</div>
+
+<h3 id="ch4-2">The "Global Rapid Strike" Concept <span class="ru">(Глобальный быстрый удар)</span></h3>
+
+<p id="ch4-3">Qiao Liang introduces a framework he calls <strong>"using war as a fast variable to control capital flow"</strong> <span class="ru">(«использование войны как быстрой переменной для управления потоками капитала»)</span>. The theory: capital is a slow variable that moves gradually based on economic fundamentals. But <strong>war is a fast variable</strong> that can instantly redirect global capital flows. By creating instability in a target region, America drives capital toward the dollar — the world's "safe haven."</p>
+
+<div class="concept-box">
+<p><strong>The War-Capital Connection:</strong> When war erupts near a rival economic center, capital flees that region and flows to America (the perceived safe harbor). This strengthens the dollar, allows the Fed to print more money, and keeps the entire system running. <strong>America doesn't fight wars to win territory — it fights wars to win capital.</strong></p>
+<p class="ru" style="margin-top:.5rem">Америка воюет не за территории — она воюет за капитал.</p>
+</div>
+
+<h3 id="ch4-4">Why Not Oil?</h3>
+<p>If Iraq was about oil, why did oil prices <em>rise</em> after the invasion — from $30 to over $140 by 2008? And why did America not secure preferential oil contracts? The answer: America doesn't need Iraq's oil. It needs <strong>Iraq's oil to be sold in dollars</strong>. The petrodollar system — where all OPEC oil is priced in USD — forces every oil-importing nation to hold dollar reserves, creating permanent global demand for the dollar.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART V ===== -->
+<section class="part-header" id="part5">
+<div class="part-num">Part V · 第五部分</div>
+<div class="part-title">Financial War & Conspiracy</div>
+<div class="part-title-cn">世纪之间：金融战与阴谋论</div>
+<div class="part-desc">Is "financial warfare" real or metaphor? Is "financial colonialism" alarmist or an accurate description of the current world order? And how is Chinese wealth flowing to Wall Street?</div>
+</section>
+
+<section class="section" id="ch5-1">
+<div class="ch-header">
+<div class="ch-num">The Debate</div>
+<div class="ch-title">Who Held the World Hostage with Currency?</div>
+<div class="ch-title-cn">谁用货币绑架了世界</div>
+</div>
+
+<p>Many economists instinctively reject terms like "financial warfare" <span class="ru">(финансовая война)</span> and "conspiracy theory." Qiao Liang pushes back. He argues that calling the U.S. financial system's extractive behavior a "conspiracy theory" is <em>itself</em> a kind of conspiracy — designed to prevent victims from understanding and resisting the mechanism.</p>
+
+<p>He cites Ha-Joon Chang's <em>Kicking Away the Ladder</em>: every developed nation, after becoming rich, covers up the methods it used to get rich — protectionism, state intervention, currency manipulation — and tells developing nations to follow "free market" rules that actually serve the developed world's interests.</p>
+
+<h3 id="ch5-2">"Financial Colonialism": Alarmist or Reality?</h3>
+
+<p>Qiao Liang references Nobel laureate Joseph Stiglitz's discovery while working at the World Bank during the Asian financial crisis: he found evidence of coordination between the <strong>U.S. Treasury, Wall Street, and the IMF</strong> — effectively a command chain where Treasury directed the IMF to open developing nations' markets, and Wall Street firms then flooded in.</p>
+
+<h3 id="ch5-3">How Chinese Wealth Became Wall Street's Feast <span class="ru">(Как богатство Китая стало пиром Уолл-стрит)</span></h3>
+
+<p>Qiao Liang presents a devastating analysis of how Chinese wealth flows to America: China's massive trade surplus generates huge dollar reserves → China buys U.S. Treasury bonds (lending money to America) → America uses this money for consumption and financial speculation → When the Fed prints money (QE), it devalues the dollars China holds → China effectively <strong>works for free</strong>.</p>
+
+<div class="stat-bar"><div class="stat-label">China's USD Reserves</div><div class="stat-track"><div class="stat-fill gold" style="width:75%"></div></div><div class="stat-val">~$3.2T</div></div>
+<div class="stat-bar"><div class="stat-label">U.S. Treasuries Held</div><div class="stat-track"><div class="stat-fill gold" style="width:50%"></div></div><div class="stat-val">~$1.1T</div></div>
+<div class="stat-bar"><div class="stat-label">Dollar Devaluation (2001-12)</div><div class="stat-track"><div class="stat-fill red" style="width:40%"></div></div><div class="stat-val">~35%</div></div>
+
+<div class="warning-box">
+<p><strong>"The coldest winter is coming":</strong> Qiao Liang warns that China's model of export-driven growth funded by cheap labor — essentially trading real goods for American paper — is a <em>trap</em>. Every dollar of trade surplus represents Chinese labor that enriched Wall Street. Until China develops its own financial power and reduces dollar dependence, it remains a "financial colony." <span class="ru">(«Самая холодная зима приближается»)</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART VI ===== -->
+<section class="part-header" id="part6">
+<div class="part-num">Part VI · 第六部分</div>
+<div class="part-title">Revival or Decline</div>
+<div class="part-title-cn">重振或衰落：美国战略大调整能否避免颓势</div>
+<div class="part-desc">In 2012, America announced its "Pivot to Asia." Can this strategic realignment arrest America's decline — or is the arc of empire already bending downward?</div>
+</section>
+
+<section class="section" id="ch6-1">
+<div class="ch-header">
+<div class="ch-num">The Strategic Pivot</div>
+<div class="ch-title">America's Eastward Turn</div>
+<div class="ch-title-cn">清醒又无奈的选择：战略重心东移</div>
+</div>
+
+<p>In 2012, President Obama and Defense Secretary Panetta, together with Joint Chiefs Chairman Dempsey, published <em>Sustaining U.S. Global Leadership: Priorities for 21st Century Defense</em> <span class="ru">(«Поддержание глобального лидерства США»)</span>. This document formally declared America's strategic pivot to the Asia-Pacific <span class="ru">(стратегический разворот в Азиатско-Тихоокеанский регион)</span>.</p>
+
+<p>Qiao Liang identifies <strong>multiple factors</strong> driving this pivot:</p>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Factor 1</div>
+<div class="card-name">Exhaustion from Middle East Wars</div>
+<div class="card-desc">Iraq: ~5,000 killed, $1-3 trillion spent. Afghanistan: ~1,800 killed, $323 billion. The "Greater Middle East Plan" failed to reshape the region and drained American power.</div>
+<div class="card-tag mil">Military Overstretch</div>
+</div>
+<div class="card">
+<div class="card-type">Factor 2</div>
+<div class="card-name">Reduced Middle East Oil Dependence</div>
+<div class="card-desc">U.S. shale revolution reduced dependence on Middle Eastern oil to ~17%. America gained strategic freedom to disengage.</div>
+<div class="card-tag geo">Energy Independence</div>
+</div>
+<div class="card">
+<div class="card-type">Factor 3</div>
+<div class="card-name">China's Rise</div>
+<div class="card-desc">Asia-Pacific became the world's economic center of gravity. China emerged as the primary peer competitor. Containing China required physical military presence in the region.</div>
+<div class="card-tag cn">Great Power Competition</div>
+</div>
+</div>
+
+<h3 id="ch6-2">New Military Strategy: Air-Sea Battle <span class="ru">(Воздушно-морское сражение)</span></h3>
+
+<p>To match strategic contraction with military capability, the Pentagon developed the <strong>Air-Sea Battle</strong> concept (later renamed "Joint Concept for Access and Maneuver in the Global Commons"). This strategy was designed specifically to counter China's <strong>A2/AD</strong> (Anti-Access/Area Denial) capabilities in the Western Pacific.</p>
+
+<h3 id="ch6-3">Is This Really the Decline? <span class="ru">(Действительно ли это упадок?)</span></h3>
+
+<p>Qiao Liang examines Paul Kennedy's famous 1987 thesis in <em>The Rise and Fall of the Great Powers</em> — that empires decline through "imperial overstretch." Kennedy predicted American decline, but it didn't happen in the 1990s because the Soviet Union collapsed first, giving America an unexpected reprieve.</p>
+
+<p>But the 2008 financial crisis may have been the real turning point. America's attempt to maintain global military supremacy while its economic foundation shifts from productive industry to financial speculation is the <strong>classic pattern of imperial overstretch</strong> — this time in financial rather than military terms.</p>
+
+<!-- EMPIRE ARC MAP -->
+<div class="map-container">
+<div class="map-label">The "Arc of Empire" — Parabolic Rise and Decline of American Power</div>
+<svg class="map-svg" viewBox="0 0 800 350" style="background:#0a0d14">
+<rect width="800" height="350" fill="#0a0d14"/>
+<!-- Grid -->
+<g stroke="rgba(201,162,39,0.04)" stroke-width="0.5">
+<line x1="100" y1="50" x2="100" y2="300"/><line x1="200" y1="50" x2="200" y2="300"/>
+<line x1="300" y1="50" x2="300" y2="300"/><line x1="400" y1="50" x2="400" y2="300"/>
+<line x1="500" y1="50" x2="500" y2="300"/><line x1="600" y1="50" x2="600" y2="300"/>
+<line x1="700" y1="50" x2="700" y2="300"/>
+<line x1="50" y1="100" x2="750" y2="100"/><line x1="50" y1="200" x2="750" y2="200"/>
+</g>
+<!-- Baseline -->
+<line x1="50" y1="290" x2="750" y2="290" stroke="rgba(201,162,39,0.1)" stroke-width="1"/>
+<!-- The Arc / Parabola -->
+<path d="M80,280 Q150,260 200,220 Q280,150 350,90 Q420,50 460,45 Q500,50 540,75 Q600,120 650,180 Q700,240 740,280" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round"/>
+<!-- Apex marker -->
+<circle cx="460" cy="45" r="5" fill="var(--gold)" opacity=".7"/>
+<text x="460" y="35" fill="var(--gold)" font-family="Outfit" font-size="8" text-anchor="middle" font-weight="600">APEX</text>
+<!-- Key events on the arc -->
+<circle cx="200" cy="220" r="3" fill="rgba(201,162,39,0.6)"/>
+<text x="200" y="238" fill="var(--text2)" font-family="Outfit" font-size="6" text-anchor="middle">1918</text>
+<text x="200" y="248" fill="var(--text3)" font-family="Outfit" font-size="5" text-anchor="middle">WWI victor</text>
+<circle cx="290" cy="140" r="3" fill="rgba(201,162,39,0.6)"/>
+<text x="290" y="158" fill="var(--text2)" font-family="Outfit" font-size="6" text-anchor="middle">1945</text>
+<text x="290" y="168" fill="var(--text3)" font-family="Outfit" font-size="5" text-anchor="middle">WWII victor</text>
+<circle cx="350" cy="90" r="3" fill="rgba(201,162,39,0.6)"/>
+<text x="350" y="108" fill="var(--text2)" font-family="Outfit" font-size="6" text-anchor="middle">1971</text>
+<text x="350" y="118" fill="var(--text3)" font-family="Outfit" font-size="5" text-anchor="middle">Dollar-gold delink</text>
+<circle cx="460" cy="45" r="3" fill="var(--gold)"/>
+<text x="480" y="58" fill="var(--text2)" font-family="Outfit" font-size="6" text-anchor="start">1991</text>
+<text x="480" y="68" fill="var(--text3)" font-family="Outfit" font-size="5" text-anchor="start">USSR collapse — sole superpower</text>
+<circle cx="540" cy="75" r="3" fill="rgba(224,64,64,0.6)"/>
+<text x="540" y="93" fill="var(--text2)" font-family="Outfit" font-size="6" text-anchor="middle">2001</text>
+<text x="540" y="103" fill="var(--text3)" font-family="Outfit" font-size="5" text-anchor="middle">9/11 — inflection</text>
+<circle cx="620" cy="140" r="3" fill="rgba(224,64,64,0.6)"/>
+<text x="620" y="158" fill="var(--text2)" font-family="Outfit" font-size="6" text-anchor="middle">2008</text>
+<text x="620" y="168" fill="var(--text3)" font-family="Outfit" font-size="5" text-anchor="middle">Financial crisis</text>
+<circle cx="700" cy="230" r="4" fill="rgba(224,64,64,0.6)" class="pulse-dot"/>
+<text x="700" y="252" fill="var(--text2)" font-family="Outfit" font-size="6" text-anchor="middle">2020s</text>
+<text x="700" y="262" fill="var(--text3)" font-family="Outfit" font-size="5" text-anchor="middle">Decline accelerates?</text>
+<!-- Y-axis label -->
+<text x="30" y="50" fill="rgba(201,162,39,0.3)" font-family="Outfit" font-size="7" text-anchor="middle" transform="rotate(-90,30,170)">IMPERIAL POWER</text>
+<!-- Rising label -->
+<text x="250" y="280" fill="rgba(61,170,109,0.3)" font-family="Outfit" font-size="9" text-anchor="middle">RISING ↗</text>
+<!-- Declining label -->
+<text x="650" y="280" fill="rgba(224,64,64,0.3)" font-family="Outfit" font-size="9" text-anchor="middle">↘ DECLINING</text>
+<!-- China rising path -->
+<path d="M350,280 Q400,270 450,255 Q500,235 550,210 Q620,170 700,130" fill="none" stroke="rgba(224,64,64,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="720" y="130" fill="rgba(224,64,64,0.4)" font-family="Outfit" font-size="7">China?</text>
+<text x="720" y="140" fill="rgba(224,64,64,0.25)" font-family="Outfit" font-size="6">Китай?</text>
+</svg>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART VII ===== -->
+<section class="part-header" id="part7">
+<div class="part-num">Part VII · 第七部分</div>
+<div class="part-title">Who Will Rise?</div>
+<div class="part-title-cn">谁将崛起：当美国自己击倒自己时，中国该做什么</div>
+<div class="part-desc">When America defeats itself through its own internal contradictions, what should China do? Can China avoid the traps that have consumed every previous rising power?</div>
+</section>
+
+<section class="section" id="ch7-1">
+<div class="ch-header">
+<div class="ch-num">The Final Question</div>
+<div class="ch-title">When America Knocks Itself Down</div>
+<div class="ch-title-cn">当美国自己击倒自己时，中国该做什么</div>
+</div>
+
+<p>Since Thucydides, the discussion of imperial decline has never stopped. People have watched empires rise and fall throughout history. The debate over American decline has raged for half a century. <strong>But the truly fresh question is not <em>whether</em> America will decline, but <em>when, how, and by what mechanism</em></strong> — and who comes next. <span class="ru">(Кто будет следующим?)</span></p>
+
+<h3 id="ch7-2">Why Paul Kennedy Was Wrong — And Why He's Now Right</h3>
+
+<p>Kennedy predicted American decline in 1987 based on military overstretch. He was premature — the Soviet collapse gave America an unexpected windfall. But Qiao Liang argues that Kennedy's fundamental logic was correct, just applied to the wrong domain. America's decline will not come from <strong>military</strong> overstretch but from <strong>financial</strong> overstretch — the virtual economy consuming the real economy.</p>
+
+<h3>The Internet: The Greatest Innovation Dissolves the Last Empire <span class="ru">(Интернет растворяет последнюю империю)</span></h3>
+
+<p>Qiao Liang offers a counterintuitive prediction: America will be brought down not by an enemy, but by <strong>its own greatest innovation — the Internet</strong>. His reasoning:</p>
+
+<div class="key-point">
+<p>The Internet's essential characteristic is <strong>decentralization</strong> <span class="ru">(децентрализация)</span>. As the Internet spreads globally, it inevitably promotes a multi-polar world — undermining the unipolar order that sustains American hegemony. America cannot stop this process because it invented the very technology driving it.</p>
+<p>Qiao Liang told American scholars: <em>"You think China is America's strongest challenger. You're wrong. China is walking its own path, not challenging America. The real threat to America's future — especially its global position — is you, America itself."</em></p>
+</div>
+
+<h3 id="ch7-3">What Should China Do? <span class="ru">(Что делать Китаю?)</span></h3>
+
+<p>Qiao Liang's prescriptions for China:</p>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--green)">
+<div class="phase-num">1</div>
+<div class="phase-name">AVOID CONSPIRACY THINKING</div>
+<div class="phase-desc">China has wasted 150 years in "conspiracy theory" thinking — moralizing about Western wickedness instead of studying HOW Western power actually works.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--gold)">
+<div class="phase-num">2</div>
+<div class="phase-name">BUILD FINANCIAL POWER</div>
+<div class="phase-desc">China must develop its own financial capabilities — RMB internationalization, capital markets, financial instruments — to escape dollar dependency.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">3</div>
+<div class="phase-name">THINK IN CAPITAL TERMS</div>
+<div class="phase-desc">Study the world through the lens of capital and resources, not ideology. Understand the real mechanisms of power — don't moralize about them.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--cyan)">
+<div class="phase-num">4</div>
+<div class="phase-name">STRATEGIC PATIENCE</div>
+<div class="phase-desc">Don't rush to confront America. Time is on China's side. Focus on internal development and wait for America's own contradictions to unfold.</div>
+</div>
+</div>
+
+<div class="china-box">
+<p><strong>Qiao Liang's closing prayer:</strong> "May fate favor China" <span class="ru">(«Пусть судьба благоволит Китаю»)</span>. But fate favors the prepared. China's rise requires not just economic growth, but <strong>great wisdom (大智慧)</strong> — the strategic sophistication to navigate the most dangerous transition in world history: the displacement of a financial empire by a rising industrial power.</p>
+</div>
+
+<!-- INTERACTIVE: EMPIRE COMPARISON GAME -->
+<div class="game-container">
+<div class="game-header">
+<span>🎮 INTERACTIVE: Empire Power Comparison <span class="ru">(Сравнение мощи империй)</span></span>
+<span style="color:var(--text2)">Drag to compare</span>
+</div>
+<div class="game-body">
+<div style="display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap">
+<button class="game-btn active" onclick="showCompare('military')">Military</button>
+<button class="game-btn" onclick="showCompare('economic')">Economic</button>
+<button class="game-btn" onclick="showCompare('financial')">Financial</button>
+<button class="game-btn" onclick="showCompare('tech')">Technology</button>
+</div>
+<div id="compareDisplay">
+<div class="stat-bar"><div class="stat-label">USA 🇺🇸</div><div class="stat-track"><div class="stat-fill blue" id="usa-bar" style="width:95%"></div></div><div class="stat-val" id="usa-val">95</div></div>
+<div class="stat-bar"><div class="stat-label">China 🇨🇳</div><div class="stat-track"><div class="stat-fill red" id="cn-bar" style="width:45%"></div></div><div class="stat-val" id="cn-val">45</div></div>
+<div class="stat-bar"><div class="stat-label">EU 🇪🇺</div><div class="stat-track"><div class="stat-fill gold" id="eu-bar" style="width:35%"></div></div><div class="stat-val" id="eu-val">35</div></div>
+<div class="stat-bar"><div class="stat-label">Russia 🇷🇺</div><div class="stat-track"><div class="stat-fill green" id="ru-bar" style="width:30%"></div></div><div class="stat-val" id="ru-val">30</div></div>
+</div>
+<p style="font-size:.75rem;color:var(--text3);margin-top:.8rem;text-align:center">Illustrative comparison based on Qiao Liang's analysis framework · Иллюстративное сравнение</p>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- APPENDICES -->
+<section class="section" id="app1">
+<div class="ch-header">
+<div class="ch-num">Appendices · 附录</div>
+<div class="ch-title">Financial Globalization, Wealth Transfer & Great Power Rivalry</div>
+<div class="ch-title-cn">金融全球化与财富转移 · 大国崛起要有大智慧 · 大时代来临前的大国较量</div>
+</div>
+
+<p>The appendices include three extended essays and an interview with <em>Global Times</em> <span class="ru">(«Хуаньцю шибао»)</span>:</p>
+
+<h3>Appendix 1: Financial Globalization & Wealth Transfer</h3>
+<p>A detailed analysis of how the global financial system transfers wealth from developing to developed nations through exchange rate manipulation, capital account liberalization, and debt mechanisms. Qiao Liang argues this is <strong>not a conspiracy but a structural feature</strong> of the dollar system that benefits America at the expense of everyone else.</p>
+
+<h3>Appendix 2: Great Power Rise Requires Great Wisdom</h3>
+<p>An argument that China must not simply grow economically — it must develop <strong>strategic sophistication</strong> <span class="ru">(стратегическая мудрость)</span> comparable to America's financial genius. Raw GDP growth without financial mastery is meaningless.</p>
+
+<h3 id="app2">Appendix 3: Great Power Rivalry — Global Times Interview</h3>
+<p>In this interview, Qiao Liang states: China is undoubtedly a great power. Its unique factor is that it has the <strong>highest concentration of state resource allocation power</strong> among all major powers. But he warns against the arrogance of assuming China's rise is inevitable — <strong>"the arc of empire can bend upward or downward, and complacency has destroyed more empires than any enemy."</strong></p>
+
+<p>When asked about per capita GDP critiques, Qiao Liang responds that <strong>high per capita GDP does not equal global influence</strong> — Switzerland and Luxembourg are wealthy but not powerful. China's centralized resource allocation gives it disproportionate international impact relative to its per capita wealth.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPREHENSIVE TIMELINE -->
+<section class="section">
+<h3 style="text-align:center;border:none;padding:0">Complete Historical Timeline <span class="ru">(Полная хронология)</span></h3>
+<div class="timeline" style="margin-top:2rem">
+<div class="tl-item"><div class="tl-year">1914–18</div><div class="tl-text">World War I destroys European financial supremacy; America becomes world's largest creditor</div><div class="tl-ru">Первая мировая война</div></div>
+<div class="tl-item"><div class="tl-year">1929</div><div class="tl-text">Great Depression — financial system built on WWI debts collapses</div><div class="tl-ru">Великая депрессия</div></div>
+<div class="tl-item"><div class="tl-year">1944</div><div class="tl-text">Bretton Woods: Dollar-gold standard established; IMF and World Bank created</div><div class="tl-ru">Бреттон-Вудская конференция</div></div>
+<div class="tl-item"><div class="tl-year">1945</div><div class="tl-text">WWII ends; America holds 75% of world's gold, dominates global economy</div><div class="tl-ru">Окончание Второй мировой</div></div>
+<div class="tl-item"><div class="tl-year">1960</div><div class="tl-text">Triffin Dilemma published — warning that dollar-gold system is unsustainable</div><div class="tl-ru">Дилемма Триффина</div></div>
+<div class="tl-item"><div class="tl-year">1971</div><div class="tl-text"><strong>Nixon Shock:</strong> Dollar unlinked from gold — the birth of pure fiat dollar hegemony</div><div class="tl-ru">Никсон-шок</div></div>
+<div class="tl-item"><div class="tl-year">1973</div><div class="tl-text">Yom Kippur War → Oil crisis → Petrodollar deal with Saudi Arabia</div><div class="tl-ru">Нефтедолларовое соглашение</div></div>
+<div class="tl-item"><div class="tl-year">1979–82</div><div class="tl-text">Volcker Shock: Fed raises rates to 20%; Latin American debt crisis — <strong>1st "shearing"</strong></div><div class="tl-ru">Шок Волкера → Латиноамериканский кризис</div></div>
+<div class="tl-item"><div class="tl-year">1991</div><div class="tl-text">Soviet Union collapses — America becomes sole superpower; apex of the arc</div><div class="tl-ru">Распад СССР — апогей американской мощи</div></div>
+<div class="tl-item"><div class="tl-year">1997</div><div class="tl-text">Asian Financial Crisis — <strong>2nd "shearing"</strong>; IMF imposes structural adjustment on Asia</div><div class="tl-ru">Азиатский финансовый кризис</div></div>
+<div class="tl-item"><div class="tl-year">1999</div><div class="tl-text">Euro launches Jan 1; Kosovo War begins Mar 24 — capital flees Europe</div><div class="tl-ru">Запуск евро → Война в Косово</div></div>
+<div class="tl-item"><div class="tl-year">2001</div><div class="tl-text">9/11 attacks — the turning point of American national destiny</div><div class="tl-ru">11 сентября — поворотный момент</div></div>
+<div class="tl-item"><div class="tl-year">2003</div><div class="tl-text">Iraq War — defense of petrodollar system after Saddam switched to euro</div><div class="tl-ru">Война в Ираке — защита нефтедоллара</div></div>
+<div class="tl-item"><div class="tl-year">2008</div><div class="tl-text"><strong>Global Financial Crisis:</strong> The "3rd shearing" backfires — crisis detonates inside America</div><div class="tl-ru">Мировой финансовый кризис</div></div>
+<div class="tl-item"><div class="tl-year">2011</div><div class="tl-text">Libya intervention — Gaddafi's gold dinar plan destroyed</div><div class="tl-ru">Вмешательство в Ливию</div></div>
+<div class="tl-item"><div class="tl-year">2012</div><div class="tl-text">America's "Pivot to Asia" — strategic rebalancing toward China containment</div><div class="tl-ru">«Разворот в Азию»</div></div>
+<div class="tl-item"><div class="tl-year">2013</div><div class="tl-text">China launches Belt and Road Initiative — building alternative economic architecture</div><div class="tl-ru">Инициатива «Один пояс — один путь»</div></div>
+<div class="tl-item"><div class="tl-year">2015+</div><div class="tl-text">RMB internationalization accelerates; AIIB established; de-dollarization begins</div><div class="tl-ru">Интернационализация юаня</div></div>
+</div>
+</section>
+
+<!-- KEY TERMS GLOSSARY -->
+<section class="section">
+<h3 style="text-align:center;border:none;padding:0">Key Terms Glossary — English / Russian <span class="ru">(Глоссарий ключевых терминов)</span></h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.5rem;margin-top:1.5rem">
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Hegemony</strong> — Гегемония (гегемония)</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Financial Colonialism</strong> — Финансовый колониализм</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Dollar Hegemony</strong> — Долларовая гегемония</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Petrodollar</strong> — Нефтедоллар</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Bretton Woods System</strong> — Бреттон-Вудская система</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Nixon Shock</strong> — Никсон-шок</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Triffin Dilemma</strong> — Дилемма Триффина</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Quantitative Easing (QE)</strong> — Количественное смягчение</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>"Shearing the Sheep"</strong> — «Стрижка овец»</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Capital Flows</strong> — Потоки капитала</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Hot Money</strong> — «Горячие деньги»</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Federal Reserve</strong> — Федеральная резервная система (ФРС)</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>IMF (International Monetary Fund)</strong> — МВФ</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Unrestricted Warfare</strong> — Неограниченная война (超限战)</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>A2/AD (Anti-Access/Area Denial)</strong> — Ограничение доступа / воспрещение зоны</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Strategic Pivot to Asia</strong> — Стратегический разворот в Азию</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>RMB Internationalization</strong> — Интернационализация юаня</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Belt and Road Initiative</strong> — Инициатива «Один пояс — один путь»</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Fiat Currency</strong> — Фиатная валюта</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Imperial Overstretch</strong> — Имперское перенапряжение</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Decentralization</strong> — Децентрализация</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Trade Surplus/Deficit</strong> — Профицит/дефицит торгового баланса</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Debt-Creditor Relationship</strong> — Отношения должника и кредитора</div>
+<div style="padding:.6rem;background:var(--bg3);border-radius:4px;font-size:.85rem"><strong>Financial Warfare</strong> — Финансовая война</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide summarizes <strong>《帝国之弧：抛物线两端的美国与中国》(Arc of Empire: America and China at Both Ends of the Parabola)</strong></p>
+<p>by <strong>Major General Qiao Liang (乔良)</strong>, PLA Air Force, co-author of <em>Unrestricted Warfare</em></p>
+<p style="margin-top:.5rem;font-size:.75rem">Published by Changjiang Literature & Art Publishing (长江文艺出版社). Translated and adapted for educational discussion.</p>
+<p style="margin-top:.5rem" class="ru">Интерактивное руководство по книге «Дуга империи» генерал-майора Цяо Ляна</p>
+<p style="margin-top:1rem;font-size:.65rem;color:rgba(201,162,39,.3)">Interactive presentation created for academic study group · HSE University</p>
+</footer>
+
+<script>
+// Nav visibility
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+nav.classList.toggle('visible', window.scrollY > 500);
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.key-point, .warning-box, .concept-box, .china-box, .compare, .cards, .phases, .map-container, .game-container, .timeline, h3').forEach(el => {
+el.classList.add('fade-in');
+observer.observe(el);
+});
+
+// Dollar Cycle Game
+const phaseDescs = {
+1: `<strong style="color:var(--gold)">Phase 1 — Dollar Expansion (Ослабление доллара):</strong><br>The Federal Reserve lowers interest rates and prints money. Cheap dollars flood into developing countries as "hot money" investment. These economies boom — stock markets soar, real estate rises, GDP grows impressively. The "sheep" are getting fat.`,
+2: `<strong style="color:var(--blue)">Phase 2 — Investment Boom (Инвестиционный бум):</strong><br>Foreign capital creates massive asset bubbles in the target region. Property prices double, triple. New millionaires emerge. Everyone believes the good times will last forever. The economies become completely dependent on dollar inflows. Debt grows exponentially.`,
+3: `<strong style="color:var(--red)">Phase 3 — Crisis Trigger (Триггер кризиса):</strong><br>A crisis erupts — sometimes through hedge fund attacks (Soros in 1997), sometimes through war (Kosovo 1999), sometimes "naturally." Currencies collapse, stock markets crash 50-80%. Capital panics and flees the region. Everything built during the boom is now worthless.`,
+4: `<strong style="color:var(--gold)">Phase 4 — Harvest (Сбор урожая / «Стрижка»):</strong><br>The Fed raises interest rates. The dollar surges. American corporations and banks — holding strong dollars — sweep in to buy devastated assets at 10-20 cents on the dollar. Factories, banks, real estate, entire industries change hands. Decades of a nation's wealth transfer to Wall Street in months.`
+};
+const phaseVals = {1:'📉 LOW (Weak Dollar)',2:'📊 RISING (Investment Phase)',3:'💥 CRISIS (Collapse)',4:'📈 HIGH (Strong Dollar — Harvest)'};
+const phaseIcons = {1:'📉',2:'📊',3:'💥',4:'📈'};
+
+function updateDollar(v) {
+v = parseInt(v);
+document.getElementById('dollarVal').textContent = phaseVals[v];
+document.getElementById('dollarIcon').textContent = phaseIcons[v];
+document.getElementById('dollarDesc').innerHTML = phaseDescs[v];
+document.querySelectorAll('#dollarGame .game-btn').forEach((b,i) => b.classList.toggle('active', i===v-1));
+}
+function setPhase(v) {
+document.getElementById('dollarSlider').value = v;
+updateDollar(v);
+}
+
+// Empire Comparison Game
+const compareData = {
+military: {usa:95,cn:45,eu:35,ru:30,label:'Military Power (Военная мощь)'},
+economic: {usa:70,cn:80,eu:55,ru:20,label:'Economic Output (Экономический потенциал)'},
+financial: {usa:90,cn:30,eu:40,ru:10,label:'Financial System Power (Финансовая мощь)'},
+tech: {usa:85,cn:65,eu:45,ru:25,label:'Technological Capability (Технологический потенциал)'}
+};
+function showCompare(type) {
+const d = compareData[type];
+document.getElementById('usa-bar').style.width = d.usa+'%';
+document.getElementById('cn-bar').style.width = d.cn+'%';
+document.getElementById('eu-bar').style.width = d.eu+'%';
+document.getElementById('ru-bar').style.width = d.ru+'%';
+document.getElementById('usa-val').textContent = d.usa;
+document.getElementById('cn-val').textContent = d.cn;
+document.getElementById('eu-val').textContent = d.eu;
+document.getElementById('ru-val').textContent = d.ru;
+document.querySelectorAll('#compareDisplay').forEach(el => el.previousElementSibling);
+// Update active button
+const btns = document.querySelectorAll('.game-container:last-of-type .game-btn');
+btns.forEach(b => b.classList.remove('active'));
+event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

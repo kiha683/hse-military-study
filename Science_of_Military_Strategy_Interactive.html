@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science of Military Strategy (战略学) — China's National Defense University, 2020</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Crimson+Pro:wght@300;400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#080a0e;--bg2:#0e1117;--bg3:#151921;--bg4:#1c2230;
+--accent:#d4a853;--accent2:#e8c468;--accent3:#f0d878;
+--text:#cfd1d6;--text2:#8b8f9a;--text3:#5c6070;
+--red:#e04444;--red2:#ff6b6b;--blue:#4a8fd4;--blue2:#6db3f8;
+--green:#3dba6d;--green2:#5dd88a;--gold:#d4a853;
+--navy:#152238;--crimson:#8b1a2a;--teal:#1a5c5c;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Crimson Pro',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.85;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(160deg,#080a0e 0%,#0d1222 30%,#121828 60%,#0a0e18 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4a853' stroke-opacity='0.03' stroke-width='0.5'%3E%3Cpath d='M0 40h80M40 0v80M0 0l80 80M80 0L0 80'/%3E%3C/g%3E%3C/svg%3E")}
+.hero::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 60% 40%,rgba(212,168,83,0.04) 0%,transparent 60%);animation:heroGlow 12s ease-in-out infinite alternate}
+@keyframes heroGlow{0%{transform:translate(0,0)}100%{transform:translate(-5%,3%)}}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:950px}
+.hero .top-label{font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;opacity:.8}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6.5vw,5.5rem);font-weight:700;letter-spacing:-0.01em;line-height:1.08;margin-bottom:.8rem;background:linear-gradient(135deg,var(--accent),#f5e0a0,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .cn-title{font-size:clamp(1.2rem,2.5vw,1.8rem);color:rgba(212,168,83,.5);margin-bottom:1.5rem;letter-spacing:.1em}
+.hero .subtitle{font-family:'IBM Plex Sans',sans-serif;font-size:clamp(.85rem,1.5vw,1.05rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:.08em}
+.hero .author-info{font-size:1rem;color:var(--text2);margin:1.5rem 0;font-style:italic;line-height:1.6}
+.hero .epigraph{max-width:640px;margin:2rem auto;padding:1.5rem 1.8rem;border-left:3px solid var(--accent);text-align:left;color:var(--text2);font-style:italic;font-size:1.02rem;background:rgba(212,168,83,.02);border-radius:0 6px 6px 0}
+.hero .epigraph strong{color:var(--accent);font-style:normal}
+.hero .scroll-hint{margin-top:3rem;animation:bounce 2.5s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(12px);opacity:.8}}
+.hero .scroll-hint span{display:block;width:2px;height:45px;background:linear-gradient(to bottom,var(--accent),transparent);margin:0 auto}
+.star-field{position:absolute;inset:0;overflow:hidden}
+.star{position:absolute;width:1px;height:1px;background:#fff;border-radius:50%;animation:twinkle var(--d,4s) ease-in-out infinite alternate}
+@keyframes twinkle{0%{opacity:0}100%{opacity:var(--o,.6)}}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,10,14,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,168,83,.08);transform:translateY(-100%);transition:transform .35s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--accent);font-weight:700}
+.nav-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.nav-links a{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.12em;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+
+/* ===== SECTIONS ===== */
+.section{max-width:1020px;margin:0 auto;padding:4.5rem 2rem}
+.part-header{text-align:center;padding:7rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:220px;height:220px;border:1px solid rgba(212,168,83,.08);border-radius:50%}
+.part-header::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:160px;height:160px;border:1px solid rgba(212,168,83,.05);border-radius:50%}
+.part-num{font-family:'IBM Plex Sans',sans-serif;font-size:.8rem;letter-spacing:.35em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
+.part-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:700;color:#fff;margin-bottom:1rem}
+.part-desc{color:var(--text2);max-width:620px;margin:0 auto;font-size:1.02rem}
+
+.ch-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(212,168,83,.12)}
+.ch-num{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.ch-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--accent);padding-left:1.2rem;margin-top:1rem;font-size:.92rem}
+
+h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#fff;margin:2.8rem 0 1rem;padding-left:1.2rem;border-left:3px solid var(--accent)}
+h4{font-family:'IBM Plex Sans',sans-serif;font-size:.92rem;color:var(--accent);margin:2rem 0 .8rem;letter-spacing:.04em;font-weight:600}
+p{margin-bottom:1.25rem;font-size:1.02rem}
+strong{color:#eee;font-weight:600}
+
+/* ===== RUSSIAN TERM ===== */
+.ru{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--blue2);background:rgba(74,143,212,.08);padding:1px 6px;border-radius:3px;margin-left:3px;white-space:nowrap;cursor:help;border:1px solid rgba(74,143,212,.12)}
+.cn{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--gold);background:rgba(212,168,83,.06);padding:1px 6px;border-radius:3px;margin-left:3px;white-space:nowrap;border:1px solid rgba(212,168,83,.1)}
+
+/* ===== KEY BOXES ===== */
+.key-point{background:var(--bg3);border:1px solid rgba(212,168,83,.1);border-radius:8px;padding:1.6rem;margin:1.8rem 0;position:relative}
+.key-point::before{content:'KEY CONCEPT';position:absolute;top:-10px;left:16px;font-family:'IBM Plex Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;background:var(--accent);color:var(--bg);padding:2px 10px;border-radius:3px;font-weight:700}
+.key-point p{margin-bottom:.5rem}
+
+.warning-box{background:rgba(224,68,68,.06);border:1px solid rgba(224,68,68,.15);border-radius:8px;padding:1.6rem;margin:1.8rem 0}
+.warning-box strong{color:var(--red2)}
+
+.doctrine-box{background:rgba(212,168,83,.04);border:1px solid rgba(212,168,83,.12);border-radius:8px;padding:1.6rem;margin:1.8rem 0;position:relative}
+.doctrine-box::before{content:'DOCTRINE';position:absolute;top:-10px;left:16px;font-family:'IBM Plex Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;background:var(--red);color:#fff;padding:2px 10px;border-radius:3px;font-weight:700}
+
+.concept-box{background:rgba(74,143,212,.04);border:1px solid rgba(74,143,212,.12);border-radius:8px;padding:1.6rem;margin:1.8rem 0}
+.concept-box strong{color:var(--blue2)}
+
+/* ===== MAP ===== */
+.map-container{background:var(--bg2);border:1px solid rgba(212,168,83,.1);border-radius:12px;overflow:hidden;margin:2rem 0;position:relative}
+.map-label{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(212,168,83,.08)}
+.map-svg{width:100%;display:block}
+
+/* ===== COMPARE ===== */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(212,168,83,.08);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.5rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.8rem;border-bottom:1px solid rgba(212,168,83,.08)}
+.compare-col.red h4{color:var(--red2)}
+.compare-col.blue h4{color:var(--blue2)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.5rem 0;font-size:.92rem;border-bottom:1px solid rgba(255,255,255,.02)}
+.compare-col li::before{content:'→';color:var(--accent);margin-right:.5rem}
+
+/* ===== TIMELINE ===== */
+.timeline{position:relative;padding-left:2.2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),rgba(212,168,83,.2),transparent)}
+.tl-item{margin-bottom:2rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-2.2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);transform:translateX(-4px)}
+.tl-year{font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--accent);font-weight:500}
+.tl-text{font-size:.92rem;color:var(--text2)}
+
+/* ===== PHASES ===== */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(212,168,83,.08);border-radius:8px;padding:1.5rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 30px rgba(212,168,83,.08)}
+.phase-num{font-family:'IBM Plex Mono',monospace;font-size:2.2rem;color:var(--accent);font-weight:700}
+.phase-name{font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;color:#fff;margin:.5rem 0;font-weight:600;letter-spacing:.03em}
+.phase-desc{font-size:.82rem;color:var(--text2);line-height:1.55}
+
+/* ===== STAT BARS ===== */
+.stat-bar{margin:.8rem 0;display:flex;align-items:center;gap:.8rem}
+.stat-label{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;color:var(--text2);min-width:110px;text-align:right}
+.stat-track{flex:1;height:7px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.stat-fill{height:100%;border-radius:4px;transition:width 1.8s ease-out}
+.stat-fill.red{background:linear-gradient(90deg,var(--red),var(--red2))}
+.stat-fill.blue{background:linear-gradient(90deg,var(--blue),var(--blue2))}
+.stat-fill.green{background:linear-gradient(90deg,var(--green),var(--green2))}
+.stat-fill.gold{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.stat-val{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--text2);min-width:65px}
+
+/* ===== WEAPON/DOMAIN CARDS ===== */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.card{background:var(--bg3);border:1px solid rgba(212,168,83,.06);border-radius:8px;padding:1.5rem;transition:all .3s}
+.card:hover{border-color:var(--accent);background:var(--bg2);transform:translateY(-2px)}
+.card-type{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem;font-weight:600}
+.card-desc{font-size:.88rem;color:var(--text2);line-height:1.6}
+.card-tag{display:inline-block;font-family:'IBM Plex Sans',sans-serif;font-size:.6rem;padding:2px 8px;border-radius:3px;margin-top:.5rem;margin-right:.3rem;border:1px solid;letter-spacing:.05em}
+.card-tag.nuclear{color:var(--red2);border-color:rgba(224,68,68,.25)}
+.card-tag.cyber{color:var(--blue2);border-color:rgba(74,143,212,.25)}
+.card-tag.space{color:var(--accent2);border-color:rgba(212,168,83,.25)}
+.card-tag.intel{color:var(--green2);border-color:rgba(61,186,109,.25)}
+.card-tag.bio{color:#d88aff;border-color:rgba(216,138,255,.25)}
+
+/* ===== TOC ===== */
+.toc{background:var(--bg2);border:1px solid rgba(212,168,83,.08);border-radius:12px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.3rem;margin-bottom:1.5rem}
+.toc-part{margin-bottom:1.5rem}
+.toc-part-title{font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;font-weight:600}
+.toc-link{display:block;padding:.35rem 0 .35rem 1rem;color:var(--text2);text-decoration:none;font-size:.92rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--accent);border-left-color:var(--accent);padding-left:1.5rem}
+
+/* ===== INTERACTIVE SIMULATION ===== */
+.sim-container{background:var(--bg2);border:1px solid rgba(212,168,83,.1);border-radius:12px;overflow:hidden;margin:2.5rem 0}
+.sim-header{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(212,168,83,.08);display:flex;justify-content:space-between;align-items:center}
+.sim-header .sim-tag{background:var(--red);color:#fff;padding:2px 8px;border-radius:3px;font-size:.6rem;letter-spacing:.1em}
+.sim-body{padding:1.5rem}
+.sim-controls{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1rem}
+.sim-btn{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;padding:.5rem 1.2rem;border:1px solid rgba(212,168,83,.3);background:rgba(212,168,83,.06);color:var(--accent);border-radius:5px;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.sim-btn:hover{background:rgba(212,168,83,.15);border-color:var(--accent)}
+.sim-btn.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.sim-output{background:var(--bg);border:1px solid rgba(212,168,83,.06);border-radius:6px;padding:1.2rem;font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--text2);min-height:120px;line-height:1.7}
+.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.sim-meter{margin:.5rem 0}
+.sim-meter-label{font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--text2);margin-bottom:.3rem;display:flex;justify-content:space-between}
+.sim-meter-track{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.sim-meter-fill{height:100%;border-radius:3px;transition:width .6s ease-out}
+
+/* ===== GLOSSARY ===== */
+.glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.8rem;margin:2rem 0}
+.gloss-item{background:var(--bg3);border:1px solid rgba(212,168,83,.06);border-radius:6px;padding:1rem;display:flex;flex-direction:column;gap:.3rem}
+.gloss-en{font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;color:#fff;font-weight:600}
+.gloss-cn{font-size:.82rem;color:var(--accent)}
+.gloss-ru{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--blue2)}
+
+/* ===== DIVIDER ===== */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,83,.15),transparent);margin:4.5rem 0}
+
+/* ===== FOOTER ===== */
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.85rem;background:var(--bg2);border-top:1px solid rgba(212,168,83,.06)}
+.footer strong{color:var(--accent)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+.compare{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:3rem 1.2rem}
+.sim-grid{grid-template-columns:1fr}
+.glossary{grid-template-columns:1fr}
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in{opacity:0;transform:translateY(25px);transition:all .7s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== TABS ===== */
+.tab-container{margin:2rem 0}
+.tab-nav{display:flex;gap:0;border-bottom:1px solid rgba(212,168,83,.12);margin-bottom:1.5rem;flex-wrap:wrap}
+.tab-btn{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;padding:.7rem 1.2rem;background:none;border:none;color:var(--text2);cursor:pointer;letter-spacing:.05em;border-bottom:2px solid transparent;transition:all .2s}
+.tab-btn:hover{color:var(--accent)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+</style>
+</head>
+<body>
+
+<!-- STAR FIELD -->
+<section class="hero">
+<div class="star-field" id="starField"></div>
+<div class="hero-content">
+<div class="top-label">National Defense University of the PLA · Revised 2020 · Translated by CASI</div>
+<h1>The Science of Military Strategy</h1>
+<div class="cn-title">战略学 · ZHANLUEXUE</div>
+<div class="subtitle">Editor-in-Chief: Lieutenant General Xiao Tianliang (肖天亮)</div>
+<div class="subtitle" style="font-size:.82rem;opacity:.6">Deputy Editors: Lou Yaoliang · Kang Wuchao · Cai Renzhao</div>
+<div class="author-info">The authoritative textbook of China's National Defense University — the PLA's premier institution for senior officer education. This 2020 revision represents the most current official articulation of Chinese military strategic thinking under Xi Jinping.</div>
+<div class="epigraph">
+"To strengthen the country and the army, <strong>strategy is first</strong>. To study and research strategy, we must first clarify the basic concepts, study the basic theories, and master the basic principles."
+<br><br>— Part I Opening
+</div>
+<div class="epigraph" style="border-color:var(--red)">
+"<strong>Active defense</strong> is the essence of China's military strategic tradition... It does not exclude the flexibility of first strike when the situation demands."
+<br><br>— Chapter 1, Section 5
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+<div class="nav-title">战略学 — Science of Military Strategy</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#part1">Part I: Theory</a>
+<a href="#part2">Part II: Application</a>
+<a href="#part3">Part III: Forces</a>
+<a href="#glossary">Glossary</a>
+<a href="#sim-deter">Simulations</a>
+</div>
+</nav>
+
+<!-- TABLE OF CONTENTS -->
+<section class="section" id="toc">
+<div class="toc">
+<h3 style="color:var(--accent)">Complete Table of Contents</h3>
+
+<div class="toc-part">
+<div class="toc-part-title">Introduction</div>
+<a href="#intro" class="toc-link">The Science of Strategy: History, Structure & Purpose</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part I — Strategic Fundamentals (基本理论)</div>
+<a href="#ch1" class="toc-link">Ch 1: Introduction to Strategy (战略概论)</a>
+<a href="#ch2" class="toc-link">Ch 2: Strategic Judgment (战略判断)</a>
+<a href="#ch3" class="toc-link">Ch 3: Strategic Decision-Making (战略决策)</a>
+<a href="#ch4" class="toc-link">Ch 4: Strategic Planning (战略筹划)</a>
+<a href="#ch5" class="toc-link">Ch 5: Strategy Implementation (战略实施)</a>
+<a href="#ch6" class="toc-link">Ch 6: Strategic Evaluation (战略评估)</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part II — Strategic Application (运用理论)</div>
+<a href="#ch7" class="toc-link">Ch 7: Prevention & Handling of Military Crisis (军事危机)</a>
+<a href="#ch8" class="toc-link">Ch 8: Strategic Deterrence (战略威慑)</a>
+<a href="#ch9" class="toc-link">Ch 9: Military Conflict in New Domains (新领域)</a>
+<a href="#ch10" class="toc-link">Ch 10: War Planning (战争筹划)</a>
+<a href="#ch11" class="toc-link">Ch 11: War Operations (战争行动)</a>
+<a href="#ch12" class="toc-link">Ch 12: Battle Situation Control (战局控制)</a>
+<a href="#ch13" class="toc-link">Ch 13: Operational Guidance (作战指导)</a>
+<a href="#ch14" class="toc-link">Ch 14: Non-War Military Operations (非战争军事行动)</a>
+<a href="#ch15" class="toc-link">Ch 15: Overseas Use of Military Forces (军力海外运用)</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part III — Force Construction (力量建设)</div>
+<a href="#ch16" class="toc-link">Ch 16: Strategic Guidance for Force Building (军力建设战略指导)</a>
+<a href="#ch17" class="toc-link">Ch 17: Army (陆军)</a>
+<a href="#ch18" class="toc-link">Ch 18: Navy (海军)</a>
+<a href="#ch19" class="toc-link">Ch 19: Air Force (空军)</a>
+<a href="#ch20" class="toc-link">Ch 20: Rocket Force (火箭军)</a>
+<a href="#ch21" class="toc-link">Ch 21: Military Space Forces (军事航天力量)</a>
+<a href="#ch22" class="toc-link">Ch 22: Cyberspace Forces (网络空间力量)</a>
+<a href="#ch23" class="toc-link">Ch 23: Joint Logistics Support (联勤保障)</a>
+<a href="#ch24" class="toc-link">Ch 24: Armed Police Forces (武警部队)</a>
+<a href="#ch25" class="toc-link">Ch 25: Reserve Forces (后备力量)</a>
+</div>
+</div>
+</section>
+
+<!-- INTRODUCTION -->
+<section class="section" id="intro">
+<div class="ch-header">
+<div class="ch-num">Introduction</div>
+<div class="ch-title">The Science of Strategy: Origin & Purpose</div>
+</div>
+
+<p>The <strong>Science of Military Strategy</strong> <span class="cn">战略学</span> <span class="ru">Военная стратегия</span> is the theoretical system that studies the overall guiding laws for the <strong>use and construction of military forces</strong>. Its main task is to reveal the essence, characteristics, and basic principles of strategy — providing systematic theoretical guidance for the formulation and implementation of national military strategy.</p>
+
+<p>The book traces strategic thought from ancient China — where <strong>Sun Tzu's Art of War</strong> <span class="cn">孙子兵法</span> <span class="ru">Искусство войны Сунь-Цзы</span> remains "the earliest and most influential strategic theory work in the world" — through Western traditions (Clausewitz, Jomini, Liddell Hart) to modern Chinese strategic thinking under <strong>Mao Zedong, Deng Xiaoping, Xi Jinping</strong>, and the concept of <strong>"informatized" warfare</strong> <span class="cn">信息化战争</span> <span class="ru">Информатизированная война</span>.</p>
+
+<div class="key-point">
+<p><strong>The book identifies three research domains of modern Chinese strategy:</strong></p>
+<p>1. <strong>Strategic basic theory</strong> — concepts, elements, characteristics, and operating laws of strategy</p>
+<p>2. <strong>Strategic application theory</strong> — guidance for using military force (war and non-war operations)</p>
+<p>3. <strong>Force construction theory</strong> — building military power for informatized warfare</p>
+</div>
+
+<h3>Five Frontiers of Modern Strategic Research</h3>
+<p>The 2020 revision identifies key expanding frontiers:</p>
+<div class="phases">
+<div class="phase">
+<div class="phase-num">1</div>
+<div class="phase-name">Overseas Expansion</div>
+<div class="phase-desc">China's national interests now extend to "vast areas overseas" — trade, resources, strategic channels, personnel. <span class="ru">Заморская экспансия</span></div>
+</div>
+<div class="phase">
+<div class="phase-num">2</div>
+<div class="phase-name">New Domains</div>
+<div class="phase-desc">Space, cyberspace, deep sea, polar regions, biology, and artificial intelligence as contested military domains. <span class="ru">Новые области</span></div>
+</div>
+<div class="phase">
+<div class="phase-num">3</div>
+<div class="phase-name">Non-War Operations</div>
+<div class="phase-desc">Peacekeeping, evacuation, escort, counter-terrorism — increasingly prominent ways of using military force. <span class="ru">Невоенные операции</span></div>
+</div>
+<div class="phase">
+<div class="phase-num">4</div>
+<div class="phase-name">Intelligentization</div>
+<div class="phase-desc">AI-driven warfare as the next revolution after informatization. "The intelligence characteristics of war are increasing." <span class="ru">Интеллектуализация</span></div>
+</div>
+<div class="phase">
+<div class="phase-num">5</div>
+<div class="phase-name">Civil-Military Fusion</div>
+<div class="phase-desc">Deep integration of national civilian technology with military capability — a core Xi Jinping initiative. <span class="ru">Военно-гражданская интеграция</span></div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PART I ========== -->
+<section class="part-header" id="part1">
+<div class="part-num">Part I · 第一篇</div>
+<div class="part-title">Strategic Fundamentals</div>
+<div class="part-desc">Basic theory of strategy: its meaning, elements, characteristics, and the five operational links — judgment, decision, planning, implementation, and evaluation. <span class="ru">Основы стратегии</span></div>
+</section>
+
+<!-- CH 1 -->
+<section class="section" id="ch1">
+<div class="ch-header">
+<div class="ch-num">Chapter 1 · 第一章</div>
+<div class="ch-title">Introduction to Strategy <span class="cn">战略概论</span></div>
+<div class="ch-quote">"Strategy is the overall planning and guidance for the use and construction of military forces." <span class="ru">Стратегия — это общее планирование и руководство использованием и строительством вооружённых сил.</span></div>
+</div>
+
+<h3>Definition & Three Core Elements</h3>
+<p>The Chinese definition of strategy has evolved significantly. The current formulation: <strong>"Strategy is the overall planning and guidance for the use and construction of military forces"</strong> <span class="cn">战略是军事力量运用和建设的总体筹划和指导</span>. This deliberately encompasses both <em>war operations</em> and <em>non-war military operations</em> — a critical distinction from earlier definitions focused solely on warfare.</p>
+
+<p>Every strategy contains three indispensable elements:</p>
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--red)">
+<div class="phase-num">目标</div>
+<div class="phase-name">Strategic Goal <span class="ru">Стратегическая цель</span></div>
+<div class="phase-desc">The basic requirement the state sets for military conflict — "what to do." The starting point AND end point of strategy formulation and implementation.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">方针</div>
+<div class="phase-name">Strategic Policy <span class="ru">Стратегический курс</span></div>
+<div class="phase-desc">The guiding principles and general plan — "how to do it." Must be based on scientific assessment of subjective and objective conditions of both sides.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--blue)">
+<div class="phase-num">手段</div>
+<div class="phase-name">Strategic Means <span class="ru">Стратегические средства</span></div>
+<div class="phase-desc">The military forces and methods used to achieve goals — "with what to do it." Includes both military and non-military instruments of power.</div>
+</div>
+</div>
+
+<h3>Classification of Strategies</h3>
+<p>Strategies are classified along multiple axes: by <strong>nature</strong> (offensive vs. defensive), by <strong>scope</strong> (comprehensive war vs. local war <span class="ru">локальная война</span>), by <strong>duration</strong> (quick-decision vs. protracted <span class="ru">затяжная война</span>), and by <strong>domain</strong> (nuclear, conventional, informatized). The book notes that China's strategic system follows a four-level hierarchy similar to the U.S. model: <strong>National Security Strategy → National Defense Strategy → Military Strategy → Theater Strategy</strong> <span class="ru">стратегия театра военных действий</span>.</p>
+
+<h3>Five Basic Characteristics of Strategy</h3>
+<div class="cards">
+<div class="card"><div class="card-type">Characteristic 1</div><div class="card-name">Political Nature <span class="ru">Политическая природа</span></div><div class="card-desc">Strategy is fundamentally a political instrument. War is the continuation of politics, and strategy serves political goals.</div></div>
+<div class="card"><div class="card-type">Characteristic 2</div><div class="card-name">Holistic Perspective <span class="ru">Целостный характер</span></div><div class="card-desc">Strategy addresses the "overall situation" (全局) — it must integrate all aspects, parts, and stages of military conflict.</div></div>
+<div class="card"><div class="card-type">Characteristic 3</div><div class="card-name">Adversarial Nature <span class="ru">Противоборство</span></div><div class="card-desc">Strategy exists in relation to opponents. It is formulated in response to specific threats and is inherently confrontational.</div></div>
+<div class="card"><div class="card-type">Characteristic 4</div><div class="card-name">Predictive Character <span class="ru">Предвидение</span></div><div class="card-desc">Strategy requires foresight — anticipating future developments and preparing in advance for multiple scenarios.</div></div>
+<div class="card"><div class="card-type">Characteristic 5</div><div class="card-name">Relative Stability <span class="ru">Относительная стабильность</span></div><div class="card-desc">Strategy must be both stable (providing consistent guidance) and adaptive (changing with circumstances). No strategy is immutable.</div></div>
+</div>
+
+<h3>Strategic Thinking of Contemporary China</h3>
+<p>The book devotes special attention to three pillars of Chinese strategic thought:</p>
+
+<h4>1. People's War (人民战争) <span class="ru">Народная война</span></h4>
+<p>Remains a foundational concept, but adapted for modern conditions: the "mass basis" has broadened beyond peasants to include all social groups. The forms of People's War now include <strong>information warfare, economic mobilization, and civilian technology integration</strong>.</p>
+
+<h4>2. Active Defense (积极防御) <span class="ru">Активная оборона</span></h4>
+<div class="doctrine-box">
+<p><strong>Active defense</strong> is China's declared military strategy since the founding of the PRC. It means: <strong>strategically defensive but operationally and tactically offensive</strong>. China will not strike first strategically, but once attacked, will respond with vigorous counterattack. Critically, the text notes this "does not exclude the flexibility of first strike" at the operational and tactical level.</p>
+</div>
+
+<h4>3. Xi Jinping's Military Thought <span class="ru">Военная мысль Си Цзиньпина</span></h4>
+<p>Xi's "Strong Army Dream" (强军梦) represents the current guiding ideology: mechanization and informatization fusion, preparation for war as the core mission, military-civilian integration as national strategy, and the goal of building a <strong>"world-class military" by mid-century</strong>.</p>
+
+<h3>Influencing Factors</h3>
+<p>The book identifies five factors that determine strategy: <strong>national interests</strong> <span class="ru">национальные интересы</span>, <strong>national defense policy</strong> <span class="ru">оборонная политика</span>, <strong>security environment</strong> <span class="ru">среда безопасности</span>, <strong>comprehensive national power</strong> <span class="ru">совокупная мощь государства</span>, and <strong>strategic culture</strong> <span class="ru">стратегическая культура</span>.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CH 2 -->
+<section class="section" id="ch2">
+<div class="ch-header">
+<div class="ch-num">Chapter 2 · 第二章</div>
+<div class="ch-title">Strategic Judgment <span class="cn">战略判断</span></div>
+</div>
+
+<p><strong>Strategic judgment</strong> <span class="ru">Стратегическое суждение</span> is the starting point of all strategic operations — the process of analyzing and assessing the security situation facing the country. The book identifies it as requiring three qualities: <strong>comprehensiveness, foresight, and accuracy</strong>.</p>
+
+<h3>What Must Be Judged</h3>
+<p>The strategic environment assessment covers: the international strategic landscape, the security threats facing the nation, the balance of forces between potential adversaries, technological trends, and the political/economic environment. The key judgment is: <strong>what is the main threat, and when might it materialize?</strong></p>
+
+<h3>Requirements for Sound Judgment</h3>
+<div class="cards">
+<div class="card"><div class="card-name">Holistic Analysis <span class="ru">Комплексный анализ</span></div><div class="card-desc">Must consider political, economic, military, diplomatic, scientific, and cultural dimensions simultaneously. Cannot rely on any single factor.</div></div>
+<div class="card"><div class="card-name">Forward-Looking Vision <span class="ru">Перспективное видение</span></div><div class="card-desc">Must anticipate trends, not merely react to current conditions. "Those who foresee change and act first will prevail."</div></div>
+<div class="card"><div class="card-name">Materialist Dialectics <span class="ru">Материалистическая диалектика</span></div><div class="card-desc">Must analyze contradictions objectively, avoid both overconfidence and pessimism, and identify the "principal contradiction" (主要矛盾) in each situation.</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CH 3-6 COMBINED -->
+<section class="section" id="ch3">
+<div class="ch-header">
+<div class="ch-num">Chapters 3–6</div>
+<div class="ch-title">Decision → Planning → Implementation → Evaluation</div>
+</div>
+
+<p>Chapters 3 through 6 detail the <strong>five-link strategic operation cycle</strong> <span class="ru">Стратегический цикл</span> — the sequential process by which strategy moves from judgment to execution:</p>
+
+<!-- STRATEGIC CYCLE SVG -->
+<div class="map-container">
+<div class="map-label">The Five-Link Strategic Operation Cycle — 战略运行五环节</div>
+<svg class="map-svg" viewBox="0 0 800 300" style="background:#0d1218">
+<!-- Central flow -->
+<defs>
+<marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="rgba(212,168,83,.6)"/></marker>
+<linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="rgba(212,168,83,.3)"/><stop offset="100%" stop-color="rgba(212,168,83,.05)"/></linearGradient>
+</defs>
+<!-- Boxes -->
+<g>
+<!-- 1. Judgment -->
+<rect x="30" y="100" width="120" height="70" rx="6" fill="rgba(224,68,68,.1)" stroke="rgba(224,68,68,.3)" stroke-width="1.5"/>
+<text x="90" y="125" fill="var(--red2)" font-family="IBM Plex Sans" font-size="9" text-anchor="middle" font-weight="700">JUDGMENT</text>
+<text x="90" y="140" fill="rgba(224,68,68,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">战略判断</text>
+<text x="90" y="155" fill="rgba(224,68,68,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Стратег. суждение</text>
+<!-- Arrow -->
+<line x1="155" y1="135" x2="190" y2="135" stroke="rgba(212,168,83,.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- 2. Decision -->
+<rect x="195" y="100" width="120" height="70" rx="6" fill="rgba(212,168,83,.08)" stroke="rgba(212,168,83,.3)" stroke-width="1.5"/>
+<text x="255" y="125" fill="var(--accent)" font-family="IBM Plex Sans" font-size="9" text-anchor="middle" font-weight="700">DECISION</text>
+<text x="255" y="140" fill="rgba(212,168,83,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">战略决策</text>
+<text x="255" y="155" fill="rgba(212,168,83,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Стратег. решение</text>
+<line x1="320" y1="135" x2="355" y2="135" stroke="rgba(212,168,83,.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- 3. Planning -->
+<rect x="360" y="100" width="120" height="70" rx="6" fill="rgba(74,143,212,.08)" stroke="rgba(74,143,212,.3)" stroke-width="1.5"/>
+<text x="420" y="125" fill="var(--blue2)" font-family="IBM Plex Sans" font-size="9" text-anchor="middle" font-weight="700">PLANNING</text>
+<text x="420" y="140" fill="rgba(74,143,212,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">战略筹划</text>
+<text x="420" y="155" fill="rgba(74,143,212,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Стратег. планирование</text>
+<line x1="485" y1="135" x2="520" y2="135" stroke="rgba(212,168,83,.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- 4. Implementation -->
+<rect x="525" y="100" width="120" height="70" rx="6" fill="rgba(61,186,109,.08)" stroke="rgba(61,186,109,.3)" stroke-width="1.5"/>
+<text x="585" y="125" fill="var(--green2)" font-family="IBM Plex Sans" font-size="9" text-anchor="middle" font-weight="700">IMPLEMENTATION</text>
+<text x="585" y="140" fill="rgba(61,186,109,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">战略实施</text>
+<text x="585" y="155" fill="rgba(61,186,109,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Стратег. реализация</text>
+<line x1="650" y1="135" x2="685" y2="135" stroke="rgba(212,168,83,.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- 5. Evaluation -->
+<rect x="690" y="100" width="85" height="70" rx="6" fill="rgba(216,138,255,.08)" stroke="rgba(216,138,255,.3)" stroke-width="1.5"/>
+<text x="732" y="125" fill="#d88aff" font-family="IBM Plex Sans" font-size="9" text-anchor="middle" font-weight="700">EVALUATION</text>
+<text x="732" y="140" fill="rgba(216,138,255,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">战略评估</text>
+<text x="732" y="155" fill="rgba(216,138,255,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Стратег. оценка</text>
+
+<!-- Feedback loop -->
+<path d="M732,175 L732,220 Q732,240 712,240 L110,240 Q90,240 90,220 L90,175" fill="none" stroke="rgba(212,168,83,.2)" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+<text x="400" y="255" fill="rgba(212,168,83,.3)" font-family="IBM Plex Sans" font-size="7" text-anchor="middle">FEEDBACK LOOP — Continuous adjustment based on evaluation results</text>
+</g>
+
+<!-- Title -->
+<text x="400" y="50" fill="rgba(212,168,83,.6)" font-family="Cormorant Garamond" font-size="14" text-anchor="middle" font-weight="600">Strategic Operation: Five Sequential Links (五个环节)</text>
+<text x="400" y="70" fill="rgba(212,168,83,.3)" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">Each link feeds forward; evaluation feeds back to judgment</text>
+</svg>
+</div>
+
+<h3>Chapter 3: Strategic Decision-Making <span class="cn">战略决策</span> <span class="ru">Стратегическое решение</span></h3>
+<p>Strategic decision-making determines <strong>strategic goals, policies, and means</strong>. Key requirements: decisions must be <strong>scientific</strong> (evidence-based), <strong>democratic</strong> (incorporating expert counsel), and <strong>decisive</strong> (not paralyzed by uncertainty). The book emphasizes that "only leadership at the highest level can make strategic decisions" — this is a core top-down principle.</p>
+
+<h3>Chapter 4: Strategic Planning <span class="cn">战略筹划</span> <span class="ru">Стратегическое планирование</span></h3>
+<p>Planning translates decisions into actionable programs. It encompasses: force deployment, resource allocation, timeline construction, and contingency preparation. The text stresses three requirements: <strong>systematic thinking</strong>, <strong>scientific methodology</strong> (including simulation and wargaming), and <strong>flexibility for adaptation</strong>.</p>
+
+<h3>Chapter 5: Strategy Implementation <span class="cn">战略实施</span> <span class="ru">Стратегическая реализация</span></h3>
+<p>Implementation principles include: <strong>firm adherence to strategic goals</strong> while maintaining tactical flexibility; <strong>maintaining strategic initiative</strong>; concentration of forces at decisive points; and the critical importance of <strong>strategic reserves</strong> <span class="ru">стратегические резервы</span>. The text devotes particular attention to the principle of <strong>"you fight your way, I'll fight my way"</strong> <span class="cn">你打你的，我打我的</span> — fighting on one's own terms rather than being drawn into the enemy's preferred mode of warfare.</p>
+
+<h3>Chapter 6: Strategic Evaluation <span class="cn">战略评估</span> <span class="ru">Стратегическая оценка</span></h3>
+<p>Assessment covers: evaluation of the strategic environment, evaluation of one's own military capabilities, and evaluation of strategy implementation effectiveness. Methods include: <strong>quantitative analysis, simulation, wargaming, expert consultation, and historical case study</strong>. The key point is that evaluation must be <em>continuous</em>, not merely post-hoc.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PART II ========== -->
+<section class="part-header" id="part2">
+<div class="part-num">Part II · 第二篇</div>
+<div class="part-title">Strategic Application</div>
+<div class="part-desc">How military force is used: crisis management, deterrence, warfare in new domains, war planning and operations, and overseas force projection. <span class="ru">Применение стратегии</span></div>
+</section>
+
+<!-- CH 7 -->
+<section class="section" id="ch7">
+<div class="ch-header">
+<div class="ch-num">Chapter 7 · 第七章</div>
+<div class="ch-title">Prevention & Handling of Military Crisis <span class="cn">军事危机的预防和处置</span></div>
+</div>
+
+<p><strong>Military crisis</strong> <span class="ru">Военный кризис</span> is defined as a state of intense confrontation between nations or political groups that creates high risk of military conflict. Crises are characterized by their <strong>progressiveness and suddenness</strong> — they develop gradually but can erupt rapidly.</p>
+
+<h3>Crisis Prevention</h3>
+<p>The book outlines four preparatory measures: <strong>pre-assessment</strong> (risk identification), <strong>pre-planning</strong> (contingency development), <strong>pre-arrangement</strong> (force positioning), and <strong>pre-action</strong> (readiness enhancement). Key tools include: computer simulation, sand table exercises <span class="ru">настольные учения</span>, wargaming <span class="cn">兵棋推演</span>, and scenario response training.</p>
+
+<h3>Crisis Handling Principles</h3>
+<div class="cards">
+<div class="card"><div class="card-name">Control Scope <span class="ru">Контроль масштаба</span></div><div class="card-desc">Prevent escalation beyond the original issue. Avoid turning small conflicts into large wars, civil wars into foreign wars, or single opponents into multiple opponents.</div></div>
+<div class="card"><div class="card-name">Control Intensity <span class="ru">Контроль интенсивности</span></div><div class="card-desc">The reaction cannot be lower than the target (appearing weak) nor exceed the target (causing escalation). Proportionality is essential.</div></div>
+<div class="card"><div class="card-name">Control Rhythm <span class="ru">Контроль ритма</span></div><div class="card-desc">Control the speed of crisis development — rapid escalation can overwhelm decision-making; too slow a response may appear hesitant.</div></div>
+<div class="card"><div class="card-name">Legal Framework <span class="ru">Правовая основа</span></div><div class="card-desc">"Handle the crisis within a legal framework." When international law conflicts with national law, national law takes priority.</div></div>
+</div>
+
+<div class="warning-box">
+<p><strong>Notable precedent cited:</strong> China's 2008 decision to deploy naval vessels for escort missions in the waters of Somalia is described as "a successful example of leading the crisis" — demonstrating willingness to use military force overseas when national interests require it.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CH 8: STRATEGIC DETERRENCE -->
+<section class="section" id="ch8">
+<div class="ch-header">
+<div class="ch-num">Chapter 8 · 第八章</div>
+<div class="ch-title">Strategic Deterrence <span class="cn">战略威慑</span></div>
+<div class="ch-quote">"Strategic deterrence is aimed at the opponent's psychology, cognition and decision-making system." <span class="ru">Стратегическое сдерживание направлено на психологию, сознание и систему принятия решений противника.</span></div>
+</div>
+
+<p><strong>Strategic deterrence</strong> <span class="ru">Стратегическое сдерживание</span> is defined as using military strength or the threat of its use to compel an adversary to abandon hostile actions. Compared with actual combat, deterrence has <strong>"lower intensity, lower cost, and greater room for maneuver"</strong> — it can directly achieve political goals without fighting.</p>
+
+<h3>Types of Strategic Deterrence</h3>
+<div class="tab-container">
+<div class="tab-nav">
+<button class="tab-btn active" onclick="switchTab(this,'det')">By Means</button>
+<button class="tab-btn" onclick="switchTab(this,'det')">By Nature</button>
+<button class="tab-btn" onclick="switchTab(this,'det')">By Strength</button>
+</div>
+<div class="tab-panel active" data-group="det">
+<div class="cards">
+<div class="card"><div class="card-type">Nuclear</div><div class="card-name">Nuclear Deterrence <span class="ru">Ядерное сдерживание</span></div><div class="card-desc">Three levels: maximum (massive retaliation), medium ("sufficient and effective" — China's stated approach), and minimum. China pursues <strong>"lean and effective"</strong> (精干有效) nuclear forces — fewer warheads but reliable second-strike capability.</div><div class="card-tag nuclear">Nuclear</div></div>
+<div class="card"><div class="card-type">Conventional</div><div class="card-name">Conventional Deterrence <span class="ru">Обычное сдерживание</span></div><div class="card-desc">Using conventional military superiority — precision strike capability, naval presence, air power — to demonstrate ability to inflict unacceptable costs.</div><div class="card-tag intel">Conventional</div></div>
+<div class="card"><div class="card-type">Space</div><div class="card-name">Space Deterrence <span class="ru">Космическое сдерживание</span></div><div class="card-desc">"Strategically prominent with great deterrent effect." Methods include interference, destruction, and capability demonstration. Highly dependent on space technology credibility.</div><div class="card-tag space">Space</div></div>
+<div class="card"><div class="card-type">Cyber</div><div class="card-name">Information/Cyber Deterrence <span class="ru">Информационное сдерживание</span></div><div class="card-desc">Demonstrating ability to disrupt adversary's information systems, networks, and command architecture through cyber operations.</div><div class="card-tag cyber">Cyber</div></div>
+<div class="card"><div class="card-type">People's War</div><div class="card-name">People's War Deterrence <span class="ru">Сдерживание народной войной</span></div><div class="card-desc">"Fully demonstrates and exerts the great power of People's War to deter the enemy." Historical precedent: deterring foreign invasion after PRC founding through demonstrated national mobilization capability.</div><div class="card-tag intel">Mobilization</div></div>
+</div>
+</div>
+<div class="tab-panel" data-group="det">
+<p><strong>Offensive deterrence</strong> <span class="ru">Наступательное сдерживание</span> — threatening to initiate destructive action if adversary crosses red lines.</p>
+<p><strong>Defensive deterrence</strong> <span class="ru">Оборонительное сдерживание</span> — demonstrating ability to deny adversary's objectives and absorb attacks.</p>
+</div>
+<div class="tab-panel" data-group="det">
+<p><strong>Superior deterrence</strong> — from a position of military advantage.</p>
+<p><strong>Balanced deterrence</strong> — between roughly equal forces (e.g., Cold War US-USSR).</p>
+<p><strong>Inferior deterrence</strong> <span class="ru">Сдерживание слабейшей стороной</span> — the weaker side using asymmetric capabilities (e.g., nuclear weapons by a smaller power against a larger conventional threat). <em>This is China's historical position.</em></p>
+</div>
+</div>
+
+<h3>Methods of Deterrence</h3>
+<div class="phases">
+<div class="phase"><div class="phase-num">1</div><div class="phase-name">Show Advanced Weapons</div><div class="phase-desc">Demonstrating nuclear, precision-guided, space, or "new concept" weapons to advertise destructive capability. <span class="ru">Демонстрация оружия</span></div></div>
+<div class="phase"><div class="phase-num">2</div><div class="phase-name">Adjust Military Deployment</div><div class="phase-desc">Maneuvering forces toward a specific direction, forward-deploying new weapons, expanding readiness levels. <span class="ru">Передислокация войск</span></div></div>
+<div class="phase"><div class="phase-num">3</div><div class="phase-name">Restrictive Military Operations</div><div class="phase-desc">Military exercises, test firings, no-fly zones, close reconnaissance patrols, threatening sea/air lines of communication. <span class="ru">Ограничительные операции</span></div></div>
+<div class="phase"><div class="phase-num">4</div><div class="phase-name">Form Deterrent Posture</div><div class="phase-desc">Creating visible state of readiness that communicates: "if you act, the consequences will be severe." <span class="ru">Формирование позиции сдерживания</span></div></div>
+</div>
+
+<!-- DETERRENCE SIMULATION -->
+<div class="sim-container" id="sim-deter">
+<div class="sim-header">
+<span>Interactive Simulation: Strategic Deterrence Scenario</span>
+<span class="sim-tag">GAME</span>
+</div>
+<div class="sim-body">
+<p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">You are a Chinese strategic planner. A maritime crisis is escalating in the South China Sea. Choose your deterrence approach and observe the effects on the adversary's calculus:</p>
+<div class="sim-controls">
+<button class="sim-btn" onclick="deterSim('show')">Show Weapons</button>
+<button class="sim-btn" onclick="deterSim('deploy')">Deploy Forces</button>
+<button class="sim-btn" onclick="deterSim('exercise')">Military Exercise</button>
+<button class="sim-btn" onclick="deterSim('cyber')">Cyber Demonstration</button>
+<button class="sim-btn" onclick="deterSim('nuclear')">Nuclear Signal</button>
+<button class="sim-btn" onclick="deterSim('combo')">Combined Approach</button>
+</div>
+<div class="sim-grid">
+<div>
+<div class="sim-meter"><div class="sim-meter-label"><span>Adversary Resolve</span><span id="det-resolve">70%</span></div><div class="sim-meter-track"><div class="sim-meter-fill" id="det-resolve-bar" style="width:70%;background:linear-gradient(90deg,var(--red),var(--red2))"></div></div></div>
+<div class="sim-meter"><div class="sim-meter-label"><span>Escalation Risk</span><span id="det-escal">30%</span></div><div class="sim-meter-track"><div class="sim-meter-fill" id="det-escal-bar" style="width:30%;background:linear-gradient(90deg,#e8a820,var(--red))"></div></div></div>
+<div class="sim-meter"><div class="sim-meter-label"><span>International Support</span><span id="det-intl">60%</span></div><div class="sim-meter-track"><div class="sim-meter-fill" id="det-intl-bar" style="width:60%;background:linear-gradient(90deg,var(--green),var(--green2))"></div></div></div>
+<div class="sim-meter"><div class="sim-meter-label"><span>Deterrence Credibility</span><span id="det-cred">50%</span></div><div class="sim-meter-track"><div class="sim-meter-fill" id="det-cred-bar" style="width:50%;background:linear-gradient(90deg,var(--blue),var(--blue2))"></div></div></div>
+</div>
+<div class="sim-output" id="det-output">Select a deterrence method to see its effects and the strategic analysis from the textbook's framework...</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CH 9: NEW DOMAINS -->
+<section class="section" id="ch9">
+<div class="ch-header">
+<div class="ch-num">Chapter 9 · 第九章</div>
+<div class="ch-title">Military Conflict in New Domains <span class="cn">新型领域军事斗争</span></div>
+<div class="ch-quote">"The new domains are not only an important domain of military conflict, but also an integral part of international political struggle." <span class="ru">Новые области — это не только важная сфера военного конфликта, но и неотъемлемая часть международной политической борьбы.</span></div>
+</div>
+
+<p>This is one of the most significant chapters — identifying <strong>six new contested domains</strong> beyond traditional land, sea, and air:</p>
+
+<!-- NEW DOMAINS MAP -->
+<div class="map-container">
+<div class="map-label">Six New Domains of Military Conflict — 新型领域军事斗争</div>
+<svg class="map-svg" viewBox="0 0 800 420" style="background:#0a0e16">
+<!-- Central Earth -->
+<circle cx="400" cy="210" r="70" fill="none" stroke="rgba(212,168,83,.15)" stroke-width="1"/>
+<circle cx="400" cy="210" r="50" fill="rgba(212,168,83,.03)" stroke="rgba(212,168,83,.08)" stroke-width="1"/>
+<text x="400" y="205" fill="rgba(212,168,83,.5)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">TRADITIONAL</text>
+<text x="400" y="218" fill="rgba(212,168,83,.3)" font-family="IBM Plex Sans" font-size="7" text-anchor="middle">Land · Sea · Air</text>
+<text x="400" y="228" fill="rgba(212,168,83,.2)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">陆 · 海 · 空</text>
+
+<!-- Domain 1: Space -->
+<circle cx="400" cy="50" r="45" fill="rgba(212,168,83,.06)" stroke="rgba(212,168,83,.25)" stroke-width="1.5"/>
+<text x="400" y="42" fill="var(--accent2)" font-family="IBM Plex Sans" font-size="10" text-anchor="middle" font-weight="700">SPACE</text>
+<text x="400" y="55" fill="rgba(212,168,83,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">太空 / Космос</text>
+<text x="400" y="66" fill="rgba(212,168,83,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">§1</text>
+<line x1="400" y1="96" x2="400" y2="140" stroke="rgba(212,168,83,.15)" stroke-width="1" stroke-dasharray="3,2"/>
+
+<!-- Domain 2: Cyberspace -->
+<circle cx="580" cy="100" r="45" fill="rgba(74,143,212,.06)" stroke="rgba(74,143,212,.25)" stroke-width="1.5"/>
+<text x="580" y="92" fill="var(--blue2)" font-family="IBM Plex Sans" font-size="10" text-anchor="middle" font-weight="700">CYBERSPACE</text>
+<text x="580" y="105" fill="rgba(74,143,212,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">网络 / Кибер</text>
+<text x="580" y="116" fill="rgba(74,143,212,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">§2</text>
+<line x1="540" y1="130" x2="460" y2="175" stroke="rgba(74,143,212,.12)" stroke-width="1" stroke-dasharray="3,2"/>
+
+<!-- Domain 3: Deep Sea -->
+<circle cx="600" cy="270" r="45" fill="rgba(61,186,109,.06)" stroke="rgba(61,186,109,.25)" stroke-width="1.5"/>
+<text x="600" y="262" fill="var(--green2)" font-family="IBM Plex Sans" font-size="10" text-anchor="middle" font-weight="700">DEEP SEA</text>
+<text x="600" y="275" fill="rgba(61,186,109,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">深海 / Глубокое море</text>
+<text x="600" y="286" fill="rgba(61,186,109,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">§3</text>
+<line x1="558" y1="254" x2="462" y2="230" stroke="rgba(61,186,109,.12)" stroke-width="1" stroke-dasharray="3,2"/>
+
+<!-- Domain 4: Polar -->
+<circle cx="400" cy="375" r="42" fill="rgba(100,180,255,.06)" stroke="rgba(100,180,255,.25)" stroke-width="1.5"/>
+<text x="400" y="368" fill="#7ec8f8" font-family="IBM Plex Sans" font-size="10" text-anchor="middle" font-weight="700">POLAR</text>
+<text x="400" y="381" fill="rgba(100,180,255,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">极地 / Полярные</text>
+<text x="400" y="392" fill="rgba(100,180,255,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">§4</text>
+<line x1="400" y1="333" x2="400" y2="282" stroke="rgba(100,180,255,.12)" stroke-width="1" stroke-dasharray="3,2"/>
+
+<!-- Domain 5: Biological -->
+<circle cx="200" cy="270" r="45" fill="rgba(216,138,255,.06)" stroke="rgba(216,138,255,.25)" stroke-width="1.5"/>
+<text x="200" y="262" fill="#d88aff" font-family="IBM Plex Sans" font-size="10" text-anchor="middle" font-weight="700">BIOLOGICAL</text>
+<text x="200" y="275" fill="rgba(216,138,255,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">生物 / Биологический</text>
+<text x="200" y="286" fill="rgba(216,138,255,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">§5</text>
+<line x1="242" y1="254" x2="340" y2="230" stroke="rgba(216,138,255,.12)" stroke-width="1" stroke-dasharray="3,2"/>
+
+<!-- Domain 6: Intelligent/AI -->
+<circle cx="220" cy="100" r="45" fill="rgba(224,68,68,.06)" stroke="rgba(224,68,68,.25)" stroke-width="1.5"/>
+<text x="220" y="92" fill="var(--red2)" font-family="IBM Plex Sans" font-size="10" text-anchor="middle" font-weight="700">INTELLIGENT</text>
+<text x="220" y="105" fill="rgba(224,68,68,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">智能 / ИИ</text>
+<text x="220" y="116" fill="rgba(224,68,68,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">§6</text>
+<line x1="260" y1="130" x2="342" y2="175" stroke="rgba(224,68,68,.12)" stroke-width="1" stroke-dasharray="3,2"/>
+</svg>
+</div>
+
+<h3>§1 Space <span class="cn">太空</span> <span class="ru">Космическое пространство</span></h3>
+<p>Space provides <strong>"information support for the implementation of diversified tasks"</strong> — wide coverage, strong timeliness, no border restrictions. Space military conflict is <strong>global and united</strong>; any space facility must obey orbital mechanics; motion is the basic attribute of all objects in space. Strategic guidance: <strong>actively respond to space security threats, effectively maintain space strategic interests</strong>. The text explicitly discusses space deterrence and "space offensive and defensive operations."</p>
+
+<h3>§2 Cyberspace <span class="cn">网络空间</span> <span class="ru">Киберпространство</span></h3>
+<p>Cyberspace is described as a "<strong>man-made field</strong>" as important as land, sea, air, and space. Military conflict here is: <strong>unbounded in time and space, highly flexible, blurring offense/defense, difficult to attribute, and low-cost/high-effectiveness</strong>. The Stuxnet incident is cited as "a classic case" demonstrating peacetime cyber operations as a precursor to war. Key operations: <strong>cyber reconnaissance, network attack, network defense, electromagnetic warfare</strong>.</p>
+
+<h3>§3 Deep Sea <span class="cn">深海</span> <span class="ru">Глубоководные районы</span></h3>
+<p>The deep-sea environment presents <strong>"easy to attack, difficult to defend"</strong> characteristics. Submarine stealth and mine warfare remain devastatingly effective — the book cites cases of old Soviet submarines penetrating U.S. carrier defenses. Submarine-launched ballistic missiles with 12,000 km range provide second-strike capability. China aims to develop underwater autonomous systems and protect deep-sea infrastructure (cables, pipelines).</p>
+
+<h3>§4 Polar Regions <span class="cn">极地</span> <span class="ru">Полярные регионы</span></h3>
+<p>The Arctic is highlighted for: <strong>strategic shipping routes</strong> (reducing distance from Asia to Europe by 40%), <strong>vast energy reserves</strong> (12.275 billion tons of oil, 47.22 trillion cubic meters of natural gas), and <strong>military positioning</strong>. China frames its polar interests within "common property of all mankind" while actively building icebreaker and research capabilities.</p>
+
+<h3>§5 Biological Domain <span class="cn">生物领域</span> <span class="ru">Биологическая сфера</span></h3>
+<div class="warning-box">
+<p><strong>The book explicitly states:</strong> "The great development and major breakthroughs in biotechnology will lead the new trend of military conflict development, causing profound changes in the form of warfare." Biotechnology can "directly kill people, paralyze combat effectiveness on a large scale or accurately." The text references SARS (2003) and COVID-19 (2020) as demonstrating catastrophic potential. Traditional geopolitical frontiers "are far from being able to effectively protect" against biological threats — a "new frontier of biotechnology defense" must be constructed.</p>
+</div>
+
+<h3>§6 Intelligent/AI Domain <span class="cn">智能领域</span> <span class="ru">Область искусственного интеллекта</span></h3>
+<p>"Innovative applications of artificial intelligence are <strong>gestating new forms of warfare</strong>." AI is reshaping all aspects of the military — from autonomous weapons systems to intelligent decision support. The text emphasizes: <strong>seize the initiative in AI military development</strong>, strengthen "original design" to avoid being attacked by opponents, and develop theoretical frameworks for intelligent warfare before capabilities mature.</p>
+
+<!-- NEW DOMAINS INTERACTIVE -->
+<div class="sim-container">
+<div class="sim-header">
+<span>Interactive: Explore New Domain Capabilities</span>
+<span class="sim-tag">EXPLORE</span>
+</div>
+<div class="sim-body">
+<div class="sim-controls">
+<button class="sim-btn active" onclick="domainSim('space')">Space</button>
+<button class="sim-btn" onclick="domainSim('cyber')">Cyberspace</button>
+<button class="sim-btn" onclick="domainSim('deepsea')">Deep Sea</button>
+<button class="sim-btn" onclick="domainSim('polar')">Polar</button>
+<button class="sim-btn" onclick="domainSim('bio')">Biological</button>
+<button class="sim-btn" onclick="domainSim('ai')">AI/Intelligent</button>
+</div>
+<div class="sim-output" id="domain-output">
+<strong style="color:var(--accent)">🛰 SPACE DOMAIN</strong><br><br>
+<strong>Strategic Role:</strong> ISR, missile early warning, satellite communications, navigation/GPS, environmental monitoring<br>
+<strong>Offensive Capabilities:</strong> Anti-satellite weapons (ASAT), directed energy, co-orbital interceptors, electronic jamming<br>
+<strong>Defensive Measures:</strong> Space situational awareness, satellite hardening, orbital maneuvering, redundant constellations<br>
+<strong>Chinese Approach:</strong> "Actively responding to space security threats" with emphasis on deterrence-in-war and limited response<br>
+<strong>Russian term:</strong> Космические силы (Kosmicheskie sily)
+</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CH 10: WAR PLANNING -->
+<section class="section" id="ch10">
+<div class="ch-header">
+<div class="ch-num">Chapter 10 · 第十章</div>
+<div class="ch-title">War Planning <span class="cn">战争筹划</span></div>
+<div class="ch-quote">"Focus on innovating war and combat planning, closely follow the evolution of war patterns and combat methods." — Xi Jinping <span class="ru">«Сосредоточиться на инновационном планировании войны, внимательно следить за эволюцией форм и методов боевых действий» — Си Цзиньпин</span></div>
+</div>
+
+<h3>Characteristics of Informatized Local War</h3>
+<p>The book identifies <strong>six defining characteristics</strong> of the wars China expects to fight:</p>
+
+<div class="phases">
+<div class="phase"><div class="phase-num">1</div><div class="phase-name">Information Dominance</div><div class="phase-desc">Seizing information superiority is the primary goal and prerequisite for all other forms of control. <span class="ru">Информационное превосходство</span></div></div>
+<div class="phase"><div class="phase-num">2</div><div class="phase-name">System Confrontation</div><div class="phase-desc">War is system vs. system, not platform vs. platform. Combat effectiveness comes from networked integration. <span class="ru">Системное противоборство</span></div></div>
+<div class="phase"><div class="phase-num">3</div><div class="phase-name">Joint Operations</div><div class="phase-desc">Multi-domain integrated joint operations are the "basic combat form." All services fight as one system. <span class="ru">Совместные операции</span></div></div>
+<div class="phase"><div class="phase-num">4</div><div class="phase-name">Precision Strike</div><div class="phase-desc">Precision-guided munitions enable surgical destruction of critical nodes. "Hitting one point, shaking the whole situation." <span class="ru">Высокоточные удары</span></div></div>
+<div class="phase"><div class="phase-num">5</div><div class="phase-name">Political Constraints</div><div class="phase-desc">Wars are limited in scope, duration, and geography. Political objectives constrain military operations at every level. <span class="ru">Политические ограничения</span></div></div>
+<div class="phase"><div class="phase-num">6</div><div class="phase-name">Accelerating Intelligence</div><div class="phase-desc">AI and autonomous systems are increasingly characterizing the battlefield. "Intelligentized" (智能化) features are growing. <span class="ru">Интеллектуализация</span></div></div>
+</div>
+
+<h3>War Planning Components</h3>
+<p>War planning encompasses eight major components: <strong>war determination, operation design, strategic deployment, strategic coordination, overall strategic guarantees, war mobilization, political work planning</strong>, and <strong>information mobilization</strong> <span class="ru">информационная мобилизация</span>. The text emphasizes that mobilization in the information age requires "timely and accurate" timing — too early reveals intent, too late loses initiative.</p>
+
+<h3>The Eight Elements of War Planning</h3>
+<div class="cards">
+<div class="card"><div class="card-type">Element 1</div><div class="card-name">War Determination <span class="ru">Определение войны</span></div><div class="card-desc">Strategic assessment of whether war should be fought, against whom, when, and at what scale. "Unless the country is in an extremely critical situation..."</div></div>
+<div class="card"><div class="card-type">Element 2</div><div class="card-name">Operation Design <span class="ru">Замысел операции</span></div><div class="card-desc">Conceptual framework for how the war will be fought — main directions, key targets, force allocation, and phase structure.</div></div>
+<div class="card"><div class="card-type">Element 3</div><div class="card-name">Strategic Deployment <span class="ru">Стратегическое развёртывание</span></div><div class="card-desc">Physical positioning of forces — theater commands, echelons, reserves, support infrastructure.</div></div>
+<div class="card"><div class="card-type">Element 4</div><div class="card-name">Strategic Coordination <span class="ru">Стратегическая координация</span></div><div class="card-desc">Synchronization across services, theaters, and civilian/military organizations. Increasingly important in joint warfare.</div></div>
+<div class="card"><div class="card-type">Element 5</div><div class="card-name">Strategic Guarantees <span class="ru">Стратегическое обеспечение</span></div><div class="card-desc">Logistics, intelligence, communications, equipment, and transportation support at the strategic level.</div></div>
+<div class="card"><div class="card-type">Element 6</div><div class="card-name">War Mobilization <span class="ru">Военная мобилизация</span></div><div class="card-desc">Transforming war potential into military strength: manpower, industry, economy, technology, information, and transportation mobilization.</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CH 11: WAR OPERATIONS -->
+<section class="section" id="ch11">
+<div class="ch-header">
+<div class="ch-num">Chapter 11 · 第十一章</div>
+<div class="ch-title">War Operations <span class="cn">战争行动</span></div>
+</div>
+
+<p>This chapter details <strong>ten types of strategic war operations</strong> — the specific military actions that constitute warfare at the strategic level:</p>
+
+<!-- WAR OPERATIONS MAP -->
+<div class="map-container">
+<div class="map-label">Ten Strategic War Operations — 战争行动十种主要形式</div>
+<svg class="map-svg" viewBox="0 0 800 500" style="background:#0a0e16">
+<!-- Grid -->
+<g stroke="rgba(212,168,83,.03)" stroke-width=".5">
+<line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+<line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+<line x1="200" y1="0" x2="200" y2="500"/><line x1="400" y1="0" x2="400" y2="500"/>
+<line x1="600" y1="0" x2="600" y2="500"/>
+</g>
+
+<!-- Reconnaissance -->
+<rect x="30" y="30" width="170" height="55" rx="5" fill="rgba(74,143,212,.08)" stroke="rgba(74,143,212,.2)" stroke-width="1"/>
+<text x="115" y="52" fill="var(--blue2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">1. STRATEGIC RECON</text>
+<text x="115" y="65" fill="rgba(74,143,212,.5)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">战略侦察与预警 / Стратег. разведка</text>
+<text x="115" y="76" fill="rgba(74,143,212,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">& EARLY WARNING</text>
+
+<!-- Projection -->
+<rect x="220" y="30" width="170" height="55" rx="5" fill="rgba(61,186,109,.08)" stroke="rgba(61,186,109,.2)" stroke-width="1"/>
+<text x="305" y="52" fill="var(--green2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">2. STRATEGIC PROJECTION</text>
+<text x="305" y="65" fill="rgba(61,186,109,.5)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">战略投送与部署 / Стратег. проецирование</text>
+<text x="305" y="76" fill="rgba(61,186,109,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">& DEPLOYMENT</text>
+
+<!-- Assault -->
+<rect x="410" y="30" width="170" height="55" rx="5" fill="rgba(224,68,68,.08)" stroke="rgba(224,68,68,.2)" stroke-width="1"/>
+<text x="495" y="52" fill="var(--red2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">3. STRATEGIC ASSAULT</text>
+<text x="495" y="65" fill="rgba(224,68,68,.5)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">战略突击 / Стратег. удар</text>
+<text x="495" y="76" fill="rgba(224,68,68,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">DECISIVE FIRST BLOW</text>
+
+<!-- Counter-Air -->
+<rect x="600" y="30" width="170" height="55" rx="5" fill="rgba(212,168,83,.08)" stroke="rgba(212,168,83,.2)" stroke-width="1"/>
+<text x="685" y="52" fill="var(--accent2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">4. COUNTER-AIR ATTACK</text>
+<text x="685" y="65" fill="rgba(212,168,83,.5)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">战略反空袭 / ПВО</text>
+<text x="685" y="76" fill="rgba(212,168,83,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">DEFENSE & COUNTERATTACK</text>
+
+<!-- Blockade -->
+<rect x="30" y="120" width="170" height="55" rx="5" fill="rgba(100,180,255,.08)" stroke="rgba(100,180,255,.2)" stroke-width="1"/>
+<text x="115" y="142" fill="#7ec8f8" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">5. STRATEGIC BLOCKADE</text>
+<text x="115" y="155" fill="rgba(100,180,255,.5)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">战略封锁 / Стратег. блокада</text>
+<text x="115" y="166" fill="rgba(100,180,255,.3)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">SEA + AIR + INFO</text>
+
+<!-- Border Defense -->
+<rect x="220" y="120" width="170" height="55" rx="5" fill="rgba(61,186,109,.08)" stroke="rgba(61,186,109,.2)" stroke-width="1"/>
+<text x="305" y="142" fill="var(--green2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">6. BORDER DEFENSE</text>
+<text x="305" y="155" fill="rgba(61,186,109,.5)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">边境防御 / Пограничная оборона</text>
+
+<!-- Island Operations -->
+<rect x="410" y="120" width="170" height="55" rx="5" fill="rgba(224,68,68,.1)" stroke="rgba(224,68,68,.25)" stroke-width="1.5"/>
+<text x="495" y="142" fill="var(--red2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">7. ISLAND OPERATIONS</text>
+<text x="495" y="155" fill="rgba(224,68,68,.6)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">岛屿作战 / Островные операции</text>
+<text x="495" y="166" fill="rgba(224,68,68,.4)" font-family="IBM Plex Mono" font-size="6" text-anchor="middle">★ KEY SCENARIO ★</text>
+
+<!-- Sea Mobile -->
+<rect x="600" y="120" width="170" height="55" rx="5" fill="rgba(74,143,212,.08)" stroke="rgba(74,143,212,.2)" stroke-width="1"/>
+<text x="685" y="142" fill="var(--blue2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">8. SEA MOBILE OPS</text>
+<text x="685" y="155" fill="rgba(74,143,212,.5)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">海上机动作战 / Морские операции</text>
+
+<!-- Cyber-EM -->
+<rect x="30" y="210" width="360" height="55" rx="5" fill="rgba(216,138,255,.08)" stroke="rgba(216,138,255,.2)" stroke-width="1"/>
+<text x="210" y="232" fill="#d88aff" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">9. CYBER-ELECTROMAGNETIC SPACE WARFARE</text>
+<text x="210" y="245" fill="rgba(216,138,255,.5)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">网络电磁空间作战 / Кибер-электромагнитная борьба — "Starts before other ops, runs through entire war"</text>
+
+<!-- Public Opinion -->
+<rect x="410" y="210" width="360" height="55" rx="5" fill="rgba(212,168,83,.08)" stroke="rgba(212,168,83,.2)" stroke-width="1"/>
+<text x="590" y="232" fill="var(--accent2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">10. PUBLIC OPINION, LEGAL & PSYCHOLOGICAL WARFARE</text>
+<text x="590" y="245" fill="rgba(212,168,83,.5)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">舆论法律心理斗争 / «Три вида борьбы» — "Three Warfares"</text>
+
+<!-- Flow arrows and labels -->
+<text x="400" y="310" fill="rgba(212,168,83,.5)" font-family="Cormorant Garamond" font-size="14" text-anchor="middle" font-weight="600">Island Operations: The Taiwan Scenario</text>
+<text x="400" y="330" fill="rgba(212,168,83,.25)" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">Multi-dimensional: ground, sea, air, cyber-EM, and space — with high dependence on air/sea power</text>
+
+<!-- Island ops detail box -->
+<rect x="100" y="350" width="600" height="110" rx="6" fill="rgba(224,68,68,.04)" stroke="rgba(224,68,68,.12)" stroke-width="1"/>
+<text x="120" y="375" fill="var(--red2)" font-family="IBM Plex Sans" font-size="8" font-weight="700">ISLAND OPERATIONS CHARACTERISTICS:</text>
+<text x="120" y="395" fill="var(--text2)" font-family="Crimson Pro" font-size="9">• Multidimensional: involves ground, sea, air, cyber-electromagnetic, and space</text>
+<text x="120" y="410" fill="var(--text2)" font-family="Crimson Pro" font-size="9">• Highly dependent on information, air, and sea power superiority</text>
+<text x="120" y="425" fill="var(--text2)" font-family="Crimson Pro" font-size="9">• Fierce confrontation with high material consumption; extremely difficult logistics</text>
+<text x="120" y="440" fill="var(--text2)" font-family="Crimson Pro" font-size="9">• Diversified combat methods: large-scale regular + irregular operations of varying scale</text>
+</svg>
+</div>
+
+<h3>§7 Island Operations <span class="cn">岛屿作战</span> <span class="ru">Островные операции</span></h3>
+<p>The most strategically significant operation type — the <strong>implied Taiwan scenario</strong>. Key characteristics: multi-dimensional combat space (ground, sea, air, cyber-EM, space); diversified combat methods including large-scale conventional battles and irregular operations; extreme logistical difficulty; and fierce confrontation intensity. The text emphasizes the need for <strong>unified comprehensive support across all services</strong>.</p>
+
+<h3>§9 Cyber-Electromagnetic Space Warfare <span class="cn">网络电磁空间作战</span></h3>
+<p>This warfare domain <strong>"starts before other combat operations and runs through the entire process of the war."</strong> Three components: network warfare (offensive/defensive cyber operations), electronic warfare (jamming, spoofing, intercept), and information operations. The book notes that <strong>"relevant forces hidden in the national system"</strong> — including private enterprises and even skilled amateurs — are potential cyber warfare assets.</p>
+
+<h3>§10 The "Three Warfares" <span class="cn">三战</span> <span class="ru">Три вида борьбы</span></h3>
+<p>Public opinion warfare <span class="ru">информационная борьба</span>, legal warfare <span class="ru">юридическая борьба</span>, and psychological warfare <span class="ru">психологическая борьба</span> form an interconnected whole. They "infiltrate each other and take advantage of each other" — all serving the overall political and military goals.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CH 12: BATTLE SITUATION CONTROL -->
+<section class="section" id="ch12">
+<div class="ch-header">
+<div class="ch-num">Chapter 12 · 第十二章</div>
+<div class="ch-title">Battle Situation Control <span class="cn">战局控制</span></div>
+</div>
+
+<p><strong>Controlling the war situation</strong> <span class="ru">Управление ходом войны</span> means scientifically designing and actively controlling the beginning, process, and outcome of war. Three critical control points:</p>
+
+<h3>1. Controlling the Opening <span class="cn">控制战争开局</span></h3>
+<p>"Mistakes at the beginning of war may continue to be magnified" throughout the conflict. The opening must be controlled with <strong>extreme caution</strong>: strictly control conditions for starting the war, limit the scope of operations, and select targets carefully — "hitting one point, shaking the whole situation."</p>
+
+<h3>2. Controlling Development <span class="cn">控制战局发展</span></h3>
+<p>Maintain <strong>sustained attack power and fast-paced operations</strong> in main directions. Grasp phase transitions, concentrate elite forces at critical moments, and <strong>strictly control escalation</strong> — "large-scale war caused by continuous escalation will adversely affect domestic politics, economics, and social stability."</p>
+
+<h3>3. Controlling the End <span class="cn">控制战争结局</span></h3>
+<div class="key-point">
+<p><strong>Four situations requiring war termination:</strong></p>
+<p>1. War faces danger of escalation and continuing serves no benefit</p>
+<p>2. Strategic objectives have been basically achieved</p>
+<p>3. Continuation conflicts with national interests</p>
+<p>4. International pressure creates unacceptable political costs</p>
+<p>The text emphasizes: <strong>"military operations and political negotiations must be used interchangeably"</strong> — fighting and negotiating simultaneously to achieve optimal terms.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CH 13: OPERATIONAL GUIDANCE -->
+<section class="section" id="ch13">
+<div class="ch-header">
+<div class="ch-num">Chapter 13 · 第十三章</div>
+<div class="ch-title">Operational Guidance <span class="cn">作战指导</span></div>
+<div class="ch-quote">"Asymmetric independent operations" and "multi-domain integrated joint operations" — the two foundational operational concepts.</div>
+</div>
+
+<h3>Three Foundational Operational Thoughts</h3>
+
+<h4>1. Asymmetric Independent Operations <span class="cn">非对称自主作战</span> <span class="ru">Асимметричные самостоятельные операции</span></h4>
+<div class="doctrine-box">
+<p>Operations that "focus on ourselves, flexibly use forces, weapons, strategies and tactics, and skillfully use the combat environment to create and maintain local or overall advantages against the enemy." The key principle: <strong>"superiority and initiative are the core elements"</strong> — always fight on your own terms, create favorable conditions, and exploit the enemy's weaknesses rather than attacking their strengths.</p>
+</div>
+
+<h4>2. Multi-Domain Integrated Joint Operations <span class="cn">多域一体联合作战</span> <span class="ru">Многодоменные совместные операции</span></h4>
+<p>All combat forces and elements integrated into a <strong>"seamlessly linked combat system through a network information system."</strong> Five key capabilities: comprehensive perception, real-time command, precision strike, full-dimensional protection, and focused support.</p>
+
+<h4>3. System Destruction Warfare <span class="cn">体系破击战</span> <span class="ru">Системная война на уничтожение</span></h4>
+<p>The basic method of warfare: <strong>"regarding the critical system of decisive combat as the basic method."</strong> Target the enemy's command organizations, leaders, communication nodes, and information systems — destroy the enemy's "combat system" rather than trying to annihilate all forces.</p>
+
+<h3>Operational Guiding Principles</h3>
+<p>Five critical principles: (1) <strong>seize information superiority</strong> as the prerequisite; (2) <strong>seize air supremacy</strong> as the "decisive link and core content"; (3) <strong>seize space and network control</strong>; (4) <strong>concentrate forces at decisive points</strong>; (5) <strong>win quickly with minimal cost</strong> — "do not start the war lightly because the opponent is weak... do not be reckless because of smooth start."</p>
+
+<!-- WAR PLANNING SIM -->
+<div class="sim-container">
+<div class="sim-header">
+<span>Interactive: Joint Operations Force Allocation Game</span>
+<span class="sim-tag">GAME</span>
+</div>
+<div class="sim-body">
+<p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">Allocate your limited strategic resources across domains. Goal: achieve sufficient capability in each domain to execute a successful joint operation. Total budget: <strong>100 points</strong>. Minimum threshold in each domain shown.</p>
+<div id="force-alloc">
+<div class="sim-meter"><div class="sim-meter-label"><span>Information/Cyber (min: 20)</span><span id="fa-info">25</span></div><div class="sim-meter-track"><div class="sim-meter-fill" id="fa-info-bar" style="width:25%;background:linear-gradient(90deg,var(--blue),var(--blue2))"></div></div></div>
+<input type="range" min="0" max="40" value="25" oninput="updateForceAlloc()" id="fa-info-slider" style="width:100%;accent-color:var(--blue)">
+
+<div class="sim-meter"><div class="sim-meter-label"><span>Air Superiority (min: 15)</span><span id="fa-air">20</span></div><div class="sim-meter-track"><div class="sim-meter-fill" id="fa-air-bar" style="width:20%;background:linear-gradient(90deg,var(--accent),var(--accent2))"></div></div></div>
+<input type="range" min="0" max="40" value="20" oninput="updateForceAlloc()" id="fa-air-slider" style="width:100%;accent-color:var(--accent)">
+
+<div class="sim-meter"><div class="sim-meter-label"><span>Naval/Amphibious (min: 15)</span><span id="fa-naval">20</span></div><div class="sim-meter-track"><div class="sim-meter-fill" id="fa-naval-bar" style="width:20%;background:linear-gradient(90deg,var(--green),var(--green2))"></div></div></div>
+<input type="range" min="0" max="40" value="20" oninput="updateForceAlloc()" id="fa-naval-slider" style="width:100%;accent-color:var(--green)">
+
+<div class="sim-meter"><div class="sim-meter-label"><span>Ground Forces (min: 10)</span><span id="fa-ground">15</span></div><div class="sim-meter-track"><div class="sim-meter-fill" id="fa-ground-bar" style="width:15%;background:linear-gradient(90deg,var(--red),var(--red2))"></div></div></div>
+<input type="range" min="0" max="40" value="15" oninput="updateForceAlloc()" id="fa-ground-slider" style="width:100%;accent-color:var(--red)">
+
+<div class="sim-meter"><div class="sim-meter-label"><span>Space/Strategic (min: 10)</span><span id="fa-space">10</span></div><div class="sim-meter-track"><div class="sim-meter-fill" id="fa-space-bar" style="width:10%;background:linear-gradient(90deg,#d88aff,#e8a8ff)"></div></div></div>
+<input type="range" min="0" max="40" value="10" oninput="updateForceAlloc()" id="fa-space-slider" style="width:100%;accent-color:#d88aff">
+
+<div class="sim-meter"><div class="sim-meter-label"><span>Logistics/Support (min: 10)</span><span id="fa-log">10</span></div><div class="sim-meter-track"><div class="sim-meter-fill" id="fa-log-bar" style="width:10%;background:linear-gradient(90deg,#7ec8f8,#a0d8ff)"></div></div></div>
+<input type="range" min="0" max="40" value="10" oninput="updateForceAlloc()" id="fa-log-slider" style="width:100%;accent-color:#7ec8f8">
+</div>
+<div style="margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:.82rem">
+<span>Total: <strong id="fa-total" style="color:var(--accent)">100</strong>/100</span>
+<span style="margin-left:1rem" id="fa-status">✓ Balanced allocation</span>
+</div>
+<div class="sim-output" id="fa-output" style="margin-top:1rem">Adjust sliders to allocate resources. The textbook emphasizes: "Information superiority is the primary goal" and "Air supremacy is the decisive link." Under-investing in any domain below threshold will compromise the entire joint operation system.</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CH 14 & 15 -->
+<section class="section" id="ch14">
+<div class="ch-header">
+<div class="ch-num">Chapters 14–15</div>
+<div class="ch-title">Non-War Military Ops & Overseas Force Projection</div>
+</div>
+
+<h3>Ch 14: Non-War Military Operations <span class="cn">非战争军事行动</span> <span class="ru">Невоенные военные операции</span></h3>
+<p>Types include: <strong>peacekeeping, counter-terrorism, disaster relief, evacuation of nationals, maritime escort, and border patrol</strong>. These operations have become "an important way of using military forces in peacetime." Strategic guidance requires: comprehensive consideration of domestic and international situations, security and development factors, and planning from a strategic overall perspective.</p>
+
+<h3>Ch 15: Overseas Use of Military Forces <span class="cn">军力海外运用</span> <span class="ru">Применение военной силы за рубежом</span></h3>
+<p>A groundbreaking chapter for Chinese military doctrine — explicitly addressing overseas military operations. Key principles:</p>
+
+<div class="key-point">
+<p><strong>Safeguarding overseas national interests</strong> is the fundamental goal. The text establishes a hierarchy: operations "with great relationship to our country's interests must dare to use troops, actively use them, and carry out them immediately." It emphasizes <strong>autonomous command power</strong> over overseas forces and the need for <strong>"combined use of multiple forces"</strong> including joint operations with partner nations.</p>
+</div>
+
+<p>The Gulf of Aden escort mission is cited as a model where "cooperation and competition are intertwined" — cooperating with other nations while maintaining competitive awareness.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== PART III ========== -->
+<section class="part-header" id="part3">
+<div class="part-num">Part III · 第三篇</div>
+<div class="part-title">Force Construction & Development</div>
+<div class="part-desc">Building the PLA: strategic guidance for force development, and detailed blueprints for each service branch plus new-domain forces. <span class="ru">Строительство и развитие вооружённых сил</span></div>
+</section>
+
+<!-- CH 16 -->
+<section class="section" id="ch16">
+<div class="ch-header">
+<div class="ch-num">Chapter 16 · 第十六章</div>
+<div class="ch-title">Strategic Guidance for Force Building <span class="cn">军力建设战略指导</span></div>
+</div>
+
+<h3>Five Governing Laws of Force Development</h3>
+<div class="phases">
+<div class="phase"><div class="phase-num">1</div><div class="phase-name">National Security Needs</div><div class="phase-desc">Force building must adapt to national security and development interests. <span class="ru">Потребности безопасности</span></div></div>
+<div class="phase"><div class="phase-num">2</div><div class="phase-name">Economic Foundation</div><div class="phase-desc">Military power is built on economic and technological foundations. Cannot exceed what the economy can sustain. <span class="ru">Экономическая основа</span></div></div>
+<div class="phase"><div class="phase-num">3</div><div class="phase-name">War Form Evolution</div><div class="phase-desc">Force structure must adapt to the current transition from mechanized to informatized to intelligentized warfare. <span class="ru">Эволюция форм войны</span></div></div>
+<div class="phase"><div class="phase-num">4</div><div class="phase-name">Asymmetric Development</div><div class="phase-desc">"Starting from the asymmetric development concept of deterring the enemy." Optimize structure for unique advantages. <span class="ru">Асимметричное развитие</span></div></div>
+<div class="phase"><div class="phase-num">5</div><div class="phase-name">Civil-Military Fusion</div><div class="phase-desc">Integrate national civilian technology with military capability across "all elements, multiple domains, and high efficiency." <span class="ru">Военно-гражданская интеграция</span></div></div>
+</div>
+
+<h3>Key Force Building Principles</h3>
+<p>Three paramount principles: <strong>information-led</strong> (信息主导) — information technology is the core driver; <strong>system-of-systems construction</strong> (体系建设) — build integrated combat systems, not isolated platforms; and <strong>innovation-driven</strong> (创新驱动) — leverage latecomer advantages through technological leapfrogging.</p>
+
+<div class="doctrine-box">
+<p><strong>Five combat capabilities to build:</strong> Comprehensive perception (全面感知), real-time command (实时指挥), precision strike (精确打击), full-dimensional protection (全维防护), and focused support (聚焦保障). These five capabilities define the target state of the PLA's integrated joint combat system.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTERS 17-25: SERVICE BRANCHES -->
+<section class="section" id="ch17">
+<div class="ch-header">
+<div class="ch-num">Chapters 17–25</div>
+<div class="ch-title">PLA Service Branches: Construction & Development</div>
+</div>
+
+<!-- PLA FORCE STRUCTURE MAP -->
+<div class="map-container">
+<div class="map-label">PLA Force Structure — 中国人民解放军力量体系</div>
+<svg class="map-svg" viewBox="0 0 800 450" style="background:#0a0e16">
+<!-- Central Command -->
+<rect x="300" y="20" width="200" height="50" rx="6" fill="rgba(224,68,68,.12)" stroke="rgba(224,68,68,.3)" stroke-width="2"/>
+<text x="400" y="42" fill="#fff" font-family="IBM Plex Sans" font-size="10" text-anchor="middle" font-weight="700">CENTRAL MILITARY COMMISSION</text>
+<text x="400" y="56" fill="rgba(224,68,68,.6)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">中央军事委员会 / Центральный военный совет</text>
+
+<!-- Lines down -->
+<line x1="400" y1="70" x2="400" y2="95" stroke="rgba(212,168,83,.3)" stroke-width="1.5"/>
+
+<!-- Services Row -->
+<g>
+<!-- Army -->
+<rect x="20" y="100" width="130" height="65" rx="5" fill="rgba(61,186,109,.08)" stroke="rgba(61,186,109,.25)" stroke-width="1.5"/>
+<text x="85" y="122" fill="var(--green2)" font-family="IBM Plex Sans" font-size="9" text-anchor="middle" font-weight="700">ARMY 陆军</text>
+<text x="85" y="136" fill="rgba(61,186,109,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Сухопутные войска</text>
+<text x="85" y="152" fill="rgba(61,186,109,.4)" font-family="IBM Plex Sans" font-size="6.5" text-anchor="middle">Ch.17 · Transformation</text>
+<line x1="85" y1="95" x2="400" y2="95" stroke="rgba(212,168,83,.15)" stroke-width="1"/>
+
+<!-- Navy -->
+<rect x="165" y="100" width="130" height="65" rx="5" fill="rgba(74,143,212,.08)" stroke="rgba(74,143,212,.25)" stroke-width="1.5"/>
+<text x="230" y="122" fill="var(--blue2)" font-family="IBM Plex Sans" font-size="9" text-anchor="middle" font-weight="700">NAVY 海军</text>
+<text x="230" y="136" fill="rgba(74,143,212,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Военно-морские силы</text>
+<text x="230" y="152" fill="rgba(74,143,212,.4)" font-family="IBM Plex Sans" font-size="6.5" text-anchor="middle">Ch.18 · Blue Water</text>
+
+<!-- Air Force -->
+<rect x="310" y="100" width="130" height="65" rx="5" fill="rgba(212,168,83,.08)" stroke="rgba(212,168,83,.25)" stroke-width="1.5"/>
+<text x="375" y="122" fill="var(--accent2)" font-family="IBM Plex Sans" font-size="9" text-anchor="middle" font-weight="700">AIR FORCE 空军</text>
+<text x="375" y="136" fill="rgba(212,168,83,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Военно-воздушные силы</text>
+<text x="375" y="152" fill="rgba(212,168,83,.4)" font-family="IBM Plex Sans" font-size="6.5" text-anchor="middle">Ch.19 · Air-Space Integration</text>
+
+<!-- Rocket Force -->
+<rect x="455" y="100" width="140" height="65" rx="5" fill="rgba(224,68,68,.1)" stroke="rgba(224,68,68,.3)" stroke-width="1.5"/>
+<text x="525" y="122" fill="var(--red2)" font-family="IBM Plex Sans" font-size="9" text-anchor="middle" font-weight="700">ROCKET FORCE 火箭军</text>
+<text x="525" y="136" fill="rgba(224,68,68,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Ракетные войска</text>
+<text x="525" y="152" fill="rgba(224,68,68,.4)" font-family="IBM Plex Sans" font-size="6.5" text-anchor="middle">Ch.20 · Nuclear + Conv.</text>
+
+<!-- SSF/New Forces -->
+<rect x="610" y="100" width="170" height="65" rx="5" fill="rgba(216,138,255,.08)" stroke="rgba(216,138,255,.25)" stroke-width="1.5"/>
+<text x="695" y="118" fill="#d88aff" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">STRATEGIC SUPPORT</text>
+<text x="695" y="132" fill="#d88aff" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">FORCE 战略支援部队</text>
+<text x="695" y="146" fill="rgba(216,138,255,.5)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Силы стратег. поддержки</text>
+<text x="695" y="158" fill="rgba(216,138,255,.4)" font-family="IBM Plex Sans" font-size="6.5" text-anchor="middle">Space · Cyber · EW</text>
+</g>
+
+<!-- New Domain Forces Row -->
+<text x="400" y="200" fill="rgba(212,168,83,.4)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" letter-spacing=".3em">NEW DOMAIN FORCES</text>
+<line x1="100" y1="210" x2="700" y2="210" stroke="rgba(212,168,83,.08)" stroke-width="1"/>
+
+<g>
+<rect x="50" y="220" width="145" height="55" rx="5" fill="rgba(212,168,83,.05)" stroke="rgba(212,168,83,.15)" stroke-width="1"/>
+<text x="122" y="242" fill="var(--accent)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">SPACE FORCES</text>
+<text x="122" y="256" fill="rgba(212,168,83,.4)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">军事航天 / Космические силы</text>
+<text x="122" y="268" fill="rgba(212,168,83,.3)" font-family="IBM Plex Sans" font-size="6" text-anchor="middle">Ch.21</text>
+
+<rect x="210" y="220" width="145" height="55" rx="5" fill="rgba(74,143,212,.05)" stroke="rgba(74,143,212,.15)" stroke-width="1"/>
+<text x="282" y="242" fill="var(--blue2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">CYBER FORCES</text>
+<text x="282" y="256" fill="rgba(74,143,212,.4)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">网络力量 / Кибервойска</text>
+<text x="282" y="268" fill="rgba(74,143,212,.3)" font-family="IBM Plex Sans" font-size="6" text-anchor="middle">Ch.22</text>
+
+<rect x="370" y="220" width="145" height="55" rx="5" fill="rgba(100,180,255,.05)" stroke="rgba(100,180,255,.15)" stroke-width="1"/>
+<text x="442" y="242" fill="#7ec8f8" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">JOINT LOGISTICS</text>
+<text x="442" y="256" fill="rgba(100,180,255,.4)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">联勤保障 / Объединён. тыл</text>
+<text x="442" y="268" fill="rgba(100,180,255,.3)" font-family="IBM Plex Sans" font-size="6" text-anchor="middle">Ch.23</text>
+
+<rect x="530" y="220" width="105" height="55" rx="5" fill="rgba(224,68,68,.05)" stroke="rgba(224,68,68,.12)" stroke-width="1"/>
+<text x="582" y="242" fill="var(--red2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">PAP 武警</text>
+<text x="582" y="256" fill="rgba(224,68,68,.4)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">Народная полиция</text>
+<text x="582" y="268" fill="rgba(224,68,68,.3)" font-family="IBM Plex Sans" font-size="6" text-anchor="middle">Ch.24</text>
+
+<rect x="650" y="220" width="110" height="55" rx="5" fill="rgba(61,186,109,.05)" stroke="rgba(61,186,109,.12)" stroke-width="1"/>
+<text x="705" y="242" fill="var(--green2)" font-family="IBM Plex Sans" font-size="8" text-anchor="middle" font-weight="700">RESERVES</text>
+<text x="705" y="256" fill="rgba(61,186,109,.4)" font-family="IBM Plex Mono" font-size="6.5" text-anchor="middle">后备力量 / Резерв</text>
+<text x="705" y="268" fill="rgba(61,186,109,.3)" font-family="IBM Plex Sans" font-size="6" text-anchor="middle">Ch.25</text>
+</g>
+
+<!-- Summary stats -->
+<text x="400" y="320" fill="rgba(212,168,83,.5)" font-family="Cormorant Garamond" font-size="13" text-anchor="middle" font-weight="600">Key Transformation Trends</text>
+<text x="150" y="350" fill="var(--text2)" font-family="Crimson Pro" font-size="9">Army → Light, mobile, 3D, modular, intelligent</text>
+<text x="150" y="370" fill="var(--text2)" font-family="Crimson Pro" font-size="9">Navy → Blue-water, carrier-based, far-seas operations</text>
+<text x="150" y="390" fill="var(--text2)" font-family="Crimson Pro" font-size="9">Air Force → Air-space integration, stealth, strategic reach</text>
+<text x="500" y="350" fill="var(--text2)" font-family="Crimson Pro" font-size="9">Rocket Force → Nuclear-conventional integration, mobile ops</text>
+<text x="500" y="370" fill="var(--text2)" font-family="Crimson Pro" font-size="9">Space → Situational awareness, offensive/defensive capability</text>
+<text x="500" y="390" fill="var(--text2)" font-family="Crimson Pro" font-size="9">Cyber → Active defense, reconnaissance, system disruption</text>
+<text x="400" y="420" fill="rgba(212,168,83,.3)" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Goal: "World-class military" by mid-21st century (2049)</text>
+</svg>
+</div>
+
+<div class="tab-container" id="ch18">
+<div class="tab-nav">
+<button class="tab-btn active" onclick="switchTab(this,'svc')">Army</button>
+<button class="tab-btn" onclick="switchTab(this,'svc')">Navy</button>
+<button class="tab-btn" onclick="switchTab(this,'svc')" id="ch19">Air Force</button>
+<button class="tab-btn" onclick="switchTab(this,'svc')" id="ch20">Rocket Force</button>
+<button class="tab-btn" onclick="switchTab(this,'svc')" id="ch21">Space</button>
+<button class="tab-btn" onclick="switchTab(this,'svc')" id="ch22">Cyber</button>
+</div>
+
+<div class="tab-panel active" data-group="svc">
+<h4>Chapter 17: Army <span class="cn">陆军</span> <span class="ru">Сухопутные войска</span></h4>
+<p>The army is undergoing <strong>strategic transformation</strong> from the "main position" of war to one element of joint operations. Key trends: <strong>three-dimensionalization</strong> (developing air assault and army aviation forces), <strong>modularization</strong> (following the 2004 U.S. Army model), <strong>light/rapid forces</strong>, and <strong>intelligentization</strong> — the Russian Armed Forces Chief Gerasimov is quoted: "Mankind will soon witness the robot army fighting independently."</p>
+</div>
+
+<div class="tab-panel" data-group="svc">
+<h4>Chapter 18: Navy <span class="cn">海军</span> <span class="ru">Военно-морские силы</span></h4>
+<p>The navy is transitioning from <strong>near-seas defense to far-seas operations</strong> <span class="cn">近海防御到远海防卫</span>. Key developments: carrier battle group capability, nuclear submarine fleet expansion, integrated amphibious assault capability, and <strong>"combat system with information as the main guide"</strong>. The text frames naval development as essential for protecting expanding overseas interests, sea lines of communication, and maritime territorial claims.</p>
+</div>
+
+<div class="tab-panel" data-group="svc">
+<h4>Chapter 19: Air Force <span class="cn">空军</span> <span class="ru">Военно-воздушные силы</span></h4>
+<p>The air force aims for <strong>air-space integration</strong> <span class="cn">空天一体</span> — merging air and space operations into unified combat power. Current structural problems: the offense-to-defense ratio is heavily imbalanced (1:10 in support/defense), unsuitable for modern joint operations. Needed: strategic offensive capability, stealth platforms, precision strike at extended range, and integrated air defense systems.</p>
+</div>
+
+<div class="tab-panel" data-group="svc">
+<h4>Chapter 20: Rocket Force <span class="cn">火箭军</span> <span class="ru">Ракетные войска стратегического назначения</span></h4>
+<p>The Rocket Force is described as <strong>"the core force of China's strategic deterrence and the strategic support of China's status as a major power."</strong> Key principle: <strong>nuclear-conventional integration</strong> — combining nuclear counterattack capability with conventional precision strike into unified command. China pursues <strong>"lean and effective"</strong> (精干有效) nuclear forces — fewer warheads but <em>reliable</em> second-strike capability. The text explicitly discusses <strong>missile penetration technology</strong> (deception, interference, stealth, active evasion) to defeat missile defense.</p>
+<div class="warning-box"><p><strong>On nuclear posture:</strong> China's stated policy of "No First Use" is affirmed, but the text emphasizes "ensuring effective nuclear counterattacks" and maintaining capability that makes adversaries believe any nuclear attack will result in "unacceptable retaliatory damage." Mobile operations combined with fixed positions form the operational backbone.</p></div>
+</div>
+
+<div class="tab-panel" data-group="svc">
+<h4>Chapter 21: Military Space Forces <span class="cn">军事航天力量</span> <span class="ru">Военно-космические силы</span></h4>
+<p>Space forces capabilities defined in four categories: <strong>space situational awareness</strong> (tracking all objects in orbit), <strong>soft kill</strong> (jamming, blinding, cyber), <strong>hard kill</strong> (physical destruction of satellites), and <strong>space defense</strong> (protecting own assets). The text envisions space stations as "transit bases for space activities" and calls for establishing <strong>"rules of engagement for space wars"</strong> — acknowledging space as an inevitable future battlefield.</p>
+</div>
+
+<div class="tab-panel" data-group="svc">
+<h4>Chapter 22: Cyberspace Forces <span class="cn">网络空间力量</span> <span class="ru">Кибервойска</span></h4>
+<p>Cyberspace forces encompass: reconnaissance, attack, defense, and deterrence operations. The text emphasizes <strong>"active defense"</strong> in cyberspace — not merely passive protection but proactive capability to "detect, resist, and counterattack network intrusions." Key principle: develop <strong>indigenous capability</strong> to avoid dependence on foreign technology. Cyber forces should integrate military professionals, government agencies, private sector experts, and "even some amateurs with special skills."</p>
+</div>
+</div>
+
+<!-- Ch 23-25 -->
+<section class="section" id="ch23" style="padding-top:0">
+<h3>Chapter 23: Joint Logistics <span class="ru">Объединённое тыловое обеспечение</span></h3>
+<p>The Joint Logistics Support Force represents the PLA's centralized logistics system — providing unified support across all services. Key capabilities: strategic transportation (air, sea, rail), precision logistics support, information-based supply chain management. The text emphasizes <strong>"wartime logistics must be prepared in peacetime"</strong>.</p>
+
+<h3 id="ch24">Chapter 24: Armed Police Forces <span class="cn">武警部队</span> <span class="ru">Народная вооружённая полиция</span></h3>
+<p>The People's Armed Police handle internal security: counter-terrorism, border security, maritime law enforcement, critical infrastructure protection, and WMD response. Under Xi Jinping's reforms, the PAP was placed under direct CMC command — removing it from the dual State Council/CMC structure.</p>
+
+<h3 id="ch25">Chapter 25: Reserve Forces <span class="cn">后备力量</span> <span class="ru">Резервные силы</span></h3>
+<p>Reserve forces are transitioning from <strong>"strategic forces" (used as last resort) to "combat forces" (ready for immediate use)</strong>. The U.S. model is studied extensively: National Guard civil support teams, reserve integration into active operations. Chinese reserve forces must develop: <strong>rapid mobilization, wartime support, emergency response</strong>, and specialized capabilities (communications, strategic delivery, engineering).</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- GLOSSARY -->
+<section class="section" id="glossary">
+<div class="ch-header">
+<div class="ch-num">Reference</div>
+<div class="ch-title">Key Terms: English · Chinese · Russian</div>
+</div>
+
+<div class="glossary">
+<div class="gloss-item"><div class="gloss-en">Strategy</div><div class="gloss-cn">战略 (zhànlüè)</div><div class="gloss-ru">Стратегия (strategiya)</div></div>
+<div class="gloss-item"><div class="gloss-en">Active Defense</div><div class="gloss-cn">积极防御 (jījí fángyù)</div><div class="gloss-ru">Активная оборона (aktivnaya oborona)</div></div>
+<div class="gloss-item"><div class="gloss-en">People's War</div><div class="gloss-cn">人民战争 (rénmín zhànzhēng)</div><div class="gloss-ru">Народная война (narodnaya voyna)</div></div>
+<div class="gloss-item"><div class="gloss-en">Strategic Deterrence</div><div class="gloss-cn">战略威慑 (zhànlüè wēishè)</div><div class="gloss-ru">Стратегическое сдерживание (sderzhivaniye)</div></div>
+<div class="gloss-item"><div class="gloss-en">Informatized Warfare</div><div class="gloss-cn">信息化战争 (xìnxīhuà zhànzhēng)</div><div class="gloss-ru">Информатизированная война</div></div>
+<div class="gloss-item"><div class="gloss-en">Intelligentized Warfare</div><div class="gloss-cn">智能化战争 (zhìnénghuà zhànzhēng)</div><div class="gloss-ru">Интеллектуализированная война</div></div>
+<div class="gloss-item"><div class="gloss-en">Joint Operations</div><div class="gloss-cn">联合作战 (liánhé zuòzhàn)</div><div class="gloss-ru">Совместные операции (sovmestnyye operatsii)</div></div>
+<div class="gloss-item"><div class="gloss-en">System Destruction Warfare</div><div class="gloss-cn">体系破击战 (tǐxì pòjī zhàn)</div><div class="gloss-ru">Системная война на уничтожение</div></div>
+<div class="gloss-item"><div class="gloss-en">Comprehensive National Power</div><div class="gloss-cn">综合国力 (zōnghé guólì)</div><div class="gloss-ru">Совокупная мощь государства</div></div>
+<div class="gloss-item"><div class="gloss-en">Asymmetric Operations</div><div class="gloss-cn">非对称作战 (fēi duìchèn zuòzhàn)</div><div class="gloss-ru">Асимметричные операции</div></div>
+<div class="gloss-item"><div class="gloss-en">National Defense Mobilization</div><div class="gloss-cn">国防动员 (guófáng dòngyuán)</div><div class="gloss-ru">Мобилизация национальной обороны</div></div>
+<div class="gloss-item"><div class="gloss-en">Military-Civil Fusion</div><div class="gloss-cn">军民融合 (jūnmín rónghé)</div><div class="gloss-ru">Военно-гражданская интеграция</div></div>
+<div class="gloss-item"><div class="gloss-en">Theater Command</div><div class="gloss-cn">战区 (zhànqū)</div><div class="gloss-ru">Командование военного округа (ТВД)</div></div>
+<div class="gloss-item"><div class="gloss-en">Central Military Commission</div><div class="gloss-cn">中央军委 (zhōngyāng jūnwěi)</div><div class="gloss-ru">Центральный военный совет (ЦВС)</div></div>
+<div class="gloss-item"><div class="gloss-en">Rocket Force</div><div class="gloss-cn">火箭军 (huǒjiàn jūn)</div><div class="gloss-ru">Ракетные войска (РВСН)</div></div>
+<div class="gloss-item"><div class="gloss-en">Strategic Support Force</div><div class="gloss-cn">战略支援部队 (zhànlüè zhīyuán bùduì)</div><div class="gloss-ru">Силы стратегической поддержки</div></div>
+<div class="gloss-item"><div class="gloss-en">Island Operations</div><div class="gloss-cn">岛屿作战 (dǎoyǔ zuòzhàn)</div><div class="gloss-ru">Островные операции</div></div>
+<div class="gloss-item"><div class="gloss-en">Three Warfares</div><div class="gloss-cn">三战 (sān zhàn)</div><div class="gloss-ru">Три вида борьбы (информ., юридич., психолог.)</div></div>
+<div class="gloss-item"><div class="gloss-en">Cyberspace Operations</div><div class="gloss-cn">网络空间作战 (wǎngluò kōngjiān zuòzhàn)</div><div class="gloss-ru">Операции в киберпространстве</div></div>
+<div class="gloss-item"><div class="gloss-en">Anti-Access/Area Denial</div><div class="gloss-cn">反介入/区域拒止 (fǎn jièrù/qūyù jùzhǐ)</div><div class="gloss-ru">Воспрещение доступа / блокирование зоны (A2/AD)</div></div>
+<div class="gloss-item"><div class="gloss-en">Precision Strike</div><div class="gloss-cn">精确打击 (jīngquè dǎjī)</div><div class="gloss-ru">Высокоточный удар</div></div>
+<div class="gloss-item"><div class="gloss-en">Information Superiority</div><div class="gloss-cn">制信息权 (zhì xìnxī quán)</div><div class="gloss-ru">Информационное превосходство</div></div>
+<div class="gloss-item"><div class="gloss-en">War Mobilization</div><div class="gloss-cn">战争动员 (zhànzhēng dòngyuán)</div><div class="gloss-ru">Военная мобилизация</div></div>
+<div class="gloss-item"><div class="gloss-en">Nuclear No-First-Use</div><div class="gloss-cn">不首先使用核武器 (bù shǒuxiān shǐyòng héwǔqì)</div><div class="gloss-ru">Неприменение ядерного оружия первым</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HISTORICAL TIMELINE -->
+<section class="section">
+<div class="ch-header">
+<div class="ch-num">Historical Context</div>
+<div class="ch-title">Evolution of Chinese Military Strategy</div>
+</div>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">~500 BC</div><div class="tl-text">Sun Tzu writes <em>The Art of War</em> — "the earliest and most influential strategic theory work in the world"</div></div>
+<div class="tl-item"><div class="tl-year">1936</div><div class="tl-text">Mao Zedong writes "Strategic Problems of China's Revolutionary War" — establishing People's War and Active Defense doctrines</div></div>
+<div class="tl-item"><div class="tl-year">1949</div><div class="tl-text">PRC founded; adopts Active Defense as national military strategy</div></div>
+<div class="tl-item"><div class="tl-year">1964</div><div class="tl-text">China's first nuclear weapon test — establishing nuclear deterrence capability</div></div>
+<div class="tl-item"><div class="tl-year">1985</div><div class="tl-text">Deng Xiaoping's strategic transformation — shift from preparing for "early, major, nuclear war" to peacetime construction</div></div>
+<div class="tl-item"><div class="tl-year">1991</div><div class="tl-text">Gulf War shocks PLA leadership — demonstrates power of information technology in warfare</div></div>
+<div class="tl-item"><div class="tl-year">1999</div><div class="tl-text">First edition of <em>Science of Military Strategy</em> published by NDU</div></div>
+<div class="tl-item"><div class="tl-year">2003</div><div class="tl-text">Iraq War further reinforces lessons about precision strike and information dominance</div></div>
+<div class="tl-item"><div class="tl-year">2010</div><div class="tl-text">Stuxnet incident — "classic case" of cyberspace military conflict in peacetime</div></div>
+<div class="tl-item"><div class="tl-year">2012</div><div class="tl-text">Xi Jinping takes power — launches "Strong Military Dream" and comprehensive military reform</div></div>
+<div class="tl-item"><div class="tl-year">2015</div><div class="tl-text">Major PLA reorganization: seven military regions → five theater commands; Strategic Support Force created</div></div>
+<div class="tl-item"><div class="tl-year">2017</div><div class="tl-text">19th Party Congress sets goal of "basically completing defense modernization by 2035"</div></div>
+<div class="tl-item"><div class="tl-year">2020</div><div class="tl-text">This revised edition published — incorporating AI/intelligent warfare, biological domain, and COVID-19 implications</div></div>
+<div class="tl-item"><div class="tl-year">2049</div><div class="tl-text">Target: "World-class military" by the centenary of the PRC founding</div></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide summarizes <strong>《战略学》(Science of Military Strategy)</strong>, 2020 revised edition.</p>
+<p style="margin-top:.5rem">Editor-in-Chief: Xiao Tianliang (肖天亮). Published by National Defense University Press, Beijing.</p>
+<p style="margin-top:.5rem">English translation by China Aerospace Studies Institute (CASI), Air University, January 2022.</p>
+<p style="margin-top:1rem;font-size:.75rem;color:rgba(212,168,83,.3)">Interactive presentation created for academic discussion · Russian terminology provided for educational purposes</p>
+</footer>
+
+<script>
+// === NAV ===
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('visible',window.scrollY>500)});
+
+// === FADE IN ===
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.key-point,.warning-box,.doctrine-box,.concept-box,.compare,.cards,.phases,.map-container,.timeline,.sim-container,h3,.glossary,.tab-container').forEach(el=>{el.classList.add('fade-in');obs.observe(el)});
+
+// === STAR FIELD ===
+const sf=document.getElementById('starField');
+for(let i=0;i<80;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.setProperty('--d',(2+Math.random()*6)+'s');s.style.setProperty('--o',(.2+Math.random()*.6).toString());s.style.animationDelay=Math.random()*4+'s';sf.appendChild(s)}
+
+// === TABS ===
+function switchTab(btn,group){
+const nav=btn.parentElement;
+nav.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+const idx=[...nav.children].indexOf(btn);
+const panels=nav.parentElement.querySelectorAll(`.tab-panel[data-group="${group}"]`);
+panels.forEach((p,i)=>{p.classList.toggle('active',i===idx)});
+}
+
+// === DETERRENCE SIM ===
+const deterData={
+show:{resolve:60,escal:20,intl:55,cred:65,text:'<strong style="color:var(--accent)">WEAPONS DEMONSTRATION</strong><br><br>Per the textbook: "Weapons with mass destruction power, long-range precision strike capabilities... possessing this type of weapon system means possessing the ability to cause tremendous damage to the enemy."<br><br>✓ Moderate reduction in adversary resolve — they recognize your capability<br>✓ Low escalation risk — demonstrations are signals, not attacks<br>⚠ Some loss of international support — weapons displays can alarm neighbors<br>✓ Good credibility boost — "show strength and determination"<br><br><span style="color:var(--blue2)">Рус: Демонстрация современного вооружения — Показать мощь и решимость</span>'},
+deploy:{resolve:50,escal:45,intl:45,cred:70,text:'<strong style="color:var(--accent)">FORCE DEPLOYMENT</strong><br><br>Per the textbook: "When security threats increase, appropriate adjustments should be made to military deployment to send a real deterrent signal."<br><br>✓ Significant reduction in adversary resolve — tangible military pressure<br>⚠ Elevated escalation risk — force movements can be misinterpreted<br>⚠ International support drops — allies may fear entrapment<br>✓ High credibility — actions speak louder than words<br><br>The text warns: deployments should be "based on both fiction and reality" — maneuvering forces + deception together.<br><br><span style="color:var(--blue2)">Рус: Передислокация войск — «Реальный сигнал сдерживания»</span>'},
+exercise:{resolve:55,escal:35,intl:50,cred:60,text:'<strong style="color:var(--accent)">MILITARY EXERCISE</strong><br><br>Per the textbook: "Military exercises, weapon test firings, delimiting exercise areas, no-fly zones... implement control and isolation of local sea areas and airspaces."<br><br>✓ Moderate resolve reduction — exercises signal readiness<br>⚠ Moderate escalation — exercises near borders can provoke incidents<br>◎ Neutral international impact — exercises are normalized behavior<br>✓ Moderate credibility — demonstrates operational capability<br><br>The textbook classifies this as "restrictive military operations" — a calibrated signal.<br><br><span style="color:var(--blue2)">Рус: Военные учения — Ограничительные военные действия</span>'},
+cyber:{resolve:55,escal:25,intl:60,cred:55,text:'<strong style="color:var(--accent)">CYBER DEMONSTRATION</strong><br><br>Per the textbook: Cyberspace conflict is "low cost and high cost-effectiveness." Military conflicts in cyberspace have "low investment and high efficiency."<br><br>✓ Moderate resolve effect — adversary recognizes vulnerability of their systems<br>✓ Low escalation risk — attribution difficulties provide deniability<br>✓ International support maintained — less visible than kinetic actions<br>◎ Moderate credibility — cyber capability is hard to demonstrate without revealing methods<br><br>Key principle: "The research and development of cyber warfare attack technology can be carried out with professional skills and a small amount of resources."<br><br><span style="color:var(--blue2)">Рус: Кибер-демонстрация — «Низкие затраты, высокая эффективность»</span>'},
+nuclear:{resolve:30,escal:80,intl:20,cred:85,text:'<strong style="color:var(--red2)">⚠ NUCLEAR SIGNAL</strong><br><br>Per the textbook: "Nuclear deterrence has great limitations. Because nuclear weapons have great destructive power, they are difficult to actually use."<br><br>✓ Maximum reduction in adversary resolve — existential threat<br>⚠⚠ EXTREME escalation risk — nuclear signaling can trigger crisis spiral<br>✗ Severe loss of international support — condemned by international community<br>✓ Maximum credibility — but at enormous political cost<br><br>The textbook warns: China pursues "medium-strength nuclear deterrence" — relying on "sufficient and effective" capability, NOT maximalist nuclear threats. Nuclear signals are reserved for existential situations only.<br><br><span style="color:var(--blue2)">Рус: Ядерный сигнал — «Ядерное сдерживание имеет большие ограничения»</span>'},
+combo:{resolve:35,escal:40,intl:45,cred:80,text:'<strong style="color:var(--green2)">✓ COMBINED APPROACH (Recommended)</strong><br><br>Per the textbook: "Strategic deterrence is a comprehensive struggle that integrates military, politics, economy, diplomacy, science and technology." The principle of "comprehensive advantages" demands multi-domain deterrence.<br><br>✓ Strong resolve reduction — multi-domain pressure is hardest to counter<br>◎ Managed escalation — graduated pressure provides off-ramps<br>◎ Balanced international impact — appears measured and deliberate<br>✓ Maximum credibility — demonstrates full-spectrum capability<br><br>The textbook\'s recommended approach: "Pay attention to comprehensive advantages... strengthen centralized and unified leadership, closely coordinate to form a multi-domain deterrent situation."<br><br><span style="color:var(--blue2)">Рус: Комплексный подход — «Многодоменное сдерживание»</span>'}
+};
+function deterSim(type){
+const d=deterData[type];
+document.querySelectorAll('.sim-container:first-of-type .sim-btn').forEach(b=>b.classList.remove('active'));
+event.target.classList.add('active');
+animMeter('det-resolve',d.resolve);animMeter('det-escal',d.escal);animMeter('det-intl',d.intl);animMeter('det-cred',d.cred);
+document.getElementById('det-output').innerHTML=d.text;
+}
+function animMeter(id,val){
+document.getElementById(id).textContent=val+'%';
+document.getElementById(id+'-bar').style.width=val+'%';
+}
+
+// === DOMAIN SIM ===
+const domainData={
+space:'<strong style="color:var(--accent)">🛰 SPACE DOMAIN</strong> (太空 / Космос)<br><br><strong>Strategic Role:</strong> ISR, missile early warning, satellite communications, navigation, environmental monitoring<br><strong>Offensive:</strong> Anti-satellite weapons (ASAT), directed energy, co-orbital interceptors, electronic jamming<br><strong>Defensive:</strong> Space situational awareness, satellite hardening, orbital maneuvering, redundant constellations<br><strong>Chinese Approach:</strong> "Actively respond to space security threats" — deterrence + limited response + support to joint forces<br><strong>Key Quote:</strong> "Space advantages relative to Earth\'s surface include height and horizon advantages"<br><br><span style="color:var(--blue2)">Рус: Космические силы (Kosmicheskie sily) — Военное использование космического пространства</span>',
+cyber:'<strong style="color:var(--blue2)">💻 CYBERSPACE DOMAIN</strong> (网络空间 / Киберпространство)<br><br><strong>Strategic Role:</strong> "Basic support for maintaining national security" — redefines sovereignty, politics, economy<br><strong>Operations:</strong> Network reconnaissance, cyber attack/defense, electronic warfare, information blockade<br><strong>Characteristics:</strong> Unbounded time/space, highly flexible, blurred offense-defense, difficult attribution, low cost/high effect<br><strong>Key Case:</strong> Stuxnet — "a classic case of military conflicts in cyberspace during peacetime"<br><strong>Forces:</strong> Military + government + private sector + "amateurs with special skills"<br><br><span style="color:var(--blue2)">Рус: Кибервойска — «Кибернетическая борьба начинается раньше всех прочих боевых действий»</span>',
+deepsea:'<strong style="color:var(--green2)">🌊 DEEP SEA DOMAIN</strong> (深海 / Глубоководные районы)<br><br><strong>Strategic Role:</strong> Nuclear second-strike (SLBM), sea denial, undersea infrastructure protection<br><strong>Characteristics:</strong> "Easy to attack, difficult to defend" — poor permeability, changing conditions<br><strong>Capabilities:</strong> Conventional/nuclear submarines, intelligent mines, UUVs, anti-submarine warfare<br><strong>Key Fact:</strong> SLBM range up to 12,000 km — global reach from underwater<br><strong>Historical:</strong> Old Soviet subs repeatedly penetrated US carrier defenses in exercises<br><br><span style="color:var(--blue2)">Рус: Глубоководные силы — Подводные лодки, мины, автономные подводные аппараты</span>',
+polar:'<strong style="color:#7ec8f8">❄️ POLAR DOMAIN</strong> (极地 / Полярные регионы)<br><br><strong>Strategic Value:</strong> Arctic shipping routes reduce Asia-Europe distance by 40%; enormous energy reserves<br><strong>Resources:</strong> 12.275B tons oil (7.26% world reserves), 47.22T m³ natural gas<br><strong>Military:</strong> Sovereignty demonstrations, icebreaker capabilities, research stations<br><strong>Chinese Approach:</strong> "Common property of all mankind" + active capability building<br><strong>Principle:</strong> "Strictly obey and serve the country\'s overall foreign policy and strategy"<br><br><span style="color:var(--blue2)">Рус: Полярные регионы — Арктика и Антарктика как новые области военного соперничества</span>',
+bio:'<strong style="color:#d88aff">🧬 BIOLOGICAL DOMAIN</strong> (生物领域 / Биологическая сфера)<br><br><strong>Threat:</strong> "Traditional geopolitical frontiers are far from being able to effectively protect" against bio-threats<br><strong>Capabilities:</strong> Enhance own combat effectiveness + degrade enemy — "directly kill people, paralyze combat effectiveness"<br><strong>Forms:</strong> New biological warfare, bioterrorist attacks, sudden epidemics (SARS, COVID-19 cited)<br><strong>Defense:</strong> Risk assessment systems, biosafety regulations, detection/response capabilities<br><strong>Key Concern:</strong> "A new frontier of biotechnology defense must be constructed in the biological micro-sphere"<br><br><span style="color:var(--blue2)">Рус: Биологическая область — «Биотехнологии как движущая сила эволюции форм войны»</span>',
+ai:'<strong style="color:var(--red2)">🤖 INTELLIGENT/AI DOMAIN</strong> (智能领域 / Область ИИ)<br><br><strong>Impact:</strong> "Innovative applications of AI are gestating new forms of warfare" — reshaping all military aspects<br><strong>Applications:</strong> Autonomous weapons, intelligent decision support, drone swarms, robotic systems<br><strong>Competition:</strong> "Major countries are competing to develop new intelligent weapons and equipment"<br><strong>Guidance:</strong> Scientific overall planning, seize initiative in military AI, strengthen theoretical research<br><strong>Key Quote:</strong> "The Chief of Staff of the Russian Armed Forces Gerasimov said that mankind will soon witness the robot army"<br><br><span style="color:var(--blue2)">Рус: Область искусственного интеллекта — «Интеллектуализация — следующая революция после информатизации»</span>'
+};
+function domainSim(type){
+document.querySelectorAll('.sim-container:nth-of-type(2) .sim-btn, #ch9 .sim-btn').forEach(b=>b.classList.remove('active'));
+event.target.classList.add('active');
+document.getElementById('domain-output').innerHTML=domainData[type];
+}
+
+// === FORCE ALLOCATION GAME ===
+function updateForceAlloc(){
+const sliders=['info','air','naval','ground','space','log'];
+const mins=[20,15,15,10,10,10];
+const colors=['var(--blue)','var(--accent)','var(--green)','var(--red)','#d88aff','#7ec8f8'];
+const colors2=['var(--blue2)','var(--accent2)','var(--green2)','var(--red2)','#e8a8ff','#a0d8ff'];
+let total=0;
+let allMet=true;
+sliders.forEach((s,i)=>{
+const v=parseInt(document.getElementById(`fa-${s}-slider`).value);
+total+=v;
+document.getElementById(`fa-${s}`).textContent=v;
+document.getElementById(`fa-${s}-bar`).style.width=v+'%';
+if(v<mins[i])allMet=false;
+});
+document.getElementById('fa-total').textContent=total;
+document.getElementById('fa-total').style.color=total>100?'var(--red)':total===100?'var(--green2)':'var(--accent)';
+const status=document.getElementById('fa-status');
+if(total>100){status.textContent='⚠ Over budget!';status.style.color='var(--red2)';
+document.getElementById('fa-output').innerHTML='<span style="color:var(--red2)">Budget exceeded!</span> You cannot allocate more than 100 points. The textbook warns: "Military power building cannot exceed what the economy can sustain."';}
+else if(total<100){status.textContent='△ '+(100-total)+' points remaining';status.style.color='var(--accent)';
+document.getElementById('fa-output').innerHTML='You have '+(100-total)+' points remaining. Consider where additional investment would have the greatest impact on the integrated joint combat system.';}
+else if(!allMet){status.textContent='⚠ Domain below threshold!';status.style.color='var(--red2)';
+document.getElementById('fa-output').innerHTML='<span style="color:var(--red2)">Warning: one or more domains below minimum threshold.</span> The textbook states: "System combat capabilities mainly include five aspects — comprehensive perception, real-time command, precision strike, full-dimensional protection, and focused support." Failure in ANY domain compromises the entire system.';}
+else{status.textContent='✓ Optimal allocation!';status.style.color='var(--green2)';
+document.getElementById('fa-output').innerHTML='<span style="color:var(--green2)">✓ All domains at or above threshold with budget balanced.</span><br><br>The textbook\'s priority: "Seize information superiority as the prerequisite, air supremacy as the decisive link." Your allocation reflects the principle of "multi-domain integrated joint operations" — all forces integrated through network information systems into a seamlessly linked combat system.<br><br><span style="color:var(--blue2)">Рус: Многодоменные интегрированные совместные операции — Все силы объединены через информационную сеть</span>';}
+}
+</script>
+</body>
+</html>

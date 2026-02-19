@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hundred-Year Marathon — Michael Pillsbury</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a0e;--bg2:#10111a;--bg3:#171825;--accent:#d4a23a;--accent2:#f0c84e;
+--text:#d0d0d8;--text2:#8e93a8;--red:#e04545;--blue:#4488ee;--green:#2ecc71;
+--gold:#d4a23a;--crimson:#9b1b30;--dragon:#c0392b;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.85;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(160deg,#0a0a0e 0%,#1a0a0a 30%,#0a0a1a 60%,#0a0a0e 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a23a' fill-opacity='0.025'%3E%3Cpath d='M40 40c0-11.046-8.954-20-20-20S0 28.954 0 40s8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:100%;background:radial-gradient(ellipse at 50% 50%,rgba(155,27,48,0.08) 0%,transparent 70%)}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:950px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,#d4a23a,#f5d76e,#d4a23a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(.85rem,1.6vw,1.2rem);color:var(--text2);margin-bottom:.5rem;letter-spacing:.2em;text-transform:uppercase}
+.hero .author{font-size:1.15rem;color:var(--accent);margin:1.5rem 0;font-style:italic}
+.hero .epigraph{max-width:620px;margin:2rem auto;padding:1.5rem;border-left:3px solid var(--crimson);text-align:left;color:var(--text2);font-style:italic;font-size:1rem}
+.hero .scroll-hint{margin-top:3rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.hero .scroll-hint span{display:block;width:2px;height:40px;background:var(--accent);margin:0 auto;opacity:.5}
+
+/* DRAGON DECORATION */
+.dragon-line{height:2px;background:linear-gradient(90deg,transparent,var(--crimson),var(--accent),var(--crimson),transparent);margin:0 auto;max-width:300px;opacity:.5}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,14,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,162,58,.08);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--accent);font-weight:700}
+.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+
+/* SECTIONS */
+.section{max-width:1000px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:5rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;border:1px solid rgba(155,27,48,.15);border-radius:50%}
+.part-header::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border:1px solid rgba(212,162,58,.1);border-radius:50%}
+.part-num{font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--crimson);margin-bottom:.5rem}
+.part-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.8vw,2.8rem);font-weight:900;color:#fff;margin-bottom:1rem}
+.part-desc{color:var(--text2);max-width:600px;margin:0 auto;font-size:1rem}
+
+.ch-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(212,162,58,.12)}
+.ch-num{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.8vw,2.1rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--crimson);padding-left:1rem;margin-top:1rem;font-size:.92rem}
+
+h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--accent)}
+h4{font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--accent);margin:2rem 0 .8rem;letter-spacing:.05em}
+p{margin-bottom:1.2rem;font-size:1rem}
+strong{color:#fff;font-weight:600}
+
+/* RUSSIAN TERM */
+.ru{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--crimson);background:rgba(155,27,48,.08);padding:1px 6px;border-radius:3px;margin-left:4px;white-space:nowrap;border:1px solid rgba(155,27,48,.15)}
+
+/* KEY POINTS */
+.key-point{background:var(--bg3);border:1px solid rgba(212,162,58,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;background:var(--accent);color:var(--bg);padding:2px 10px;border-radius:3px;font-weight:700}
+.key-point p{margin-bottom:.5rem}
+
+.warning-box{background:rgba(155,27,48,.06);border:1px solid rgba(155,27,48,.18);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.warning-box strong{color:var(--crimson)}
+
+.concept-box{background:rgba(68,136,238,.05);border:1px solid rgba(68,136,238,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+
+.stratagem-box{background:rgba(212,162,58,.04);border:1px solid rgba(212,162,58,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.stratagem-box::before{content:'三十六計';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.1em;background:var(--crimson);color:#fff;padding:2px 10px;border-radius:3px;font-weight:700}
+
+/* MAP CONTAINER */
+.map-container{background:var(--bg2);border:1px solid rgba(212,162,58,.1);border-radius:12px;overflow:hidden;margin:2rem 0;position:relative}
+.map-label{font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(212,162,58,.08)}
+.map-svg{width:100%;display:block}
+
+/* COMPARISON TABLE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(212,162,58,.08);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.5rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.8rem;border-bottom:1px solid rgba(212,162,58,.08)}
+.compare-col.red h4{color:var(--crimson)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.4rem 0;font-size:.92rem;border-bottom:1px solid rgba(255,255,255,.02)}
+.compare-col li::before{content:'→';color:var(--accent);margin-right:.5rem}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--crimson),var(--accent),var(--crimson))}
+.tl-item{margin-bottom:1.8rem;position:relative;cursor:default}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);transform:translateX(-4px);transition:all .3s}
+.tl-item:hover::before{background:var(--crimson);box-shadow:0 0 12px rgba(155,27,48,.4)}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--accent);font-weight:500}
+.tl-text{font-size:.92rem;color:var(--text2)}
+
+/* PHASES */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(212,162,58,.08);border-radius:8px;padding:1.5rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 30px rgba(212,162,58,.08)}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:1.8rem;color:var(--accent);font-weight:700}
+.phase-name{font-family:'DM Sans',sans-serif;font-size:.88rem;color:#fff;margin:.5rem 0;font-weight:600}
+.phase-desc{font-size:.82rem;color:var(--text2);line-height:1.5}
+
+/* ASSUMPTION CARDS */
+.assumptions{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.assumption{background:var(--bg3);border:1px solid rgba(155,27,48,.12);border-radius:8px;padding:1.5rem;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.assumption:hover{border-color:var(--crimson);transform:translateY(-2px)}
+.assumption::after{content:'CLICK TO REVEAL';position:absolute;bottom:0;left:0;right:0;padding:6px;text-align:center;font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;color:var(--accent);background:linear-gradient(transparent,var(--bg3));opacity:1;transition:opacity .3s}
+.assumption.revealed::after{opacity:0}
+.assumption-num{font-family:'JetBrains Mono',monospace;font-size:1.5rem;color:var(--crimson);font-weight:700}
+.assumption-title{font-family:'DM Sans',sans-serif;font-size:.9rem;color:#fff;margin:.3rem 0;font-weight:600}
+.assumption-reality{font-size:.85rem;color:var(--text2);max-height:0;overflow:hidden;transition:max-height .5s ease;line-height:1.6}
+.assumption.revealed .assumption-reality{max-height:300px}
+
+/* STAT BAR */
+.stat-bar{margin:.8rem 0;display:flex;align-items:center;gap:.8rem}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);min-width:90px;text-align:right}
+.stat-track{flex:1;height:7px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.stat-fill{height:100%;border-radius:4px;transition:width 2s ease-out;width:0}
+.stat-fill.red{background:linear-gradient(90deg,var(--crimson),#e04545)}
+.stat-fill.blue{background:linear-gradient(90deg,var(--blue),#60a5fa)}
+.stat-fill.gold{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--text2);min-width:50px}
+
+/* WEAPON CARDS */
+.weapons{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:2rem 0}
+.weapon{background:var(--bg3);border:1px solid rgba(212,162,58,.06);border-radius:8px;padding:1.5rem;transition:all .3s}
+.weapon:hover{border-color:var(--accent);background:var(--bg2)}
+.weapon-type{font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.weapon-name{font-family:'Playfair Display',serif;font-size:1.05rem;color:#fff;margin-bottom:.4rem}
+.weapon-desc{font-size:.88rem;color:var(--text2);line-height:1.6}
+.weapon-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.6rem;padding:2px 7px;border-radius:3px;margin-top:.4rem;margin-right:.3rem;border:1px solid}
+.weapon-tag.asym{color:var(--green);border-color:rgba(46,204,113,.25)}
+.weapon-tag.cyber{color:var(--blue);border-color:rgba(68,136,238,.25)}
+.weapon-tag.mil{color:var(--crimson);border-color:rgba(155,27,48,.25)}
+
+/* STRATAGEM CARDS */
+.stratagems{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:2rem 0}
+.stratagem{background:var(--bg3);border:1px solid rgba(155,27,48,.1);border-radius:8px;padding:1.2rem;transition:all .3s;cursor:default}
+.stratagem:hover{border-color:var(--crimson);transform:translateY(-2px)}
+.stratagem-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--crimson);font-weight:700}
+.stratagem-name{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin:.3rem 0}
+.stratagem-desc{font-size:.82rem;color:var(--text2);line-height:1.5}
+
+/* NINE LESSONS */
+.nine-lessons{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.lesson{background:var(--bg3);border:1px solid rgba(212,162,58,.08);border-radius:8px;padding:1.3rem;transition:all .3s}
+.lesson:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(212,162,58,.06)}
+.lesson-num{font-family:'JetBrains Mono',monospace;font-size:1.6rem;color:var(--accent);font-weight:700;float:left;margin-right:12px;line-height:1}
+.lesson-title{font-family:'DM Sans',sans-serif;font-size:.88rem;color:#fff;font-weight:600;margin-bottom:.3rem}
+.lesson-text{font-size:.82rem;color:var(--text2);line-height:1.5;clear:both}
+
+/* TWELVE STEPS */
+.twelve-steps{counter-reset:step}
+.step-card{background:var(--bg3);border:1px solid rgba(46,204,113,.08);border-radius:8px;padding:1.5rem 1.5rem 1.5rem 4rem;margin:1rem 0;position:relative;transition:all .3s;counter-increment:step}
+.step-card:hover{border-color:var(--green);transform:translateX(4px)}
+.step-card::before{content:counter(step);position:absolute;left:1rem;top:1.2rem;font-family:'JetBrains Mono',monospace;font-size:1.4rem;color:var(--green);font-weight:700}
+.step-title{font-family:'DM Sans',sans-serif;font-size:.95rem;color:#fff;font-weight:600;margin-bottom:.4rem}
+.step-text{font-size:.88rem;color:var(--text2);line-height:1.6}
+
+/* TOC */
+.toc{background:var(--bg2);border:1px solid rgba(212,162,58,.08);border-radius:12px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.2rem;margin-bottom:1.5rem}
+.toc-part{margin-bottom:1.5rem}
+.toc-part-title{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--crimson);margin-bottom:.4rem}
+.toc-link{display:block;padding:.35rem 0 .35rem 1rem;color:var(--text2);text-decoration:none;font-size:.92rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--accent);border-left-color:var(--accent);padding-left:1.5rem}
+
+/* GAME CONTAINER */
+.game-container{background:var(--bg2);border:1px solid rgba(212,162,58,.12);border-radius:12px;overflow:hidden;margin:2rem 0}
+.game-header{font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:1rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(212,162,58,.08);display:flex;justify-content:space-between;align-items:center}
+.game-body{padding:1.5rem}
+.game-btn{font-family:'DM Sans',sans-serif;font-size:.75rem;padding:6px 16px;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:4px;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.game-btn:hover{background:var(--accent);color:var(--bg)}
+.game-btn.active{background:var(--accent);color:var(--bg)}
+.game-btn.red{border-color:var(--crimson);color:var(--crimson)}
+.game-btn.red:hover,.game-btn.red.active{background:var(--crimson);color:#fff}
+.game-score{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent)}
+.game-question{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem}
+.game-options{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0}
+.game-option{font-family:'DM Sans',sans-serif;font-size:.85rem;padding:12px;border:1px solid rgba(212,162,58,.12);border-radius:6px;background:var(--bg3);color:var(--text);cursor:pointer;transition:all .2s;text-align:left}
+.game-option:hover{border-color:var(--accent);background:rgba(212,162,58,.05)}
+.game-option.correct{border-color:var(--green);background:rgba(46,204,113,.08);color:var(--green)}
+.game-option.wrong{border-color:var(--crimson);background:rgba(155,27,48,.08);color:var(--crimson)}
+.game-feedback{font-size:.88rem;color:var(--text2);margin-top:1rem;padding:1rem;border-radius:6px;background:var(--bg3);display:none}
+.game-feedback.show{display:block}
+
+/* WAR GAME SIM */
+.wargame-board{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;margin:1rem 0;aspect-ratio:2/1}
+.wargame-cell{background:var(--bg3);border:1px solid rgba(212,162,58,.04);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:.7rem;transition:all .3s;cursor:pointer;min-height:35px;position:relative}
+.wargame-cell.water{background:rgba(68,136,238,.06);border-color:rgba(68,136,238,.08)}
+.wargame-cell.land-cn{background:rgba(155,27,48,.08);border-color:rgba(155,27,48,.1)}
+.wargame-cell.land-us{background:rgba(46,204,113,.06);border-color:rgba(46,204,113,.08)}
+.wargame-cell.unit-cn{background:rgba(155,27,48,.2);border-color:var(--crimson);color:var(--crimson);font-weight:700}
+.wargame-cell.unit-us{background:rgba(68,136,238,.15);border-color:var(--blue);color:var(--blue);font-weight:700}
+.wargame-cell.hit{animation:flash .5s}
+@keyframes flash{0%,100%{background:var(--bg3)}50%{background:rgba(224,69,69,.3)}}
+.wargame-info{display:flex;justify-content:space-between;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text2);margin:.8rem 0}
+.wargame-log{max-height:120px;overflow-y:auto;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text2);background:var(--bg3);padding:.8rem;border-radius:6px;margin-top:.8rem}
+.wargame-log div{padding:2px 0;border-bottom:1px solid rgba(255,255,255,.02)}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(155,27,48,.2),rgba(212,162,58,.2),rgba(155,27,48,.2),transparent);margin:4rem 0}
+
+/* FOOTER */
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.82rem;background:var(--bg2);border-top:1px solid rgba(212,162,58,.06)}
+.footer strong{color:var(--accent)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.compare{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:3rem 1.2rem}
+.game-options{grid-template-columns:1fr}
+.wargame-board{grid-template-columns:repeat(6,1fr)}
+}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(25px);transition:all .7s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* GLOSSARY TOOLTIP */
+.glossary-term{border-bottom:1px dotted var(--accent);cursor:help;position:relative}
+.glossary-term:hover::after{content:attr(data-ru);position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--crimson);color:var(--crimson);padding:4px 10px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.72rem;white-space:nowrap;z-index:10}
+
+/* PROGRESS BAR */
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--crimson),var(--accent));z-index:1001;transition:width .1s;width:0}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+<div class="nav-title">The Hundred-Year Marathon</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#intro">Intro</a>
+<a href="#ch1">Ch 1-3</a>
+<a href="#ch4">Ch 4-6</a>
+<a href="#ch7">Ch 7-8</a>
+<a href="#ch9">Ch 9-10</a>
+<a href="#ch11">Ch 11</a>
+<a href="#wargame">War Game</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="subtitle">Michael Pillsbury — Pentagon Adviser & China Strategist</div>
+<h1>The Hundred-Year Marathon</h1>
+<div class="subtitle" style="font-size:.85rem;color:var(--text2);letter-spacing:.08em">China's Secret Strategy to Replace America as the Global Superpower</div>
+<div class="subtitle" style="font-size:.8rem;color:var(--crimson);letter-spacing:.06em;margin-top:.5rem">Столетний марафон — Тайная стратегия Китая по замещению Америки</div>
+<div class="author">By Michael Pillsbury, Director of the Center on Chinese Strategy at the Hudson Institute.<br>Over 40 years of access to China's military and intelligence establishment.</div>
+<div class="epigraph">
+"Deceive the heavens to cross the ocean."<br>
+<span style="color:var(--crimson);font-size:.85rem">瞒天过海 · Обмануть небеса, чтобы пересечь океан</span>
+<br><br>—The Thirty-Six Stratagems <span class="ru">三十六計 · Тридцать шесть стратагем</span>
+</div>
+<div class="epigraph" style="border-color:var(--accent)">
+"It's easy to win a race when you're the only one who knows it has begun."
+<br><br>—Chapter 11
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- TOC -->
+<section class="section" id="toc">
+<div class="toc">
+<h3 style="color:var(--accent)">Table of Contents · Содержание</h3>
+
+<div class="toc-part">
+<div class="toc-part-title">Introduction</div>
+<a href="#intro" class="toc-link">Wishful Thinking: Five False Assumptions · Пять ложных предположений</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part I — The Marathon Revealed · Марафон раскрыт</div>
+<a href="#ch1" class="toc-link">Ch 1: The China Dream · Китайская мечта</a>
+<a href="#ch2" class="toc-link">Ch 2: Warring States · Эпоха Воюющих царств</a>
+<a href="#ch3" class="toc-link">Ch 3: Only China Could Go to Nixon · Только Китай мог обратиться к Никсону</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part II — Deception & Manipulation · Обман и манипуляция</div>
+<a href="#ch4" class="toc-link">Ch 4: Mr. White and Ms. Green · Мистер Уайт и Мисс Грин</a>
+<a href="#ch5" class="toc-link">Ch 5: America, the Great Satan · Америка — Великий Сатана</a>
+<a href="#ch6" class="toc-link">Ch 6: China's Message Police · Контроль информации</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part III — Weapons & Economy · Оружие и экономика</div>
+<a href="#ch7" class="toc-link">Ch 7: The Assassin's Mace · Булава убийцы</a>
+<a href="#ch8" class="toc-link">Ch 8: The Capitalist Charade · Капиталистический маскарад</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Part IV — The Endgame · Финал</div>
+<a href="#ch9" class="toc-link">Ch 9: A China World Order in 2049 · Китайский мировой порядок к 2049</a>
+<a href="#ch10" class="toc-link">Ch 10: Warning Shots · Предупредительные сигналы</a>
+<a href="#ch11" class="toc-link">Ch 11: America as a Warring State · Америка как воюющее государство</a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Interactive Elements · Интерактивные элементы</div>
+<a href="#wargame" class="toc-link">🎮 Assassin's Mace War Game Simulation</a>
+<a href="#quiz" class="toc-link">🧩 Warring States Strategy Quiz</a>
+<a href="#marathon-timeline" class="toc-link">📅 The Marathon Timeline (1949–2049)</a>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INTRODUCTION -->
+<section class="section" id="intro">
+<div class="ch-header">
+<div class="ch-num">Introduction</div>
+<div class="ch-title">Wishful Thinking <span class="ru">Принятие желаемого за действительное</span></div>
+<div class="ch-quote">"Deceive the heavens to cross the ocean." —The Thirty-Six Stratagems · 瞒天过海</div>
+</div>
+
+<p>Michael Pillsbury opens with a striking scene: in November 2012, the Smithsonian Institution and the U.S. State Department awarded $250,000 and a gold medal to Chinese artist <strong>Cai Guo Qiang</strong> <span class="ru">蔡国强</span> — who then blew up a Christmas tree on the National Mall. Chinese nationalists (the <strong>ying pai</strong> <span class="ru">ястребы · 鹰派</span>) celebrated online: their hero had destroyed a Western symbol in the heart of America's capital. The joke, Pillsbury writes, was very much on the Americans.</p>
+
+<p>This anecdote captures the book's central thesis: <strong>for over 40 years, the United States has been fundamentally wrong about China</strong>. American policymakers — including Pillsbury himself — operated under a set of assumptions that turned out to be dangerously false. The Chinese had a secret long-term strategy, dating back to Mao Zedong, to surpass the United States as the global superpower by <strong>2049</strong> — the 100th anniversary of the Communist Revolution. This plan became known as <strong>"The Hundred-Year Marathon"</strong> <span class="ru">Столетний марафон · 百年马拉松</span>.</p>
+
+<h3>The Five False Assumptions <span class="ru">Пять ложных предположений</span></h3>
+<p>Click each card to reveal the reality:</p>
+
+<div class="assumptions" id="assumptions">
+<div class="assumption" onclick="this.classList.toggle('revealed')">
+<div class="assumption-num">#1</div>
+<div class="assumption-title">Engagement Brings Cooperation</div>
+<div class="assumption-reality"><br><strong>Reality:</strong> Despite four decades of engagement, China has thwarted U.S. goals in Afghanistan, supported anti-Western regimes in Sudan and North Korea, been less than helpful on nuclear proliferation with Iran and DPRK, and limited post-9/11 counter-terrorism cooperation. Trade and technology did NOT lead to convergence of views.</div>
+</div>
+<div class="assumption" onclick="this.classList.toggle('revealed')">
+<div class="assumption-num">#2</div>
+<div class="assumption-title">China Is On the Road to Democracy</div>
+<div class="assumption-reality"><br><strong>Reality:</strong> Pillsbury visited Chinese "democratic elections" in 1997 — candidates could not assemble, advertise, debate, or criticize the Party. The only thing they could do was compare personal qualities. The Communist Party has demonstrated what scholars call "authoritarian resilience" <span class="ru">авторитарная устойчивость</span> — and may survive for decades more.</div>
+</div>
+<div class="assumption" onclick="this.classList.toggle('revealed')">
+<div class="assumption-num">#3</div>
+<div class="assumption-title">China Is a Fragile Flower</div>
+<div class="assumption-reality"><br><strong>Reality:</strong> In 1996, Chinese scholars told visiting Americans that China was in serious economic peril. They told EVERY visiting group the same thing. Americans then published these "revelations" in books and RAND Corporation studies. Meanwhile, China's GDP more than doubled. We were so invested in "the coming collapse of China" that few noticed the growth.</div>
+</div>
+<div class="assumption" onclick="this.classList.toggle('revealed')">
+<div class="assumption-num">#4</div>
+<div class="assumption-title">China Wants to Be Like Us</div>
+<div class="assumption-reality"><br><strong>Reality:</strong> A 1940s U.S. government study (never published — too politically incorrect) found that Chinese strategic culture prized deception, indirectness, and ambiguity over the American preference for directness and transparency. In 2000, Chinese generals confirmed these conclusions. They are proud of their cultural uniqueness.</div>
+</div>
+<div class="assumption" onclick="this.classList.toggle('revealed')">
+<div class="assumption-num">#5</div>
+<div class="assumption-title">China's Hawks Are Weak</div>
+<div class="assumption-reality"><br><strong>Reality:</strong> When Pillsbury investigated for the CIA and Pentagon in the late 1990s, he found that hawks (<strong>ying pai</strong> <span class="ru">鹰派 · ястребы</span>) had been advising every leader since Mao to pursue a century-long plan to replace America. Their newspaper <em>Global Times</em> became one of China's most popular news sources. Its editor calls moderates "the cancer cells that will lead to the demise of China."</div>
+</div>
+</div>
+
+<div class="key-point">
+<p><strong>Pillsbury's confession:</strong> "I was a member of this group for many decades. I was among the first people to provide intelligence to the White House favoring an overture to China, in 1969. Every one of the assumptions behind that belief was wrong — dangerously so."</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 1 -->
+<section class="part-header" id="part1">
+<div class="part-num">Part I</div>
+<div class="part-title">The Marathon Revealed</div>
+<div class="part-desc">The China Dream, the ancient strategic framework, and how Beijing manipulated the opening to America.</div>
+</section>
+
+<section class="section" id="ch1">
+<div class="ch-header">
+<div class="ch-num">Chapter 1</div>
+<div class="ch-title">The China Dream <span class="ru">Китайская мечта · 中国梦</span></div>
+<div class="ch-quote">"There cannot be two suns in the sky, nor two emperors on the earth." —Confucius · 天无二日，民无二王</div>
+</div>
+
+<p>When <strong>Xi Jinping</strong> <span class="ru">Си Цзиньпин · 习近平</span> took power in March 2013, Western observers thought he was a Gorbachev-like reformer. Instead, Xi embraced the hawks' slogan: <strong>fuxing zhi lu</strong> <span class="ru">复兴之路 · Путь к возрождению</span> — "the road to renewal." An expression once confined to the nationalistic fringe became the new president's signature issue.</p>
+
+<h3>The Monument to the People's Heroes <span class="ru">Памятник народным героям</span></h3>
+<p>On the edge of Tiananmen Square stands a ten-story obelisk built by Mao in 1949. It describes China's "<strong>century of humiliation</strong>" <span class="ru">百年耻辱 · Век унижений</span> — 100 years of Western domination beginning with the First Opium War in 1839. American tourists walk past it daily, photographing it, completely oblivious to the message directed at them: <strong>China's day of justice is coming</strong>.</p>
+
+<h3>Darwin in China <span class="ru">Дарвинизм в Китае</span></h3>
+<p>In the late 19th century, Chinese intellectuals embraced a distorted version of Darwinism. Translator <strong>Yan Fu</strong> mistranslated "natural selection" as <strong>tao tai</strong> <span class="ru">淘汰 · уничтожение</span> ("elimination") — not just losing, but being eliminated entirely. Sun Yat-sen framed China's struggle as resistance against "<strong>racial extinction</strong>" by the white race. Mao inherited this framework: the world is a Darwinian competition. There can be only one hegemon <span class="ru">гегемон</span>.</p>
+
+<h3>Mao's Secret Book</h3>
+<p>During the Long March, Mao carried only one book: <strong>The General Mirror for the Aid of Government</strong> <span class="ru">资治通鉴 · Зерцало всеобщее, помогающее управлению</span>. He read it until his death in 1976. Deng Xiaoping read it too. Chinese high school students still learn from it. This thousand-year-old statecraft manual teaches lessons from the Warring States period about <strong>deception</strong>, <strong>avoiding encirclement</strong>, and <strong>inducing complacency in the hegemon</strong>. It was never translated into English. Americans completely missed its significance.</p>
+
+<h3>The Soviet Warning</h3>
+<p>In 1961, KGB defector <strong>Anatoliy Golitsyn</strong> <span class="ru">Анатолий Голицын</span> told the CIA that the rumored Sino-Soviet split was a hoax. In 1964, another defector, <strong>Yuri Nosenko</strong> <span class="ru">Юрий Носенко</span>, brought the opposite message: the split was real, and <strong>Mao sought dominance not just of the Communist system, but of the entire world order</strong>. The CIA locked Nosenko in solitary for three years, refusing to believe him. Nosenko was right.</p>
+
+<!-- MARATHON TIMELINE -->
+<div class="map-container" id="marathon-timeline">
+<div class="map-label">The Hundred-Year Marathon Timeline · Хронология Столетнего марафона (1839–2049)</div>
+<svg class="map-svg" viewBox="0 0 900 280" style="background:#0d0d14">
+<!-- Timeline base -->
+<line x1="50" y1="140" x2="850" y2="140" stroke="rgba(212,162,58,0.2)" stroke-width="1.5"/>
+<!-- Era labels -->
+<text x="180" y="30" fill="rgba(155,27,48,0.5)" font-family="DM Sans" font-size="8" text-anchor="middle" font-weight="700">CENTURY OF HUMILIATION</text>
+<text x="180" y="42" fill="rgba(155,27,48,0.3)" font-family="DM Sans" font-size="7" text-anchor="middle">百年耻辱 · Век унижений</text>
+<line x1="80" y1="50" x2="280" y2="50" stroke="rgba(155,27,48,0.2)" stroke-width="8" stroke-linecap="round"/>
+<text x="550" y="30" fill="rgba(212,162,58,0.5)" font-family="DM Sans" font-size="8" text-anchor="middle" font-weight="700">HUNDRED-YEAR MARATHON</text>
+<text x="550" y="42" fill="rgba(212,162,58,0.3)" font-family="DM Sans" font-size="7" text-anchor="middle">百年马拉松 · Столетний марафон</text>
+<line x1="350" y1="50" x2="780" y2="50" stroke="rgba(212,162,58,0.15)" stroke-width="8" stroke-linecap="round"/>
+<!-- Markers -->
+<g font-family="JetBrains Mono" font-size="8" fill="var(--accent)">
+<circle cx="80" cy="140" r="4" fill="var(--crimson)"/><text x="80" y="160" text-anchor="middle">1839</text><text x="80" y="172" text-anchor="middle" fill="var(--text2)" font-size="6">Opium War</text>
+<circle cx="180" cy="140" r="3" fill="var(--crimson)" opacity=".7"/><text x="180" y="118" text-anchor="middle">1911</text><text x="180" y="106" text-anchor="middle" fill="var(--text2)" font-size="6">Qing Falls</text>
+<circle cx="280" cy="140" r="5" fill="var(--crimson)"/><text x="280" y="160" text-anchor="middle">1949</text><text x="280" y="172" text-anchor="middle" fill="#fff" font-size="6" font-weight="700">CCP Victory</text><text x="280" y="184" text-anchor="middle" fill="var(--text2)" font-size="5">Marathon Begins</text>
+<circle cx="360" cy="140" r="3" fill="var(--accent)" opacity=".6"/><text x="360" y="118" text-anchor="middle">1969</text><text x="360" y="106" text-anchor="middle" fill="var(--text2)" font-size="6">Mao → Nixon</text>
+<circle cx="420" cy="140" r="3" fill="var(--accent)" opacity=".6"/><text x="420" y="160" text-anchor="middle">1979</text><text x="420" y="172" text-anchor="middle" fill="var(--text2)" font-size="6">US-PRC Relations</text>
+<circle cx="480" cy="140" r="3" fill="var(--crimson)" opacity=".7"/><text x="480" y="118" text-anchor="middle">1989</text><text x="480" y="106" text-anchor="middle" fill="var(--text2)" font-size="6">Tiananmen</text>
+<circle cx="540" cy="140" r="3" fill="var(--accent)" opacity=".6"/><text x="540" y="160" text-anchor="middle">2001</text><text x="540" y="172" text-anchor="middle" fill="var(--text2)" font-size="6">WTO Entry</text>
+<circle cx="620" cy="140" r="3" fill="var(--crimson)" opacity=".7"/><text x="620" y="118" text-anchor="middle">2013</text><text x="620" y="106" text-anchor="middle" fill="var(--text2)" font-size="6">Xi's China Dream</text>
+<circle cx="700" cy="140" r="3" fill="var(--accent)" opacity=".5"/><text x="700" y="160" text-anchor="middle">2027</text><text x="700" y="172" text-anchor="middle" fill="var(--text2)" font-size="6">PLA Ready?</text>
+<circle cx="780" cy="140" r="6" fill="var(--accent)"/><text x="780" y="160" text-anchor="middle" font-weight="700">2049</text><text x="780" y="172" text-anchor="middle" fill="#fff" font-size="6" font-weight="700">MARATHON GOAL</text><text x="780" y="184" text-anchor="middle" fill="var(--text2)" font-size="5">100th Anniversary</text>
+</g>
+<!-- Phase arrows -->
+<path d="M280,80 Q350,65 360,80" fill="none" stroke="rgba(212,162,58,0.2)" stroke-width="1"/>
+<path d="M360,80 Q480,60 620,80" fill="none" stroke="rgba(212,162,58,0.15)" stroke-width="1"/>
+<text x="490" y="75" fill="rgba(212,162,58,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">Hide capabilities, bide time · 韬光养晦</text>
+<path d="M620,80 Q700,60 780,80" fill="none" stroke="rgba(155,27,48,0.2)" stroke-width="1"/>
+<text x="700" y="75" fill="rgba(155,27,48,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">Overtake hegemon · 超越霸权</text>
+<!-- Labels -->
+<text x="450" y="220" fill="rgba(212,162,58,0.15)" font-family="Playfair Display" font-size="20" text-anchor="middle" font-style="italic">百年马拉松</text>
+<text x="450" y="245" fill="rgba(212,162,58,0.08)" font-family="DM Sans" font-size="9" text-anchor="middle">THE HUNDRED-YEAR MARATHON</text>
+</svg>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 2 -->
+<section class="section" id="ch2">
+<div class="ch-header">
+<div class="ch-num">Chapter 2</div>
+<div class="ch-title">Warring States <span class="ru">Эпоха Воюющих царств · 战国</span></div>
+<div class="ch-quote">"It is too soon to ask the weight of the Emperor's cauldrons." —Spring and Autumn Annals · 春秋</div>
+</div>
+
+<p>The Chinese hawks (<strong>ying pai</strong>) draw their strategic lessons not from Sun Tzu alone, but from the <strong>Warring States period</strong> <span class="ru">Эпоха Воюющих царств · 战国时代</span> — 250 years (475–221 BC) of brutal competition among seven feudal states, ending with unification under the Qin dynasty. (The word "China" itself comes from "Qin.") Warlords formed coalitions, practiced deception, and all sought to become the <strong>ba</strong> <span class="ru">霸 · гегемон</span> — the hegemon.</p>
+
+<p>Western Sinologists were led to accept a fabricated pacifist narrative of Chinese history. Mao's Cultural Revolution further convinced the West that China had broken with its past. But in the 1990s, Chinese military publications began openly referencing Warring States lessons. In 1991, China's leaders secretly used the proverb <strong>tao guang, yang hui</strong> <span class="ru">韬光养晦 · Скрывать возможности, выжидать время</span>. When this leaked, Beijing translated it as the bland "bide your time." In its actual Warring States context, it means: <strong>hide your strength, plot the overthrow of the hegemon</strong>.</p>
+
+<h3>Nine Key Elements of Chinese Strategy <span class="ru">Девять ключевых элементов</span></h3>
+<p>Pillsbury identifies nine strategic lessons that China draws from the Warring States:</p>
+
+<div class="nine-lessons">
+<div class="lesson">
+<div class="lesson-num">1</div>
+<div class="lesson-title">Induce Complacency <span class="ru">Усыпить бдительность</span></div>
+<div class="lesson-text">Avoid alerting your opponent. Keep the rising power's true capabilities and ambitions hidden until the moment is right.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">2</div>
+<div class="lesson-title">Manipulate Advisers <span class="ru">Манипулировать советниками</span></div>
+<div class="lesson-text">Turn the opponent's own advisers and policy community to serve your interests — what the Chinese call "borrowing the enemy's hand."</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">3</div>
+<div class="lesson-title">Be Patient for Decades <span class="ru">Терпение на десятилетия</span></div>
+<div class="lesson-text">True victory takes generations. A state that aims for quick gains will ultimately lose to one that plays the long game.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">4</div>
+<div class="lesson-title">Steal Technology <span class="ru">Кража технологий</span></div>
+<div class="lesson-text">Take the opponent's ideas and technology for strategic purposes. In Warring States era, states sent spies to steal military innovations.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">5</div>
+<div class="lesson-title">Military Might Is Not Decisive <span class="ru">Военная мощь не решает всё</span></div>
+<div class="lesson-text">A long-term competition is won through economic, political, and strategic factors — not just military force.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">6</div>
+<div class="lesson-title">The Hegemon Acts Recklessly <span class="ru">Гегемон действует безрассудно</span></div>
+<div class="lesson-text">The dominant power will take extreme actions to retain dominance. A rising power must be prepared for this and not provoke premature confrontation.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">7</div>
+<div class="lesson-title">Never Lose Sight of Shi <span class="ru">Не упускай ши · 势</span></div>
+<div class="lesson-text"><strong>Shi</strong> (势) is the overall alignment of forces — strategic momentum. Master shi-assessment to know when to advance and when to retreat.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">8</div>
+<div class="lesson-title">Measure Relative Power <span class="ru">Измерять относительную мощь</span></div>
+<div class="lesson-text">Establish metrics for measuring your status relative to rivals. The Chinese produce annual comprehensive national power analyses. America does not.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">9</div>
+<div class="lesson-title">Avoid Encirclement <span class="ru">Избегать окружения</span></div>
+<div class="lesson-text">Always be vigilant about being surrounded or deceived by rivals forming coalitions. Break up potential alliances before they solidify.</div>
+</div>
+</div>
+
+<!-- WARRING STATES MAP -->
+<div class="map-container">
+<div class="map-label">The Warring States Period (475–221 BC) · Эпоха Воюющих царств</div>
+<svg class="map-svg" viewBox="0 0 800 450" style="background:#0d0d14">
+<!-- Background texture -->
+<defs>
+<radialGradient id="stateGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(212,162,58,0.08)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+</defs>
+<!-- Seven States -->
+<g>
+<!-- Qin (west) -->
+<path d="M120,140 L200,120 L220,160 L240,220 L220,280 L160,300 L100,260 L90,200Z" fill="rgba(155,27,48,0.15)" stroke="rgba(155,27,48,0.4)" stroke-width="1.5"/>
+<text x="165" y="210" fill="rgba(155,27,48,0.8)" font-family="Playfair Display" font-size="14" text-anchor="middle" font-weight="700">QIN</text>
+<text x="165" y="228" fill="rgba(155,27,48,0.5)" font-family="DM Sans" font-size="8" text-anchor="middle">秦 · Цинь</text>
+<text x="165" y="242" fill="rgba(155,27,48,0.3)" font-family="DM Sans" font-size="7" text-anchor="middle">WINNER</text>
+<!-- Chu (south) -->
+<path d="M250,280 L400,260 L500,290 L520,350 L450,400 L300,410 L200,370 L220,310Z" fill="rgba(46,204,113,0.08)" stroke="rgba(46,204,113,0.3)" stroke-width="1"/>
+<text x="370" y="340" fill="rgba(46,204,113,0.7)" font-family="Playfair Display" font-size="13" text-anchor="middle" font-weight="700">CHU</text>
+<text x="370" y="355" fill="rgba(46,204,113,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle">楚 · Чу</text>
+<!-- Qi (east) -->
+<path d="M500,100 L600,80 L650,120 L640,200 L580,230 L500,200 L480,150Z" fill="rgba(68,136,238,0.08)" stroke="rgba(68,136,238,0.3)" stroke-width="1"/>
+<text x="560" y="155" fill="rgba(68,136,238,0.7)" font-family="Playfair Display" font-size="13" text-anchor="middle" font-weight="700">QI</text>
+<text x="560" y="170" fill="rgba(68,136,238,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle">齐 · Ци</text>
+<!-- Wei (center) -->
+<path d="M300,140 L380,130 L400,180 L380,230 L300,240 L270,200Z" fill="rgba(212,162,58,0.08)" stroke="rgba(212,162,58,0.25)" stroke-width="1"/>
+<text x="340" y="185" fill="rgba(212,162,58,0.7)" font-family="Playfair Display" font-size="12" text-anchor="middle" font-weight="700">WEI</text>
+<text x="340" y="198" fill="rgba(212,162,58,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">魏 · Вэй</text>
+<!-- Zhao (north-center) -->
+<path d="M300,60 L420,50 L460,100 L400,130 L300,140 L260,100Z" fill="rgba(200,100,200,0.06)" stroke="rgba(200,100,200,0.2)" stroke-width="1"/>
+<text x="360" y="100" fill="rgba(200,100,200,0.6)" font-family="Playfair Display" font-size="11" text-anchor="middle" font-weight="700">ZHAO</text>
+<text x="360" y="113" fill="rgba(200,100,200,0.35)" font-family="DM Sans" font-size="7" text-anchor="middle">赵 · Чжао</text>
+<!-- Han (center-south) -->
+<path d="M280,240 L350,230 L370,260 L340,290 L270,280Z" fill="rgba(255,165,0,0.06)" stroke="rgba(255,165,0,0.2)" stroke-width="1"/>
+<text x="320" y="265" fill="rgba(255,165,0,0.6)" font-family="Playfair Display" font-size="10" text-anchor="middle" font-weight="700">HAN</text>
+<text x="320" y="278" fill="rgba(255,165,0,0.35)" font-family="DM Sans" font-size="7" text-anchor="middle">韩 · Хань</text>
+<!-- Yan (north) -->
+<path d="M430,20 L550,15 L580,60 L540,90 L460,80 L420,50Z" fill="rgba(150,200,255,0.05)" stroke="rgba(150,200,255,0.2)" stroke-width="1"/>
+<text x="500" y="55" fill="rgba(150,200,255,0.6)" font-family="Playfair Display" font-size="10" text-anchor="middle" font-weight="700">YAN</text>
+<text x="500" y="68" fill="rgba(150,200,255,0.35)" font-family="DM Sans" font-size="7" text-anchor="middle">燕 · Янь</text>
+</g>
+<!-- Arrows showing Qin conquest -->
+<defs><marker id="arrow" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="rgba(155,27,48,0.3)"/></marker></defs>
+<path d="M200,180 L280,175" stroke="rgba(155,27,48,0.2)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+<path d="M220,260 L260,270" stroke="rgba(155,27,48,0.2)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+<path d="M210,150 L260,110" stroke="rgba(155,27,48,0.2)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+<!-- Modern analogy box -->
+<rect x="630" y="60" width="155" height="180" rx="5" fill="rgba(10,10,14,0.85)" stroke="rgba(212,162,58,0.1)"/>
+<text x="645" y="82" fill="var(--accent)" font-family="DM Sans" font-size="8" font-weight="700">MODERN ANALOGY</text>
+<text x="645" y="82" fill="var(--accent)" font-family="DM Sans" font-size="8" font-weight="700">MODERN ANALOGY</text>
+<text x="645" y="100" fill="var(--text2)" font-family="DM Sans" font-size="7">China = Rising Qin</text>
+<text x="645" y="114" fill="var(--text2)" font-family="DM Sans" font-size="7">USA = Reigning Hegemon</text>
+<text x="645" y="128" fill="var(--text2)" font-family="DM Sans" font-size="7">Russia = Rival power</text>
+<text x="645" y="142" fill="var(--text2)" font-family="DM Sans" font-size="7">Japan = Neighboring state</text>
+<line x1="645" y1="152" x2="775" y2="152" stroke="rgba(212,162,58,0.1)"/>
+<text x="645" y="168" fill="var(--crimson)" font-family="DM Sans" font-size="7" font-weight="700">KEY LESSON:</text>
+<text x="645" y="182" fill="var(--text2)" font-family="DM Sans" font-size="6.5">"The rising state must hide</text>
+<text x="645" y="194" fill="var(--text2)" font-family="DM Sans" font-size="6.5">its ambitions until it has</text>
+<text x="645" y="206" fill="var(--text2)" font-family="DM Sans" font-size="6.5">surpassed the hegemon."</text>
+<text x="645" y="224" fill="rgba(155,27,48,0.5)" font-family="DM Sans" font-size="6.5" font-style="italic">韬光养晦 · Скрывать и ждать</text>
+</svg>
+</div>
+
+<div class="warning-box">
+<p><strong>The biggest American mistake:</strong> For centuries, Western scholars accepted a fabricated pacifist narrative of Chinese history. The violent, strategic Warring States period — which shapes how Chinese leaders actually think — was hidden from foreigners. "We missed all this," Pillsbury writes.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 3 -->
+<section class="section" id="ch3">
+<div class="ch-header">
+<div class="ch-num">Chapter 3</div>
+<div class="ch-title">Only China Could Go to Nixon <span class="ru">Только Китай мог обратиться к Никсону</span></div>
+<div class="ch-quote">"Ally with Wu in the east to oppose Wei in the north." —Romance of the Three Kingdoms · 联吴抗魏</div>
+</div>
+
+<p>Americans have been taught that the Nixon-China opening was an act of American genius. Pillsbury reveals a different story: <strong>it was not Nixon who went to China, but China that went to Nixon</strong>.</p>
+
+<p>In spring 1969, Mao summoned four hawkish army marshals — <strong>Chen Yi, Nie Rongzhen, Xu Xiangqian, and Ye Jianying</strong> <span class="ru">Чэнь И, Не Жунчжэнь, Сюй Сянцянь, Е Цзяньин</span>. These marshals analyzed U.S. strategy using a Warring States proverb: <strong>"sitting on top of the mountain to watch a fight between two tigers"</strong> <span class="ru">坐山观虎斗</span>. They recommended allying with the "far enemy" (America) against the "near enemy" (Soviet Union) — a classic Warring States maneuver.</p>
+
+<p>Meanwhile, China had a devastating advantage: <strong>Larry Wu-Tai Chin</strong> <span class="ru">Ларри Цзинь</span>, a 40-year CIA employee who had been spying for China the entire time, providing classified documents that revealed American planning and weaknesses. America had no equivalent source inside the Chinese government.</p>
+
+<h3>What China Actually Got</h3>
+<p>Every U.S. president from Nixon through Obama provided China with escalating assistance — military technology, intelligence sharing, economic aid, diplomatic support — while believing they were "engaging" a future partner. Pillsbury catalogs how each administration was manipulated:</p>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1969–1974: Nixon/Ford</div><div class="tl-text">Secret intelligence sharing against the USSR; satellite photos of Soviet troop movements; diplomatic recognition process begins</div></div>
+<div class="tl-item"><div class="tl-year">1977–1980: Carter</div><div class="tl-text">Kissinger revealed to China that in event of Soviet attack, US would defend China. Pentagon began military technology transfers</div></div>
+<div class="tl-item"><div class="tl-year">1981–1988: Reagan</div><div class="tl-text">Major arms sales; technology transfers accelerated; China portrayed as anti-Soviet ally. But China was secretly developing its own independent capabilities</div></div>
+<div class="tl-item"><div class="tl-year">1989–2000: Bush/Clinton</div><div class="tl-text">Despite Tiananmen, engagement intensified. WTO admission. Technology transfers continued. China gained "permanent normal trade relations"</div></div>
+<div class="tl-item"><div class="tl-year">2001–2008: Bush II</div><div class="tl-text">Post-9/11 cooperation was shallow. Meanwhile China's economy tripled. Massive technology theft began in earnest via cyber espionage</div></div>
+<div class="tl-item"><div class="tl-year">2009–2015: Obama</div><div class="tl-text">"Asia Pivot" announced but underfunded. China became more assertive. First ADIZ over East China Sea. Island building in South China Sea began</div></div>
+</div>
+
+<div class="key-point">
+<p><strong>The pattern:</strong> Each president was told by his China experts that engagement was working, that China was reforming, and that patience was needed. Each Chinese leader, meanwhile, followed the same Warring States playbook — obtain maximum assistance while revealing minimum intentions.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 4 -->
+<section class="section" id="ch4">
+<div class="ch-header">
+<div class="ch-num">Chapter 4</div>
+<div class="ch-title">Mr. White and Ms. Green <span class="ru">Мистер Уайт и Мисс Грин</span></div>
+<div class="ch-quote">"Loot a burning house." —The Thirty-Six Stratagems · 趁火打劫</div>
+</div>
+
+<p>In April 1989, Pillsbury was in Beijing when students occupied Tiananmen Square. Ambassador Winston Lord's classified farewell cable was optimistic: democratic elections had begun in villages; free-market reforms were inevitable; the Chinese leadership posed no threat to American interests.</p>
+
+<p><strong>On June 4, 1989, the Chinese army massacred the demonstrators.</strong> The pro-American reformers inside the government were purged. Chinese moderates who had advocated for democratic reforms — even Madisonian separation of powers — were imprisoned, exiled, or silenced. The hawks took over completely.</p>
+
+<h3>The Defectors: Mr. White and Ms. Green</h3>
+<p>Throughout the book, Pillsbury references two key Chinese defectors whom he calls <strong>"Mr. White"</strong> and <strong>"Ms. Green"</strong> (pseudonyms). These individuals, drawn from Chinese intelligence and Communist Party institutions, provided critical inside knowledge about China's true strategic intentions, the role of the hawks, and the systematic deception operations directed at the United States.</p>
+
+<p>"Mr. White" revealed the internal Party dynamics that led to Tiananmen — how the hawks deliberately distorted information to panic Deng Xiaoping and the party elders into cracking down. He predicted the "Patriotic Education Program" <span class="ru">Патриотическая образовательная программа · 爱国主义教育</span> that would rewrite Chinese textbooks to portray America as the enemy.</p>
+
+<p>"Ms. Green" <span class="ru">Мисс Грин</span> (likely <strong>Katrina Leung</strong>), an FBI asset who turned out to be a double agent for China, represented one of the most damaging intelligence failures. She fed American intelligence what Beijing wanted them to hear: that China's leaders were moderate reformers, and that the hawks were a fringe element. For years, American policy was shaped by information that was being managed by Chinese intelligence.</p>
+
+<div class="warning-box">
+<p><strong>The double-agent problem:</strong> China ran multiple agents inside U.S. intelligence agencies who confirmed exactly what Americans wanted to believe — that engagement was working, that China was democratizing, and that hawks were marginal. This wasn't just intelligence failure. It was strategic manipulation at the highest level.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 5 -->
+<section class="section" id="ch5">
+<div class="ch-header">
+<div class="ch-num">Chapter 5</div>
+<div class="ch-title">America, the Great Satan <span class="ru">Америка — Великий Сатана</span></div>
+<div class="ch-quote">"Make something from nothing." —The Thirty-Six Stratagems · 无中生有</div>
+</div>
+
+<p>After Tiananmen in 1989, followed by the collapse of the Soviet Union in 1991, China's leaders were terrified. They concluded that <strong>Tiananmen was America's first great offensive</strong> — an attempt to "sow discord in the enemy camp" (a Warring States axiom). The United States had almost succeeded in bringing down the Party, they believed, and was stopped only by the last-minute purge of reformers.</p>
+
+<h3>The Patriotic Education Program <span class="ru">Программа патриотического воспитания · 爱国主义教育</span></h3>
+<p>Starting in 1990, Chinese textbooks were systematically rewritten to depict the United States as a hegemon that, <strong>for more than 150 years</strong>, had tried to stifle China's rise and destroy Chinese civilization. Abraham Lincoln, Woodrow Wilson, and Franklin Roosevelt were portrayed as <strong>"evil masterminds"</strong> who manipulated China.</p>
+
+<p>The contrast is staggering: while the United States was sending billions in aid to China, building its economy, transferring technology, and integrating China into global institutions — Chinese students were being taught that <strong>America has always been China's mortal enemy</strong>.</p>
+
+<h3>Anti-American Propaganda Themes</h3>
+<div class="compare">
+<div class="compare-col red">
+<h4>What Chinese Are Taught · Что преподают в Китае</h4>
+<ul>
+<li>US has tried to subjugate China for 170 years</li>
+<li>American "democracy promotion" = regime change weapon</li>
+<li>Tiananmen = CIA-backed revolution attempt</li>
+<li>US bombed Chinese embassy in Belgrade (1999) deliberately</li>
+<li>America seeks to split China (Tibet, Xinjiang, Taiwan)</li>
+<li>Western values are tools of cultural imperialism</li>
+</ul>
+</div>
+<div class="compare-col">
+<h4 style="color:var(--blue)">What America Actually Did · Что делала Америка</h4>
+<ul>
+<li>Provided massive economic, military, & tech aid to China</li>
+<li>Helped China enter WTO and integrate into global economy</li>
+<li>Shared intelligence against Soviet Union for decades</li>
+<li>Embassy bombing was genuinely accidental (wrong maps)</li>
+<li>Maintained "One China" policy for 40+ years</li>
+<li>Facilitated China's rise at enormous cost to US manufacturing</li>
+</ul>
+</div>
+</div>
+
+<div class="concept-box">
+<p><strong>The hawks' strategy is clear:</strong> Keep anti-American sentiment high internally (to justify authoritarian control and military spending) while presenting a moderate, cooperative face externally (to keep American aid flowing). Both messages serve the Marathon.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 6 -->
+<section class="section" id="ch6">
+<div class="ch-header">
+<div class="ch-num">Chapter 6</div>
+<div class="ch-title">China's Message Police <span class="ru">Контроль информации · 信息管控</span></div>
+<div class="ch-quote">"Deck the tree with false blossoms." —The Thirty-Six Stratagems · 树上开花</div>
+</div>
+
+<p>China's Marathon strategy depends heavily on <strong>goodwill from the West</strong> — especially the United States. That goodwill translates into foreign investment, acceptance of exports, indulgence on technology theft, and looking the other way on human rights. This perception of China "moving in the right direction" is not accidental — it is <strong>systematically manufactured</strong> by an operation run by the <strong>number-three leader of China</strong> <span class="ru">третий по рангу руководитель</span>.</p>
+
+<h3>Unrestricted Warfare <span class="ru">Неограниченная война · 超限战</span></h3>
+<p>In 1999, two PLA colonels — <strong>Qiao Liang and Wang Xiangsui</strong> <span class="ru">Цяо Лян и Ван Сянсуй</span> — published <em>Unrestricted Warfare</em>, which proposed defeating the United States through non-military means: <strong>lawfare</strong> <span class="ru">юридическая война</span>, <strong>economic warfare</strong>, <strong>cyberattacks</strong>, and even <strong>terrorism</strong>. When it reached the West, Beijing withdrew all copies and disavowed it — despite it being published by the PLA press and both authors being promoted afterward.</p>
+
+<p>Pro-China academics in America quickly came to Beijing's defense with the standard line that the colonels were on the "fringe." The U.S. government's own translation service refused to translate the book until Pillsbury's Pentagon office sent a formal request.</p>
+
+<h3>The Message Control System</h3>
+<p>Pillsbury details how China manages foreign perceptions through:</p>
+
+<div class="phases">
+<div class="phase">
+<div class="phase-num">1</div>
+<div class="phase-name">Academic Exchange</div>
+<div class="phase-desc">Chinese scholars feed Western researchers the narrative Beijing wants them to believe, then Western experts publish these views as their own analysis.</div>
+</div>
+<div class="phase">
+<div class="phase-num">2</div>
+<div class="phase-name">Media Control</div>
+<div class="phase-desc">$6.58 billion "overseas propaganda" (外宣工作) budget to shape foreign coverage. Foreign journalists can be expelled for critical reporting.</div>
+</div>
+<div class="phase">
+<div class="phase-num">3</div>
+<div class="phase-name">Double Agents</div>
+<div class="phase-desc">Intelligence assets inside Western governments confirm the "moderate China" narrative, suppressing evidence of the hawks' true influence.</div>
+</div>
+<div class="phase">
+<div class="phase-num">4</div>
+<div class="phase-name">Economic Leverage</div>
+<div class="phase-desc">Business interests create powerful lobbies in Washington that oppose any policy that might "upset" Beijing — protecting China's strategic gains.</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 7 -->
+<section class="section" id="ch7">
+<div class="ch-header">
+<div class="ch-num">Chapter 7</div>
+<div class="ch-title">The Assassin's Mace <span class="ru">Булава убийцы · 杀手锏</span></div>
+<div class="ch-quote">"Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt." —Sun Tzu · 孙子兵法</div>
+</div>
+
+<p>At the Naval War College in Newport, Rhode Island, Pillsbury participated in a Pentagon war game. His "Red Team" represented China. Using <strong>Assassin's Mace</strong> <span class="ru">杀手锏 · Шашоуцзянь — Булава убийцы</span> tactics — asymmetric approaches derived from his study of Chinese strategy — he <strong>defeated the United States for the first time in the history of Pentagon war games</strong>.</p>
+
+<p>Over the next few years, 20 similar war games were conducted. <strong>When China used conventional tactics, America won decisively. When China used Assassin's Mace methods, China won every time.</strong> These results drove the Obama administration's "Asia Pivot" <span class="ru">Разворот в Азию</span>.</p>
+
+<h3>What Is the Assassin's Mace?</h3>
+<p>In ancient Chinese folklore, a hero faces a vastly stronger opponent. Hidden in his sleeve is a short spiked club — the <strong>shashoujian</strong> <span class="ru">杀手锏</span> — capable of defeating any enemy with a single blow through surprise, specialized training, and knowledge of the enemy's weakness. It is China's David-versus-Goliath weapon.</p>
+
+<h3>China's Modern Assassin's Mace Programs</h3>
+
+<div class="weapons">
+<div class="weapon">
+<div class="weapon-type">Anti-Satellite Weapons · Противоспутниковое оружие</div>
+<div class="weapon-name">ASAT Missiles & Co-orbital Weapons</div>
+<div class="weapon-desc">In 2007, China destroyed one of its own satellites with a ground-based missile — with zero warning to the US. In 2013, tested a missile reaching near-geostationary orbit. Can blind American military in the opening minutes of war.</div>
+<div class="weapon-tag mil">Strategic</div><div class="weapon-tag asym">Asymmetric</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Anti-Ship Ballistic Missiles · Противокорабельные баллистические ракеты</div>
+<div class="weapon-name">DF-21D "Carrier Killer"</div>
+<div class="weapon-desc">World's first anti-ship ballistic missile. Can strike a moving aircraft carrier at 1,500+ km range. A single missile could neutralize a $13 billion carrier with 5,000 crew. Changes entire Pacific balance.</div>
+<div class="weapon-tag mil">Strategic</div><div class="weapon-tag asym">Assassin's Mace</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Cyber Warfare · Кибервойна</div>
+<div class="weapon-name">Massive Cyber Espionage Operations</div>
+<div class="weapon-desc">90%+ of cyber espionage against America originates in China. Victims include Google, DoD, State Dept, major banks, defense contractors. Steals technology, maps critical infrastructure, can disable systems in wartime.</div>
+<div class="weapon-tag cyber">Cyber</div><div class="weapon-tag asym">Asymmetric</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Electromagnetic Pulse · Электромагнитный импульс</div>
+<div class="weapon-name">EMP & Directed Energy Weapons</div>
+<div class="weapon-desc">PLA publications extensively discuss EMP weapons that can disable electronic systems over wide areas. A single high-altitude nuclear detonation could destroy America's electrical grid.</div>
+<div class="weapon-tag mil">Strategic</div><div class="weapon-tag asym">Assassin's Mace</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Submarine Warfare · Подводная война</div>
+<div class="weapon-name">Growing Submarine Fleet</div>
+<div class="weapon-desc">China is building the world's largest submarine fleet. In 2006, a Chinese Song-class submarine surfaced undetected within torpedo range of USS Kitty Hawk — a shocking intelligence failure.</div>
+<div class="weapon-tag mil">Conventional</div><div class="weapon-tag asym">Stealth</div>
+</div>
+<div class="weapon">
+<div class="weapon-type">Space Weapons · Космическое оружие</div>
+<div class="weapon-name">Space-Based Weapons & ISR</div>
+<div class="weapon-desc">China is developing capabilities to deny US access to space. Includes ground-based lasers, co-orbital attack vehicles, and GPS jamming technology.</div>
+<div class="weapon-tag mil">Strategic</div><div class="weapon-tag cyber">Space</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 8 -->
+<section class="section" id="ch8">
+<div class="ch-header">
+<div class="ch-num">Chapter 8</div>
+<div class="ch-title">The Capitalist Charade <span class="ru">Капиталистический маскарад · 资本主义假象</span></div>
+<div class="ch-quote">"Take the opportunity to pilfer a goat." —The Thirty-Six Stratagems · 顺手牵羊</div>
+</div>
+
+<p>A defector Pillsbury calls <strong>"Ms. Tang"</strong> revealed that senior Communist Party officials studied <strong>how America became the world's largest economy</strong> — through a secret program at the Party's Central Committee School. The curriculum used translations of six books on how the U.S. government supported corporations to surpass Germany and Britain from 1840 to World War I.</p>
+
+<h3>China's Three-Wave Strategy (Modeled on America)</h3>
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--crimson)">
+<div class="phase-num">1</div>
+<div class="phase-name">Wave One: 1840–1914</div>
+<div class="phase-desc">How America surpassed European powers through government-supported industry, tariff protection, and technology acquisition (including theft).</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">2</div>
+<div class="phase-name">Wave Two: 1914–1950</div>
+<div class="phase-desc">How America dominated automobiles, electronics, and pharmaceuticals through public-private partnership and exploiting wartime patents.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--green)">
+<div class="phase-num">3</div>
+<div class="phase-name">Wave Three: 1950–Present</div>
+<div class="phase-desc">How America led in aerospace, petrochemicals, and computing through government funding of R&D and strategic corporate support.</div>
+</div>
+</div>
+
+<p>The irony is devastating: China studied America's own rise to dominance and is now <strong>replicating it — against America</strong>. The Chinese Communist Party teaches its future leaders that America became the hegemon through government-industry coordination and strategic technology acquisition. China is doing exactly the same.</p>
+
+<h3>The "State Capitalism" System <span class="ru">Государственный капитализм</span></h3>
+<p>China has persuaded the world it is on the path to free-market capitalism. In reality, <strong>state-owned enterprises (SOEs)</strong> <span class="ru">государственные предприятия</span> — the "national champions" — control about 40% of China's GDP. They receive subsidized land, energy, technology, and no-cost loans. The World Bank assisted in designing many of these policies, believing they were transitional steps toward privatization.</p>
+
+<div class="stat-bar"><div class="stat-label">GDP Growth</div><div class="stat-track"><div class="stat-fill red" data-width="85%"></div></div><div class="stat-val">China: ~10%/yr</div></div>
+<div class="stat-bar"><div class="stat-label"></div><div class="stat-track"><div class="stat-fill blue" data-width="25%"></div></div><div class="stat-val">US: ~2-3%/yr</div></div>
+<div class="stat-bar"><div class="stat-label">IP Theft Cost</div><div class="stat-track"><div class="stat-fill red" data-width="70%"></div></div><div class="stat-val">$300B+/year</div></div>
+<div class="stat-bar"><div class="stat-label">SOE Share</div><div class="stat-track"><div class="stat-fill gold" data-width="40%"></div></div><div class="stat-val">~40% of GDP</div></div>
+
+<div class="key-point">
+<p><strong>The Marathon word itself:</strong> When Pillsbury asked the defector if the word "marathon" was ever used in the Party school, she said yes — and directed him to translated books in the Central Party School bookstore, including <em>Innovation Marathon</em> by Oxford University Press.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 9 -->
+<section class="section" id="ch9">
+<div class="ch-header">
+<div class="ch-num">Chapter 9</div>
+<div class="ch-title">A China World Order in 2049 <span class="ru">Китайский мировой порядок к 2049 году</span></div>
+<div class="ch-quote">"The guest becomes the owner." —The Thirty-Six Stratagems · 反客为主</div>
+</div>
+
+<p>By 2050, China's economy will likely be <strong>much larger than America's — perhaps three times larger</strong> according to some projections. The U.S. dollar will yield to a multicurrency system. China will outspend America militarily and shape the world in its image.</p>
+
+<p>What will a Chinese-dominated world look like <strong>if the hawks win</strong>?</p>
+
+<h3>Seven Dimensions of a China World Order</h3>
+
+<div class="nine-lessons">
+<div class="lesson">
+<div class="lesson-num">1</div>
+<div class="lesson-title">Individual Rights Disappear <span class="ru">Права человека исчезают</span></div>
+<div class="lesson-text">The Chinese language didn't even have a word for "rights" until a missionary invented one. China already uses cyberattacks to harass dissidents abroad. Imagine this power multiplied globally.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">2</div>
+<div class="lesson-title">Internet Censorship Goes Global <span class="ru">Глобальная интернет-цензура</span></div>
+<div class="lesson-text">China's "Great Firewall" would become a model for global information control. Wikipedia, Facebook, Google already censor or are banned to access Chinese markets.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">3</div>
+<div class="lesson-title">Environmental Catastrophe <span class="ru">Экологическая катастрофа</span></div>
+<div class="lesson-text">While the US and EU cut emissions by 60M tons/year, China increases by 500M+ tons. 20% of rivers too toxic to touch. 10,000 petrochemical plants along the Yangtze.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">4</div>
+<div class="lesson-title">Economic Mercantilism Dominant <span class="ru">Экономический меркантилизм</span></div>
+<div class="lesson-text">State-backed "national champions," forced technology transfers, intellectual property theft, and currency manipulation would become the global norm rather than the exception.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">5</div>
+<div class="lesson-title">Authoritarian Allies Strengthened <span class="ru">Усиление авторитарных союзников</span></div>
+<div class="lesson-text">China already supports regimes in North Korea, Sudan, Myanmar, Iran. A dominant China would provide a powerful model and patron for authoritarians worldwide.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">6</div>
+<div class="lesson-title">Military Expansion <span class="ru">Военная экспансия</span></div>
+<div class="lesson-text">China's A2/AD zone would extend across the Western Pacific. Neighbors from Japan to Australia would face a choice: submit to Chinese hegemony or arm heavily.</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">7</div>
+<div class="lesson-title">A "Harmonious" Hierarchy <span class="ru">«Гармоничная» иерархия</span></div>
+<div class="lesson-text">China's vision isn't equality among nations — it's a hierarchy with China at the top, as it was for centuries. The Confucian tribute system reimagined for the 21st century.</div>
+</div>
+</div>
+
+<!-- GLOBAL INFLUENCE MAP -->
+<div class="map-container">
+<div class="map-label">China's Growing Global Influence · Растущее глобальное влияние Китая</div>
+<svg class="map-svg" viewBox="0 0 900 400" style="background:#0d0d14">
+<!-- Simple world outline hints -->
+<ellipse cx="450" cy="200" rx="420" ry="170" fill="none" stroke="rgba(212,162,58,0.03)" stroke-width="1"/>
+<!-- China -->
+<ellipse cx="620" cy="160" rx="60" ry="40" fill="rgba(155,27,48,0.2)" stroke="rgba(155,27,48,0.4)" stroke-width="1.5"/>
+<text x="620" y="163" fill="rgba(155,27,48,0.9)" font-family="DM Sans" font-size="11" text-anchor="middle" font-weight="700">CHINA</text>
+<!-- Influence lines -->
+<g stroke="rgba(155,27,48,0.12)" stroke-width="1" stroke-dasharray="4,4">
+<!-- To Africa -->
+<line x1="580" y1="180" x2="420" y2="260"/>
+<text x="400" y="275" fill="rgba(155,27,48,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Africa: Resources</text>
+<!-- To South America -->
+<line x1="560" y1="190" x2="250" y2="280"/>
+<text x="230" y="295" fill="rgba(155,27,48,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">S. America: Trade</text>
+<!-- To SE Asia -->
+<line x1="620" y1="200" x2="620" y2="260"/>
+<text x="620" y="275" fill="rgba(155,27,48,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">SE Asia: Territory</text>
+<!-- To Central Asia -->
+<line x1="590" y1="145" x2="500" y2="130"/>
+<text x="480" y="125" fill="rgba(155,27,48,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Central Asia: BRI</text>
+<!-- To Europe -->
+<line x1="570" y1="150" x2="380" y2="120"/>
+<text x="360" y="115" fill="rgba(155,27,48,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Europe: Investment</text>
+<!-- To Middle East -->
+<line x1="580" y1="170" x2="470" y2="190"/>
+<text x="455" y="205" fill="rgba(155,27,48,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Middle East: Energy</text>
+<!-- To Australia -->
+<line x1="640" y1="200" x2="700" y2="300"/>
+<text x="715" y="315" fill="rgba(155,27,48,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Australia: Resources</text>
+</g>
+<!-- USA -->
+<ellipse cx="180" cy="150" rx="50" ry="35" fill="rgba(68,136,238,0.08)" stroke="rgba(68,136,238,0.2)" stroke-width="1"/>
+<text x="180" y="153" fill="rgba(68,136,238,0.6)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="700">USA</text>
+<!-- Competition arrow -->
+<path d="M240,150 L560,155" stroke="rgba(212,162,58,0.2)" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrow)"/>
+<text x="400" y="145" fill="rgba(212,162,58,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle" font-weight="700">STRATEGIC COMPETITION</text>
+<!-- Legend -->
+<rect x="30" y="300" width="180" height="80" rx="5" fill="rgba(10,10,14,0.85)" stroke="rgba(212,162,58,0.08)"/>
+<text x="45" y="318" fill="var(--accent)" font-family="DM Sans" font-size="7" font-weight="700">2049 PROJECTION</text>
+<text x="45" y="334" fill="var(--text2)" font-family="DM Sans" font-size="6.5">China GDP: 2-3x USA</text>
+<text x="45" y="348" fill="var(--text2)" font-family="DM Sans" font-size="6.5">China Military: Parity or above</text>
+<text x="45" y="362" fill="var(--text2)" font-family="DM Sans" font-size="6.5">USD replaced by multi-currency</text>
+<text x="45" y="376" fill="var(--text2)" font-family="DM Sans" font-size="6.5">Chinese norms become global</text>
+</svg>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 10 -->
+<section class="section" id="ch10">
+<div class="ch-header">
+<div class="ch-num">Chapter 10</div>
+<div class="ch-title">Warning Shots <span class="ru">Предупредительные сигналы · 警告信号</span></div>
+<div class="ch-quote">"Better to see once than to hear a hundred times." —Chinese proverb · 百闻不如一见</div>
+</div>
+
+<p>Pillsbury opens with the movie <em>Gravity</em> (2013): the Chinese look like heroes while the Russians are villains — even though it was China, not Russia, that destroyed a satellite and created dangerous debris. Hollywood needs Chinese audiences and therefore portrays China favorably. "Once again, Western elites provide rose-colored glasses when it comes to China."</p>
+
+<h3>Escalating Provocations</h3>
+<p>Starting around 2007, China began a series of increasingly brazen provocations — <strong>warning shots</strong> <span class="ru">предупредительные выстрелы</span> that most of the world overlooked or explained away:</p>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">2007</div><div class="tl-text"><strong>Anti-satellite test:</strong> Destroyed own satellite without warning. Created largest space debris field in history. US was repeatedly told China had no ASAT program.</div></div>
+<div class="tl-item"><div class="tl-year">2009</div><div class="tl-text"><strong>Copenhagen snub:</strong> Premier Wen skipped negotiations, Chinese officials were uncharacteristically rude. Organized secret meeting to block US climate initiatives.</div></div>
+<div class="tl-item"><div class="tl-year">2010</div><div class="tl-text"><strong>Taiwan arms pressure:</strong> Unprecedented combative response to routine arms sale. US backed down on F-16 sale to Taiwan.</div></div>
+<div class="tl-item"><div class="tl-year">2012</div><div class="tl-text"><strong>Scarborough Shoal:</strong> China seized control from the Philippines. Began massive island-building in South China Sea.</div></div>
+<div class="tl-item"><div class="tl-year">2013</div><div class="tl-text"><strong>East China Sea ADIZ:</strong> Unilaterally declared Air Defense Identification Zone overlapping Japanese, Korean, and Taiwanese airspace.</div></div>
+<div class="tl-item"><div class="tl-year">2014-15</div><div class="tl-text"><strong>Island construction:</strong> Built 3,200+ acres of artificial islands with runways, radar, and missile sites. Xi promised Obama he wouldn't militarize them — then did.</div></div>
+</div>
+
+<p>Pillsbury argues these provocations signal that China's leaders believe <strong>shi has shifted decisively in their favor</strong>. The 2008 financial crisis was seen in Beijing as confirming America's decline. Chinese analysts concluded the US economy would never fully recover its dominant position.</p>
+
+<div class="warning-box">
+<p><strong>The pattern is unmistakable:</strong> Each provocation is slightly more brazen than the last. Each time, the US response is muted. Each time China's hawks take note and push further. The Warring States playbook is being executed in real time.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 11 -->
+<section class="section" id="ch11">
+<div class="ch-header">
+<div class="ch-num">Chapter 11</div>
+<div class="ch-title">America as a Warring State <span class="ru">Америка как воюющее государство</span></div>
+<div class="ch-quote">"Steal the firewood from under the cauldron." —The Thirty-Six Stratagems · 釜底抽薪</div>
+</div>
+
+<p>"It's easy to win a race when you're the only one who knows it has begun." Pillsbury's concluding chapter offers <strong>twelve concrete steps</strong> for the United States to compete in the Marathon — drawing, ironically, from the same Warring States strategies China uses against America.</p>
+
+<h3>Twelve Steps to Compete <span class="ru">Двенадцать шагов для конкуренции</span></h3>
+
+<div class="twelve-steps">
+<div class="step-card">
+<div class="step-title">Recognize the Problem <span class="ru">Признать проблему</span></div>
+<div class="step-text">Stop accepting Chinese "messages" at face value. Know what the opponent is trying to make you think. Apply Confucius's principle of <strong>zheng ming</strong> <span class="ru">正名 — называть вещи своими именами</span> — calling things by their correct names.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Keep Track of Your Gifts <span class="ru">Следить за своей помощью</span></div>
+<div class="step-text">A fortune in US tax dollars aids China's rise annually — and no one tracks the total. Congress should require annual reporting from all agencies on assistance to China.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Measure Competitiveness <span class="ru">Измерять конкурентоспособность</span></div>
+<div class="step-text">China produces annual analyses of its competitiveness relative to the US. America does not. The White House should provide Congress with annual comparative assessments of the top ten competitors.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Develop a Competitiveness Strategy <span class="ru">Разработать стратегию</span></div>
+<div class="step-text">China's technological rise is a Sputnik-level challenge. The US needs collaboration between public and private sectors, fiscal reform, innovation investment, and a manufacturing renaissance.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Find Common Ground at Home <span class="ru">Объединиться внутри страны</span></div>
+<div class="step-text">Chinese scholars delight in American internal divisions. Human rights advocates, defense hawks, business groups, and democracy promoters must form a grand coalition — as the Warring States teach: disunity is fatal.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Build a Coalition of Nations <span class="ru">Создать коалицию</span></div>
+<div class="step-text">China's greatest fear is encirclement. The US should encourage cooperation among Mongolia, South Korea, Japan, the Philippines, and other neighbors. Even the threat of such a coalition gives Beijing pause.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Protect Political Dissidents <span class="ru">Защитить диссидентов</span></div>
+<div class="step-text">Cold War dissidents brought down the Soviet Union — with American support. China has Tibetans, Uighurs, 60-100 million Christians, and democracy activists who need the same support.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Stand Up to Competitive Misconduct <span class="ru">Противостоять недобросовестной конкуренции</span></div>
+<div class="step-text">90%+ of cyber espionage against America originates in China. IP theft costs $300B+ per year. The US must go beyond asking China to stop — and impose real consequences.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Identify and Shame Polluters <span class="ru">Выявлять и осуждать загрязнителей</span></div>
+<div class="step-text">China increases emissions by 500M tons/year while the US constrains its own businesses. America must insist on environmental responsibility — not just ask politely.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Expose Corruption and Censorship <span class="ru">Разоблачить коррупцию и цензуру</span></div>
+<div class="step-text">Radio Free Europe helped bring down the Soviet Union. Radio Free Asia needs at least a threefold budget increase. Support Wikipedia and companies that resist Chinese censorship.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Support Pro-Democracy Reformers <span class="ru">Поддержать демократических реформаторов</span></div>
+<div class="step-text">Annual US spending on democracy programs in China is less than $50 million — a tiny fraction of what's needed. Fund rule of law, civil society, election observation, and independent NGOs.</div>
+</div>
+<div class="step-card">
+<div class="step-title">Monitor Hawks vs. Reformers <span class="ru">Отслеживать ястребов и реформаторов</span></div>
+<div class="step-text">The Chinese government is not monolithic. Real reformers exist — but the US intelligence community hasn't invested in identifying them. This remains a "massive intelligence challenge."</div>
+</div>
+</div>
+
+<div class="key-point">
+<p><strong>Pillsbury's ultimate message:</strong> The Marathon can still be won — or at least contested. But only if America first acknowledges that the race exists. China's hawks have been running for 70+ years. America has barely realized it's on the track.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== INTERACTIVE GAMES ========== -->
+<section class="part-header">
+<div class="part-num">Interactive Section</div>
+<div class="part-title">Games & Simulations</div>
+<div class="part-desc">Test your understanding of Chinese strategy and experience the Assassin's Mace war game.</div>
+</section>
+
+<!-- STRATEGY QUIZ -->
+<section class="section" id="quiz">
+<div class="game-container">
+<div class="game-header">
+<span>🧩 Warring States Strategy Quiz · Тест по стратегии Воюющих царств</span>
+<span class="game-score" id="quizScore">Score: 0/0</span>
+</div>
+<div class="game-body" id="quizBody">
+<div class="game-question" id="quizQuestion">Loading question...</div>
+<div class="game-options" id="quizOptions"></div>
+<div class="game-feedback" id="quizFeedback"></div>
+<div style="margin-top:1rem;text-align:center">
+<button class="game-btn" id="quizNext" onclick="nextQuestion()" style="display:none">Next Question →</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WAR GAME SIMULATION -->
+<section class="section" id="wargame">
+<div class="game-container">
+<div class="game-header">
+<span>🎮 Assassin's Mace War Game Simulation · Симуляция «Булавы убийцы»</span>
+<button class="game-btn" onclick="resetWarGame()">Reset</button>
+</div>
+<div class="game-body">
+<p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">You are China's Red Team commander. Deploy <strong>Assassin's Mace</strong> <span class="ru">杀手锏</span> weapons to defeat the US carrier group approaching your coast. Click cells to deploy units, then press "Attack" to see results. <em>Conventional tactics lose. Asymmetric tactics win.</em></p>
+
+<div class="wargame-info">
+<span>🔴 China Forces: <span id="cnForces">5</span> units</span>
+<span>🔵 US Forces: <span id="usForces">4</span> units</span>
+<span>Strategy: <span id="stratLabel">Select</span></span>
+</div>
+
+<div style="margin:.8rem 0;display:flex;gap:.5rem;flex-wrap:wrap">
+<button class="game-btn red" onclick="setStrategy('conventional')" id="btnConv">Conventional 常规</button>
+<button class="game-btn" onclick="setStrategy('assassin')" id="btnAsym">Assassin's Mace 杀手锏</button>
+<button class="game-btn" style="border-color:var(--green);color:var(--green)" onclick="executeAttack()" id="btnAttack">⚔ Execute Attack</button>
+</div>
+
+<div class="wargame-board" id="warBoard"></div>
+<div class="wargame-log" id="warLog"><div>Awaiting orders...</div></div>
+</div>
+</div>
+</section>
+
+<!-- SHI ASSESSMENT GAME -->
+<section class="section">
+<div class="game-container">
+<div class="game-header">
+<span>📊 Shi Assessment Simulator · Симулятор оценки 势 (Ши)</span>
+<span class="game-score" id="shiResult"></span>
+</div>
+<div class="game-body">
+<p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem"><strong>Shi (势)</strong> <span class="ru">Ши — стратегическая обстановка</span> is the overall alignment of forces. Chinese strategists meticulously assess shi before acting. Adjust the sliders to see how different factors shift the strategic balance between the US and China:</p>
+
+<div id="shiSliders">
+<div class="stat-bar" style="margin:1.2rem 0">
+<div class="stat-label" style="min-width:120px">Economic Power</div>
+<input type="range" min="0" max="100" value="45" style="flex:1;accent-color:var(--accent)" oninput="updateShi()">
+<div class="stat-val" style="min-width:80px"><span class="shi-val">45</span>% → China</div>
+</div>
+<div class="stat-bar" style="margin:1.2rem 0">
+<div class="stat-label" style="min-width:120px">Military Balance</div>
+<input type="range" min="0" max="100" value="35" style="flex:1;accent-color:var(--crimson)" oninput="updateShi()">
+<div class="stat-val" style="min-width:80px"><span class="shi-val">35</span>% → China</div>
+</div>
+<div class="stat-bar" style="margin:1.2rem 0">
+<div class="stat-label" style="min-width:120px">Tech Innovation</div>
+<input type="range" min="0" max="100" value="40" style="flex:1;accent-color:var(--blue)" oninput="updateShi()">
+<div class="stat-val" style="min-width:80px"><span class="shi-val">40</span>% → China</div>
+</div>
+<div class="stat-bar" style="margin:1.2rem 0">
+<div class="stat-label" style="min-width:120px">Alliances</div>
+<input type="range" min="0" max="100" value="25" style="flex:1;accent-color:var(--green)" oninput="updateShi()">
+<div class="stat-val" style="min-width:80px"><span class="shi-val">25</span>% → China</div>
+</div>
+<div class="stat-bar" style="margin:1.2rem 0">
+<div class="stat-label" style="min-width:120px">National Will</div>
+<input type="range" min="0" max="100" value="55" style="flex:1;accent-color:var(--accent)" oninput="updateShi()">
+<div class="stat-val" style="min-width:80px"><span class="shi-val">55</span>% → China</div>
+</div>
+</div>
+<div style="text-align:center;margin-top:1.5rem;padding:1.5rem;background:var(--bg3);border-radius:8px">
+<div style="font-family:'DM Sans';font-size:.75rem;color:var(--text2);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem">Overall Shi Assessment · 势 综合评估</div>
+<div id="shiGauge" style="font-family:'JetBrains Mono';font-size:2rem;color:var(--accent);font-weight:700">40% → China</div>
+<div id="shiVerdict" style="font-family:'DM Sans';font-size:.85rem;color:var(--text2);margin-top:.5rem">Balance favors USA, but shi is shifting...</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPREHENSIVE GLOSSARY -->
+<section class="section">
+<h3 style="text-align:center;border:none;padding:0">Key Terms Glossary · Глоссарий ключевых терминов</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin:2rem 0">
+<div class="stratagem"><div class="stratagem-num">百年马拉松</div><div class="stratagem-name">Hundred-Year Marathon</div><div class="stratagem-desc"><span class="ru">Столетний марафон</span> — China's alleged long-term strategy to replace America as global superpower by 2049.</div></div>
+<div class="stratagem"><div class="stratagem-num">鹰派</div><div class="stratagem-name">Ying Pai (Hawks)</div><div class="stratagem-desc"><span class="ru">Ястребы</span> — Nationalist hardliners in China's military and government who drive the Marathon strategy.</div></div>
+<div class="stratagem"><div class="stratagem-num">势</div><div class="stratagem-name">Shi (Strategic Momentum)</div><div class="stratagem-desc"><span class="ru">Ши — стратегическая обстановка</span> — The overall alignment of forces. Constantly assessed by Chinese planners.</div></div>
+<div class="stratagem"><div class="stratagem-num">韬光养晦</div><div class="stratagem-name">Tao Guang Yang Hui</div><div class="stratagem-desc"><span class="ru">Скрывать возможности, выжидать время</span> — "Hide your strength, bide your time." Deng Xiaoping's guiding principle.</div></div>
+<div class="stratagem"><div class="stratagem-num">杀手锏</div><div class="stratagem-name">Shashoujian (Assassin's Mace)</div><div class="stratagem-desc"><span class="ru">Булава убийцы</span> — Secret weapons designed to defeat a stronger opponent through surprise and asymmetry.</div></div>
+<div class="stratagem"><div class="stratagem-num">超限战</div><div class="stratagem-name">Unrestricted Warfare</div><div class="stratagem-desc"><span class="ru">Неограниченная война</span> — PLA doctrine for defeating America through non-military means: cyber, economic, legal.</div></div>
+<div class="stratagem"><div class="stratagem-num">百年耻辱</div><div class="stratagem-name">Century of Humiliation</div><div class="stratagem-desc"><span class="ru">Век унижений</span> — The 1839-1949 period of Western and Japanese domination that fuels Chinese nationalism.</div></div>
+<div class="stratagem"><div class="stratagem-num">中国梦</div><div class="stratagem-name">China Dream</div><div class="stratagem-desc"><span class="ru">Китайская мечта</span> — Xi Jinping's slogan for national rejuvenation and global preeminence by 2049.</div></div>
+<div class="stratagem"><div class="stratagem-num">复兴之路</div><div class="stratagem-name">Fuxing Zhi Lu</div><div class="stratagem-desc"><span class="ru">Путь к возрождению</span> — "Road to Renewal." Xi's signature phrase, adopted from the hawks.</div></div>
+<div class="stratagem"><div class="stratagem-num">三十六计</div><div class="stratagem-name">Thirty-Six Stratagems</div><div class="stratagem-desc"><span class="ru">Тридцать шесть стратагем</span> — Ancient Chinese collection of military deception tactics. Each chapter opens with one.</div></div>
+<div class="stratagem"><div class="stratagem-num">正名</div><div class="stratagem-name">Zheng Ming</div><div class="stratagem-desc"><span class="ru">Называть вещи своими именами</span> — Confucius's principle: call things by their correct names. Foundation of correct strategy.</div></div>
+<div class="stratagem"><div class="stratagem-num">霸</div><div class="stratagem-name">Ba (Hegemon)</div><div class="stratagem-desc"><span class="ru">Гегемон</span> — The dominant power in the Warring States system. Currently the USA; China aims to replace it.</div></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide summarizes <strong>The Hundred-Year Marathon: China's Secret Strategy to Replace America as the Global Superpower</strong></p>
+<p style="margin-top:.3rem">by <strong>Michael Pillsbury</strong>. Published by Henry Holt and Company, 2015.</p>
+<p style="margin-top:.3rem;font-size:.8rem"><span class="ru">Столетний марафон — Тайная стратегия Китая по замещению Америки как мировой сверхдержавы</span></p>
+<p style="margin-top:1rem;font-size:.72rem;color:rgba(212,162,58,.3)">Interactive presentation created for academic discussion · Key terms include Russian translations for reference</p>
+<div class="dragon-line" style="margin:1.5rem auto .5rem"></div>
+<p style="font-size:.7rem;color:rgba(155,27,48,.3)">百年马拉松 · 杀手锏 · 韬光养晦 · 势</p>
+</footer>
+
+<script>
+// === NAV & SCROLL ===
+const nav = document.getElementById('nav');
+const progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+nav.classList.toggle('visible', window.scrollY > 500);
+const h = document.documentElement.scrollHeight - window.innerHeight;
+progressBar.style.width = (window.scrollY / h * 100) + '%';
+});
+
+// === FADE IN ===
+const obs = new IntersectionObserver((entries) => {
+entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.key-point,.warning-box,.concept-box,.stratagem-box,.compare,.weapons,.phases,.map-container,.timeline,.nine-lessons,.twelve-steps,.game-container,.assumptions,h3').forEach(el => {
+el.classList.add('fade-in'); obs.observe(el);
+});
+
+// === STAT BAR ANIMATION ===
+const barObs = new IntersectionObserver((entries) => {
+entries.forEach(e => {
+if(e.isIntersecting) {
+const fill = e.target.querySelector('.stat-fill');
+if(fill && fill.dataset.width) fill.style.width = fill.dataset.width;
+}
+});
+}, { threshold: 0.3 });
+document.querySelectorAll('.stat-bar').forEach(el => barObs.observe(el));
+
+// === QUIZ ===
+const quizData = [
+{q:"What does 'tao guang yang hui' (韬光养晦) actually mean in its Warring States context?",
+ opts:["Bide your time peacefully","Hide strength, plot overthrow of the hegemon","Cooperate with all nations","Seek economic development first"],
+ correct:1, explain:"Beijing translated it as 'bide your time' but in Warring States context it means to hide your strength and prepare to overthrow the dominant power. Перевод: Скрывать возможности, готовиться к свержению гегемона."},
+{q:"What is 'shi' (势) in Chinese strategic thinking?",
+ opts:["Military force","Economic power","Overall alignment of forces / strategic momentum","Political legitimacy"],
+ correct:2, explain:"Shi (势) represents the overall strategic configuration — the momentum and alignment of all forces. Chinese planners constantly assess shi before making moves. Ши — совокупная стратегическая обстановка."},
+{q:"What was the result when China used 'Assassin's Mace' tactics in Pentagon war games?",
+ opts:["The US won every time","China won about half","China won EVERY time","The games were inconclusive"],
+ correct:2, explain:"In 20+ war games, when China used conventional tactics, America won. When China used Assassin's Mace (杀手锏) asymmetric tactics, China won every single time. Когда Китай применял асимметричную тактику 'Булавы убийцы', он побеждал каждый раз."},
+{q:"Who actually initiated the US-China opening in the early 1970s?",
+ opts:["Nixon and Kissinger","The US State Department","China's hawkish military marshals","The Soviet Union"],
+ correct:2, explain:"In 1969, Mao summoned four hawkish army marshals who recommended allying with America against the Soviet Union — a classic Warring States maneuver. Четыре ястреба-маршала предложили союз с Америкой против СССР."},
+{q:"What book did Mao carry during the Long March and read until his death?",
+ opts:["The Art of War by Sun Tzu","The Communist Manifesto","The General Mirror for the Aid of Government (资治通鉴)","Romance of the Three Kingdoms"],
+ correct:2, explain:"The General Mirror (资治通鉴) is a statecraft manual with Warring States lessons about deception, avoiding encirclement, and inducing complacency. Never translated into English. Зерцало всеобщее — руководство по государственному управлению."},
+{q:"How much does intellectual property theft from China cost America annually?",
+ opts:["$30 billion","$100 billion","$300+ billion","$1 trillion"],
+ correct:2, explain:"According to the Commission on the Theft of American Intellectual Property (led by former DNI Dennis Blair), Chinese IP theft costs America $300+ billion per year. Кража интеллектуальной собственности обходится в $300+ млрд в год."},
+{q:"What was the most critical advantage China had during the Nixon opening?",
+ opts:["Nuclear weapons","A spy inside the CIA for 40 years (Larry Chin)","Superior technology","United Nations support"],
+ correct:1, explain:"Larry Wu-Tai Chin was a 40-year CIA employee secretly spying for China, providing classified documents that revealed US planning and weaknesses. Ларри Цзинь — агент КНР в ЦРУ, 40 лет передававший секретные документы."},
+{q:"What percentage of cyber espionage against America originates in China?",
+ opts:["About 30%","About 50%","About 70%","Over 90%"],
+ correct:3, explain:"According to multiple estimates cited by Pillsbury, more than 90% of cyber espionage incidents targeting America originate in China. Более 90% кибершпионажа против Америки исходит из Китая."},
+{q:"What is the goal year of the Hundred-Year Marathon?",
+ opts:["2025","2035","2049","2100"],
+ correct:2, explain:"2049 is the 100th anniversary of the Communist Revolution — the target date for China to surpass America as global hegemon. 2049 — столетие КНР, цель марафона."},
+{q:"What stratagem epigraph opens the Introduction?",
+ opts:["Kill with a borrowed sword","Deceive the heavens to cross the ocean","The guest becomes the owner","Loot a burning house"],
+ correct:1, explain:"瞒天过海 — 'Deceive the heavens to cross the ocean' — means to hide in plain sight, using the opponent's blindness against them. 'Обмануть небеса, чтобы пересечь океан' — спрятаться на виду."}
+];
+let qIdx=0, score=0, total=0;
+function showQuestion(){
+if(qIdx>=quizData.length) qIdx=0;
+const q=quizData[qIdx];
+document.getElementById('quizQuestion').textContent=q.q;
+const opts=document.getElementById('quizOptions');
+opts.innerHTML='';
+q.opts.forEach((o,i)=>{
+const btn=document.createElement('div');
+btn.className='game-option';
+btn.textContent=o;
+btn.onclick=()=>checkAnswer(i,btn);
+opts.appendChild(btn);
+});
+document.getElementById('quizFeedback').className='game-feedback';
+document.getElementById('quizNext').style.display='none';
+}
+function checkAnswer(i,btn){
+total++;
+const q=quizData[qIdx];
+document.querySelectorAll('.game-option').forEach(o=>o.style.pointerEvents='none');
+if(i===q.correct){score++;btn.className='game-option correct';}
+else{btn.className='game-option wrong';document.querySelectorAll('.game-option')[q.correct].className='game-option correct';}
+document.getElementById('quizScore').textContent=`Score: ${score}/${total}`;
+const fb=document.getElementById('quizFeedback');
+fb.textContent=q.explain;
+fb.className='game-feedback show';
+document.getElementById('quizNext').style.display='inline-block';
+}
+function nextQuestion(){qIdx++;showQuestion();}
+showQuestion();
+
+// === WAR GAME ===
+let strategy='conventional';
+let gameState={cn:5,us:4,phase:'setup'};
+function initWarBoard(){
+const board=document.getElementById('warBoard');
+board.innerHTML='';
+const rows=4,cols=8;
+const layout=[
+['land-cn','land-cn','water','water','water','water','water','land-us'],
+['land-cn','land-cn','water','water','water','water','water','land-us'],
+['land-cn','land-cn','water','water','water','water','water','land-us'],
+['land-cn','land-cn','water','water','water','water','water','land-us']
+];
+const units={
+'0,1':'🚀','1,1':'🚀','2,0':'🛡','3,1':'✈',
+'0,7':'🚢','1,6':'🚢','2,7':'✈','3,6':'🚢'
+};
+for(let r=0;r<rows;r++){
+for(let c=0;c<cols;c++){
+const cell=document.createElement('div');
+cell.className='wargame-cell '+layout[r][c];
+cell.dataset.r=r;cell.dataset.c=c;
+const key=r+','+c;
+if(units[key]){
+if(c<3){cell.className='wargame-cell unit-cn';cell.textContent=units[key];}
+else{cell.className='wargame-cell unit-us';cell.textContent=units[key];}
+}
+board.appendChild(cell);
+}
+}
+gameState={cn:5,us:4,phase:'ready'};
+document.getElementById('cnForces').textContent=5;
+document.getElementById('usForces').textContent=4;
+document.getElementById('warLog').innerHTML='<div>Board initialized. Select strategy and attack.</div>';
+}
+function setStrategy(s){
+strategy=s;
+document.getElementById('btnConv').className=s==='conventional'?'game-btn red active':'game-btn red';
+document.getElementById('btnAsym').className=s==='assassin'?'game-btn active':'game-btn';
+document.getElementById('stratLabel').textContent=s==='conventional'?'Conventional 常规':'Assassin\'s Mace 杀手锏';
+}
+function executeAttack(){
+if(gameState.phase==='done')return;
+const log=document.getElementById('warLog');
+log.innerHTML='';
+const addLog=(msg)=>{const d=document.createElement('div');d.innerHTML=msg;log.appendChild(d);}
+if(strategy==='conventional'){
+addLog('🔴 China deploys conventional naval forces...');
+addLog('🔵 US carrier group launches fighters with AWACS support...');
+addLog('🔵 F/A-18s engage Chinese aircraft — US air superiority achieved');
+addLog('🔵 Tomahawk cruise missiles strike Chinese coastal defenses');
+addLog('🔴 Chinese destroyers engaged — 3 sunk by carrier air wing');
+addLog('🔵 US submarine torpedoes Chinese frigate');
+addLog('⚠️ <strong style="color:var(--blue)">US WINS DECISIVELY</strong> — Conventional tactics favor the stronger navy');
+document.getElementById('usForces').textContent='3 (lost 1)';
+document.getElementById('cnForces').textContent='1 (lost 4)';
+}else{
+addLog('🔴 Phase 1: ASAT missile blinds US spy satellites — no ISR coverage');
+addLog('🔴 Phase 2: DF-21D "Carrier Killer" launches at carrier group from 1500km');
+addLog('🔵 US Aegis system attempts intercept — FAILS (hypersonic approach)');
+addLog('💥 <strong style="color:var(--crimson)">USS carrier HIT</strong> — flight deck destroyed, 200+ casualties');
+addLog('🔴 Phase 3: Cyber attack disables CENTCOM communications');
+addLog('🔴 Phase 4: Submarine-launched cruise missiles hit US base on Guam');
+addLog('🔴 Phase 5: EMP weapon degrades electronics on remaining escorts');
+addLog('🔵 US forces retreat beyond second island chain');
+addLog('⚠️ <strong style="color:var(--crimson)">CHINA WINS</strong> — Assassin\'s Mace (杀手锏) asymmetric tactics defeat conventional forces');
+document.getElementById('usForces').textContent='1 (lost 3)';
+document.getElementById('cnForces').textContent='4 (lost 1)';
+}
+// Animate board
+const cells=document.querySelectorAll('.wargame-cell');
+setTimeout(()=>{
+if(strategy==='conventional'){
+cells.forEach(c=>{if(c.className.includes('unit-cn')&&Math.random()>.3)c.classList.add('hit');});
+}else{
+cells.forEach(c=>{if(c.className.includes('unit-us')&&Math.random()>.2)c.classList.add('hit');});
+}
+},500);
+gameState.phase='done';
+}
+function resetWarGame(){
+strategy='conventional';
+document.getElementById('btnConv').className='game-btn red';
+document.getElementById('btnAsym').className='game-btn';
+document.getElementById('stratLabel').textContent='Select';
+initWarBoard();
+}
+initWarBoard();
+
+// === SHI SIMULATOR ===
+function updateShi(){
+const sliders=document.querySelectorAll('#shiSliders input[type="range"]');
+const vals=document.querySelectorAll('.shi-val');
+let total=0;
+sliders.forEach((s,i)=>{
+vals[i].textContent=s.value;
+total+=parseInt(s.value);
+});
+const avg=Math.round(total/sliders.length);
+document.getElementById('shiGauge').textContent=avg+'% → China | '+(100-avg)+'% → USA';
+const v=document.getElementById('shiVerdict');
+if(avg<30)v.textContent='势 strongly favors USA. China should continue hiding capabilities.';
+else if(avg<45)v.textContent='势 leans USA, but gap is closing. China bides time (韬光养晦).';
+else if(avg<55)v.textContent='势 is near equilibrium. Dangerous period — miscalculation most likely.';
+else if(avg<70)v.textContent='势 shifting to China. Hawks argue for more assertive action.';
+else v.textContent='势 strongly favors China. The Marathon enters its final phase.';
+}
+updateShi();
+</script>
+</body>
+</html>

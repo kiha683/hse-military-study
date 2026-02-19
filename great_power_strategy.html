@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Great Power Strategy 大国战略 — Jin Yinan et al.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#08090d;--bg2:#0e1018;--bg3:#151820;--accent:#c9383e;--accent2:#e04848;
+--gold:#d4a853;--gold2:#e8c66a;--text:#d0d0d4;--text2:#8e919c;
+--red:#c9383e;--blue:#3577c5;--green:#2ea66a;--navy:#162d52;--teal:#1a8a7a;
+--crimson:#8b1a1a;--amber:#b8860b;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.85;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+background:linear-gradient(160deg,#08090d 0%,#1a0a0a 30%,#0d0e18 60%,#08090d 100%)}
+.hero::before{content:'';position:absolute;inset:0;
+background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M40 0v80M0 40h80' stroke='%23c9383e' stroke-opacity='0.03' stroke-width='0.5'/%3E%3Ccircle cx='40' cy='40' r='20' stroke='%23d4a853' stroke-opacity='0.02' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E")}
+.hero::after{content:'';position:absolute;inset:0;
+background:radial-gradient(ellipse at 30% 50%,rgba(201,56,62,.08) 0%,transparent 60%),
+radial-gradient(ellipse at 70% 30%,rgba(212,168,83,.05) 0%,transparent 50%)}
+.hero-content{text-align:center;z-index:2;padding:2rem;max-width:950px}
+.hero-china{font-size:clamp(3rem,8vw,7rem);font-weight:900;color:rgba(201,56,62,.15);font-family:'Playfair Display',serif;letter-spacing:.1em;line-height:1}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin:.5rem 0 1rem;
+background:linear-gradient(135deg,var(--gold),#f0d878,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(.85rem,1.8vw,1.2rem);color:var(--text2);letter-spacing:.18em;text-transform:uppercase}
+.hero .author{font-size:1.1rem;color:var(--accent);margin:1.5rem 0;font-style:italic}
+.hero .epigraph{max-width:650px;margin:1.5rem auto;padding:1.2rem 1.5rem;border-left:3px solid var(--accent);text-align:left;color:var(--text2);font-style:italic;font-size:1rem}
+.hero .ru{font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(212,168,83,.5);letter-spacing:.05em}
+.hero .scroll-hint{margin-top:2.5rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.hero .scroll-hint span{display:block;width:2px;height:40px;background:var(--accent);margin:0 auto;opacity:.4}
+
+/* FLOATING NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;display:flex;align-items:center;justify-content:space-between;
+background:rgba(8,9,13,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,56,62,.12);transform:translateY(-100%);transition:transform .3s}
+.nav.visible{transform:translateY(0)}
+.nav-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--gold);font-weight:700}
+.nav-links{display:flex;gap:1rem;flex-wrap:wrap}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--text2);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--accent)}
+
+/* SECTIONS */
+.section{max-width:1020px;margin:0 auto;padding:4rem 2rem}
+.part-header{text-align:center;padding:5rem 2rem;position:relative}
+.part-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;border:1px solid rgba(201,56,62,.1);border-radius:50%}
+.part-header::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border:1px solid rgba(212,168,83,.08);border-radius:50%}
+.part-num{font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.part-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:900;color:#fff;margin:.5rem 0}
+.part-desc{color:var(--text2);max-width:600px;margin:0 auto;font-size:1rem}
+
+.ch-header{margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(201,56,62,.12)}
+.ch-num{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:700;color:#fff;margin:.5rem 0}
+.ch-author{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--gold);margin:.3rem 0}
+.ch-quote{font-style:italic;color:var(--text2);border-left:2px solid var(--accent);padding-left:1rem;margin-top:.8rem;font-size:.92rem}
+.ru-term{font-family:'DM Sans',sans-serif;font-size:.78rem;color:rgba(212,168,83,.6);font-style:normal}
+
+h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin:2.5rem 0 1rem;padding-left:1rem;border-left:3px solid var(--accent)}
+h4{font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--gold);margin:1.8rem 0 .7rem;letter-spacing:.04em}
+p{margin-bottom:1.15rem;font-size:1rem}
+strong{color:#fff;font-weight:600}
+
+/* BOXES */
+.key-point{background:var(--bg3);border:1px solid rgba(201,56,62,.12);border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+.key-point::before{content:'KEY';position:absolute;top:-10px;left:16px;font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;background:var(--accent);color:#fff;padding:2px 10px;border-radius:3px;font-weight:700}
+.key-point p{margin-bottom:.5rem}
+
+.warning-box{background:rgba(201,56,62,.06);border:1px solid rgba(201,56,62,.18);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.warning-box strong{color:var(--accent)}
+
+.concept-box{background:rgba(53,119,197,.05);border:1px solid rgba(53,119,197,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.concept-box strong{color:var(--blue)}
+
+.gold-box{background:rgba(212,168,83,.04);border:1px solid rgba(212,168,83,.15);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.gold-box strong{color:var(--gold)}
+
+/* MAP CONTAINER */
+.map-container{background:var(--bg2);border:1px solid rgba(201,56,62,.1);border-radius:12px;overflow:hidden;margin:2rem 0;position:relative}
+.map-label{font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding:.8rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(201,56,62,.08)}
+.map-svg{width:100%;display:block}
+
+/* COMPARE TABLE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,56,62,.08);border-radius:8px;overflow:hidden;margin:2rem 0}
+.compare-col{background:var(--bg2);padding:1.5rem}
+.compare-col h4{margin-top:0;text-align:center;padding-bottom:.7rem;border-bottom:1px solid rgba(201,56,62,.08)}
+.compare-col.red h4{color:var(--accent)}
+.compare-col.gold h4{color:var(--gold)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:.45rem 0;font-size:.92rem;border-bottom:1px solid rgba(255,255,255,.02)}
+.compare-col li::before{content:'→';color:var(--gold);margin-right:.5rem}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--gold),transparent)}
+.tl-item{margin-bottom:1.8rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);transform:translateX(-4px)}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--accent);font-weight:500}
+.tl-text{font-size:.92rem;color:var(--text2)}
+
+/* PHASES */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.phase{background:var(--bg3);border:1px solid rgba(201,56,62,.08);border-radius:8px;padding:1.3rem;text-align:center;transition:all .3s;cursor:default}
+.phase:hover{border-color:var(--accent);transform:translateY(-2px)}
+.phase-num{font-family:'JetBrains Mono',monospace;font-size:1.8rem;color:var(--accent);font-weight:700}
+.phase-name{font-family:'DM Sans',sans-serif;font-size:.85rem;color:#fff;margin:.4rem 0;font-weight:600}
+.phase-desc{font-size:.82rem;color:var(--text2);line-height:1.5}
+
+/* STAT BARS */
+.stat-bar{margin:.8rem 0;display:flex;align-items:center;gap:.8rem}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text2);min-width:90px;text-align:right}
+.stat-track{flex:1;height:7px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.stat-fill{height:100%;border-radius:4px;transition:width 1.5s ease-out}
+.stat-fill.red{background:linear-gradient(90deg,var(--accent),#e06060)}
+.stat-fill.blue{background:linear-gradient(90deg,var(--blue),#6aa5e0)}
+.stat-fill.gold{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--text2);min-width:55px}
+
+/* WEAPON/INFO CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.card{background:var(--bg3);border:1px solid rgba(201,56,62,.06);border-radius:8px;padding:1.3rem;transition:all .3s}
+.card:hover{border-color:var(--gold);background:var(--bg2)}
+.card-type{font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.card-name{font-family:'Playfair Display',serif;font-size:1.05rem;color:#fff;margin-bottom:.4rem}
+.card-desc{font-size:.88rem;color:var(--text2);line-height:1.6}
+.card-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.6rem;padding:2px 7px;border-radius:3px;margin-top:.4rem;margin-right:.3rem;border:1px solid}
+.tag-strategy{color:var(--gold);border-color:rgba(212,168,83,.3)}
+.tag-military{color:var(--accent);border-color:rgba(201,56,62,.3)}
+.tag-economic{color:var(--green);border-color:rgba(46,166,106,.3)}
+.tag-history{color:var(--blue);border-color:rgba(53,119,197,.3)}
+
+/* TOC */
+.toc{background:var(--bg2);border:1px solid rgba(201,56,62,.08);border-radius:12px;padding:2rem;margin:2rem 0}
+.toc h3{border:none;padding:0;font-size:1.2rem;margin-bottom:1.5rem;color:var(--gold)}
+.toc-part{margin-bottom:1.2rem}
+.toc-part-title{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem}
+.toc-link{display:block;padding:.35rem 0 .35rem 1rem;color:var(--text2);text-decoration:none;font-size:.92rem;border-left:2px solid transparent;transition:all .2s}
+.toc-link:hover{color:var(--gold);border-left-color:var(--accent);padding-left:1.5rem}
+.toc-link .toc-author{font-family:'DM Sans',sans-serif;font-size:.72rem;color:rgba(201,56,62,.5)}
+
+/* GAME / INTERACTIVE */
+.game-container{background:var(--bg2);border:1px solid rgba(212,168,83,.12);border-radius:12px;overflow:hidden;margin:2rem 0}
+.game-header{font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);padding:.8rem 1.5rem;background:var(--bg3);border-bottom:1px solid rgba(212,168,83,.08);display:flex;justify-content:space-between;align-items:center}
+.game-body{padding:1.5rem}
+.game-btn{font-family:'DM Sans',sans-serif;font-size:.75rem;padding:.4rem 1rem;border:1px solid rgba(201,56,62,.3);background:rgba(201,56,62,.08);color:var(--accent);border-radius:4px;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.game-btn:hover{background:var(--accent);color:#fff}
+.game-btn.gold{border-color:rgba(212,168,83,.3);background:rgba(212,168,83,.08);color:var(--gold)}
+.game-btn.gold:hover{background:var(--gold);color:var(--bg)}
+.game-result{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--text);padding:1rem;margin-top:1rem;background:var(--bg3);border-radius:6px;min-height:60px;display:none}
+.game-result.show{display:block}
+
+/* QUIZ */
+.quiz-option{display:block;width:100%;text-align:left;font-family:'Source Serif 4',serif;font-size:.9rem;padding:.7rem 1rem;margin:.4rem 0;border:1px solid rgba(201,56,62,.1);background:var(--bg3);color:var(--text);border-radius:6px;cursor:pointer;transition:all .2s}
+.quiz-option:hover{border-color:var(--gold);background:rgba(212,168,83,.05)}
+.quiz-option.correct{border-color:var(--green);background:rgba(46,166,106,.1);color:var(--green)}
+.quiz-option.wrong{border-color:var(--accent);background:rgba(201,56,62,.1);color:var(--accent)}
+.quiz-score{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gold);margin-top:.5rem}
+
+/* GLOSSARY */
+.glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem;margin:1.5rem 0}
+.gloss-item{background:var(--bg3);border-radius:6px;padding:1rem;border-1px solid rgba(201,56,62,.05)}
+.gloss-zh{font-size:1.1rem;color:var(--accent);font-weight:600}
+.gloss-en{font-size:.88rem;color:#fff;margin:.2rem 0}
+.gloss-ru{font-family:'DM Sans',sans-serif;font-size:.78rem;color:var(--gold);font-style:italic}
+.gloss-def{font-size:.8rem;color:var(--text2);margin-top:.3rem;line-height:1.4}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,56,62,.2),rgba(212,168,83,.15),transparent);margin:3.5rem 0}
+
+/* FOOTER */
+.footer{text-align:center;padding:4rem 2rem;color:var(--text2);font-size:.82rem;background:var(--bg2);border-top:1px solid rgba(201,56,62,.06)}
+.footer strong{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.compare{grid-template-columns:1fr}
+.nav-links{display:none}
+.section{padding:2.5rem 1rem}
+.glossary{grid-template-columns:1fr}
+}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(25px);transition:all .7s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* AUTHOR BADGE */
+.author-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--bg3);border:1px solid rgba(201,56,62,.1);border-radius:6px;padding:.4rem .8rem;margin:.5rem 0}
+.author-badge img{width:28px;height:28px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center}
+.author-badge .ab-name{font-family:'DM Sans',sans-serif;font-size:.8rem;color:#fff;font-weight:600}
+.author-badge .ab-title{font-family:'DM Sans',sans-serif;font-size:.65rem;color:var(--text2)}
+
+/* ANIMATED MAP MARKERS */
+@keyframes pulse{0%,100%{opacity:.6;r:4}50%{opacity:1;r:6}}
+@keyframes dash{to{stroke-dashoffset:0}}
+.pulse-dot{animation:pulse 2s ease-in-out infinite}
+
+/* STRENGTH METER */
+.strength-meter{display:flex;gap:2px;margin:.5rem 0}
+.sm-bar{width:20px;height:6px;border-radius:2px;background:var(--bg3)}
+.sm-bar.filled{background:var(--accent)}
+.sm-bar.gold{background:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+<div class="nav-title">大国战略 — Great Power Strategy</div>
+<div class="nav-links">
+<a href="#toc">Contents</a>
+<a href="#ch1">Security</a>
+<a href="#ch2">Periphery</a>
+<a href="#ch3">Maritime</a>
+<a href="#ch4">Belt & Road</a>
+<a href="#ch5">Sino-Japanese</a>
+<a href="#ch6">Japan's Path</a>
+<a href="#ch7">Taiwan</a>
+<a href="#ch8">Qing Reform</a>
+<a href="#ch9">Martial Spirit</a>
+<a href="#ch10">Courage</a>
+<a href="#game">Game</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="hero-china">大国战略</div>
+<h1>Great Power Strategy</h1>
+<div class="subtitle">The State Strategy: Historical Basis, Realistic Choices & Future Trajectory of China's Grand Decisions</div>
+<div class="ru">Стратегия великой державы — Историческая основа, реальный выбор и будущие тенденции решений Китая</div>
+<div class="author">By Major General Jin Yinan (金一南) et al.<br>
+Edited by the China Military Culture Forum (中国军事文化讲坛)<br>
+Published by China Yanshi Press (中国言实出版社)</div>
+<div class="epigraph">
+"A nation that forgets danger in times of peace, that knows comfort but cannot endure hardship — such a nation stands on the precipice of history without knowing it."
+<br><br>— Jin Yinan, Chapter 1
+</div>
+<div class="epigraph" style="border-color:var(--gold)">
+"The dollar is America's currency, but it is the world's problem."
+<br><br>— Qiao Liang, Chapter 4
+</div>
+<div class="scroll-hint"><span></span></div>
+</div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="section" id="toc">
+<div class="toc">
+<h3>目录 — Table of Contents</h3>
+
+<div class="toc-part">
+<div class="toc-part-title">Strategic Framework — 战略框架</div>
+<a href="#ch1" class="toc-link">Ch. 1: Several Issues on National Security Strategy <span class="toc-author">— Jin Yinan 金一南</span></a>
+<a href="#ch2" class="toc-link">Ch. 2: China's Peripheral Security Under the Great Global Transformation <span class="toc-author">— Wang Baofu 王宝付</span></a>
+<a href="#ch3" class="toc-link">Ch. 3: Opportunities & Challenges of China's Maritime Strategy <span class="toc-author">— Jia Yu 贾宇</span></a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Geopolitical Competition — 地缘博弈</div>
+<a href="#ch4" class="toc-link">Ch. 4: America's Eastward Shift & China's Westward Advance — Belt & Road Grand Strategy <span class="toc-author">— Qiao Liang 乔良</span></a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">Historical Lessons — 历史镜鉴</div>
+<a href="#ch5" class="toc-link">Ch. 5: The Sino-Japanese War: Review & Reflection <span class="toc-author">— Xu Yan 徐焰</span></a>
+<a href="#ch6" class="toc-link">Ch. 6: From Toyotomi Hideyoshi to the Marco Polo Bridge Incident <span class="toc-author">— Lü Yaodong 吕耀东</span></a>
+<a href="#ch7" class="toc-link">Ch. 7: The Taiwan Question: Historical Review & Future Direction <span class="toc-author">— Wang Zaixi 王在希</span></a>
+</div>
+
+<div class="toc-part">
+<div class="toc-part-title">National Spirit — 民族精神</div>
+<a href="#ch8" class="toc-link">Ch. 8: Lessons from Late Qing Military Reform <span class="toc-author">— Shu Jian 舒健</span></a>
+<a href="#ch9" class="toc-link">Ch. 9: Excavating & Recreating the Chinese Martial Spirit <span class="toc-author">— Zhao Pi 赵丕</span></a>
+<a href="#ch10" class="toc-link">Ch. 10: Courage & Responsibility <span class="toc-author">— Dai Xu 戴旭</span></a>
+</div>
+</div>
+
+<!-- KEY GLOSSARY -->
+<h3 style="color:var(--gold);margin-top:3rem">Key Terms — 核心词汇 — Ключевые термины</h3>
+<div class="glossary">
+<div class="gloss-item"><div class="gloss-zh">大国战略</div><div class="gloss-en">Great Power Strategy</div><div class="gloss-ru">Стратегия великой державы</div></div>
+<div class="gloss-item"><div class="gloss-zh">国家安全</div><div class="gloss-en">National Security</div><div class="gloss-ru">Национальная безопасность</div></div>
+<div class="gloss-item"><div class="gloss-zh">周边安全</div><div class="gloss-en">Peripheral Security</div><div class="gloss-ru">Периферийная безопасность</div></div>
+<div class="gloss-item"><div class="gloss-zh">海洋战略</div><div class="gloss-en">Maritime Strategy</div><div class="gloss-ru">Морская стратегия</div></div>
+<div class="gloss-item"><div class="gloss-zh">一带一路</div><div class="gloss-en">Belt and Road Initiative</div><div class="gloss-ru">Инициатива «Один пояс — один путь»</div></div>
+<div class="gloss-item"><div class="gloss-zh">中美博弈</div><div class="gloss-en">U.S.-China Strategic Game</div><div class="gloss-ru">Стратегическая игра США и Китая</div></div>
+<div class="gloss-item"><div class="gloss-zh">甲午战争</div><div class="gloss-en">First Sino-Japanese War (1894-95)</div><div class="gloss-ru">Японо-китайская война 1894–1895</div></div>
+<div class="gloss-item"><div class="gloss-zh">台湾问题</div><div class="gloss-en">The Taiwan Question</div><div class="gloss-ru">Тайваньский вопрос</div></div>
+<div class="gloss-item"><div class="gloss-zh">军事变革</div><div class="gloss-en">Military Reform/Transformation</div><div class="gloss-ru">Военная реформа</div></div>
+<div class="gloss-item"><div class="gloss-zh">尚武精神</div><div class="gloss-en">Martial Spirit</div><div class="gloss-ru">Боевой дух</div></div>
+<div class="gloss-item"><div class="gloss-zh">综合国力</div><div class="gloss-en">Comprehensive National Power</div><div class="gloss-ru">Совокупная национальная мощь</div></div>
+<div class="gloss-item"><div class="gloss-zh">忧患意识</div><div class="gloss-en">Crisis Awareness / Sense of Peril</div><div class="gloss-ru">Осознание угроз</div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART: STRATEGIC FRAMEWORK ===== -->
+<section class="part-header" id="part-strategy">
+<div class="part-num">Part I — 战略框架</div>
+<div class="part-title">Strategic Framework</div>
+<div class="part-desc">China's national security philosophy, peripheral threats, and maritime ambitions — as articulated by three of China's foremost strategic thinkers.</div>
+</section>
+
+<!-- CHAPTER 1: JIN YINAN -->
+<section class="section" id="ch1">
+<div class="ch-header">
+<div class="ch-num">Chapter 1 — 第一章</div>
+<div class="ch-title">Several Issues on National Security Strategy</div>
+<div class="ch-author">Jin Yinan 金一南 — Major General, Professor at China's National Defense University <br><span class="ru-term">Цзинь Инань — генерал-майор, профессор Университета национальной обороны Китая</span></div>
+<div class="ch-quote">"Peace and security are two fundamentally different concepts. Peace means no confrontation, no disturbance. Security means no threats, no harm."</div>
+</div>
+
+<p>Jin Yinan, one of China's most influential military intellectuals, opens the book with a philosophical foundation: <strong>what is national security, and why does a modern nation need a grand strategy?</strong> <span class="ru-term">(Что такое национальная безопасность?)</span></p>
+
+<p>He structures his analysis around three core questions: the nature of the state and security (<strong>国家与国家安全</strong> / <span class="ru-term">государство и национальная безопасность</span>), how a security strategy is formulated (<strong>安全战略的提出与筹划</strong>), and what shapes and threatens that strategy (<strong>安全战略中的塑造和威胁</strong>).</p>
+
+<h3>I. The State and National Security</h3>
+<h4>(一) National Security Rests on the Modern Concept of the State</h4>
+<p>Jin begins with political philosophy: drawing on Hobbes, he argues that the <strong>state</strong> was born not from benevolence but from the need to constrain human violence. The social contract creates a sovereign authority — and that authority's first duty is <strong>security</strong>. Engels argued that the state emerges when class contradictions become irreconcilable.</p>
+
+<p>From this foundation, Jin defines national security as <strong>the degree to which a nation's survival and development are protected from threat</strong>. To survive and develop, a state must effectively maintain security. <span class="ru-term">(Для выживания и развития государство должно обеспечивать безопасность.)</span></p>
+
+<h4>(二) Modern National Security Has Expanded Enormously</h4>
+<p>Traditional security meant military defense. Today it encompasses <strong>political, economic, military, cultural, social, scientific-technological, information, ecological, resource, and nuclear security</strong> — all eleven domains outlined in China's 2014 <strong>National Security Commission</strong> framework. Xi Jinping's <strong>"Overall National Security Concept"</strong> (<strong>总体国家安全观</strong> / <span class="ru-term">Общая концепция национальной безопасности</span>) integrates all these dimensions.</p>
+
+<div class="key-point">
+<p><strong>Jin's core argument:</strong> National security is not merely about defending borders. It requires a comprehensive strategy addressing internal stability, economic resilience, technological independence, and international positioning — simultaneously. A nation that excels in one dimension but neglects others is fundamentally insecure.</p>
+</div>
+
+<h3>II. The Formulation of Security Strategy</h3>
+<h4>(三) Five Essential Elements of National Security Strategy</h4>
+
+<div class="phases">
+<div class="phase"><div class="phase-num">1</div><div class="phase-name">Objectives</div><div class="phase-desc">What does China seek to protect? Sovereignty, territorial integrity, the socialist system, and "development interests" abroad.</div></div>
+<div class="phase"><div class="phase-num">2</div><div class="phase-name">Threats</div><div class="phase-desc">What endangers these objectives? External military pressure, internal instability, separatism, economic dependency.</div></div>
+<div class="phase"><div class="phase-num">3</div><div class="phase-name">Means</div><div class="phase-desc">What instruments are available? Military power, diplomacy, economic leverage, technological innovation, soft power.</div></div>
+<div class="phase"><div class="phase-num">4</div><div class="phase-name">Environment</div><div class="phase-desc">What is the strategic context? U.S. hegemony, multipolarity trend, globalization, regional flashpoints.</div></div>
+<div class="phase"><div class="phase-num">5</div><div class="phase-name">Timing</div><div class="phase-desc">When to act? China's "strategic window of opportunity" is finite — it must build strength before hostile forces consolidate against it.</div></div>
+</div>
+
+<h4>(四) The Soviet Union's Strategic Failures as Cautionary Tale</h4>
+<p>Jin devotes significant attention to the <strong>collapse of the Soviet Union</strong> (<span class="ru-term">распад Советского Союза</span>) as the supreme cautionary example. The USSR's downfall wasn't caused by a foreign invasion — it was caused by <strong>internal contradictions, ideological decay, economic stagnation, and leadership failure</strong>. Gorbachev's reforms destabilized without rebuilding. Jin quotes Putin: <em>"Whoever does not miss the Soviet Union has no heart; whoever wants to bring it back has no brain."</em></p>
+
+<p>The lesson: a great power collapses from within, not from without. China must maintain <strong>ideological cohesion, party discipline, and crisis awareness</strong> (<strong>忧患意识</strong> / <span class="ru-term">осознание угроз</span>) at all times.</p>
+
+<h3>III. Shaping and Threats in Security Strategy</h3>
+<h4>(五) Guarding Against Internal Subversion</h4>
+<p>Jin warns that some scholars within China seek to <strong>"deconstruct" Chinese history and heroes</strong>, portraying the Opium Wars as China's own fault or dismissing national resistance figures. He cites Xi Jinping's warning against those who "smear heroes and distort glorious history." <span class="ru-term">(Си Цзиньпин предостерегает от тех, кто порочит героев.)</span></p>
+
+<h4>(六) Crisis Awareness Awakens Historical Responsibility</h4>
+<p>China is a developing great power that is <strong>still not unified</strong> (referring to Taiwan). Jin states plainly: <em>"What is developing must be developed; what is not yet unified must be unified; what is socialist must be defended; what is a great power must fulfill great power responsibilities."</em> He points out that China is the <strong>only UN Security Council permanent member whose territory is not unified</strong> — a source of deep strategic anxiety.</p>
+
+<div class="warning-box">
+<p><strong>Jin's urgent message:</strong> "Never forget that we remain an un-unified nation. This fact has profound long-term consequences for China's national security, international standing, and the psychology of the Chinese people."</p>
+</div>
+
+<!-- INTERACTIVE: National Security Dimensions Quiz -->
+<div class="game-container">
+<div class="game-header">
+<span>🎯 Interactive Quiz — National Security Dimensions</span>
+<span class="ru-term">Интерактивный тест</span>
+</div>
+<div class="game-body">
+<p style="font-size:.9rem;color:var(--text2);margin-bottom:1rem">Xi Jinping's "Overall National Security Concept" identifies multiple security domains. Which of the following is NOT one of the 11 domains?</p>
+<button class="quiz-option" onclick="checkQuiz(this,'wrong')">A. Ecological Security (生态安全 / Экологическая безопасность)</button>
+<button class="quiz-option" onclick="checkQuiz(this,'wrong')">B. Nuclear Security (核安全 / Ядерная безопасность)</button>
+<button class="quiz-option" onclick="checkQuiz(this,'correct')">C. Cyber-Currency Security (数字货币安全 / Безопасность цифровых валют)</button>
+<button class="quiz-option" onclick="checkQuiz(this,'wrong')">D. Cultural Security (文化安全 / Культурная безопасность)</button>
+<div class="quiz-score" id="q1-result"></div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 2: WANG BAOFU -->
+<section class="section" id="ch2">
+<div class="ch-header">
+<div class="ch-num">Chapter 2 — 第二章</div>
+<div class="ch-title">China's Peripheral Security Under the Great Global Transformation</div>
+<div class="ch-author">Wang Baofu 王宝付 — Senior Colonel, National Defense University <br><span class="ru-term">Ван Баофу — старший полковник, Университет национальной обороны</span></div>
+</div>
+
+<p>Wang Baofu examines the <strong>security environment surrounding China</strong> — the most complex neighborhood of any major power. China borders 14 nations by land and faces 6 across the sea. <span class="ru-term">(Китай граничит с 14 странами по суше и 6 по морю.)</span></p>
+
+<h3>The Great Global Transformation (世界大变局)</h3>
+<p>Wang identifies three <strong>structural shifts</strong> reshaping China's security:</p>
+
+<h4>1. U.S.-China Strategic Competition</h4>
+<p>China's rise poses three fundamental challenges to the United States: <strong>resource competition</strong> (a planet with finite resources now has two superpowers consuming at unprecedented rates), <strong>development model challenge</strong> (China's state-led model achieving results that rival liberal democracy), and <strong>military power growth</strong> (the PLA's rapid modernization directly threatens U.S. regional dominance).</p>
+
+<p>Wang references a <em>Time</em> magazine observation: <em>"Discussing America's decline is one of America's greatest competitive advantages — it keeps standards high."</em> Obama declared: "I will not accept America becoming number two." Kissinger warned after the Cold War: America's global strategy must prevent any single power on the Eurasian continent from challenging U.S. supremacy.</p>
+
+<h4>2. Regional Flashpoints Intensifying</h4>
+
+<!-- MAP: China's Peripheral Security -->
+<div class="map-container">
+<div class="map-label">China's Peripheral Security Challenges — 中国周边安全态势</div>
+<svg class="map-svg" viewBox="0 0 900 550" style="background:#0a0e16">
+<rect width="900" height="550" fill="#0a0e16"/>
+<!-- Grid -->
+<g stroke="rgba(201,56,62,0.03)" stroke-width="0.5">
+<line x1="0" y1="110" x2="900" y2="110"/><line x1="0" y1="220" x2="900" y2="220"/>
+<line x1="0" y1="330" x2="900" y2="330"/><line x1="0" y1="440" x2="900" y2="440"/>
+<line x1="180" y1="0" x2="180" y2="550"/><line x1="360" y1="0" x2="360" y2="550"/>
+<line x1="540" y1="0" x2="540" y2="550"/><line x1="720" y1="0" x2="720" y2="550"/>
+</g>
+<!-- China -->
+<path d="M200,80 L350,60 L480,70 L560,110 L600,90 L650,100 L680,140 L700,200 L680,260 L650,300 L600,340 L550,380 L480,400 L420,420 L350,400 L300,380 L250,350 L220,300 L200,250 L180,200 L190,140Z" fill="#1a1520" stroke="rgba(201,56,62,0.25)" stroke-width="2"/>
+<text x="430" y="230" fill="rgba(201,56,62,0.6)" font-family="Playfair Display" font-size="22" text-anchor="middle" font-weight="900">CHINA</text>
+<text x="430" y="250" fill="rgba(201,56,62,0.3)" font-family="DM Sans" font-size="9" text-anchor="middle">中华人民共和国</text>
+<!-- Russia -->
+<path d="M150,10 L650,10 L700,50 L680,100 L600,90 L480,70 L350,60 L200,80 L180,50Z" fill="#0f1520" stroke="rgba(53,119,197,0.15)" stroke-width="1"/>
+<text x="400" y="40" fill="rgba(53,119,197,0.4)" font-family="DM Sans" font-size="10" text-anchor="middle">RUSSIA / Россия</text>
+<!-- Japan -->
+<path d="M740,130 L760,115 L775,125 L770,165 L755,185 L740,175Z" fill="#151a25" stroke="rgba(212,168,83,0.2)" stroke-width="1"/>
+<text x="758" y="155" fill="rgba(212,168,83,0.5)" font-family="DM Sans" font-size="8" text-anchor="middle">JAPAN</text>
+<!-- Korea -->
+<circle cx="690" cy="170" r="8" fill="#151a25" stroke="rgba(201,56,62,0.2)" stroke-width="1"/>
+<text x="690" y="160" fill="rgba(201,56,62,0.4)" font-family="DM Sans" font-size="7" text-anchor="middle">Korea</text>
+<!-- Taiwan -->
+<ellipse cx="660" cy="340" rx="10" ry="18" fill="#152015" stroke="rgba(46,166,106,0.3)" stroke-width="1.5"/>
+<text x="660" y="340" fill="rgba(46,166,106,0.6)" font-family="DM Sans" font-size="7" text-anchor="middle">Taiwan</text>
+<!-- India -->
+<path d="M180,280 L220,300 L250,350 L240,420 L200,460 L160,440 L140,380 L150,320Z" fill="#0f1520" stroke="rgba(212,168,83,0.12)" stroke-width="1"/>
+<text x="195" y="380" fill="rgba(212,168,83,0.35)" font-family="DM Sans" font-size="10" text-anchor="middle">INDIA</text>
+<!-- SE Asia -->
+<path d="M350,420 L480,400 L520,440 L500,500 L430,520 L360,490 L340,450Z" fill="#0f1520" stroke="rgba(46,166,106,0.1)" stroke-width="1"/>
+<text x="430" y="470" fill="rgba(46,166,106,0.3)" font-family="DM Sans" font-size="9" text-anchor="middle">SE ASIA</text>
+<!-- Philippines -->
+<path d="M620,400 L640,390 L650,420 L640,450 L625,440Z" fill="#151a25" stroke="rgba(212,168,83,0.12)" stroke-width="1"/>
+<text x="637" y="425" fill="rgba(212,168,83,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">Philippines</text>
+
+<!-- FLASHPOINT MARKERS -->
+<!-- South China Sea -->
+<circle class="pulse-dot" cx="580" cy="420" r="5" fill="rgba(201,56,62,0.6)" stroke="rgba(201,56,62,0.3)" stroke-width="2"/>
+<text x="580" y="440" fill="rgba(201,56,62,0.6)" font-family="DM Sans" font-size="7" text-anchor="middle" font-weight="700">SOUTH CHINA SEA</text>
+<text x="580" y="450" fill="rgba(201,56,62,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">南海争端</text>
+
+<!-- East China Sea / Diaoyu -->
+<circle class="pulse-dot" cx="700" cy="260" r="5" fill="rgba(212,168,83,0.6)" stroke="rgba(212,168,83,0.3)" stroke-width="2" style="animation-delay:.5s"/>
+<text x="730" y="260" fill="rgba(212,168,83,0.5)" font-family="DM Sans" font-size="7" font-weight="700">DIAOYU/SENKAKU</text>
+<text x="730" y="270" fill="rgba(212,168,83,0.3)" font-family="DM Sans" font-size="6">钓鱼岛</text>
+
+<!-- Korean Peninsula -->
+<circle class="pulse-dot" cx="690" cy="140" r="5" fill="rgba(201,56,62,0.5)" stroke="rgba(201,56,62,0.3)" stroke-width="2" style="animation-delay:1s"/>
+<text x="720" y="133" fill="rgba(201,56,62,0.5)" font-family="DM Sans" font-size="7" font-weight="700">KOREAN PENINSULA</text>
+<text x="720" y="143" fill="rgba(201,56,62,0.3)" font-family="DM Sans" font-size="6">朝鲜半岛</text>
+
+<!-- Taiwan Strait -->
+<circle class="pulse-dot" cx="660" cy="310" r="5" fill="rgba(46,166,106,0.6)" stroke="rgba(46,166,106,0.3)" stroke-width="2" style="animation-delay:1.5s"/>
+<text x="695" y="310" fill="rgba(46,166,106,0.5)" font-family="DM Sans" font-size="7" font-weight="700">TAIWAN STRAIT</text>
+
+<!-- India border -->
+<circle class="pulse-dot" cx="240" cy="310" r="4" fill="rgba(212,168,83,0.4)" stroke="rgba(212,168,83,0.2)" stroke-width="2" style="animation-delay:2s"/>
+<text x="250" y="300" fill="rgba(212,168,83,0.4)" font-family="DM Sans" font-size="6" font-weight="700">SINO-INDIAN BORDER</text>
+
+<!-- Central Asia -->
+<text x="200" y="130" fill="rgba(53,119,197,0.25)" font-family="DM Sans" font-size="8" text-anchor="middle">Central Asia</text>
+
+<!-- Legend -->
+<rect x="20" y="460" width="200" height="75" rx="5" fill="rgba(10,12,16,0.85)" stroke="rgba(201,56,62,0.1)"/>
+<text x="35" y="478" fill="var(--gold)" font-family="DM Sans" font-size="8" font-weight="700">PERIPHERAL FLASHPOINTS</text>
+<circle cx="35" cy="493" r="4" fill="rgba(201,56,62,0.6)"/><text x="47" y="496" fill="var(--text2)" font-family="DM Sans" font-size="7">Active dispute</text>
+<circle cx="35" cy="510" r="4" fill="rgba(212,168,83,0.5)"/><text x="47" y="513" fill="var(--text2)" font-family="DM Sans" font-size="7">Territorial tension</text>
+<circle cx="35" cy="527" r="4" fill="rgba(46,166,106,0.5)"/><text x="47" y="530" fill="var(--text2)" font-family="DM Sans" font-size="7">Core interest flashpoint</text>
+</svg>
+</div>
+
+<p>Wang identifies <strong>four primary flashpoints</strong>: the <strong>Korean Peninsula</strong> (nuclear crisis / <span class="ru-term">Корейский полуостров</span>), the <strong>Taiwan Strait</strong> (unification question / <span class="ru-term">Тайваньский пролив</span>), <strong>East China Sea</strong> disputes with Japan over Diaoyu/Senkaku islands, and <strong>South China Sea</strong> sovereignty disputes with multiple claimants. <span class="ru-term">(Южно-Китайское море — один из главных конфликтных регионов.)</span></p>
+
+<h4>3. The U.S. Containment Architecture</h4>
+<p>Wang describes how the United States maintains a <strong>crescent-shaped alliance system</strong> around China: from Japan and South Korea in the northeast, through Guam and the Philippines in the southeast, extending to Australia. The U.S. "pivot to Asia" / "rebalance" strategy concentrated 60% of American naval assets in the Pacific — a direct response to China's rise.</p>
+
+<div class="concept-box">
+<p><strong>Wang's strategic assessment:</strong> China faces a historically unprecedented situation — a rising power surrounded by the world's most complex set of security challenges, with the incumbent hegemon actively building a containment architecture. China must simultaneously manage <strong>land borders, maritime disputes, great power competition, and non-traditional threats</strong> like terrorism and cyber warfare. <span class="ru-term">(Китай столкнулся с беспрецедентным набором вызовов безопасности.)</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 3: JIA YU -->
+<section class="section" id="ch3">
+<div class="ch-header">
+<div class="ch-num">Chapter 3 — 第三章</div>
+<div class="ch-title">Opportunities & Challenges of China's Maritime Development Strategy</div>
+<div class="ch-author">Jia Yu 贾宇 — Maritime Strategy Scholar <br><span class="ru-term">Цзя Юй — учёный в области морской стратегии</span></div>
+</div>
+
+<p>Jia Yu traces the evolution of China's maritime consciousness from a <strong>continental civilization</strong> (<strong>大陆文明</strong>) to one that now recognizes the sea as vital to national survival. <span class="ru-term">(Эволюция от континентальной к морской цивилизации.)</span></p>
+
+<h3>The Development of China's Maritime Strategy</h3>
+<h4>(一) From Survival to Development to Strength</h4>
+<p>China's maritime strategy has evolved through three phases:</p>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1949–1980s: Survival (生存)</div><div class="tl-text">As a "continental-maritime composite nation," China faced dual threats: the U.S.-Taiwan blockade from the east and the Soviet threat from the north. Mao Zedong's maritime policy focused on <strong>coastal defense</strong> — "shore defense and naval defense" (岸防和海防). The PLA Navy was built to <strong>resist invasion</strong>, not project power. The 1958 territorial sea declaration claimed 12 nautical miles. The core concern was simply <strong>staying alive</strong>. <span class="ru-term">(Основная задача — выживание.)</span></div></div>
+<div class="tl-item"><div class="tl-year">1980s–2012: Development (发展)</div><div class="tl-text">Deng Xiaoping's reforms opened China to the world — 90% of its trade moved by sea. Admiral Liu Huaqing championed <strong>"offshore defense"</strong> (近海防御), expanding the navy's operational range. China began asserting sovereignty in the South China Sea, established the first island garrison at Yongshu Reef (1988), and signed UNCLOS. Maritime resources — fisheries, seabed minerals, energy — became vital to economic growth. <span class="ru-term">(Морские ресурсы стали жизненно важными.)</span></div></div>
+<div class="tl-item"><div class="tl-year">2012–Present: Strength (强大)</div><div class="tl-text">Xi Jinping declared China a <strong>"maritime power"</strong> (海洋强国) at the 18th Party Congress. The strategy shifted from defensive to <strong>"open seas protection"</strong> (远海护卫), developing blue-water capabilities, building aircraft carriers, and constructing islands in the South China Sea. The 21st Century Maritime Silk Road integrates maritime strategy with the Belt and Road Initiative. <span class="ru-term">(Китай стал морской державой.)</span></div></div>
+</div>
+
+<h3>Key Challenges</h3>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Sovereignty</div>
+<div class="card-name">South China Sea (南海 / Южно-Китайское море)</div>
+<div class="card-desc">China claims sovereignty over the Spratly Islands, Paracel Islands, and the "Nine-Dash Line" area — contested by Vietnam, Philippines, Malaysia, Brunei, and Taiwan. The 2016 Hague Tribunal ruling rejected China's claims, but China refuses to recognize it.</div>
+<div class="card-tag tag-military">Sovereignty</div><div class="card-tag tag-strategy">Core Interest</div>
+</div>
+<div class="card">
+<div class="card-type">Strategic Chokepoint</div>
+<div class="card-name">Malacca Dilemma (马六甲困局)</div>
+<div class="card-desc">80% of China's oil imports pass through the Strait of Malacca. A blockade would cripple the Chinese economy. This vulnerability drives China's "String of Pearls" port strategy and overland energy pipelines.</div>
+<div class="card-tag tag-economic">Economic</div><div class="card-tag tag-military">Vulnerability</div>
+</div>
+<div class="card">
+<div class="card-type">Maritime Rights</div>
+<div class="card-name">UNCLOS & Legal Warfare (法律战)</div>
+<div class="card-desc">China faces an ongoing legal battle over maritime boundaries, historical rights vs. UNCLOS, and freedom of navigation operations by the U.S. Navy. Jia argues China must develop its own legal frameworks for maritime governance.</div>
+<div class="card-tag tag-strategy">Legal</div>
+</div>
+</div>
+
+<!-- MAP: Maritime Strategy -->
+<div class="map-container">
+<div class="map-label">China's Maritime Strategic Vision — 中国海洋战略视野</div>
+<svg class="map-svg" viewBox="0 0 800 450" style="background:#080c14">
+<rect width="800" height="450" fill="#080c14"/>
+<!-- Ocean base -->
+<rect x="200" y="0" width="600" height="450" fill="#0a0f18"/>
+<!-- China coast -->
+<path d="M200,20 L230,50 L220,100 L230,150 L210,200 L220,260 L200,300 L210,350 L190,400 L170,450 L100,450 L100,20Z" fill="#121520" stroke="rgba(201,56,62,0.2)" stroke-width="1.5"/>
+<text x="150" y="230" fill="rgba(201,56,62,0.5)" font-family="DM Sans" font-size="12" text-anchor="middle" font-weight="700">CHINA</text>
+
+<!-- Taiwan -->
+<ellipse cx="310" cy="280" rx="12" ry="22" fill="#131a15" stroke="rgba(46,166,106,0.3)" stroke-width="1"/>
+<text x="310" y="283" fill="rgba(46,166,106,0.5)" font-family="DM Sans" font-size="7" text-anchor="middle">Taiwan</text>
+
+<!-- South China Sea -->
+<text x="350" y="380" fill="rgba(53,119,197,0.2)" font-family="Source Serif 4" font-size="14" text-anchor="middle" font-style="italic">South China Sea</text>
+
+<!-- Nine-Dash Line -->
+<path d="M280,300 Q300,320 290,350 Q280,370 300,390 Q320,410 310,430 Q300,440 340,440 Q360,430 370,400 Q380,370 370,340 Q360,310 350,290 Q340,270 320,260" fill="none" stroke="rgba(201,56,62,0.25)" stroke-width="1.5" stroke-dasharray="8,5"/>
+<text x="330" y="355" fill="rgba(201,56,62,0.35)" font-family="DM Sans" font-size="7" text-anchor="middle">NINE-DASH LINE</text>
+<text x="330" y="365" fill="rgba(201,56,62,0.2)" font-family="DM Sans" font-size="6" text-anchor="middle">九段线</text>
+
+<!-- Malacca Strait -->
+<path d="M180,440 L220,430 L250,440" fill="none" stroke="rgba(212,168,83,0.5)" stroke-width="2"/>
+<circle cx="220" cy="435" r="6" fill="none" stroke="rgba(212,168,83,0.4)" stroke-width="1.5" stroke-dasharray="3,2"/>
+<text x="220" y="420" fill="rgba(212,168,83,0.6)" font-family="DM Sans" font-size="7" text-anchor="middle" font-weight="700">MALACCA STRAIT</text>
+
+<!-- Island Chains -->
+<path d="M500,20 Q450,100 400,180 Q350,260 310,300 Q330,370 360,440" fill="none" stroke="rgba(212,168,83,0.3)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="420" y="200" fill="rgba(212,168,83,0.4)" font-family="DM Sans" font-size="8" transform="rotate(-50,420,200)">FIRST ISLAND CHAIN</text>
+
+<path d="M700,20 Q670,120 650,220 Q630,320 610,440" fill="none" stroke="rgba(212,168,83,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="660" y="250" fill="rgba(212,168,83,0.2)" font-family="DM Sans" font-size="7" transform="rotate(-75,660,250)">SECOND ISLAND CHAIN</text>
+
+<!-- Maritime Silk Road arrows -->
+<path d="M200,350 Q280,380 320,420 Q360,440 400,430 Q500,410 600,400 Q700,390 780,380" fill="none" stroke="rgba(46,166,106,0.2)" stroke-width="2" stroke-dasharray="10,5"/>
+<text x="500" y="425" fill="rgba(46,166,106,0.35)" font-family="DM Sans" font-size="8" text-anchor="middle">21st Century Maritime Silk Road</text>
+
+<!-- Offshore Defense Zone -->
+<path d="M220,80 Q280,60 340,100 Q380,160 360,230 Q340,280 310,300" fill="none" stroke="rgba(53,119,197,0.2)" stroke-width="8" opacity="0.3"/>
+<text x="300" y="170" fill="rgba(53,119,197,0.3)" font-family="DM Sans" font-size="8" text-anchor="middle" transform="rotate(-30,300,170)">OFFSHORE DEFENSE</text>
+<text x="290" y="182" fill="rgba(53,119,197,0.2)" font-family="DM Sans" font-size="6" text-anchor="middle" transform="rotate(-30,290,182)">近海防御</text>
+
+<!-- Legend -->
+<rect x="580" y="30" width="200" height="100" rx="5" fill="rgba(10,12,16,0.85)" stroke="rgba(201,56,62,0.08)"/>
+<text x="595" y="48" fill="var(--gold)" font-family="DM Sans" font-size="7" font-weight="700">MARITIME STRATEGY LAYERS</text>
+<line x1="595" y1="62" x2="620" y2="62" stroke="rgba(201,56,62,0.25)" stroke-width="1.5" stroke-dasharray="8,5"/>
+<text x="628" y="65" fill="var(--text2)" font-family="DM Sans" font-size="6">Nine-Dash Line claim</text>
+<line x1="595" y1="78" x2="620" y2="78" stroke="rgba(212,168,83,0.3)" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="628" y="81" fill="var(--text2)" font-family="DM Sans" font-size="6">Island Chains</text>
+<line x1="595" y1="94" x2="620" y2="94" stroke="rgba(46,166,106,0.3)" stroke-width="2" stroke-dasharray="10,5"/>
+<text x="628" y="97" fill="var(--text2)" font-family="DM Sans" font-size="6">Maritime Silk Road</text>
+<line x1="595" y1="110" x2="620" y2="110" stroke="rgba(53,119,197,0.3)" stroke-width="4" opacity="0.5"/>
+<text x="628" y="113" fill="var(--text2)" font-family="DM Sans" font-size="6">Offshore Defense Zone</text>
+</svg>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART: GEOPOLITICAL COMPETITION ===== -->
+<section class="part-header" id="part-geopolitics">
+<div class="part-num">Part II — 地缘博弈</div>
+<div class="part-title">Geopolitical Competition</div>
+<div class="part-desc">Qiao Liang's provocative analysis of U.S.-China strategic competition through the lens of financial warfare and the Belt and Road Initiative.</div>
+</section>
+
+<!-- CHAPTER 4: QIAO LIANG -->
+<section class="section" id="ch4">
+<div class="ch-header">
+<div class="ch-num">Chapter 4 — 第四章</div>
+<div class="ch-title">America's Eastward Shift & China's Westward Advance</div>
+<div class="ch-author">Qiao Liang 乔良 — Major General, PLA Air Force; co-author of <em>Unrestricted Warfare</em> (超限战) <br><span class="ru-term">Цяо Лян — генерал-майор ВВС НОАК, соавтор «Войны без ограничений»</span></div>
+<div class="ch-quote">"The dollar is America's currency, but it is the world's problem." — paraphrasing John Connally</div>
+</div>
+
+<p>Qiao Liang — famous as co-author of <strong>Unrestricted Warfare</strong> (<strong>超限战</strong> / <span class="ru-term">«Война без ограничений»</span>), the 1999 book that predicted new forms of asymmetric conflict — delivers a masterclass in <strong>financial geopolitics</strong>. His core thesis: the U.S.-China competition is fundamentally about <strong>money, not missiles</strong>.</p>
+
+<h3>The Dollar Cycle: America's Real Weapon</h3>
+<p>Qiao identifies a recurring pattern in global financial history — the <strong>"Dollar Harvest Cycle"</strong> (<span class="ru-term">Цикл «жатвы доллара»</span>):</p>
+
+<div class="phases">
+<div class="phase" style="border-top:3px solid var(--green)">
+<div class="phase-num">①</div>
+<div class="phase-name">Dollar Weak (10 years)</div>
+<div class="phase-desc">The Fed keeps rates low. Cheap dollars flood into developing economies, inflating asset bubbles. These countries experience booming growth.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--accent)">
+<div class="phase-num">②</div>
+<div class="phase-name">Dollar Strong (6 years)</div>
+<div class="phase-desc">The Fed raises rates sharply. Capital flees developing nations back to the U.S. Local currencies collapse. Financial crises erupt.</div>
+</div>
+<div class="phase" style="border-top:3px solid var(--gold)">
+<div class="phase-num">③</div>
+<div class="phase-name">Harvest (美元收割)</div>
+<div class="phase-desc">U.S. capital returns to devastated economies, buying quality assets at rock-bottom prices. America profits enormously. The cycle restarts.</div>
+</div>
+</div>
+
+<h4>Historical Examples of the Dollar Harvest</h4>
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1971–1979: Dollar Weak Phase</div><div class="tl-text">Nixon ends gold convertibility. Cheap dollars flood Latin America, fueling growth. The "Latin American Miracle."</div></div>
+<div class="tl-item"><div class="tl-year">1979–1985: Dollar Strong → Latin American Crisis</div><div class="tl-text">Volcker raises rates to 20%. Capital flees Latin America. Debt crises devastate Mexico, Brazil, Argentina. The dollar index surges from 60 to 120+ (100% rise). U.S. investors buy devastated Latin American assets at basement prices — the first "harvest." <span class="ru-term">(Первая «жатва» — Латинская Америка.)</span></div></div>
+<div class="tl-item"><div class="tl-year">1986–1997: Dollar Weak Phase Again</div><div class="tl-text">Dollars flood into Asia. The "Four Asian Tigers" (四小龙) and "Asian Geese" (亚洲雁阵) boom. Most attribute this to Asian hard work and wisdom — Qiao argues it was really cheap American capital.</div></div>
+<div class="tl-item"><div class="tl-year">1997–2002: Dollar Strong → Asian Financial Crisis</div><div class="tl-text">After 10 years of dollar weakness, the Fed tightens. Capital flees Asia. Thailand, Indonesia, South Korea collapse. U.S. capital returns to buy devastated Asian assets — the second "harvest." <span class="ru-term">(Вторая «жатва» — Азия.)</span></div></div>
+<div class="tl-item"><div class="tl-year">2002–2012: Dollar Weak Phase</div><div class="tl-text">Post-9/11 loose monetary policy. Where does the money go this time? Emerging markets, especially <strong>China</strong>.</div></div>
+<div class="tl-item"><div class="tl-year">2012–?: Dollar Strong → Target: China?</div><div class="tl-text">Qiao argues America planned to "harvest" China next — but China's capital controls and state-managed economy prevented the usual capital flight pattern. <strong>This is why the U.S. shifted to direct confrontation.</strong></div></div>
+</div>
+
+<div class="key-point">
+<p><strong>Qiao Liang's central insight:</strong> Every dollar strong phase requires a <strong>crisis region</strong> to drive capital back to the U.S. Latin America in the 1980s. Asia in 1997. Europe (debt crisis) in 2010. The U.S. planned to make <strong>China's periphery</strong> the next crisis zone — hence the "Pivot to Asia," provocations in the South China Sea, and trade war. When financial warfare failed against China's controlled economy, military pressure became the backup plan.</p>
+</div>
+
+<h3>China's Counter-Strategy: Westward Advance (西进)</h3>
+<p>While America "pivots east" to contain China, China should <strong>"advance west"</strong> — this is the strategic logic behind the <strong>Belt and Road Initiative</strong> (<strong>一带一路</strong> / <span class="ru-term">«Один пояс — один путь»</span>):</p>
+
+<div class="compare">
+<div class="compare-col red">
+<h4>America's Eastward Shift (美国东移)</h4>
+<ul>
+<li>Pivot to Asia / Rebalance strategy</li>
+<li>60% of naval forces to Pacific</li>
+<li>TPP trade agreement excluding China</li>
+<li>Alliance strengthening (Japan, Australia, Philippines)</li>
+<li>Goal: contain China in its near seas</li>
+</ul>
+</div>
+<div class="compare-col gold">
+<h4>China's Westward Advance (中国西进)</h4>
+<ul>
+<li>Belt and Road Initiative (BRI)</li>
+<li>Land corridors bypassing Malacca chokepoint</li>
+<li>AIIB and new financial institutions</li>
+<li>Energy pipelines through Central Asia & Myanmar</li>
+<li>Goal: break containment through the continental interior</li>
+</ul>
+</div>
+</div>
+
+<p>Qiao argues the BRI is not merely an economic program — it is a <strong>grand strategic response to American containment</strong>. By building infrastructure westward through Central Asia to Europe, and southward through Pakistan to the Indian Ocean, China creates alternatives to the sea lanes that the U.S. Navy controls. <span class="ru-term">(Инициатива «Один пояс — один путь» — это стратегический ответ на сдерживание.)</span></p>
+
+<!-- INTERACTIVE: Dollar Cycle Simulator -->
+<div class="game-container">
+<div class="game-header">
+<span>💰 Interactive Simulation — Dollar Harvest Cycle</span>
+<span class="ru-term">Интерактивная симуляция</span>
+</div>
+<div class="game-body">
+<p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">Simulate the Dollar Harvest Cycle. Click "Start Cycle" to see how dollar flows create booms and busts in developing economies.</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap">
+<button class="game-btn gold" onclick="runDollarCycle()">▶ Start Cycle</button>
+<button class="game-btn" onclick="resetDollarCycle()">↻ Reset</button>
+</div>
+<div id="dollarCycle" style="margin-top:1rem">
+<div style="display:flex;gap:1rem;align-items:end;margin:.5rem 0">
+<div style="flex:1">
+<div style="font-family:'DM Sans';font-size:.7rem;color:var(--text2);margin-bottom:.3rem">Dollar Index</div>
+<div style="height:8px;background:var(--bg3);border-radius:4px;overflow:hidden"><div id="dollarBar" style="height:100%;width:50%;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:4px;transition:width 1s"></div></div>
+</div>
+<div id="dollarVal" style="font-family:'JetBrains Mono';font-size:.8rem;color:var(--gold);min-width:40px">85</div>
+</div>
+<div style="display:flex;gap:1rem;align-items:end;margin:.5rem 0">
+<div style="flex:1">
+<div style="font-family:'DM Sans';font-size:.7rem;color:var(--text2);margin-bottom:.3rem">Target Economy Health</div>
+<div style="height:8px;background:var(--bg3);border-radius:4px;overflow:hidden"><div id="econBar" style="height:100%;width:70%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:4px;transition:width 1s"></div></div>
+</div>
+<div id="econVal" style="font-family:'JetBrains Mono';font-size:.8rem;color:var(--green);min-width:40px">70%</div>
+</div>
+<div style="display:flex;gap:1rem;align-items:end;margin:.5rem 0">
+<div style="flex:1">
+<div style="font-family:'DM Sans';font-size:.7rem;color:var(--text2);margin-bottom:.3rem">U.S. Capital Return</div>
+<div style="height:8px;background:var(--bg3);border-radius:4px;overflow:hidden"><div id="capitalBar" style="height:100%;width:10%;background:linear-gradient(90deg,var(--blue),var(--accent));border-radius:4px;transition:width 1s"></div></div>
+</div>
+<div id="capitalVal" style="font-family:'JetBrains Mono';font-size:.8rem;color:var(--blue);min-width:40px">10%</div>
+</div>
+</div>
+<div class="game-result" id="dollarResult"></div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART: HISTORICAL LESSONS ===== -->
+<section class="part-header" id="part-history">
+<div class="part-num">Part III — 历史镜鉴</div>
+<div class="part-title">Historical Lessons</div>
+<div class="part-desc">Three scholars examine the deep historical roots of China's security challenges: the Sino-Japanese War, Japan's continental ambitions, and the Taiwan question.</div>
+</section>
+
+<!-- CHAPTER 5: XU YAN -->
+<section class="section" id="ch5">
+<div class="ch-header">
+<div class="ch-num">Chapter 5 — 第五章</div>
+<div class="ch-title">The Sino-Japanese War: Review & Reflection on the Evolution of Relations</div>
+<div class="ch-author">Xu Yan 徐焰 — Major General, Professor of Military History, NDU <br><span class="ru-term">Сюй Янь — генерал-майор, профессор военной истории</span></div>
+</div>
+
+<p>Xu Yan provides a sweeping historical analysis of Sino-Japanese relations, centered on the <strong>First Sino-Japanese War of 1894–95</strong> (<strong>甲午战争</strong> / <span class="ru-term">Японо-китайская война 1894–1895 гг.</span>) — the event that Xu argues was the most traumatic and transformative moment in modern Chinese history.</p>
+
+<h3>I. From Cultural Exchange to Military Confrontation</h3>
+<p>For over a thousand years, Japan was a <strong>student of Chinese civilization</strong> — importing writing, Buddhism, Confucianism, and governance models. The Tang dynasty's influence on Japanese culture was profound. But after the Meiji Restoration (1868), the relationship reversed: Japan rapidly modernized by adopting Western institutions, while the Qing dynasty stagnated. <span class="ru-term">(После реставрации Мэйдзи отношения между Японией и Китаем изменились.)</span></p>
+
+<h4>The Meiji Miracle vs. Qing Decline</h4>
+<div class="compare">
+<div class="compare-col" style="border-right:2px solid var(--gold)">
+<h4 style="color:var(--gold)">Japan: Meiji Restoration</h4>
+<ul>
+<li>Complete institutional transformation</li>
+<li>Universal education & conscription</li>
+<li>Industrial modernization (富国强兵)</li>
+<li>Constitutional government (1889)</li>
+<li>Modern navy built with British help</li>
+<li>Total societal mobilization for modernization</li>
+</ul>
+</div>
+<div class="compare-col red">
+<h4>China: Late Qing Self-Strengthening</h4>
+<ul>
+<li>Surface-level "borrowing" (中体西用)</li>
+<li>Corrupt bureaucratic implementation</li>
+<li>Military modernization without systemic reform</li>
+<li>Conservative faction blocking change</li>
+<li>Beiyang Fleet: impressive hardware, hollow training</li>
+<li>Reform of tools, not of system</li>
+</ul>
+</div>
+</div>
+
+<h3>II. The Catastrophe of 1894–95</h3>
+<p>The war lasted just 8 months but shattered the illusion of Qing power. The <strong>Battle of the Yalu River</strong> (鸭绿江海战) destroyed the Beiyang Fleet that had been China's pride. The <strong>Treaty of Shimonoseki</strong> (《马关条约》/ <span class="ru-term">Симоносекский договор</span>) forced China to:</p>
+
+<div class="cards">
+<div class="card">
+<div class="card-type">Territorial Loss</div>
+<div class="card-name">Cession of Taiwan & Penghu</div>
+<div class="card-desc">Taiwan was ceded to Japan for 50 years (1895–1945). This began the Taiwan separation that persists today — a direct connection between the 1895 defeat and the modern "Taiwan Question."</div>
+<div class="card-tag tag-history">1895</div>
+</div>
+<div class="card">
+<div class="card-type">Financial Devastation</div>
+<div class="card-name">200 Million Taels Indemnity</div>
+<div class="card-desc">The indemnity equaled several years of Qing government revenue. China had to borrow from Western powers at punishing rates, deepening dependency. Japan used the money to fund further military expansion.</div>
+<div class="card-tag tag-economic">Economic</div>
+</div>
+<div class="card">
+<div class="card-type">Strategic Impact</div>
+<div class="card-name">Triggered the "Scramble for China"</div>
+<div class="card-desc">China's weakness was exposed to the world. Within 3 years, Germany, Russia, Britain, and France had seized ports and "spheres of influence" across China. The "Hundred Years of Humiliation" accelerated.</div>
+<div class="card-tag tag-history">Crisis</div>
+</div>
+</div>
+
+<h3>III. Reform, Resistance, and the Road to Victory</h3>
+<p>Xu argues the defeat was ultimately <strong>transformative</strong>. Liang Qichao wrote: <em>"The great awakening of our nation of four thousand years truly began with the defeat at the Sino-Japanese War and the cession of Taiwan."</em> The defeat sparked the <strong>Hundred Days' Reform</strong> (戊戌变法), the <strong>study-in-Japan movement</strong> (nearly 100,000 Chinese students went to Japan), and ultimately the revolutionary movements that overthrew the Qing. <span class="ru-term">(Поражение стало катализатором реформ.)</span></p>
+
+<p>Japan became China's paradoxical <strong>teacher and tormentor</strong>: Sun Yat-sen, Chiang Kai-shek, Lu Xun, and Deng Xiaoping all learned from Japan's example while fighting against its aggression. Xu notes: <em>"China has always used Japan as the benchmark for its own rise."</em></p>
+
+<div class="key-point">
+<p><strong>Xu Yan's lesson:</strong> The Sino-Japanese War teaches that <strong>military hardware without systemic reform is useless</strong>. The Qing had modern warships but a feudal system. True national strength requires transforming the entire social and political structure — not just buying foreign weapons. This lesson remains directly relevant to China's military modernization today. <span class="ru-term">(Военная техника без системных реформ бесполезна.)</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 6: LÜ YAODONG -->
+<section class="section" id="ch6">
+<div class="ch-header">
+<div class="ch-num">Chapter 6 — 第六章</div>
+<div class="ch-title">From Toyotomi Hideyoshi to the Marco Polo Bridge Incident</div>
+<div class="ch-author">Lü Yaodong 吕耀东 — Scholar of Japanese Studies, Chinese Academy of Social Sciences <br><span class="ru-term">Люй Яодун — исследователь японоведения, КАОН</span></div>
+</div>
+
+<p>Lü Yaodong traces the <strong>ideological roots of Japanese militarism</strong> from the 16th century to 1937, arguing that Japan's aggression against China was not accidental but the product of a centuries-long <strong>"Continental Policy"</strong> (<strong>大陆政策</strong> / <span class="ru-term">«Континентальная политика»</span>).</p>
+
+<h3>The Architects of Expansion</h3>
+
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">1590s — Toyotomi Hideyoshi (丰臣秀吉)</div><div class="tl-text">After unifying Japan, Hideyoshi launched two invasions of Korea (1592, 1597) with the ultimate goal of conquering China's Ming dynasty. Though he failed, his ambition to <strong>"conquer the continent"</strong> planted the seed of the Continental Policy. <span class="ru-term">(Тоётоми Хидэёси — первый архитектор континентальной экспансии.)</span></div></div>
+<div class="tl-item"><div class="tl-year">1823 — Satō Nobuhiro (佐藤信渊)</div><div class="tl-text">Authored <em>Conditions for Conquering China</em> (《宇内混同秘策》), arguing Japan should first seize Manchuria, then all of China. Proposed a detailed invasion plan 70 years before the Sino-Japanese War — considered the intellectual blueprint for later aggression.</div></div>
+<div class="tl-item"><div class="tl-year">1855 — Yoshida Shōin (吉田松阴)</div><div class="tl-text">Teacher of the men who would create Meiji Japan, including Itō Hirobumi and Yamagata Aritomo. Advocated compensating for losses to Western powers by <strong>"taking from neighbors"</strong> — specifically Korea, Manchuria, Taiwan. His students implemented his vision.</div></div>
+<div class="tl-item"><div class="tl-year">1870s — Fukuzawa Yukichi (福泽谕吉)</div><div class="tl-text">Japan's leading intellectual openly advocated <strong>"leaving Asia, joining Europe"</strong> (脱亚入欧) and colonizing Asian neighbors. His <em>Outline of a Theory of Civilization</em> provided intellectual justification for aggression as "civilizing mission." <span class="ru-term">(Фукудзава Юкити: «Покинуть Азию, присоединиться к Европе».)</span></div></div>
+<div class="tl-item"><div class="tl-year">1882 — Yamagata Aritomo (山县有朋)</div><div class="tl-text">The "Father of the Japanese Army" formulated the <strong>"Sovereignty Line / Interest Line" theory</strong>: Japan's security required controlling not just its own territory but an outer ring of "interest" — Korea, Manchuria, and eventually all of China. This became the strategic foundation for 60 years of expansion.</div></div>
+<div class="tl-item"><div class="tl-year">1927 — Tanaka Memorial (田中奏折)</div><div class="tl-text">Allegedly a secret strategy document: <em>"To conquer the world, first conquer China; to conquer China, first conquer Manchuria."</em> Whether authentic or not, Japan's subsequent actions followed this exact sequence. <span class="ru-term">(«Чтобы завоевать мир, сначала надо завоевать Китай».)</span></div></div>
+<div class="tl-item"><div class="tl-year">1937 — Marco Polo Bridge Incident (七七事变)</div><div class="tl-text">Full-scale invasion of China begins. The culmination of 400 years of Continental Policy thinking. <span class="ru-term">(Инцидент на мосту Марко Поло — начало полномасштабной войны.)</span></div></div>
+</div>
+
+<div class="warning-box">
+<p><strong>Lü's warning:</strong> Japan's aggression followed a clear <strong>intellectual-to-policy pipeline</strong> spanning four centuries. Today, Lü argues, the persistence of right-wing historical revisionism in Japan — denial of wartime atrocities, visits to Yasukuni Shrine, attempts to revise Article 9 of the constitution — represents a <strong>potential re-emergence of expansionist thinking</strong> that China must remain vigilant against.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 7: WANG ZAIXI -->
+<section class="section" id="ch7">
+<div class="ch-header">
+<div class="ch-num">Chapter 7 — 第七章</div>
+<div class="ch-title">The Taiwan Question: Historical Review & Future Direction</div>
+<div class="ch-author">Wang Zaixi 王在希 — Former Deputy Director, Taiwan Affairs Office of the State Council <br><span class="ru-term">Ван Цзайси — бывший заместитель директора Канцелярии по делам Тайваня</span></div>
+</div>
+
+<p>Wang Zaixi, who served at the highest levels of China's Taiwan policy apparatus, provides the <strong>official mainland perspective</strong> on the Taiwan question — one of Beijing's "core interests" (<strong>核心利益</strong> / <span class="ru-term">коренные интересы</span>).</p>
+
+<h3>Historical Origins of the Taiwan Question</h3>
+<p>Wang traces the history: Taiwan was first incorporated into Chinese administration during the <strong>Yuan dynasty</strong> (Penghu). The <strong>Qing dynasty</strong> formally administered Taiwan as a prefecture of Fujian Province, then elevated it to a full province in 1885. The 1895 Treaty of Shimonoseki ceded Taiwan to Japan. After Japan's defeat in 1945, Taiwan was <strong>returned to China</strong> under the Cairo Declaration and Potsdam Proclamation. The separation resumed in 1949 when the KMT retreated to Taiwan after losing the civil war.</p>
+
+<h4>The Core Argument</h4>
+<div class="key-point">
+<p>Wang's position is unambiguous: Taiwan is Chinese territory, the separation is a product of civil war and American intervention, and <strong>unification is not a matter of "if" but "when and how."</strong> The People's Republic of China is the sole legitimate government of China, and the Taiwan question is a purely internal affair.</p>
+<p><span class="ru-term">Позиция КНР: Тайвань — это китайская территория, и объединение неизбежно.</span></p>
+</div>
+
+<h3>Current Challenges</h3>
+<p>Wang identifies the <strong>decline of unification sentiment</strong> in Taiwan as the most dangerous trend. Successive DPP administrations have promoted a distinct Taiwanese identity. Only a small minority of Taiwan's population now favors unification. Wang argues this is the result of <strong>"de-sinicization" education</strong> (去中国化) that has distorted Taiwanese youth's understanding of history.</p>
+
+<p>He also addresses the <strong>U.S. factor</strong>: American arms sales to Taiwan, high-level official visits, and congressional legislation (Taiwan Relations Act, TAIPEI Act) are all characterized as <strong>interference in China's internal affairs</strong> and violations of the Three Communiqués.</p>
+
+<div class="concept-box">
+<p><strong>Wang's framework:</strong> China pursues <strong>"peaceful unification, one country two systems"</strong> (和平统一，一国两制) as the preferred approach. However, China has <strong>never renounced the use of force</strong> — the 2005 Anti-Secession Law establishes three triggers: Taiwan independence declaration, exhaustion of peaceful options, or foreign military intervention. Wang warns that the "window for peaceful unification is narrowing." <span class="ru-term">(«Окно для мирного объединения сужается».)</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PART: NATIONAL SPIRIT ===== -->
+<section class="part-header" id="part-spirit">
+<div class="part-num">Part IV — 民族精神</div>
+<div class="part-title">National Spirit</div>
+<div class="part-desc">Three scholars argue that military reform, martial spirit, and national courage are essential to China's survival as a great power.</div>
+</section>
+
+<!-- CHAPTER 8: SHU JIAN -->
+<section class="section" id="ch8">
+<div class="ch-header">
+<div class="ch-num">Chapter 8 — 第八章</div>
+<div class="ch-title">Lessons from Late Qing Military Reform</div>
+<div class="ch-author">Shu Jian 舒健 — Military History Scholar <br><span class="ru-term">Шу Цзянь — исследователь военной истории</span></div>
+</div>
+
+<p>Shu Jian examines why the <strong>Qing dynasty's military modernization</strong> (<strong>晚清军事变革</strong> / <span class="ru-term">военная реформа поздней Цин</span>) ultimately failed despite enormous investment — and what lessons modern China should draw.</p>
+
+<h3>The Failure of "Chinese Learning as Substance, Western Learning for Application"</h3>
+<p>The Qing's <strong>Self-Strengthening Movement</strong> (洋务运动 / <span class="ru-term">Движение самоусиления</span>) attempted to adopt Western military technology while preserving the Confucian-imperial system — summarized in the slogan <strong>"中体西用"</strong> (Chinese essence, Western application). Shu argues this was fundamentally flawed:</p>
+
+<h4>Pre-Opium War Intelligence Failure</h4>
+<p>Shu provides a stunning detail: when the Opium War began in 1840, the <strong>Daoguang Emperor</strong> didn't even know basic facts about Britain — asking ministers: <em>"How large is this country? How many people does it have? Is it adjacent to Russia? Can one travel overland?"</em> A British missionary who had visited China's coast reported: <em>"If we came as enemies, China's entire resistance would not last half an hour."</em> <span class="ru-term">(Император Даогуан не знал даже базовых фактов о Британии.)</span></p>
+
+<h4>The Opium War Delay: 20 Lost Years</h4>
+<p>The defeat in the First Opium War (1840-42) should have been a wake-up call — but the Qing court <strong>delayed military modernization for 20 years</strong> until after the Second Opium War (1860) and the Taiping Rebellion. By contrast, Japan's Meiji Restoration happened immediately after the "Black Ships" crisis (1853).</p>
+
+<h3>Patterns of Failed Reform</h3>
+<div class="phases">
+<div class="phase"><div class="phase-num">1</div><div class="phase-name">Hardware Without Software</div><div class="phase-desc">The Qing bought modern weapons (Krupp cannons, Armstrong warships) but never reformed the command structure, training system, or bureaucracy. Equipment without doctrine is useless.</div></div>
+<div class="phase"><div class="phase-num">2</div><div class="phase-name">Top-Down Corruption</div><div class="phase-desc">Military funds were embezzled at every level. The Beiyang Fleet lacked proper ammunition in 1894 because funds had been diverted to build the Summer Palace for Empress Dowager Cixi.</div></div>
+<div class="phase"><div class="phase-num">3</div><div class="phase-name">Systemic Rigidity</div><div class="phase-desc">Reform threatened entrenched interests. Conservative officials blocked change. Even after defeat in 1895, the "Hundred Days' Reform" was crushed in 103 days by the conservative faction.</div></div>
+<div class="phase"><div class="phase-num">4</div><div class="phase-name">Too Little, Too Late</div><div class="phase-desc">By the time the Qing finally attempted deep reforms (New Policies / 新政, 1901-1911), the dynasty had lost legitimacy. The reformed New Army it created ultimately overthrew the dynasty itself in 1911.</div></div>
+</div>
+
+<div class="warning-box">
+<p><strong>Shu's modern lesson:</strong> Military reform cannot be superficial. Buying advanced weapons while maintaining an outdated system — whether it's the Qing's feudal bureaucracy or modern institutional inertia — guarantees failure. True military transformation requires reforming <strong>doctrine, organization, training, and culture</strong> simultaneously. <span class="ru-term">(Военная реформа должна быть комплексной.)</span></p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 9: ZHAO PI -->
+<section class="section" id="ch9">
+<div class="ch-header">
+<div class="ch-num">Chapter 9 — 第九章</div>
+<div class="ch-title">Excavating & Recreating the Martial Spirit of the Chinese Nation</div>
+<div class="ch-author">Zhao Pi 赵丕 — Professor, National Defense University <br><span class="ru-term">Чжао Пи — профессор Университета национальной обороны</span></div>
+</div>
+
+<p>Zhao Pi addresses what he sees as a cultural crisis: the <strong>decline of martial spirit</strong> (<strong>尚武精神</strong> / <span class="ru-term">боевой дух</span>) in Chinese civilization. He argues that China was once a deeply martial civilization, and that recovering this spirit is essential for national survival.</p>
+
+<h3>China's Lost Martial Heritage</h3>
+<p>Zhao traces Chinese martial culture from its origins: the Yellow Emperor's wars of unification, the Warring States period's military philosophy (Sun Tzu, Wu Qi), the Qin dynasty's iron discipline, the Han dynasty's conquest of the Xiongnu, and the Tang dynasty's military expansion. <span class="ru-term">(Сунь-цзы, Цинь Шихуан, Хань Уди — все они воплощали боевой дух.)</span></p>
+
+<h4>When Martial Spirit Thrived</h4>
+<p>China's most powerful eras — Qin, Han, Tang — were characterized by a balance of <strong>civil accomplishment (文) and martial spirit (武)</strong>. Emperor Wu of Han opened the Silk Road through military conquest. The Tang dynasty projected power across Central Asia. These achievements required a society that <strong>valued military service and strategic thinking</strong>.</p>
+
+<h4>When Martial Spirit Declined</h4>
+<p>Starting from the Song dynasty, Confucian literati increasingly dominated government, promoting a culture that <strong>denigrated military service</strong>. The saying <em>"Good iron is not used to make nails; good men do not become soldiers"</em> (好铁不打钉，好男不当兵) encapsulated this attitude. Zhao argues that each dynasty fell precisely when its martial spirit waned — the Han after defeating the Xiongnu, the Tang after the An Lushan rebellion sapped its fighting spirit, the Song's obsession with civil governance leading to its conquest by the Mongols and later the Manchus.</p>
+
+<div class="gold-box">
+<p><strong>Zhao Pi's thesis:</strong> The catastrophes of the 19th and 20th centuries — Opium Wars, Sino-Japanese War, Eight-Nation Alliance, Japanese invasion — all stemmed from a civilization that had <strong>lost its willingness to fight</strong>. China's modern revival requires not just economic power and military hardware, but a <strong>cultural renaissance of martial spirit</strong> — one that values defense readiness, strategic thinking, and national resolve.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAPTER 10: DAI XU -->
+<section class="section" id="ch10">
+<div class="ch-header">
+<div class="ch-num">Chapter 10 — 第十章</div>
+<div class="ch-title">Courage & Responsibility (血性与担当)</div>
+<div class="ch-author">Dai Xu 戴旭 — Senior Colonel, National Defense University; prominent strategic commentator <br><span class="ru-term">Дай Сюй — старший полковник, стратегический комментатор</span></div>
+</div>
+
+<p>Dai Xu — known for his hawkish public commentary and bestselling books on geopolitics — delivers the book's most impassioned chapter, calling for a return to <strong>"blood courage"</strong> (<strong>血性</strong> / <span class="ru-term">мужество, отвага</span>) in Chinese national character.</p>
+
+<h3>The Historical Sweep of Chinese Courage</h3>
+<p>Dai traces Chinese martial valor through the ages: <strong>Qin Shi Huang's</strong> unification of China using a conscript army of unprecedented discipline; <strong>Emperor Wu of Han's</strong> campaigns against the Xiongnu that opened the Silk Road; the <strong>Tang dynasty's</strong> military expansion that made China the greatest power in the world. Each great era was built by young, ambitious leaders who combined <strong>courage with responsibility</strong>.</p>
+
+<p>The Han dynasty produced <strong>two great legacies</strong>: the Silk Road (a geographic and economic inheritance) and the name "Han" itself (汉族), which came from the courage to fight. But when pacifism and complacency took hold, the empire fragmented — the Three Kingdoms period followed the Han's loss of martial spirit.</p>
+
+<h3>Modern Courage</h3>
+<p>Dai argues that China's modern heroes — from the Long March veterans to the Korean War volunteers to the scientists who built China's nuclear weapons in the desert — all embodied this same <strong>coupling of courage and responsibility</strong>. He warns that today's prosperity risks breeding the same complacency that destroyed previous dynasties. <span class="ru-term">(Процветание порождает самоуспокоенность.)</span></p>
+
+<div class="key-point">
+<p><strong>Dai Xu's message to the nation:</strong> "A great power does not become great through wealth alone. It becomes great through the <strong>courage of its people and the responsibility of its leaders</strong>. China must never again be a wealthy nation that cannot defend itself — that is the fate of the late Qing. Courage without responsibility is recklessness; responsibility without courage is cowardice. Only their union creates true national strength."</p>
+<p><span class="ru-term">«Великая держава становится великой благодаря мужеству своего народа и ответственности лидеров.»</span></p>
+</div>
+
+<!-- Historical Courage Timeline Map -->
+<div class="map-container">
+<div class="map-label">Timeline of Chinese Martial Spirit — 中华尚武精神历史脉络</div>
+<svg class="map-svg" viewBox="0 0 900 200" style="background:#0a0e14">
+<rect width="900" height="200" fill="#0a0e14"/>
+<!-- Timeline axis -->
+<line x1="40" y1="100" x2="860" y2="100" stroke="rgba(201,56,62,0.15)" stroke-width="1"/>
+<!-- Era blocks -->
+<!-- Qin -->
+<rect x="60" y="50" width="60" height="40" rx="4" fill="rgba(201,56,62,0.15)" stroke="rgba(201,56,62,0.3)" stroke-width="1"/>
+<text x="90" y="72" fill="rgba(201,56,62,0.7)" font-family="DM Sans" font-size="8" text-anchor="middle" font-weight="700">QIN</text>
+<text x="90" y="120" fill="var(--text2)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">221 BC</text>
+<line x1="90" y1="90" x2="90" y2="100" stroke="rgba(201,56,62,0.3)" stroke-width="1"/>
+<!-- Strength bars -->
+<rect x="70" y="38" width="40" height="4" rx="2" fill="rgba(201,56,62,0.5)"/>
+
+<!-- Han -->
+<rect x="150" y="40" width="80" height="50" rx="4" fill="rgba(212,168,83,0.12)" stroke="rgba(212,168,83,0.25)" stroke-width="1"/>
+<text x="190" y="65" fill="rgba(212,168,83,0.7)" font-family="DM Sans" font-size="9" text-anchor="middle" font-weight="700">HAN</text>
+<text x="190" y="78" fill="rgba(212,168,83,0.4)" font-family="DM Sans" font-size="6" text-anchor="middle">Silk Road</text>
+<text x="190" y="120" fill="var(--text2)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">206 BC–220 AD</text>
+<rect x="160" y="28" width="60" height="4" rx="2" fill="rgba(212,168,83,0.6)"/>
+
+<!-- Tang -->
+<rect x="300" y="35" width="90" height="55" rx="4" fill="rgba(46,166,106,0.1)" stroke="rgba(46,166,106,0.2)" stroke-width="1"/>
+<text x="345" y="60" fill="rgba(46,166,106,0.7)" font-family="DM Sans" font-size="10" text-anchor="middle" font-weight="700">TANG</text>
+<text x="345" y="75" fill="rgba(46,166,106,0.4)" font-family="DM Sans" font-size="6" text-anchor="middle">Peak Power</text>
+<text x="345" y="120" fill="var(--text2)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">618–907</text>
+<rect x="310" y="23" width="70" height="4" rx="2" fill="rgba(46,166,106,0.6)"/>
+
+<!-- Song — decline begins -->
+<rect x="430" y="60" width="70" height="30" rx="4" fill="rgba(53,119,197,0.08)" stroke="rgba(53,119,197,0.15)" stroke-width="1"/>
+<text x="465" y="78" fill="rgba(53,119,197,0.5)" font-family="DM Sans" font-size="8" text-anchor="middle">SONG</text>
+<text x="465" y="120" fill="var(--text2)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">960–1279</text>
+<text x="465" y="135" fill="rgba(201,56,62,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">⬇ Martial decline</text>
+<rect x="445" y="52" width="40" height="4" rx="2" fill="rgba(53,119,197,0.3)"/>
+
+<!-- Qing decline -->
+<rect x="560" y="70" width="80" height="25" rx="4" fill="rgba(201,56,62,0.06)" stroke="rgba(201,56,62,0.12)" stroke-width="1"/>
+<text x="600" y="86" fill="rgba(201,56,62,0.4)" font-family="DM Sans" font-size="8" text-anchor="middle">LATE QING</text>
+<text x="600" y="120" fill="var(--text2)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">1840–1912</text>
+<text x="600" y="135" fill="rgba(201,56,62,0.4)" font-family="DM Sans" font-size="6" text-anchor="middle">⬇⬇ Lowest point</text>
+<rect x="575" y="66" width="50" height="3" rx="2" fill="rgba(201,56,62,0.2)"/>
+
+<!-- Modern revival -->
+<rect x="700" y="42" width="100" height="48" rx="4" fill="rgba(201,56,62,0.1)" stroke="rgba(201,56,62,0.2)" stroke-width="1"/>
+<text x="750" y="62" fill="rgba(201,56,62,0.6)" font-family="DM Sans" font-size="9" text-anchor="middle" font-weight="700">MODERN PRC</text>
+<text x="750" y="78" fill="rgba(201,56,62,0.35)" font-family="DM Sans" font-size="6" text-anchor="middle">Revival needed</text>
+<text x="750" y="120" fill="var(--text2)" font-family="JetBrains Mono" font-size="7" text-anchor="middle">1949–Present</text>
+<rect x="710" y="30" width="80" height="4" rx="2" fill="rgba(201,56,62,0.4)"/>
+<text x="750" y="25" fill="rgba(212,168,83,0.3)" font-family="DM Sans" font-size="6" text-anchor="middle">↑ Building strength</text>
+
+<!-- Decline arrow -->
+<path d="M230,38 Q350,20 400,25 Q470,35 550,55 Q580,65 600,68" fill="none" stroke="rgba(212,168,83,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+<path d="M600,68 Q650,55 700,40" fill="none" stroke="rgba(46,166,106,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+<!-- Labels -->
+<text x="50" y="170" fill="var(--gold)" font-family="DM Sans" font-size="7" font-weight="700">BAR HEIGHT = RELATIVE MARTIAL STRENGTH</text>
+<text x="50" y="183" fill="var(--text2)" font-family="DM Sans" font-size="6">Dashed line shows the arc from peak → decline → modern revival</text>
+</svg>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== INTERACTIVE GAME SECTION ===== -->
+<section class="section" id="game">
+<div class="ch-header">
+<div class="ch-num">Interactive Section — 互动环节</div>
+<div class="ch-title">Strategic Simulation: Great Power Decision-Making</div>
+</div>
+
+<p>Test your understanding of the book's arguments through interactive simulations and quizzes.</p>
+
+<!-- GAME 1: Strategic Decision Simulator -->
+<div class="game-container">
+<div class="game-header">
+<span>🎮 Strategy Simulation — You Are China's Security Advisor</span>
+<span class="ru-term">Стратегическая симуляция</span>
+</div>
+<div class="game-body">
+<p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">You are advising China's National Security Commission. Choose your response to each crisis scenario. Your decisions affect China's security score across multiple dimensions.</p>
+<div id="scenario-display">
+<p id="scenario-text" style="font-size:1rem;color:#fff;margin-bottom:1rem"><strong>Scenario 1:</strong> The U.S. has announced a new $2B arms sale to Taiwan, including advanced anti-ship missiles. How should China respond?</p>
+<div id="scenario-options">
+<button class="quiz-option" onclick="handleScenario(1,'A')">A. Immediate military exercises near Taiwan Strait — show resolve</button>
+<button class="quiz-option" onclick="handleScenario(1,'B')">B. Diplomatic protest + economic sanctions on U.S. defense contractors</button>
+<button class="quiz-option" onclick="handleScenario(1,'C')">C. Accelerate own military modernization + diplomatic outreach to Taiwan's opposition</button>
+<button class="quiz-option" onclick="handleScenario(1,'D')">D. Demand UN Security Council emergency session</button>
+</div>
+</div>
+<div id="scenario-score" style="margin-top:1rem;display:none">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin:.5rem 0">
+<div style="text-align:center"><div style="font-family:'DM Sans';font-size:.65rem;color:var(--text2)">Military</div><div id="sc-mil" style="font-family:'JetBrains Mono';font-size:1.2rem;color:var(--accent)">50</div></div>
+<div style="text-align:center"><div style="font-family:'DM Sans';font-size:.65rem;color:var(--text2)">Diplomatic</div><div id="sc-dip" style="font-family:'JetBrains Mono';font-size:1.2rem;color:var(--blue)">50</div></div>
+<div style="text-align:center"><div style="font-family:'DM Sans';font-size:.65rem;color:var(--text2)">Economic</div><div id="sc-eco" style="font-family:'JetBrains Mono';font-size:1.2rem;color:var(--green)">50</div></div>
+<div style="text-align:center"><div style="font-family:'DM Sans';font-size:.65rem;color:var(--text2)">Stability</div><div id="sc-stab" style="font-family:'JetBrains Mono';font-size:1.2rem;color:var(--gold)">50</div></div>
+</div>
+</div>
+<div class="game-result" id="scenario-result"></div>
+</div>
+</div>
+
+<!-- GAME 2: Comprehensive Quiz -->
+<div class="game-container" style="margin-top:2rem">
+<div class="game-header">
+<span>📝 Comprehensive Book Quiz — 10 Questions</span>
+<span class="ru-term">Контрольный тест</span>
+</div>
+<div class="game-body">
+<div id="bigQuiz">
+<p id="bq-question" style="font-size:.95rem;color:#fff;margin-bottom:1rem"><strong>Q1/10:</strong> According to Jin Yinan, China is the only UN Security Council permanent member that...</p>
+<div id="bq-options">
+<button class="quiz-option" onclick="bigQuizAnswer(0)">A. Does not possess nuclear submarines</button>
+<button class="quiz-option" onclick="bigQuizAnswer(1)">B. Has not yet achieved national unification</button>
+<button class="quiz-option" onclick="bigQuizAnswer(2)">C. Has never fought a war against another P5 member</button>
+<button class="quiz-option" onclick="bigQuizAnswer(3)">D. Does not maintain overseas military bases</button>
+</div>
+<div class="quiz-score" id="bq-score">Score: 0/0</div>
+</div>
+</div>
+</div>
+
+<!-- GAME 3: Dollar Cycle Matching Game -->
+<div class="game-container" style="margin-top:2rem">
+<div class="game-header">
+<span>🃏 Memory Match — Connect the Historical Events</span>
+<span class="ru-term">Игра на соответствие</span>
+</div>
+<div class="game-body">
+<p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">Match each historical event with its significance in the book. Click pairs to match them.</p>
+<div id="matchGame" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+<div class="quiz-option" onclick="selectMatch(this,'L',0)" data-side="L" data-idx="0" style="font-size:.82rem">Treaty of Shimonoseki (1895)</div>
+<div class="quiz-option" onclick="selectMatch(this,'R',0)" data-side="R" data-idx="0" style="font-size:.82rem;border-color:rgba(212,168,83,.15)">Dollar harvest of Asian economies</div>
+<div class="quiz-option" onclick="selectMatch(this,'L',1)" data-side="L" data-idx="1" style="font-size:.82rem">Asian Financial Crisis (1997)</div>
+<div class="quiz-option" onclick="selectMatch(this,'R',1)" data-side="R" data-idx="1" style="font-size:.82rem;border-color:rgba(212,168,83,.15)">Triggered 100 years of humiliation</div>
+<div class="quiz-option" onclick="selectMatch(this,'L',2)" data-side="L" data-idx="2" style="font-size:.82rem">Meiji Restoration (1868)</div>
+<div class="quiz-option" onclick="selectMatch(this,'R',2)" data-side="R" data-idx="2" style="font-size:.82rem;border-color:rgba(212,168,83,.15)">Japan modernizes, China stagnates</div>
+<div class="quiz-option" onclick="selectMatch(this,'L',3)" data-side="L" data-idx="3" style="font-size:.82rem">Belt & Road Initiative (2013)</div>
+<div class="quiz-option" onclick="selectMatch(this,'R',3)" data-side="R" data-idx="3" style="font-size:.82rem;border-color:rgba(212,168,83,.15)">China's counter to U.S. containment</div>
+</div>
+<div class="quiz-score" id="match-score"></div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONCLUSION -->
+<section class="section">
+<div class="ch-header">
+<div class="ch-num">Conclusion</div>
+<div class="ch-title">The Book's Central Message</div>
+</div>
+
+<div class="key-point">
+<p><strong>大国战略</strong> is ultimately about one question: <strong>How does China navigate the most dangerous period in its modern history?</strong></p>
+<p>The ten scholars — generals, professors, diplomats, and strategists — converge on a unified answer built from four pillars:</p>
+<p><strong>1. Strategic Clarity (战略清醒):</strong> Understand the true nature of threats — military, financial, ideological — without self-deception or complacency.</p>
+<p><strong>2. Historical Wisdom (历史智慧):</strong> Learn from China's own history and from the mistakes of fallen empires (Qing, Soviet Union). <span class="ru-term">(Учиться на ошибках истории.)</span></p>
+<p><strong>3. Comprehensive National Power (综合国力):</strong> Security requires simultaneous strength in military, economic, technological, cultural, and diplomatic dimensions.</p>
+<p><strong>4. National Spirit (民族精神):</strong> No amount of hardware can substitute for a people's willingness to defend their nation. Martial spirit, crisis awareness, courage, and responsibility must be cultivated. <span class="ru-term">(Национальный дух — основа безопасности.)</span></p>
+</div>
+
+<!-- Author Summary -->
+<h3>The Authors at a Glance</h3>
+<div class="cards">
+<div class="card"><div class="card-type">Lead Author</div><div class="card-name">Jin Yinan 金一南</div><div class="card-desc">Major General. China's most famous military intellectual. Specializes in national security strategy and Party-military relations. Bestselling author and media personality.</div><div class="card-tag tag-strategy">NDU Professor</div></div>
+<div class="card"><div class="card-type">Peripheral Security</div><div class="card-name">Wang Baofu 王宝付</div><div class="card-desc">Senior Colonel. Expert on regional security dynamics, U.S.-China relations, and the Asia-Pacific balance of power.</div><div class="card-tag tag-military">NDU</div></div>
+<div class="card"><div class="card-type">Maritime Strategy</div><div class="card-name">Jia Yu 贾宇</div><div class="card-desc">Maritime law and strategy scholar. Expert on South China Sea disputes, UNCLOS, and China's maritime rights.</div><div class="card-tag tag-strategy">CASS</div></div>
+<div class="card"><div class="card-type">Financial Geopolitics</div><div class="card-name">Qiao Liang 乔良</div><div class="card-desc">Major General, PLA Air Force. Co-author of the landmark Unrestricted Warfare (1999). Known for provocative strategic analysis.</div><div class="card-tag tag-military">PLAAF</div></div>
+<div class="card"><div class="card-type">Military History</div><div class="card-name">Xu Yan 徐焰</div><div class="card-desc">Major General. China's leading military historian. Expert on Sino-Japanese War, Korean War, and modern Chinese military history.</div><div class="card-tag tag-history">NDU Professor</div></div>
+<div class="card"><div class="card-type">Japanese Studies</div><div class="card-name">Lü Yaodong 吕耀东</div><div class="card-desc">Japan specialist at the Chinese Academy of Social Sciences. Expert on Japanese political history and Sino-Japanese relations.</div><div class="card-tag tag-history">CASS</div></div>
+<div class="card"><div class="card-type">Taiwan Affairs</div><div class="card-name">Wang Zaixi 王在希</div><div class="card-desc">Former Deputy Director of the State Council Taiwan Affairs Office. One of China's most senior officials on cross-strait policy.</div><div class="card-tag tag-strategy">State Council</div></div>
+<div class="card"><div class="card-type">Qing Military</div><div class="card-name">Shu Jian 舒健</div><div class="card-desc">Military reform scholar specializing in the lessons of the Qing dynasty's failed modernization efforts.</div><div class="card-tag tag-history">Military History</div></div>
+<div class="card"><div class="card-type">Martial Culture</div><div class="card-name">Zhao Pi 赵丕</div><div class="card-desc">NDU professor specializing in Chinese military culture, martial traditions, and the relationship between national spirit and defense capability.</div><div class="card-tag tag-history">NDU Professor</div></div>
+<div class="card"><div class="card-type">Strategic Commentary</div><div class="card-name">Dai Xu 戴旭</div><div class="card-desc">Senior Colonel. Outspoken hawkish commentator and bestselling author. Known for provocative media appearances on China's strategic challenges.</div><div class="card-tag tag-military">NDU</div></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>This interactive guide presents <strong>《大国战略》(Great Power Strategy)</strong> by Jin Yinan (金一南) et al.</p>
+<p style="margin-top:.5rem">Published by China Yanshi Press (中国言实出版社). Edited by the China Military Culture Forum (中国军事文化讲坛).</p>
+<p style="margin-top:.5rem"><span class="ru-term">Интерактивное пособие по книге «Стратегия великой державы»</span></p>
+<p style="margin-top:1rem;font-size:.72rem;color:rgba(201,56,62,.3)">Interactive educational presentation • 学术交流用途</p>
+</footer>
+
+<script>
+// === NAV VISIBILITY ===
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+nav.classList.toggle('visible', window.scrollY > 500);
+});
+
+// === FADE-IN OBSERVER ===
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.key-point,.warning-box,.concept-box,.gold-box,.compare,.cards,.phases,.map-container,.timeline,.game-container,h3').forEach(el => {
+el.classList.add('fade-in');
+observer.observe(el);
+});
+
+// === QUIZ FUNCTION ===
+function checkQuiz(btn, type) {
+const parent = btn.parentElement;
+parent.querySelectorAll('.quiz-option').forEach(b => b.disabled = true);
+btn.classList.add(type);
+const resultEl = parent.querySelector('.quiz-score');
+if(resultEl) {
+resultEl.textContent = type === 'correct' ? '✓ Correct! Cyber-Currency Security is not among the original 11 domains.' : '✗ That is actually one of the 11 domains. The correct answer is C — Cyber-Currency Security.';
+resultEl.style.color = type === 'correct' ? 'var(--green)' : 'var(--accent)';
+}
+if(type === 'wrong') {
+parent.querySelectorAll('.quiz-option').forEach(b => {
+if(b.getAttribute('onclick')?.includes("'correct'")) b.classList.add('correct');
+});
+}
+}
+
+// === DOLLAR CYCLE SIMULATOR ===
+let cycleStep = 0;
+const cycleSteps = [
+{dollar:35,econ:85,capital:5,text:'💵 Phase 1: Dollar WEAK. Cheap money floods into developing economy. Asset prices soar. GDP booms. Everyone celebrates the "economic miracle."'},
+{dollar:40,econ:90,capital:5,text:'📈 Boom continues. Foreign investment pours in. Real estate prices double. Stock market at all-time highs. Local currency strong.'},
+{dollar:65,econ:75,capital:20,text:'⚠️ Phase 2: Fed RAISES RATES. Dollar strengthens. Smart money begins fleeing the developing economy. Currency under pressure.'},
+{dollar:85,econ:40,capital:55,text:'📉 CRISIS! Capital flight accelerates. Currency collapses 40%. Stock market crashes. Banks fail. IMF bailout conditions imposed.'},
+{dollar:90,econ:25,capital:75,text:'💀 Phase 3: HARVEST. U.S. capital returns to buy devastated assets at 20 cents on the dollar. Factories, banks, real estate — all acquired cheaply.'},
+{dollar:60,econ:45,capital:30,text:'🔄 Cycle resets. Dollar weakens again, ready for the next target. The developing economy slowly recovers — but its best assets now have American owners.'}
+];
+
+function runDollarCycle() {
+if(cycleStep >= cycleSteps.length) { cycleStep = 0; }
+const s = cycleSteps[cycleStep];
+document.getElementById('dollarBar').style.width = s.dollar + '%';
+document.getElementById('dollarVal').textContent = Math.round(60 + s.dollar * 0.8);
+document.getElementById('econBar').style.width = s.econ + '%';
+document.getElementById('econVal').textContent = s.econ + '%';
+document.getElementById('capitalBar').style.width = s.capital + '%';
+document.getElementById('capitalVal').textContent = s.capital + '%';
+const result = document.getElementById('dollarResult');
+result.textContent = s.text;
+result.classList.add('show');
+document.getElementById('econBar').style.background = s.econ > 60 ? 'linear-gradient(90deg,var(--green),#60d090)' : s.econ > 40 ? 'linear-gradient(90deg,var(--gold),var(--gold2))' : 'linear-gradient(90deg,var(--accent),#e06060)';
+document.getElementById('econVal').style.color = s.econ > 60 ? 'var(--green)' : s.econ > 40 ? 'var(--gold)' : 'var(--accent)';
+cycleStep++;
+}
+
+function resetDollarCycle() {
+cycleStep = 0;
+document.getElementById('dollarBar').style.width = '50%';
+document.getElementById('dollarVal').textContent = '85';
+document.getElementById('econBar').style.width = '70%';
+document.getElementById('econBar').style.background = 'linear-gradient(90deg,var(--accent),var(--green))';
+document.getElementById('econVal').textContent = '70%';
+document.getElementById('econVal').style.color = 'var(--green)';
+document.getElementById('capitalBar').style.width = '10%';
+document.getElementById('capitalVal').textContent = '10%';
+document.getElementById('dollarResult').classList.remove('show');
+}
+
+// === SCENARIO GAME ===
+let scores = {mil:50, dip:50, eco:50, stab:50};
+let scenarioNum = 1;
+const scenarios = [
+{q:'<strong>Scenario 1:</strong> The U.S. has announced a new $2B arms sale to Taiwan, including advanced anti-ship missiles. How should China respond?',
+opts:['A. Immediate military exercises near Taiwan Strait — show resolve','B. Diplomatic protest + economic sanctions on U.S. defense contractors','C. Accelerate own military modernization + diplomatic outreach to Taiwan opposition','D. Demand UN Security Council emergency session'],
+effects:[{mil:15,dip:-10,eco:-5,stab:-10},{mil:0,dip:5,eco:-5,stab:5},{mil:10,dip:10,eco:0,stab:10},{mil:-5,dip:-5,eco:0,stab:0}],
+feedback:['Bold but risks escalation. Military credibility rises but diplomatic relations suffer.','Measured response. Applies economic pressure without military risk.','Most comprehensive approach. Builds long-term strength while seeking political leverage. This aligns with the book\'s emphasis on comprehensive national power.','The UN cannot act on this — China or the U.S. would veto. Ineffective.']},
+{q:'<strong>Scenario 2:</strong> A major financial crisis erupts in Southeast Asia (Qiao Liang\'s "dollar harvest" scenario). Capital is fleeing the region. What should China do?',
+opts:['A. Offer bilateral currency swaps and emergency loans through AIIB','B. Devalue the yuan to protect Chinese exports','C. Close capital markets and impose strict controls','D. Do nothing — let the market sort itself out'],
+effects:[{mil:0,dip:15,eco:5,stab:10},{mil:0,dip:-15,eco:5,stab:-5},{mil:0,dip:-5,eco:-10,stab:5},{mil:0,dip:-10,eco:-5,stab:-10}],
+feedback:['Excellent! This builds regional goodwill and counters U.S. financial influence — exactly Qiao Liang\'s recommended approach.','Beggar-thy-neighbor policy. Damages relationships with the very nations China needs as partners.','Protects China short-term but signals weakness and isolation.','Allows the U.S. to harvest the region\'s assets unopposed. A strategic failure.']},
+{q:'<strong>Scenario 3:</strong> Japan announces it will revise Article 9 of its constitution and double defense spending. Chinese public opinion demands a strong response. What do you advise?',
+opts:['A. Massive naval exercises near Diaoyu/Senkaku islands','B. Issue strong diplomatic protest + build international coalition opposing remilitarization','C. Accelerate China\'s own military modernization + strengthen ties with South Korea','D. Launch economic sanctions against Japan'],
+effects:[{mil:10,dip:-15,eco:-5,stab:-10},{mil:0,dip:10,eco:0,stab:5},{mil:10,dip:10,eco:5,stab:10},{mil:0,dip:-10,eco:-15,stab:-5}],
+feedback:['Shows force but risks conflict and pushes Japan closer to the U.S.','Diplomatic approach — but may not satisfy domestic opinion.','The most strategically sound response. Builds strength without provocation, and drives a wedge between U.S. allies. Consistent with Lü Yaodong\'s long-term perspective.','Economic interdependence makes sanctions costly for both sides.']}
+];
+
+function handleScenario(num, choice) {
+const idx = 'ABCD'.indexOf(choice);
+const sc = scenarios[num-1];
+const fx = sc.effects[idx];
+scores.mil = Math.max(0,Math.min(100,scores.mil + fx.mil));
+scores.dip = Math.max(0,Math.min(100,scores.dip + fx.dip));
+scores.eco = Math.max(0,Math.min(100,scores.eco + fx.eco));
+scores.stab = Math.max(0,Math.min(100,scores.stab + fx.stab));
+
+document.getElementById('sc-mil').textContent = scores.mil;
+document.getElementById('sc-dip').textContent = scores.dip;
+document.getElementById('sc-eco').textContent = scores.eco;
+document.getElementById('sc-stab').textContent = scores.stab;
+document.getElementById('scenario-score').style.display = 'block';
+
+const result = document.getElementById('scenario-result');
+result.textContent = sc.feedback[idx];
+result.classList.add('show');
+
+// Disable current options
+document.querySelectorAll('#scenario-options .quiz-option').forEach(b => b.disabled = true);
+
+// Load next scenario after delay
+scenarioNum++;
+if(scenarioNum <= scenarios.length) {
+setTimeout(() => {
+const nextSc = scenarios[scenarioNum-1];
+document.getElementById('scenario-text').innerHTML = nextSc.q;
+const optDiv = document.getElementById('scenario-options');
+optDiv.innerHTML = nextSc.opts.map((o,i) => `<button class="quiz-option" onclick="handleScenario(${scenarioNum},'${'ABCD'[i]}')">${o}</button>`).join('');
+result.classList.remove('show');
+}, 3000);
+} else {
+setTimeout(() => {
+const total = scores.mil + scores.dip + scores.eco + scores.stab;
+const avg = Math.round(total / 4);
+let grade = avg > 75 ? 'Strategic Master (战略大师)' : avg > 55 ? 'Capable Advisor (合格参谋)' : 'Needs More Study (需要再学习)';
+result.textContent = `Final Score: ${avg}/100 — ${grade}. The book argues that the best strategy balances all four dimensions simultaneously.`;
+}, 3000);
+}
+}
+
+// === BIG QUIZ ===
+const quizData = [
+{q:'<strong>Q1/10:</strong> According to Jin Yinan, China is the only UN Security Council permanent member that...',opts:['Does not possess nuclear submarines','Has not yet achieved national unification','Has never fought a war against another P5 member','Does not maintain overseas military bases'],correct:1},
+{q:'<strong>Q2/10:</strong> Qiao Liang\'s "Dollar Harvest Cycle" describes a pattern of approximately...',opts:['5 years weak, 5 years strong','10 years weak, 6 years strong','15 years weak, 10 years strong','3 years weak, 3 years strong'],correct:1},
+{q:'<strong>Q3/10:</strong> The Treaty of Shimonoseki (1895) forced China to cede which territory to Japan?',opts:['Hong Kong and Macau','Manchuria','Taiwan and the Penghu Islands','Hainan Island'],correct:2},
+{q:'<strong>Q4/10:</strong> Yamagata Aritomo\'s strategic theory divided Japan\'s security interests into...',opts:['Naval power and land power','Sovereignty Line and Interest Line','Eastern hemisphere and Western hemisphere','Economic zone and military zone'],correct:1},
+{q:'<strong>Q5/10:</strong> What percentage of China\'s oil imports pass through the Strait of Malacca?',opts:['About 50%','About 60%','About 80%','About 95%'],correct:2},
+{q:'<strong>Q6/10:</strong> The Qing\'s Self-Strengthening Movement failed because it adopted the principle of...',opts:['Complete Westernization','Chinese essence, Western application (中体西用)','Military first, economy second','Isolationism and self-reliance'],correct:1},
+{q:'<strong>Q7/10:</strong> According to the book, the Belt and Road Initiative (BRI) is strategically a response to...',opts:['Climate change','U.S. containment / Pivot to Asia','Russia\'s expansion','The European debt crisis'],correct:1},
+{q:'<strong>Q8/10:</strong> Xi Jinping\'s "Overall National Security Concept" covers how many security domains?',opts:['5','8','11','15'],correct:2},
+{q:'<strong>Q9/10:</strong> Zhao Pi argues that China\'s martial spirit declined most dramatically beginning in which dynasty?',opts:['Han dynasty','Tang dynasty','Song dynasty','Ming dynasty'],correct:2},
+{q:'<strong>Q10/10:</strong> What does the book identify as the biggest lesson from the collapse of the Soviet Union?',opts:['Nuclear weapons are insufficient deterrence','Great powers collapse from internal decay, not external invasion','Economic sanctions can destroy a superpower','Alliance systems are unreliable'],correct:1}
+];
+let bqIdx = 0, bqCorrect = 0, bqTotal = 0;
+
+function bigQuizAnswer(choice) {
+const q = quizData[bqIdx];
+bqTotal++;
+const opts = document.querySelectorAll('#bq-options .quiz-option');
+opts.forEach(b => b.disabled = true);
+if(choice === q.correct) {
+opts[choice].classList.add('correct');
+bqCorrect++;
+} else {
+opts[choice].classList.add('wrong');
+opts[q.correct].classList.add('correct');
+}
+document.getElementById('bq-score').textContent = `Score: ${bqCorrect}/${bqTotal}`;
+
+bqIdx++;
+if(bqIdx < quizData.length) {
+setTimeout(() => {
+const nq = quizData[bqIdx];
+document.getElementById('bq-question').innerHTML = nq.q;
+const optDiv = document.getElementById('bq-options');
+optDiv.innerHTML = nq.opts.map((o,i) => `<button class="quiz-option" onclick="bigQuizAnswer(${i})">${o}</button>`).join('');
+}, 1500);
+} else {
+setTimeout(() => {
+const pct = Math.round(bqCorrect/bqTotal*100);
+let msg = pct >= 80 ? '🏆 Excellent! You have a deep understanding of the book.' : pct >= 50 ? '📚 Good effort. Review the chapters you missed.' : '📖 Consider re-reading the chapters above for a more thorough understanding.';
+document.getElementById('bq-question').innerHTML = `<strong>Final Score: ${bqCorrect}/${bqTotal} (${pct}%)</strong><br>${msg}`;
+document.getElementById('bq-options').innerHTML = '';
+}, 1500);
+}
+}
+
+// === MATCH GAME ===
+let matchSelected = null;
+let matchCorrect = {0:1, 1:0, 2:2, 3:3}; // L0→R1, L1→R0, L2→R2, L3→R3
+let matchFound = 0;
+
+function selectMatch(el, side, idx) {
+if(el.classList.contains('correct')) return;
+if(matchSelected && matchSelected.side === side) {
+matchSelected.el.style.background = '';
+matchSelected = {el, side, idx};
+el.style.background = 'rgba(212,168,83,0.15)';
+return;
+}
+if(!matchSelected) {
+matchSelected = {el, side, idx};
+el.style.background = 'rgba(212,168,83,0.15)';
+} else {
+let leftIdx, rightIdx;
+if(matchSelected.side === 'L') { leftIdx = matchSelected.idx; rightIdx = idx; }
+else { leftIdx = idx; rightIdx = matchSelected.idx; }
+
+if(matchCorrect[leftIdx] === rightIdx) {
+matchSelected.el.classList.add('correct');
+el.classList.add('correct');
+matchFound++;
+document.getElementById('match-score').textContent = `Matched: ${matchFound}/4` + (matchFound === 4 ? ' — All correct! 🎉' : '');
+} else {
+matchSelected.el.style.background = 'rgba(201,56,62,0.1)';
+el.style.background = 'rgba(201,56,62,0.1)';
+setTimeout(() => {
+matchSelected.el.style.background = '';
+el.style.background = '';
+}, 600);
+}
+matchSelected = null;
+}
+}
+</script>
+</body>
+</html>
