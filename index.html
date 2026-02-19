@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>軍事理論課程 — 非對稱戰爭書籍導覽</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Military Study Group — Book List</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -15,14 +15,14 @@
   --us:#3b82f6;--cn:#dc4444;--tw:#22c55e;--jp:#ec4899;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
 ::selection{background:var(--accent);color:var(--bg)}
 
 /* HERO */
 .hero{padding:4rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);border-bottom:1px solid rgba(200,164,78,.1)}
-.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;background:linear-gradient(135deg,var(--accent),#f0d878,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;background:linear-gradient(135deg,var(--accent),#f0d878,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
 .hero .subtitle{font-size:1.1rem;color:var(--text2);margin-bottom:1rem}
-.hero .course-info{font-size:.85rem;color:var(--text3);display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+.hero .course-info{font-size:.9rem;color:var(--text3);display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
 .hero .course-info span{display:flex;align-items:center;gap:.4rem}
 
 /* FILTER BAR */
@@ -30,7 +30,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .filter-container{max-width:1400px;margin:0 auto}
 .filter-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:.8rem}
 .filter-row:last-child{margin-bottom:0}
-.filter-label{font-size:.8rem;color:var(--accent);min-width:80px;font-weight:700}
+.filter-label{font-size:.8rem;color:var(--accent);min-width:100px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
 .filter-tags{display:flex;gap:.5rem;flex-wrap:wrap}
 .filter-tag{font-size:.75rem;padding:.35rem .8rem;border-radius:20px;border:1px solid var(--text3);color:var(--text2);cursor:pointer;transition:all .2s;background:transparent}
 .filter-tag:hover{border-color:var(--accent);color:var(--accent)}
@@ -58,8 +58,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .book-card.hidden{display:none}
 
 .book-header{margin-bottom:1rem}
-.book-title{font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.3rem;line-height:1.3}
-.book-title-en{font-size:.85rem;color:var(--accent);opacity:.7;margin-bottom:.5rem;font-style:italic}
+.book-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:.5rem;line-height:1.3}
 .book-author{font-size:.85rem;color:var(--text2)}
 
 .book-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin:1rem 0}
@@ -80,7 +79,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 
 .book-meta{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid rgba(200,164,78,.08);margin-top:auto}
 .book-focus{display:flex;gap:.5rem;flex-wrap:wrap}
-.focus-tag{font-size:.65rem;padding:.2rem .5rem;border-radius:4px;background:var(--bg3);color:var(--text3)}
+.focus-tag{font-size:.65rem;padding:.2rem .5rem;border-radius:4px;background:var(--bg3);color:var(--text3);text-transform:uppercase}
 .book-arrow{color:var(--accent);font-size:1.2rem;transition:transform .2s}
 .book-card:hover .book-arrow{transform:translateX(4px)}
 
@@ -88,7 +87,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .stats-bar{padding:1rem 2rem;background:var(--bg2);border-bottom:1px solid rgba(200,164,78,.05);display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
 .stat{text-align:center}
 .stat-num{font-family:'JetBrains Mono',monospace;font-size:1.5rem;color:var(--accent);font-weight:700}
-.stat-label{font-size:.75rem;color:var(--text3)}
+.stat-label{font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
 
 /* FOOTER */
 .footer{text-align:center;padding:3rem 2rem;color:var(--text3);font-size:.85rem;border-top:1px solid rgba(200,164,78,.05);margin-top:2rem}
@@ -111,443 +110,428 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 <body>
 
 <header class="hero">
-  <h1>非對稱戰爭與軍事戰略</h1>
-  <p class="subtitle">課程推薦書籍導覽</p>
+  <h1>Military Study Group</h1>
+  <p class="subtitle">HSE Moscow — Recommended Book List</p>
   <div class="course-info">
-    <span>📚 共 15 本書籍</span>
-    <span>🌏 多國視角分析</span>
-    <span>⚔️ 涵蓋戰略與戰術層面</span>
+    <span>📚 15 Books</span>
+    <span>🌏 Multi-National Perspectives</span>
+    <span>⚔️ Strategy & Tactics</span>
   </div>
 </header>
 
 <div class="stats-bar">
-  <div class="stat"><div class="stat-num">6</div><div class="stat-label">美國視角</div></div>
-  <div class="stat"><div class="stat-num">4</div><div class="stat-label">中國視角</div></div>
-  <div class="stat"><div class="stat-num">2</div><div class="stat-label">台灣視角</div></div>
-  <div class="stat"><div class="stat-num">3</div><div class="stat-label">日本視角</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-label">U.S. Perspective</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">China Perspective</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">Taiwan Perspective</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Japan Perspective</div></div>
 </div>
 
 <section class="filter-section">
   <div class="filter-container">
     <div class="filter-row">
-      <span class="filter-label">作者背景</span>
+      <span class="filter-label">Background</span>
       <div class="filter-tags" id="author-filters">
-        <span class="filter-tag" data-filter="background" data-value="mit" data-type="us">MIT安全學派</span>
-        <span class="filter-tag" data-filter="background" data-value="pentagon" data-type="us">美國國防部</span>
-        <span class="filter-tag" data-filter="background" data-value="thinktank" data-type="us">美國智庫</span>
-        <span class="filter-tag" data-filter="background" data-value="pla" data-type="cn">中國解放軍</span>
-        <span class="filter-tag" data-filter="background" data-value="tw-reform" data-type="tw">台軍改革派</span>
-        <span class="filter-tag" data-filter="background" data-value="jsdf" data-type="jp">日本自衛隊</span>
-        <span class="filter-tag" data-filter="background" data-value="jp-academic" data-type="jp">日本學者</span>
+        <span class="filter-tag" data-filter="background" data-value="mit" data-type="us">MIT Security Studies</span>
+        <span class="filter-tag" data-filter="background" data-value="pentagon" data-type="us">U.S. Pentagon</span>
+        <span class="filter-tag" data-filter="background" data-value="thinktank" data-type="us">U.S. Think Tank</span>
+        <span class="filter-tag" data-filter="background" data-value="pla" data-type="cn">PLA (China)</span>
+        <span class="filter-tag" data-filter="background" data-value="tw-reform" data-type="tw">Taiwan Military</span>
+        <span class="filter-tag" data-filter="background" data-value="jsdf" data-type="jp">Japan SDF</span>
+        <span class="filter-tag" data-filter="background" data-value="jp-academic" data-type="jp">Japan Academic</span>
       </div>
     </div>
     <div class="filter-row">
-      <span class="filter-label">議題層面</span>
+      <span class="filter-label">Topic</span>
       <div class="filter-tags" id="topic-filters">
-        <span class="filter-tag" data-filter="focus" data-value="us-strategy" data-type="us">美國戰略</span>
-        <span class="filter-tag" data-filter="focus" data-value="cn-strategy" data-type="cn">中國戰略</span>
-        <span class="filter-tag" data-filter="focus" data-value="tw-defense" data-type="tw">台灣防禦</span>
-        <span class="filter-tag" data-filter="focus" data-value="jp-security" data-type="jp">日本安保</span>
-        <span class="filter-tag" data-filter="focus" data-value="cross-strait">台海情勢</span>
-        <span class="filter-tag" data-filter="focus" data-value="asymmetric">非對稱作戰</span>
+        <span class="filter-tag" data-filter="focus" data-value="us-strategy" data-type="us">U.S. Strategy</span>
+        <span class="filter-tag" data-filter="focus" data-value="cn-strategy" data-type="cn">China Strategy</span>
+        <span class="filter-tag" data-filter="focus" data-value="tw-defense" data-type="tw">Taiwan Defense</span>
+        <span class="filter-tag" data-filter="focus" data-value="jp-security" data-type="jp">Japan Security</span>
+        <span class="filter-tag" data-filter="focus" data-value="cross-strait">Cross-Strait</span>
+        <span class="filter-tag" data-filter="focus" data-value="asymmetric">Asymmetric Warfare</span>
       </div>
-      <span class="clear-filters" onclick="clearAllFilters()">✕ 清除篩選</span>
+      <span class="clear-filters" onclick="clearAllFilters()">✕ Clear Filters</span>
     </div>
   </div>
 </section>
 
 <main class="books-section">
   <div class="no-results" id="no-results">
-    <h3>沒有符合條件的書籍</h3>
-    <p>請嘗試調整篩選條件</p>
+    <h3>No matching books found</h3>
+    <p>Try adjusting your filters</p>
   </div>
 
   <div class="books-grid" id="books-grid">
 
-    <!-- 1. 拒止戰略 -->
+    <!-- 1. The Strategy of Denial -->
     <a href="strategy_of_denial.html" class="book-card"
        data-background="pentagon"
        data-focus="us-strategy asymmetric cross-strait"
        data-country="us">
       <div class="book-header">
-        <div class="book-title">拒止戰略</div>
-        <div class="book-title-en">The Strategy of Denial</div>
-        <div class="book-author">乙爾布里奇·科爾比 (Elbridge Colby) — 前美國國防部副助理部長</div>
+        <div class="book-title">The Strategy of Denial</div>
+        <div class="book-author">Elbridge Colby — Former U.S. Deputy Assistant Secretary of Defense</div>
       </div>
       <div class="book-tags">
-        <span class="tag us">美國</span>
-        <span class="tag mit">國防部</span>
-        <span class="tag strategy">戰略層面</span>
+        <span class="tag us">U.S.</span>
+        <span class="tag mit">Pentagon</span>
+        <span class="tag strategy">Strategy</span>
       </div>
-      <div class="book-desc">美國如何在大國競爭時代防禦亞洲盟友？作者主張以「拒止」而非「懲罰」為核心的防禦戰略，聚焦台灣作為第一島鏈關鍵節點。</div>
+      <div class="book-desc">How should the U.S. defend Asian allies in great power competition? Colby argues for a "denial" rather than "punishment" strategy, focusing on Taiwan as a critical node in the First Island Chain.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">對中</span>
-          <span class="focus-tag">台海</span>
-          <span class="focus-tag">聯盟</span>
+          <span class="focus-tag">vs China</span>
+          <span class="focus-tag">Taiwan</span>
+          <span class="focus-tag">Alliance</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 2. 積極防禦 -->
+    <!-- 2. Active Defense -->
     <a href="active_defense.html" class="book-card"
        data-background="mit"
        data-focus="cn-strategy"
        data-country="us">
       <div class="book-header">
-        <div class="book-title">積極防禦：1949年以來的中國軍事戰略</div>
-        <div class="book-title-en">Active Defense: China's Military Strategy Since 1949</div>
-        <div class="book-author">傅泰林 (M. Taylor Fravel) — MIT 安全研究教授</div>
+        <div class="book-title">Active Defense: China's Military Strategy Since 1949</div>
+        <div class="book-author">M. Taylor Fravel — MIT Security Studies Professor</div>
       </div>
       <div class="book-tags">
-        <span class="tag us">美國</span>
-        <span class="tag mit">MIT學派</span>
-        <span class="tag strategy">戰略層面</span>
+        <span class="tag us">U.S.</span>
+        <span class="tag mit">MIT</span>
+        <span class="tag strategy">Strategy</span>
       </div>
-      <div class="book-desc">系統性分析中共建政以來的軍事戰略演變，解釋解放軍何時、為何改變其軍事準則。學術界研究中國軍事戰略的權威著作。</div>
+      <div class="book-desc">Systematic analysis of PRC military strategy evolution since 1949. Explains when and why the PLA changed its military doctrine. The authoritative academic work on Chinese military strategy.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">中國</span>
-          <span class="focus-tag">解放軍</span>
-          <span class="focus-tag">歷史</span>
+          <span class="focus-tag">China</span>
+          <span class="focus-tag">PLA</span>
+          <span class="focus-tag">History</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 3. 長期博弈 -->
+    <!-- 3. The Long Game -->
     <a href="the_long_game.html" class="book-card"
        data-background="mit thinktank"
        data-focus="cn-strategy us-strategy"
        data-country="us">
       <div class="book-header">
-        <div class="book-title">長期博弈：中國取代美國秩序的大戰略</div>
-        <div class="book-title-en">The Long Game</div>
-        <div class="book-author">杜如松 (Rush Doshi) — 前白宮國安會中國事務主任</div>
+        <div class="book-title">The Long Game: China's Grand Strategy to Displace American Order</div>
+        <div class="book-author">Rush Doshi — Former NSC China Director (Biden Admin)</div>
       </div>
       <div class="book-tags">
-        <span class="tag us">美國</span>
-        <span class="tag mit">布魯金斯</span>
-        <span class="tag strategy">戰略層面</span>
+        <span class="tag us">U.S.</span>
+        <span class="tag mit">Brookings</span>
+        <span class="tag strategy">Strategy</span>
       </div>
-      <div class="book-desc">追溯中國自天安門事件以來的「大戰略」，分為削弱、建設、擴張三階段，系統性取代美國主導的國際秩序。拜登政府對中政策的理論基礎。</div>
+      <div class="book-desc">Traces China's "grand strategy" since Tiananmen: blunting, building, and expanding in three phases to systematically replace U.S.-led international order. Theoretical basis for Biden's China policy.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">對美</span>
-          <span class="focus-tag">大戰略</span>
-          <span class="focus-tag">秩序</span>
+          <span class="focus-tag">vs U.S.</span>
+          <span class="focus-tag">Grand Strategy</span>
+          <span class="focus-tag">Order</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 4. 百年馬拉松 -->
+    <!-- 4. The Hundred-Year Marathon -->
     <a href="hundred_year_marathon_interactive.html" class="book-card"
        data-background="thinktank"
        data-focus="cn-strategy us-strategy"
        data-country="us">
       <div class="book-header">
-        <div class="book-title">百年馬拉松：中國稱霸全球的秘密戰略</div>
-        <div class="book-title-en">The Hundred-Year Marathon</div>
-        <div class="book-author">白邦瑞 (Michael Pillsbury) — 哈德遜研究所中國戰略中心主任</div>
+        <div class="book-title">The Hundred-Year Marathon: China's Secret Strategy to Replace America</div>
+        <div class="book-author">Michael Pillsbury — Hudson Institute China Strategy Center</div>
       </div>
       <div class="book-tags">
-        <span class="tag us">美國</span>
-        <span class="tag hawk">鷹派</span>
-        <span class="tag strategy">戰略層面</span>
+        <span class="tag us">U.S.</span>
+        <span class="tag hawk">Hawk</span>
+        <span class="tag strategy">Strategy</span>
       </div>
-      <div class="book-desc">揭露中國自1949年起的百年計劃：到2049年取代美國成為全球霸權。作者以其40年對中情報工作經驗，警告美國的戰略誤判。</div>
+      <div class="book-desc">Reveals China's alleged 100-year plan since 1949: replace the U.S. as global hegemon by 2049. Pillsbury draws on 40 years of China intelligence work to warn of American strategic miscalculation.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">對美</span>
-          <span class="focus-tag">情報</span>
-          <span class="focus-tag">霸權</span>
+          <span class="focus-tag">vs U.S.</span>
+          <span class="focus-tag">Intel</span>
+          <span class="focus-tag">Hegemony</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 5. 中共攻台大解密 -->
+    <!-- 5. The Chinese Invasion Threat -->
     <a href="chinese_invasion_threat_interactive.html" class="book-card"
        data-background="thinktank"
        data-focus="tw-defense cross-strait asymmetric"
        data-country="us">
       <div class="book-header">
-        <div class="book-title">中共攻台大解密</div>
-        <div class="book-title-en">The Chinese Invasion Threat</div>
-        <div class="book-author">易思安 (Ian Easton) — 2049計畫研究所研究員</div>
+        <div class="book-title">The Chinese Invasion Threat: Taiwan's Defense and American Strategy</div>
+        <div class="book-author">Ian Easton — Project 2049 Institute</div>
       </div>
       <div class="book-tags">
-        <span class="tag us">美國</span>
-        <span class="tag thinktank">智庫</span>
-        <span class="tag tactics">戰術層面</span>
+        <span class="tag us">U.S.</span>
+        <span class="tag thinktank">Think Tank</span>
+        <span class="tag tactics">Tactics</span>
       </div>
-      <div class="book-desc">基於解放軍內部文件，詳細分析中共攻台的具體作戰計畫、登陸地點、時間表，以及台灣的防禦優勢與脆弱點。</div>
+      <div class="book-desc">Based on internal PLA documents, details China's operational plans to invade Taiwan: landing sites, timelines, and Taiwan's defensive advantages and vulnerabilities.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">對台</span>
-          <span class="focus-tag">入侵</span>
-          <span class="focus-tag">解放軍</span>
+          <span class="focus-tag">vs Taiwan</span>
+          <span class="focus-tag">Invasion</span>
+          <span class="focus-tag">PLA</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 6. 積極拒止（日本） -->
+    <!-- 6. Active Denial (Japan) -->
     <a href="active_denial.html" class="book-card"
        data-background="thinktank"
        data-focus="jp-security asymmetric"
        data-country="us">
       <div class="book-header">
-        <div class="book-title">積極拒止：重塑日本對中國軍事挑戰的回應</div>
-        <div class="book-title-en">Active Denial: Redesigning Japan's Response</div>
-        <div class="book-author">CSIS 戰略與國際研究中心</div>
+        <div class="book-title">Active Denial: Redesigning Japan's Response to China's Military Challenge</div>
+        <div class="book-author">CSIS — Center for Strategic and International Studies</div>
       </div>
       <div class="book-tags">
-        <span class="tag us">美國</span>
-        <span class="tag jp">日本</span>
-        <span class="tag strategy">戰略層面</span>
+        <span class="tag us">U.S.</span>
+        <span class="tag jp">Japan</span>
+        <span class="tag strategy">Strategy</span>
       </div>
-      <div class="book-desc">分析日本如何重新設計其防衛態勢以應對中國軍事挑戰，提出「積極拒止」概念作為日本新安保戰略的核心框架。</div>
+      <div class="book-desc">Analyzes how Japan should redesign its defense posture against China's military challenge. Proposes "active denial" as the core framework for Japan's new security strategy.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">日本</span>
-          <span class="focus-tag">對中</span>
-          <span class="focus-tag">拒止</span>
+          <span class="focus-tag">Japan</span>
+          <span class="focus-tag">vs China</span>
+          <span class="focus-tag">Denial</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 7. 戰略學 -->
+    <!-- 7. Science of Military Strategy -->
     <a href="Science_of_Military_Strategy_Interactive.html" class="book-card"
        data-background="pla"
        data-focus="cn-strategy"
        data-country="cn">
       <div class="book-header">
-        <div class="book-title">戰略學（2020年版）</div>
-        <div class="book-title-en">Science of Military Strategy</div>
-        <div class="book-author">中國國防大學 — 解放軍官方教材</div>
+        <div class="book-title">Science of Military Strategy (2020 Edition)</div>
+        <div class="book-author">China National Defense University — Official PLA Textbook</div>
       </div>
       <div class="book-tags">
-        <span class="tag cn">中國</span>
-        <span class="tag pla">解放軍</span>
-        <span class="tag strategy">戰略層面</span>
+        <span class="tag cn">China</span>
+        <span class="tag pla">PLA</span>
+        <span class="tag strategy">Strategy</span>
       </div>
-      <div class="book-desc">解放軍國防大學的官方戰略教材，系統闘述中國軍事戰略思想、戰爭準備、聯合作戰等核心概念。理解解放軍思維的第一手資料。</div>
+      <div class="book-desc">Official strategic textbook of PLA's National Defense University. Systematically covers Chinese military strategic thought, war preparation, and joint operations. Primary source for understanding PLA thinking.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">中國</span>
-          <span class="focus-tag">官方</span>
-          <span class="focus-tag">準則</span>
+          <span class="focus-tag">China</span>
+          <span class="focus-tag">Official</span>
+          <span class="focus-tag">Doctrine</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 8. 中國夢 -->
+    <!-- 8. The China Dream -->
     <a href="china_dream.html" class="book-card"
        data-background="pla"
        data-focus="cn-strategy"
        data-country="cn">
       <div class="book-header">
-        <div class="book-title">中國夢：後美國時代的大國思維與戰略定位</div>
-        <div class="book-title-en">The China Dream</div>
-        <div class="book-author">劉明福 — 解放軍國防大學教授、大校</div>
+        <div class="book-title">The China Dream: Great Power Thinking in the Post-American Era</div>
+        <div class="book-author">Liu Mingfu — PLA National Defense University Professor, Senior Colonel</div>
       </div>
       <div class="book-tags">
-        <span class="tag cn">中國</span>
-        <span class="tag pla">解放軍</span>
-        <span class="tag hawk">鷹派</span>
+        <span class="tag cn">China</span>
+        <span class="tag pla">PLA</span>
+        <span class="tag hawk">Hawk</span>
       </div>
-      <div class="book-desc">習近平「中國夢」概念的理論來源之一。劉明福主張中國應追求「世界第一」，建設能與美國抗衡的軍事強國。代表解放軍鷹派思維。</div>
+      <div class="book-desc">A theoretical source for Xi Jinping's "China Dream" concept. Liu argues China should pursue "world number one" status and build military power to rival the U.S. Represents PLA hawkish thinking.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">對美</span>
-          <span class="focus-tag">霸權</span>
-          <span class="focus-tag">民族主義</span>
+          <span class="focus-tag">vs U.S.</span>
+          <span class="focus-tag">Hegemony</span>
+          <span class="focus-tag">Nationalism</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 9. 帝國之弧 -->
+    <!-- 9. Arc of Empire -->
     <a href="arc_of_empire.html" class="book-card"
        data-background="pla"
        data-focus="cn-strategy us-strategy"
        data-country="cn">
       <div class="book-header">
-        <div class="book-title">帝國之弧：拋物線兩端的美國與中國</div>
-        <div class="book-title-en">Arc of Empire</div>
-        <div class="book-author">喬良 — 解放軍少將、《超限戰》作者</div>
+        <div class="book-title">Arc of Empire: America and China at the Parabola's Ends</div>
+        <div class="book-author">Qiao Liang — PLA Major General, Author of "Unrestricted Warfare"</div>
       </div>
       <div class="book-tags">
-        <span class="tag cn">中國</span>
-        <span class="tag pla">解放軍</span>
-        <span class="tag strategy">戰略層面</span>
+        <span class="tag cn">China</span>
+        <span class="tag pla">PLA</span>
+        <span class="tag strategy">Strategy</span>
       </div>
-      <div class="book-desc">《超限戰》作者的新作，分析美國霸權的興衰軌跡，論述中國如何在美國衰落的「帝國之弧」下崛起。解放軍高級將領的戰略視野。</div>
+      <div class="book-desc">From the author of "Unrestricted Warfare." Analyzes the rise and fall of American hegemony and how China can rise during America's decline along the "arc of empire."</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">對美</span>
-          <span class="focus-tag">霸權</span>
-          <span class="focus-tag">超限戰</span>
+          <span class="focus-tag">vs U.S.</span>
+          <span class="focus-tag">Hegemony</span>
+          <span class="focus-tag">Unrestricted</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 10. 大國戰略 -->
+    <!-- 10. Great Power Strategy -->
     <a href="great_power_strategy.html" class="book-card"
        data-background="pla"
        data-focus="cn-strategy"
        data-country="cn">
       <div class="book-header">
-        <div class="book-title">大國戰略</div>
-        <div class="book-title-en">Great Power Strategy</div>
-        <div class="book-author">金一南 等 — 解放軍國防大學教授群</div>
+        <div class="book-title">Great Power Strategy</div>
+        <div class="book-author">Jin Yinan et al. — PLA National Defense University Professors</div>
       </div>
       <div class="book-tags">
-        <span class="tag cn">中國</span>
-        <span class="tag pla">解放軍</span>
-        <span class="tag strategy">戰略層面</span>
+        <span class="tag cn">China</span>
+        <span class="tag pla">PLA</span>
+        <span class="tag strategy">Strategy</span>
       </div>
-      <div class="book-desc">解放軍國防大學教授群論述中國作為大國的戰略思維、國家安全、軍事現代化等議題。代表中國軍方學術界的主流觀點。</div>
+      <div class="book-desc">PLA NDU professors discuss China's strategic thinking as a great power, national security, and military modernization. Represents mainstream views in Chinese military academia.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">中國</span>
-          <span class="focus-tag">大國</span>
-          <span class="focus-tag">現代化</span>
+          <span class="focus-tag">China</span>
+          <span class="focus-tag">Great Power</span>
+          <span class="focus-tag">Modernization</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 11. 臺灣的勝算 -->
+    <!-- 11. Taiwan's Victory Strategy -->
     <a href="taiwan_strategy.html" class="book-card"
        data-background="tw-reform"
        data-focus="tw-defense asymmetric cross-strait"
        data-country="tw">
       <div class="book-header">
-        <div class="book-title">臺灣的勝算</div>
-        <div class="book-title-en">Taiwan's Victory Strategy</div>
-        <div class="book-author">李喜明 — 前參謀總長、海軍上將</div>
+        <div class="book-title">Taiwan's Victory Strategy (臺灣的勝算)</div>
+        <div class="book-author">Admiral Lee Hsi-min — Former Chief of General Staff, ROC Navy</div>
       </div>
       <div class="book-tags">
-        <span class="tag tw">台灣</span>
-        <span class="tag reform">軍改革派</span>
-        <span class="tag tactics">戰術層面</span>
+        <span class="tag tw">Taiwan</span>
+        <span class="tag reform">Reform</span>
+        <span class="tag tactics">Tactics</span>
       </div>
-      <div class="book-desc">前參謀總長提出的「整體防衛構想」(ODC)，主張以不對稱作戰取代傳統軍備競賽。台灣防衛改革最重要的理論著作。</div>
+      <div class="book-desc">Former Chief of General Staff proposes the "Overall Defense Concept" (ODC), advocating asymmetric warfare over traditional arms race. The most important theoretical work on Taiwan defense reform.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">對中</span>
+          <span class="focus-tag">vs China</span>
           <span class="focus-tag">ODC</span>
-          <span class="focus-tag">不對稱</span>
+          <span class="focus-tag">Asymmetric</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 12. 阿共打來怎麼辦 -->
+    <!-- 12. What To Do If China Attacks -->
     <a href="china_attacks.html" class="book-card"
        data-background="tw-reform"
        data-focus="tw-defense cross-strait"
        data-country="tw">
       <div class="book-header">
-        <div class="book-title">阿共打來怎麼辦</div>
-        <div class="book-title-en">What To Do If China Attacks</div>
-        <div class="book-author">王立、沈伯洋 — 台灣學者</div>
+        <div class="book-title">What To Do If China Attacks (阿共打來怎麼辦)</div>
+        <div class="book-author">Wang Li & Shen Po-yang — Taiwanese Scholars</div>
       </div>
       <div class="book-tags">
-        <span class="tag tw">台灣</span>
-        <span class="tag tactics">戰術層面</span>
+        <span class="tag tw">Taiwan</span>
+        <span class="tag tactics">Tactics</span>
       </div>
-      <div class="book-desc">以平易近人的方式分析中共可能的攻台情境、台灣的防禦能力、以及一般民眾應有的認知與準備。台灣國防教育的普及讀物。</div>
+      <div class="book-desc">Accessible analysis of possible PRC attack scenarios, Taiwan's defense capabilities, and what civilians should know. A popular defense education book for Taiwanese readers.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">對中</span>
-          <span class="focus-tag">民防</span>
-          <span class="focus-tag">科普</span>
+          <span class="focus-tag">vs China</span>
+          <span class="focus-tag">Civil Defense</span>
+          <span class="focus-tag">Popular</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 13. 完全模擬台灣侵攻戰爭 -->
+    <!-- 13. Complete Simulation Taiwan Invasion -->
     <a href="taiwan_invasion_simulation.html" class="book-card"
        data-background="jsdf"
        data-focus="tw-defense cross-strait jp-security"
        data-country="jp">
       <div class="book-header">
-        <div class="book-title">完全模擬：台灣侵攻戰爭</div>
-        <div class="book-title-en">Complete Simulation: Taiwan Invasion War</div>
-        <div class="book-author">山下裕貴 — 前陸上自衛隊中將</div>
+        <div class="book-title">Complete Simulation: Taiwan Invasion War</div>
+        <div class="book-author">Lt. Gen. Yamashita Hirotaka — Former JGSDF Lieutenant General</div>
       </div>
       <div class="book-tags">
-        <span class="tag jp">日本</span>
-        <span class="tag jsdf">自衛隊</span>
-        <span class="tag tactics">戰術層面</span>
+        <span class="tag jp">Japan</span>
+        <span class="tag jsdf">SDF</span>
+        <span class="tag tactics">Tactics</span>
       </div>
-      <div class="book-desc">前自衛隊高級將領以軍事專業模擬中共攻台的完整情境，包括作戰階段、兵力部署、日本可能的角色等。專業軍事視角的台海戰爭推演。</div>
+      <div class="book-desc">Former JGSDF senior officer simulates a complete PRC Taiwan invasion scenario: operational phases, force deployment, and Japan's potential role. Professional military wargaming perspective.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">對台</span>
-          <span class="focus-tag">模擬</span>
-          <span class="focus-tag">日本</span>
+          <span class="focus-tag">vs Taiwan</span>
+          <span class="focus-tag">Simulation</span>
+          <span class="focus-tag">Japan</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 14. 戰後日本的安全保障 -->
+    <!-- 14. Postwar Japan's Security -->
     <a href="japan_security.html" class="book-card"
        data-background="jp-academic"
        data-focus="jp-security"
        data-country="jp">
       <div class="book-header">
-        <div class="book-title">戰後日本的安全保障</div>
-        <div class="book-title-en">Postwar Japan's Security</div>
-        <div class="book-author">千々和泰明 — 日本學者</div>
+        <div class="book-title">Postwar Japan's Security (戰後日本的安全保障)</div>
+        <div class="book-author">Chijiwa Yasuaki — Japanese Scholar</div>
       </div>
       <div class="book-tags">
-        <span class="tag jp">日本</span>
-        <span class="tag jp-academic">學者</span>
-        <span class="tag strategy">戰略層面</span>
+        <span class="tag jp">Japan</span>
+        <span class="tag jp-academic">Academic</span>
+        <span class="tag strategy">Strategy</span>
       </div>
-      <div class="book-desc">系統性分析戰後日本安全保障政策的演變，從日美同盟、憲法第九條到國家安全保障會議(NSC)的建立。理解日本安保體制的基礎讀物。</div>
+      <div class="book-desc">Systematic analysis of postwar Japanese security policy evolution: from the U.S.-Japan alliance and Article 9 to the establishment of the National Security Council (NSC).</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">日本</span>
-          <span class="focus-tag">美日同盟</span>
-          <span class="focus-tag">歷史</span>
+          <span class="focus-tag">Japan</span>
+          <span class="focus-tag">U.S.-Japan</span>
+          <span class="focus-tag">History</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
     </a>
 
-    <!-- 15. 日本の安全保障政策 -->
+    <!-- 15. Japan's Security Policy -->
     <a href="japan_security_policy.html" class="book-card"
        data-background="jp-academic"
        data-focus="jp-security"
        data-country="jp">
       <div class="book-header">
-        <div class="book-title">日本的安全保障政策</div>
-        <div class="book-title-en">Japan's Security Policy</div>
-        <div class="book-author">神保謙 — 慶應義塾大學教授</div>
+        <div class="book-title">Japan's Security Policy (日本の安全保障政策)</div>
+        <div class="book-author">Jimbo Ken — Keio University Professor</div>
       </div>
       <div class="book-tags">
-        <span class="tag jp">日本</span>
-        <span class="tag jp-academic">學者</span>
-        <span class="tag strategy">戰略層面</span>
+        <span class="tag jp">Japan</span>
+        <span class="tag jp-academic">Academic</span>
+        <span class="tag strategy">Strategy</span>
       </div>
-      <div class="book-desc">分析日本安全保障政策的理論與實務，探討日本在印太地區的角色、與美國的同盟關係、以及對中國崛起的回應。</div>
+      <div class="book-desc">Analyzes Japanese security policy theory and practice: Japan's role in the Indo-Pacific, alliance with the U.S., and response to China's rise.</div>
       <div class="book-meta">
         <div class="book-focus">
-          <span class="focus-tag">日本</span>
-          <span class="focus-tag">印太</span>
-          <span class="focus-tag">政策</span>
+          <span class="focus-tag">Japan</span>
+          <span class="focus-tag">Indo-Pacific</span>
+          <span class="focus-tag">Policy</span>
         </div>
         <span class="book-arrow">→</span>
       </div>
@@ -557,12 +541,12 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 </main>
 
 <footer class="footer">
-  <p><strong>軍事理論課程</strong> — 非對稱戰爭與戰略研究</p>
-  <p style="margin-top:.5rem;opacity:.7">點擊任一書籍卡片，進入詳細介紹頁面</p>
+  <p><strong>HSE Moscow</strong> — Military Study Group Project</p>
+  <p style="margin-top:.5rem;opacity:.7">Click any book card to view detailed analysis</p>
 </footer>
 
 <script>
-// 篩選功能
+// Filter functionality
 const filterTags = document.querySelectorAll('.filter-tag');
 const bookCards = document.querySelectorAll('.book-card');
 const noResults = document.getElementById('no-results');
